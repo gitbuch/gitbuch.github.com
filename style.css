@@ -42,6 +42,7 @@ table#errata {
 
 table#errata td {
     border-bottom:          1px dotted #d0d0d0;
+    vertical-align:         top;
 }
 
 table#errata th {
