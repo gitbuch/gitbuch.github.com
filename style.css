@@ -1,0 +1,59 @@
+body {
+    font-size:              15px;
+    color:                  #333;
+    font-family:            Verdana, sans-serif;
+}
+
+ul {
+    list-style-position:    outside;
+    list-style-type:        square;
+}
+
+li {
+    margin:                 .3em 0;
+}
+
+a {
+    color:                  #8f1117;
+    text-decoration:        none;
+}
+
+a.ext {
+    padding-right:          18px;
+    background:             transparent url(icon-external.png) no-repeat center right;
+}
+
+a.email {
+    padding-left:           18px;
+    background:             transparent url(icon-email.png) no-repeat center left;
+}
+
+a:link, a:visited, a:active {
+    text-decoration:        none;
+}
+
+a:hover {
+    text-decoration:        underline;
+}
+
+table#errata {
+    width:                  100%;
+}
+
+table#errata td {
+    border-bottom:          1px dotted #d0d0d0;
+    vertical-align:         top;
+}
+
+table#errata th {
+    text-align:             left;
+    border-bottom:          1px dotted #909090;
+}
+
+td.page {
+    width:                  10%;
+}
+
+td.location {
+    width:                  20%;
+}
