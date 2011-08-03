@@ -36,16 +36,16 @@ a:hover {
     text-decoration:        underline;
 }
 
-table#errata {
+table.errata {
     width:                  100%;
 }
 
-table#errata td {
+table.errata td {
     border-bottom:          1px dotted #d0d0d0;
     vertical-align:         top;
 }
 
-table#errata th {
+table.errata th {
     text-align:             left;
     border-bottom:          1px dotted #909090;
 }

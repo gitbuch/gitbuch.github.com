@@ -19,7 +19,48 @@
 Haben Sie auch einen Fehler gefunden? Dann schreiben Sie uns unter
 <a class="email" href="mailto:kontakt@gitbu.ch">kontakt@gitbu.ch</a>!
 
-<table border="0" id="errata" style="margin-top: 1em;">
+<h2>Faktische Fehler</h2>
+
+<table border="0" class="errata" style="margin-top: 1em;">
+<tr>
+    <th class="page">
+        <strong>Seite</strong>
+    </th>
+    <th class="location">
+        <strong>Wo</strong>
+    </th>
+    <th class="what">
+        <strong>Fehler/Verbesserung</strong>
+    </th>
+</tr>
+<tr>
+    <td class="page">
+        S. 65
+    </td>
+    <td class="location">
+        Abb. 3.3
+    </td>
+    <td class="what">
+        Die Alternativbezeichnung für <code>HEAD^2^</code> ist
+        <code>HEAD^2~1</code>, nicht <code>HEAD^~1</code>
+    </td>
+</tr>
+<tr>
+    <td class="page">
+        S. 66
+    </td>
+    <td class="location">
+        Beschr. 1. Punkt
+    </td>
+    <td class="what">
+        Die Ausgabe stammt vom Kommando <code>git branch <strong>-v</strong></code>
+    </td>
+</tr>
+</table>
+
+<h2>Satz- und Konsistenzfehler</h2>
+
+<table border="0" class="errata" style="margin-top: 1em;">
 <!-- Template für Gutten-&-Berg:
 <tr>
     <td class="page">
@@ -73,29 +114,6 @@ Haben Sie auch einen Fehler gefunden? Dann schreiben Sie uns unter
     <td class="what">
         Konsistenterweise sollte die SHA-1-Summe im Kommando sieben Zeichen
         lang sein: <code>a26b00</code> &rarr; <code>a26b00a</code>
-    </td>
-</tr>
-<tr>
-    <td class="page">
-        S. 65
-    </td>
-    <td class="location">
-        Abb. 3.3
-    </td>
-    <td class="what">
-        Die Alternativbezeichnung für <code>HEAD^2^</code> ist
-        <code>HEAD^2~1</code>, nicht <code>HEAD^~1</code>
-    </td>
-</tr>
-<tr>
-    <td class="page">
-        S. 66
-    </td>
-    <td class="location">
-        Beschr. 1. Punkt
-    </td>
-    <td class="what">
-        Die Ausgabe stammt vom Kommando <code>git branch <strong>-v</strong></code>
     </td>
 </tr>
 <tr>
