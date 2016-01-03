@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Vorwort</title>
+    <link rel="stylesheet" type="text/css" href="gitbuch.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="home" href="index.html" title="Git" />
+    <link rel="up" href="index.html" title="Git" />
+    <link rel="prev" href="index.html" title="Git" />
+    <link rel="next" href="ch01.html" title="Kapitel 1. Einführung und erste Schritte" />
+    <meta xmlns="" name="language" content="de" />
+    <script xmlns="" src="http://hyphenator.googlecode.com/svn/trunk/Hyphenator.js" type="text/javascript"></script>
+    <script xmlns="" type="text/javascript">
+        Hyphenator.run();
+    </script>
+  </head>
+  <body class="hyphenate">
+    <div xmlns="" class="toc">
+<p><a href="index.html">Startseite</a></p>
+<dl class="toc">
+          <dt>
+            <span class="preface">
+              <a href="pr01.html">Vorwort</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.leser">1. An wen richtet sich dieses Buch?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.struktur">2. Wie ist das Buch zu lesen?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.konventionen">3. Konventionen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.install-git-repo">4. Installation und „das Git-Repository“</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.doku">5. Dokumentation und Hilfe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.kontakt">6. Downloads und Kontakt</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.dank">7. Danksagungen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-2te-auflage">8. Vorwort zur 2. Auflage</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-cc-ausgabe">9. Vorwort zur CreativeCommons-Ausgabe</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch01.html">1. Einführung und erste Schritte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.begriffe">1.1. Grundbegriffe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.erste-schritte">1.2. Erste Schritte mit Git</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#chap.git-config">1.3. Git konfigurieren</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch02.html">2. Grundlagen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.grundlagen">2.1. Git-Kommandos</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.objektmodell">2.2. Das Objektmodell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch03.html">3. Praktische Versionsverwaltung</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.branches">3.1. Referenzen: Branches und Tags</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.undo">3.2. Versionen wiederherstellen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge">3.3. Branches zusammenführen: Merges</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge-conflicts">3.4. Merge-Konflikte lösen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.cherry-pick">3.5. Einzelne Commits übernehmen: Cherry-Pick</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.visualization">3.6. Visualisierung von Repositories</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.reflog">3.7. Reflog</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch04.html">4. Fortgeschrittene Konzepte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase">4.1. Commits verschieben – Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase-i">4.2. Die Geschichte umschreiben – Interaktives Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.blame">4.3. Wer hat diese Änderungen gemacht? – git blame</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.ignore">4.4. Dateien ignorieren</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.stash">4.5. Veränderungen auslagern – git stash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.notes">4.6. Commits annotieren – git notes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.multi-root">4.7. Mehrere Root-Commits</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.bisect">4.8. Regressionen finden – git bisect</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch05.html">5. Verteiltes Git</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.verteilte_systeme">5.1. Wie funktioniert verteilte Versionsverwaltung?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.clone">5.2. Repositories klonen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.git_fetch">5.3. Commits herunterladen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.hochladen">5.4. Commits hochladen: git push</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-check">5.5. Remotes untersuchen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.multi-remote">5.6. Verteilter Workflow mit mehreren Remotes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-verwalten">5.7. Remotes verwalten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remote-tags">5.8. Tags austauschen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.patch-queue">5.9. Patches per E-Mail</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.dictator">5.10. Ein verteilter, hierarchischer Workflow</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.subprojects">5.11. Unterprojekte verwalten</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch06.html">6. Workflows</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.workflows-user">6.1. Anwender</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.branch-modell">6.2. Ein Branching-Modell</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.releases-management">6.3. Releases-Management</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch07.html">7. Git auf dem Server</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.server">7.1. Einen Git-Server hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitolite">7.2. Gitolite: Git einfach hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.git-daemon">7.3. Git-Daemon: Anonymer, lesender Zugriff</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitweb">7.4. Gitweb: Das integrierte Web-Frontend</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.cgit">7.5. CGit – CGI for Git</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch08.html">8. Git automatisieren</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.attributes">8.1. Git-Attribute – Dateien gesondert behandeln</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.hooks">8.2. Hooks</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.scripting">8.3. Eigene Git-Kommandos schreiben</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.filter-branch">8.4. Versionsgeschichte umschreiben</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch09.html">9. Zusammenspiel mit anderen Versionsverwaltungssystemen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.subversion">9.1. Subversion</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.fast-import">9.2. Eigene Importer</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch10.html">10. Shell-Integration</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.bash-integration">10.1. Git und die Bash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.zsh-integration">10.2. Git und die Z-Shell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch11.html">11. Github</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="appendix">
+              <a href="apa.html">A. Installation</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#linux">A.1. Linux</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.osx">A.2. Mac OS X</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.windows">A.3. Windows</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="appendix">
+              <a href="apb.html">B. Struktur eines Repositorys</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc">B.1. Aufräumen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc-performance">B.2. Performance</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl></div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="index.html">Zurück</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="ch01.html">Weiter</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="preface">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="chap.vorwort"></a>Vorwort</h1>
+          </div>
+        </div>
+      </div>
+      <p>Git wurde Anfang 2005 von Linus Torvalds, dem Initiator
+und heutigen Maintainer des Linux-Kernels, entwickelt. Für die
+Verwaltung der Kernel-Quellen hatte sich das Entwickler-Team zunächst
+für das kommerzielle Versionsverwaltungssystem <span class="emphasis"><em>BitKeeper</em></span>
+entschieden.  Probleme traten auf, als die Firma hinter BitKeeper, die
+das Tool dem Projekt kostenfrei zur Verfügung stellte, einen
+Entwickler beschuldigte, die Mechanismen der Software durch
+<span class="emphasis"><em>Reverse Engineering</em></span> offenzulegen.  Daraufhin beschloss
+Torvalds, ein neues Versionskontrollsystem zu schreiben.</p>
+      <p>Der bloße Umstieg auf ein anderes System bot sich nicht an: Die
+Alternativen hatten eine zentralistische Architektur und skalierten
+nicht gut genug.  Die Anforderungen des Kernel-Projekts an ein
+Versionskontrollsystem sind allerdings auch gewaltig: Zwischen einem
+kleinen Versionssprung (z.B. 2.6.35 nach 2.6.36) liegen über
+500000 geänderte Zeilen in knapp 1000 Dateien.  Verantwortlich
+dafür sind über 1000 Einzelpersonen.</p>
+      <p>Welche also waren die <span class="emphasis"><em>Design Goals</em></span> des neuen Programms?  Zwei
+Eigenschaften kristallisierten sich rasch als Design-Ziele heraus:
+Schnelligkeit bzw. Performance und überprüfbare Integrität der
+verwalteten Daten.</p>
+      <p>Nach nur wenigen Wochen Arbeit war eine erste Version von Git in der
+Lage, den eigenen Quellcode zu verwalten. Als kleine
+Shell-Script-Sammlung mit performance-kritischen Teilen in C
+implementiert war die Version von einem „ausgewachsenen“
+Versionskontrollsystem jedoch noch weit entfernt.</p>
+      <p>Seit Version 1.5 (Februar 2007) bietet Git ein neues und
+aufgeräumteres Nutzer-Interface sowie umfangreiche Dokumentation, was
+auch Leuten die Benutzung erlaubt, die nicht unmittelbar in die
+Entwicklung von Git involviert sind.</p>
+      <p>Die Grundkonzepte sind bis in aktuelle Versionen dieselben geblieben:
+Allen voran das Objektmodell und der Index, wesentliche Merkmale, die
+Git von anderen VCS unterscheidet. Die Unix-Philosophie „Ein
+Tool, ein Job“ findet sich auch hier konsequent umgesetzt; die
+Subkommandos von Git sind jeweils eigenständige, ausführbare
+Programme oder Scripte.  Auch in der 2.0er-Version sind noch (wie zu
+Beginn der Entwicklung) einige Subkommandos mit Shell-Scripten
+implementiert (z.B. <code class="literal">git pull</code>).</p>
+      <p>Linus Torvalds selbst programmiert heute kaum noch an Git; wenige
+Monate nach dem ersten Release hat Junio C. Hamano die
+Aufgabe des Maintainers übernommen.</p>
+      <p>Nicht nur der revolutionäre Ansatz von Git, auch die Tatsache, dass
+die gesamte Kernel-Entwicklung schnell und erfolgreich nach Git
+migriert wurde, hat Git einen steilen Aufstieg beschert. Viele, teils
+sehr große Projekte setzen heute Git ein und profitieren von der
+damit gewonnenen Flexibilität.</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.leser"></a>1. An wen richtet sich dieses Buch?</h2>
+            </div>
+          </div>
+        </div>
+        <p>Das Buch wendet sich gleichermaßen an professionelle
+Softwareentwickler wie Anwender, die kleine Scripte, Webseiten oder
+andere Dokumente bearbeiten oder aktiv in die Arbeit bei einem
+(Open-Source-)Projekt einsteigen wollen.  Es vermittelt grundlegende
+Techniken der Versionsverwaltung, führt in die Grundlagen von Git ein
+und erläutert alle wesentlichen Anwendungsfälle.</p>
+        <p>Arbeit, die Sie nicht mit einem Versionskontrollsystem verwalten, ist
+Arbeit, die Sie möglicherweise noch einmal machen müssen – sei es,
+weil Sie versehentlich eine Datei löschen oder Teile als obsolet
+betrachten, die Sie später doch wieder benötigen. Für jede Form
+produktiver Text- und Entwicklungsarbeit benötigen Sie ein Werkzeug,
+das Veränderungen an Dateien aufzeichnen und verwalten kann. Git ist
+flexibel, schnell und für kleine Projekte von Einzelpersonen genauso
+gut geeignet wie für umfangreiche Projekte mit Hunderten von
+Entwicklern wie z.B. den Linux-Kernel.</p>
+        <p>Entwickler, die bereits mit einem anderen Versionskontrollsystem
+arbeiten, können von einer Umstellung auf Git profitieren. Git
+ermöglicht eine wesentlich flexiblere Arbeitsweise und ist in vielen
+Belangen nicht so restriktiv wie vergleichbare Systeme. Es unterstützt
+echtes Merging und garantiert die Integrität der verwalteten Daten.</p>
+        <p>Auch Open-Source-Projekten bietet Git Vorteile, weil jeder Entwickler
+über sein eigenes Repository verfügt, was Streit um Commit-Rechte
+vorbeugt. Außerdem erleichtert Git Neulingen den Einstieg deutlich.</p>
+        <p>Auch wenn sich die vorgestellten Beispiele und Techniken größtenteils
+auf Quellcode beziehen, besteht kein grundlegender Unterschied zur
+Verwaltung von Dokumenten, die in LaTeX, HTML, AsciiDoc oder
+verwandten Formaten geschrieben sind.</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.struktur"></a>2. Wie ist das Buch zu lesen?</h2>
+            </div>
+          </div>
+        </div>
+        <p><a class="xref" href="ch01.html" title="Kapitel 1. Einführung und erste Schritte">Kapitel 1, <em>Einführung und erste Schritte</em></a> gibt einen kurzen Überblick: Wie initialisiert
+man ein Git-Repository und verwaltet Dateien darin? Außerdem werden
+die wichtigsten Konfigurationseinstellungen behandelt.</p>
+        <p><a class="xref" href="ch02.html" title="Kapitel 2. Grundlagen">Kapitel 2, <em>Grundlagen</em></a> behandelt zwei wesentliche Konzepte von Git: Den
+Index und das Objektmodell. Neben weiteren wichtigen Kommandos, die
+dort vorgestellt werden, ist das Verständnis dieser beiden Konzepte
+von großer Wichtigkeit für den sicheren Umgang mit Git.</p>
+        <p>In <a class="xref" href="ch03.html" title="Kapitel 3. Praktische Versionsverwaltung">Kapitel 3, <em>Praktische Versionsverwaltung</em></a> geht es um praktische Aspekte der Versionsverwaltung.
+Vor allem werden die in Git so zentralen Branches und Merges
+behandelt. Auch auf die Behebung von Merge-Konflikten wird detailliert
+eingegangen.</p>
+        <p><a class="xref" href="ch04.html" title="Kapitel 4. Fortgeschrittene Konzepte">Kapitel 4, <em>Fortgeschrittene Konzepte</em></a> setzt sich mit fortgeschrittenen Konzepten auseinander,
+allen voran das Rebase-Kommando, ein unerlässliches Werkzeug für jeden
+Git-Profi. Es folgen weitere wichtige Kommandos, wie Blame, Stash und
+Bisect.</p>
+        <p>Erst <a class="xref" href="ch05.html" title="Kapitel 5. Verteiltes Git">Kapitel 5, <em>Verteiltes Git</em></a> beschäftigt sich mit den verteilten Aspekten von
+Git: Wie kann man Veränderungen zwischen Repositories austauschen, wie
+können Entwickler zusammenarbeiten? Das anschließende <a class="xref" href="ch06.html" title="Kapitel 6. Workflows">Kapitel 6, <em>Workflows</em></a>
+gibt außerdem einen Überblick zu Strategien, wie Sie
+Entwicklungsarbeit in einem Projekt koordinieren.</p>
+        <p>Wir empfehlen Ihnen, zumindest die ersten fünf Kapitel hintereinander
+zu lesen. Sie beschreiben alle wichtigen Konzepte und Techniken, um Git
+auch in großen Projekten sicher einzusetzen. Die nachfolgenden Kapitel
+können Sie, je nach Interesse und Bedarf, in beliebiger Reihenfolge
+lesen.</p>
+        <p><a class="xref" href="ch07.html" title="Kapitel 7. Git auf dem Server">Kapitel 7, <em>Git auf dem Server</em></a> behandelt Installation und Wartung von
+Git-Diensten: zwei Web-basierte Repository-Browser und die
+Zugriffsverwaltung für gehostete Repositories mit Gitolite.</p>
+        <p><a class="xref" href="ch08.html" title="Kapitel 8. Git automatisieren">Kapitel 8, <em>Git automatisieren</em></a> fasst diverse Aspekte der Automatisierung zusammen: Wie
+Sie Hooks und eigene Git-Kommandos schreiben und bei Bedarf die
+komplette Versionsgeschichte umschreiben.</p>
+        <p>Schließlich geht es in <a class="xref" href="ch09.html" title="Kapitel 9. Zusammenspiel mit anderen Versionsverwaltungssystemen">Kapitel 9, <em>Zusammenspiel mit anderen Versionsverwaltungssystemen</em></a> um die Migration von anderen
+Systemen zu Git. Im Vordergrund steht hier die Konvertierung
+existierender Subversion-Repositories sowie die Möglichkeit, aus Git
+heraus mit Subversion zu sprechen.</p>
+        <p>Die Anhänge beschäftigen sich mit der Installation und der
+Integration von Git in die Shell. Ein Ausblick auf den Hosting-Service
+<span class="emphasis"><em>Github</em></span> sowie eine detaillierte Beschreibung der Struktur und
+Wartungsmechanismen eines Git-Repositorys liefern weitere
+Hintergrundinformationen.</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.konventionen"></a>3. Konventionen</h2>
+            </div>
+          </div>
+        </div>
+        <p>Die Beispiele führen wir ausschließlich auf der Shell aus. Auch wenn
+einige Editoren und IDEs mittlerweile eine recht gelungene
+Git-Integration bieten und auch eine Vielzahl grafischer Frontends für Git
+existiert, sollten Sie doch zunächst die Grundlagen mit den echten
+Git-Kommandos erlernen.</p>
+        <p>Das Shell-Prompt ist ein einzelnes Dollar-Zeichen (<code class="literal">$</code>);
+Tastatureingaben sind halbfett gedruckt, also z.B. so:</p>
+        <pre class="screen">$ <span class="strong"><strong>git status</strong></span></pre>
+        <p>Um sich in der Shell schneller und besser zurechtzufinden, empfehlen
+wir dringend, die Shell um Git-Funktionalität zu erweitern, wie z.B.
+die Anzeige des Branches im Prompt (siehe dazu
+<a class="xref" href="ch10.html" title="Kapitel 10. Shell-Integration">Kapitel 10, <em>Shell-Integration</em></a>).</p>
+        <p>Sofern nicht anders vermerkt, beziehen wir uns auf Git in der
+Version 2.0.
+Die Beispiele laufen allesamt mit englischsprachigen
+Lokaleneinstellungen. Zwar gibt es seit 2012 für die Ausgabe-Texte der meisten
+Git-Kommandos auch deutsche Übersetzungen – diese klingen aber sehr
+gestelzt und sind aufgrund der Wortwahl häufig verwirrend.
+Außerdem finden Sie für originale, also
+englische Fehlermeldungen online schneller Hilfe.</p>
+        <p>Neu eingeführte Begriffe sind <span class="emphasis"><em>kursiv</em></span> gesetzt, teilweise mit
+deutscher Entsprechung in Klammern dahinter. Die meisten
+Git-spezifischen Termini verwenden wir im Original mit von der
+Übersetzung abgeleitetem Artikel, z.B. der „Branch“ statt der „Zweig“.</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.install-git-repo"></a>4. Installation und „das Git-Repository“</h2>
+            </div>
+          </div>
+        </div>
+        <p>Die Installation von Git beschreiben wir ausführlich in <a class="xref" href="apa.html" title="Anhang A. Installation">Anhang A, <em>Installation</em></a>.
+Einige Beispiele verwenden das
+Quell-Repository von Git, also das Repository, in dem Git aktiv
+entwickelt wird. In englischsprachiger Dokumentation heißt dieses
+Repository auch <span class="emphasis"><em>Git-via-Git</em></span> oder <span class="emphasis"><em>git.git</em></span>.</p>
+        <p>Nachdem Sie Git installiert haben, können Sie sich das Repository mit
+folgendem Befehl herunterladen:</p>
+        <pre class="screen">$ <span class="strong"><strong>git clone git://git.kernel.org/pub/scm/git/git.git</strong></span></pre>
+        <p>Der Vorgang dauert je nach Verbindungsgeschwindigkeit und Auslastung
+des Servers einige Minuten.</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.doku"></a>5. Dokumentation und Hilfe</h2>
+            </div>
+          </div>
+        </div>
+        <p>Eine umfangreiche Dokumentation von Git liegt in Form vorinstallierter
+Man-Pages vor. Fast jedes Subkommando hat eine eigene Man-Page, die
+Sie auf drei äquivalente Weisen aufrufen können, hier z.B.  für das
+Kommando <code class="literal">git status</code>:</p>
+        <pre class="screen">$ <span class="strong"><strong>git help status</strong></span>
+$ <span class="strong"><strong>git status --help</strong></span>
+$ <span class="strong"><strong>man git-status</strong></span></pre>
+        <p>Auf der
+Git-Webseite<a href="#ftn.idm45240365522608" class="footnote" id="idm45240365522608"><sup class="footnote">[1]</sup></a>
+finden Sie außerdem Links zum offiziellen Tutorial sowie zu anderen
+freien Dokumentationen.</p>
+        <p>Rund um Git hat sich eine große, lebhafte Community gebildet. Die
+Git-Mailingliste<a href="#ftn.idm45240365520896" class="footnote" id="idm45240365520896"><sup class="footnote">[2]</sup></a>
+ist Dreh- und Angelpunkt der Entwicklung: Dort werden
+Patches eingeschickt, Neuerungen diskutiert und auch Fragen zur
+Benutzung beantwortet.  Allerdings ist die Liste, mit zuweilen über 100 teils sehr technischen E-Mails am Tag, nur eingeschränkt für Anfänger
+geeignet.</p>
+        <p>Das
+Git-Wiki<a href="#ftn.idm45240365518912" class="footnote" id="idm45240365518912"><sup class="footnote">[3]</sup></a>
+enthält neben Dokumentation auch eine umfangreiche Linksammlung der
+Tools, die auf Git
+basieren<a href="#ftn.idm45240365517824" class="footnote" id="idm45240365517824"><sup class="footnote">[4]</sup></a>,
+sowie
+FAQs<a href="#ftn.idm45240365516912" class="footnote" id="idm45240365516912"><sup class="footnote">[5]</sup></a>.</p>
+        <p>Alternativ bietet der IRC-Kanal <code class="literal">#git</code> im Freenode-Netzwerk
+einen Anlaufpunkt, Fragen loszuwerden, die nicht schon in den FAQs
+oder in der Dokumentation beantwortet wurden.</p>
+        <p>Umsteigern aus dem Subversion-Umfeld ist der <span class="emphasis"><em>Git-SVN Crash
+  Course</em></span><a href="#ftn.idm45240360015008" class="footnote" id="idm45240360015008"><sup class="footnote">[6]</sup></a>
+zu empfehlen, eine Gegenüberstellung von Git- und
+Subversion-Kommandos, mit der Sie Ihr Subversion-Wissen in die
+Git-Welt übertragen.</p>
+        <p>Außerdem sei auf
+<span class="emphasis"><em>Stack Overflow</em></span><a href="#ftn.idm45240360013200" class="footnote" id="idm45240360013200"><sup class="footnote">[7]</sup></a>
+hingewiesen, eine Plattform von Programmierern für Programmierer, auf
+der technische Fragestellungen, u.a. zu Git, erörtert werden.</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.kontakt"></a>6. Downloads und Kontakt</h2>
+            </div>
+          </div>
+        </div>
+        <p>Die Beispiel-Repositories der ersten beiden Kapitel sowie eine
+Sammlung aller längeren Scripte stehen unter
+<a class="ulink" href="http://gitbu.ch/" target="_top">http://gitbu.ch/</a> zum Download bereit.</p>
+        <p>Bei Anmerkungen kontaktieren Sie uns gerne per E-Mail unter einer der folgenden Adressen:
+<a class="ulink" href="mailto:kontakt@gitbu.ch" target="_top">kontakt@gitbu.ch</a>, <a class="ulink" href="mailto:valentin@gitbu.ch" target="_top">valentin@gitbu.ch</a> bzw. <a class="ulink" href="mailto:julius@gitbu.ch" target="_top">julius@gitbu.ch</a>.</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.dank"></a>7. Danksagungen</h2>
+            </div>
+          </div>
+        </div>
+        <p>Zunächst gilt unser Dank allen Entwicklern und Maintainern des
+Git-Projekts sowie der Mailing-Liste und dem IRC-Kanal.</p>
+        <p>Vielen Dank an Sebastian Pipping und Frank Terbeck für Anmerkungen und
+Tipps. Besonders danken wir Holger Weiß für seine Durchsicht des
+Manuskripts und hilfreiche Ideen. Wir danken dem gesamten
+Open-Source-Press-Team für die gute und effiziente Zusammenarbeit.</p>
+        <p>Unser Dank gilt vor allem unseren Eltern, die uns stets unterstützt
+und gefördert haben.</p>
+        <p>Valentin Haenel und Julius Plenz – Berlin, Juni 2011</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="chap.vorwort-2te-auflage"></a>8. Vorwort zur 2. Auflage</h2>
+            </div>
+          </div>
+        </div>
+        <p>Wir haben uns in der 2. Auflage darauf beschränkt, die
+Veränderungen in der Benutzung von Git, die bis Version 2.0 eingeführt
+wurden, behutsam aufzunehmen – tatsächlich sind heute viele Kommandos und
+Fehlermeldungen konsistenter, so dass dies an einigen
+Stellen einer wesentlichen Vereinfachung des Textes entspricht.
+Eingestreut finden sich, inspiriert von Fragen aus Git-Schulungen und
+unserer eigenen Erfahrung, neue Hinweise auf Probleme, Lösungsansätze
+und interessante Funktionalitäten.</p>
+        <p>Wir danken allen Einsendern von Korrekturen an der ersten Auflage:
+Philipp Hahn, Ralf Krüdewagen, Michael Prokop, Johannes Reinhold, Heiko
+Schlichting, Markus Weber.</p>
+        <p>Valentin Haenel und Julius Plenz – Berlin, September 2014</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="chap.vorwort-cc-ausgabe"></a>9. Vorwort zur CreativeCommons-Ausgabe</h2>
+            </div>
+          </div>
+        </div>
+        <p>Der Verlag <span class="emphasis"><em>Open Source Press</em></span>, der uns initial überzeugte, überhaupt
+dieses Buch zu schreiben und es die vergangenen Jahre über verlegte, hat
+zum 31.12.2015 den Betrieb eingestellt, und sämtliche Rechte an den
+veröffentlichten Texten an die Autoren zurückübertragen. Wir danken
+insbesondere Markus Wirtz für die immer gute und produktive
+Zusammenarbeit, die uns über viele Jahre verbunden hat.</p>
+        <p>Aufgrund hauptsächlich sehr positiven Feedbacks zu diesem Text haben wir
+uns entschieden, diesen unter einer CreativeCommons-Lizens frei verfügbar
+zu machen.</p>
+        <p>Valentin Haenel und Julius Plenz – Berlin/Sydney, Januar 2016</p>
+      </div>
+      <div class="footnotes">
+        <br />
+        <hr style="width:100; text-align:left;margin-left: 0" />
+        <div id="ftn.idm45240365522608" class="footnote">
+          <p>
+            <a href="#idm45240365522608" class="simpara">
+              <sup class="simpara">[1] </sup>
+            </a>
+            <a class="ulink" href="http://git-scm.com/" target="_top">http://git-scm.com/</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240365520896" class="footnote">
+          <p>
+            <a href="#idm45240365520896" class="simpara">
+              <sup class="simpara">[2] </sup>
+            </a>
+            <a class="ulink" href="http://vger.kernel.org/vger-lists.html#git" target="_top">http://vger.kernel.org/vger-lists.html#git</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240365518912" class="footnote">
+          <p>
+            <a href="#idm45240365518912" class="simpara">
+              <sup class="simpara">[3] </sup>
+            </a>
+            <a class="ulink" href="https://git.wiki.kernel.org/index.php/Main_Page" target="_top">https://git.wiki.kernel.org/index.php/Main_Page</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240365517824" class="footnote">
+          <p>
+            <a href="#idm45240365517824" class="simpara">
+              <sup class="simpara">[4] </sup>
+            </a>
+            <a class="ulink" href="https://git.wiki.kernel.org/index.php/InterfacesFrontendsAndTools" target="_top">https://git.wiki.kernel.org/index.php/InterfacesFrontendsAndTools</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240365516912" class="footnote">
+          <p>
+            <a href="#idm45240365516912" class="simpara">
+              <sup class="simpara">[5] </sup>
+            </a>
+            <a class="ulink" href="https://git.wiki.kernel.org/index.php/GitFaq" target="_top">https://git.wiki.kernel.org/index.php/GitFaq</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240360015008" class="footnote">
+          <p>
+            <a href="#idm45240360015008" class="simpara">
+              <sup class="simpara">[6] </sup>
+            </a>
+            <a class="ulink" href="https://git.wiki.kernel.org/index.php/GitSvnCrashCourse" target="_top">https://git.wiki.kernel.org/index.php/GitSvnCrashCourse</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240360013200" class="footnote">
+          <p>
+            <a href="#idm45240360013200" class="simpara">
+              <sup class="simpara">[7] </sup>
+            </a>
+            <a class="ulink" href="http://stackoverflow.com" target="_top">http://stackoverflow.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="index.html">Zurück</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="ch01.html">Weiter</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top"> </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index.html">Zum Anfang</a>
+          </td>
+          <td width="40%" align="right" valign="top"> </td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="cc-license">
+      <hr />
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Lizensiert unter der <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+    </p>
+    </div>
+  </body>
+</html>

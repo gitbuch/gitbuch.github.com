@@ -1,0 +1,2168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kapitel 4. Fortgeschrittene Konzepte</title>
+    <link rel="stylesheet" type="text/css" href="gitbuch.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="home" href="index.html" title="Git" />
+    <link rel="up" href="index.html" title="Git" />
+    <link rel="prev" href="ch03.html" title="Kapitel 3. Praktische Versionsverwaltung" />
+    <link rel="next" href="ch05.html" title="Kapitel 5. Verteiltes Git" />
+    <meta xmlns="" name="language" content="de" />
+    <script xmlns="" src="http://hyphenator.googlecode.com/svn/trunk/Hyphenator.js" type="text/javascript"></script>
+    <script xmlns="" type="text/javascript">
+        Hyphenator.run();
+    </script>
+  </head>
+  <body class="hyphenate">
+    <div xmlns="" class="toc">
+<p><a href="index.html">Startseite</a></p>
+<dl class="toc">
+          <dt>
+            <span class="preface">
+              <a href="pr01.html">Vorwort</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.leser">1. An wen richtet sich dieses Buch?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.struktur">2. Wie ist das Buch zu lesen?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.konventionen">3. Konventionen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.install-git-repo">4. Installation und „das Git-Repository“</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.doku">5. Dokumentation und Hilfe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.kontakt">6. Downloads und Kontakt</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.dank">7. Danksagungen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-2te-auflage">8. Vorwort zur 2. Auflage</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-cc-ausgabe">9. Vorwort zur CreativeCommons-Ausgabe</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch01.html">1. Einführung und erste Schritte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.begriffe">1.1. Grundbegriffe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.erste-schritte">1.2. Erste Schritte mit Git</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#chap.git-config">1.3. Git konfigurieren</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch02.html">2. Grundlagen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.grundlagen">2.1. Git-Kommandos</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.objektmodell">2.2. Das Objektmodell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch03.html">3. Praktische Versionsverwaltung</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.branches">3.1. Referenzen: Branches und Tags</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.undo">3.2. Versionen wiederherstellen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge">3.3. Branches zusammenführen: Merges</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge-conflicts">3.4. Merge-Konflikte lösen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.cherry-pick">3.5. Einzelne Commits übernehmen: Cherry-Pick</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.visualization">3.6. Visualisierung von Repositories</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.reflog">3.7. Reflog</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch04.html">4. Fortgeschrittene Konzepte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase">4.1. Commits verschieben – Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase-i">4.2. Die Geschichte umschreiben – Interaktives Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.blame">4.3. Wer hat diese Änderungen gemacht? – git blame</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.ignore">4.4. Dateien ignorieren</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.stash">4.5. Veränderungen auslagern – git stash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.notes">4.6. Commits annotieren – git notes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.multi-root">4.7. Mehrere Root-Commits</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.bisect">4.8. Regressionen finden – git bisect</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch05.html">5. Verteiltes Git</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.verteilte_systeme">5.1. Wie funktioniert verteilte Versionsverwaltung?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.clone">5.2. Repositories klonen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.git_fetch">5.3. Commits herunterladen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.hochladen">5.4. Commits hochladen: git push</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-check">5.5. Remotes untersuchen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.multi-remote">5.6. Verteilter Workflow mit mehreren Remotes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-verwalten">5.7. Remotes verwalten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remote-tags">5.8. Tags austauschen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.patch-queue">5.9. Patches per E-Mail</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.dictator">5.10. Ein verteilter, hierarchischer Workflow</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.subprojects">5.11. Unterprojekte verwalten</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch06.html">6. Workflows</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.workflows-user">6.1. Anwender</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.branch-modell">6.2. Ein Branching-Modell</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.releases-management">6.3. Releases-Management</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch07.html">7. Git auf dem Server</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.server">7.1. Einen Git-Server hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitolite">7.2. Gitolite: Git einfach hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.git-daemon">7.3. Git-Daemon: Anonymer, lesender Zugriff</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitweb">7.4. Gitweb: Das integrierte Web-Frontend</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.cgit">7.5. CGit – CGI for Git</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch08.html">8. Git automatisieren</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.attributes">8.1. Git-Attribute – Dateien gesondert behandeln</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.hooks">8.2. Hooks</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.scripting">8.3. Eigene Git-Kommandos schreiben</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.filter-branch">8.4. Versionsgeschichte umschreiben</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch09.html">9. Zusammenspiel mit anderen Versionsverwaltungssystemen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.subversion">9.1. Subversion</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.fast-import">9.2. Eigene Importer</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch10.html">10. Shell-Integration</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.bash-integration">10.1. Git und die Bash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.zsh-integration">10.2. Git und die Z-Shell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch11.html">11. Github</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="appendix">
+              <a href="apa.html">A. Installation</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#linux">A.1. Linux</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.osx">A.2. Mac OS X</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.windows">A.3. Windows</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="appendix">
+              <a href="apb.html">B. Struktur eines Repositorys</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc">B.1. Aufräumen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc-performance">B.2. Performance</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl></div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="ch03.html">Zurück</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="ch05.html">Weiter</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="ch.advanced"></a>Kapitel 4. Fortgeschrittene Konzepte</h1>
+          </div>
+        </div>
+      </div>
+      <p>Das folgende Kapitel behandelt ausgewählte fortgeschrittene Konzepte.
+Im Vordergrund steht das Rebase-Kommando mit seinen vielfältigen
+Anwendungen. Wir finden heraus, wer wann eine Zeile im Quellcode
+verändert hat (<span class="emphasis"><em>Blame</em></span>) und wie Sie Git anweisen, Dateien und
+Verzeichnisse zu ignorieren.  Außerdem wird darauf eingegangen, wie
+Sie Änderungen am Working Tree in den Hintergrund stellen
+(<span class="emphasis"><em>Stash</em></span>) und Commits annotieren (<span class="emphasis"><em>Notes</em></span>).  Zuletzt zeigen
+wir Ihnen, wie Sie schnell und automatisiert Commits finden, die einen
+Bug einführen (<span class="emphasis"><em>Bisect</em></span>).</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.rebase"></a>4.1. Commits verschieben – Rebase</h2>
+            </div>
+          </div>
+        </div>
+        <p>Im Abschnitt über die Interna von Git wurde bereits erwähnt, dass man
+Commits in einem Git-Repository (anschaulich: dem Graphen) beliebig
+verschieben und modifizieren kann. Möglich wird das in der Praxis vor
+allem durch das Git-Kommando <code class="literal">rebase</code>. Das Kommando ist sehr
+mächtig und wichtig, aber zum Teil auch etwas anspruchsvoller in der
+Anwendung.</p>
+        <p><span class="emphasis"><em>Rebase</em></span> ist ein Kunstwort, was soviel bedeutet wie „etwas
+auf eine neue Basis stellen“. Gemeint ist damit, dass eine Gruppe
+von Commits innerhalb des Commit-Graphen verschoben, also Commit für
+Commit auf Basis eines anderen Knotens aufgebaut wird.  Die
+nachfolgenden Grafiken veranschaulichen die Funktionsweise:</p>
+        <div class="figure">
+          <a id="fig.rebase-vorher-dia"></a>
+          <p class="title">
+            <strong>Abbildung 4.1. Vor dem Rebase</strong>
+          </p>
+          <div class="figure-contents">
+            <div class="mediaobject">
+              <img src="bilder_ebook/rebase-vorher.png" width="486" alt="bilder_ebook/rebase-vorher.png" />
+            </div>
+          </div>
+        </div>
+        <br class="figure-break" />
+        <div class="figure">
+          <a id="fig.rebase-nachher-dia"></a>
+          <p class="title">
+            <strong>Abbildung 4.2. …und danach</strong>
+          </p>
+          <div class="figure-contents">
+            <div class="mediaobject">
+              <img src="bilder_ebook/rebase-nachher.png" width="486" alt="bilder_ebook/rebase-nachher.png" />
+            </div>
+          </div>
+        </div>
+        <br class="figure-break" />
+        <p>In der einfachsten Form lautet das Kommando <code class="literal">git rebase
+  &lt;referenz&gt;</code> (im o.g. Diagramm: <code class="literal">git rebase master</code>).  Damit
+markiert Git zunächst alle Commits <code class="literal">&lt;referenz&gt;..HEAD</code>, also die
+Commits, die von <code class="literal">HEAD</code> aus erreichbar sind (dem aktuellen
+Branch) abzüglich der Commits, die von <code class="literal">&lt;referenz&gt;</code> aus
+erreichbar sind – anschaulich gesprochen also alles, was im aktuellen
+Branch, aber nicht in <code class="literal">&lt;referenz&gt;</code> liegt. Im Diagramm sind das
+also E und F.</p>
+        <p>Die Liste dieser Commits wird zwischengespeichert. Anschließend checkt
+Git den Commit <code class="literal">&lt;referenz&gt;</code> aus und kopiert die einzelnen,
+zwischengespeicherten Commits in der ursprünglichen Reihenfolge als
+neue Commits in den Branch.</p>
+        <p>Hierbei sind einige Punkte zu beachten:</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+Weil der erste Knoten des <code class="literal">topic</code>-Branches (E) nun einen neuen Vorgänger (D) hat, ändern sich seine Metadaten und somit seine SHA-1-Summe (er wird zu E'). Der zweite Commit (F) hat dann ebenfalls einen anderen Vorgänger (E' statt E), dessen SHA-1-Summe ändert sich (er wird zu F') usw. – dies wird auch als <span class="emphasis"><em>Ripple Effect</em></span> bezeichnet. Insgesamt werden <span class="emphasis"><em>alle</em></span> kopierten Commits neue SHA-1-Summen haben – sie sind also im Zweifel gleich (was die Änderungen betrifft), aber nicht identisch.
+</li>
+            <li class="listitem">
+Bei einer solchen Aktion können, genau wie bei
+  einem Merge-Vorgang, konfliktbehaftete Änderungen auftreten. Git
+  kann diese teilweise automatisch lösen, bricht aber mit einer
+  entsprechenden Fehlermeldung ab, wenn die Konflikte nicht trivial
+  sind. Der Rebase-Prozess kann dann entweder „repariert“
+  und weitergeführt oder abgebrochen werden (s.u.).
+</li>
+            <li class="listitem">
+Sofern keine weitere Referenz auf den Knoten F zeigt, geht
+  dieser verloren, weil die Referenz <code class="literal">HEAD</code> (und gegebenenfalls
+  der entsprechende Branch) bei einem erfolgreichen Rebase auf den
+  Knoten F' <span class="emphasis"><em>verschoben</em></span> wird.  Wenn also F keine Referenz mehr
+  hat (und auch keine Vorgänger, die F referenzieren), kann Git den
+  Knoten nicht mehr finden, und der Baum „verschwindet“.
+  Wenn Sie sich nicht sicher sind, ob Sie den Original-Baum noch
+  einmal benötigen, können Sie zum Beispiel mit dem
+  <code class="literal">tag</code>-Kommando einfach eine Referenz darauf setzen. Dann
+  bleiben die Commits auch nach einem Rebase erhalten (dann aber in
+  doppelter Form an verschiedenen Stellen im Commit-Graphen).
+</li>
+          </ul>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.rebase-bsp"></a>4.1.1. Ein Beispiel</h3>
+              </div>
+            </div>
+          </div>
+          <p>Betrachten Sie folgende Situation: Der Branch <code class="literal">sqlite-support</code>
+zweigt vom Commit „fixed a bug…“ ab. Der
+<code class="literal">master</code>-Branch ist aber schon weitergerückt, und ein neues
+Release 1.4.2 ist erschienen.</p>
+          <div class="figure">
+            <a id="fig.screenshot-rebase-vorher"></a>
+            <p class="title">
+              <strong>Abbildung 4.3. Vor dem Rebase</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/screenshot-rebase-vorher.png" width="486" alt="bilder_ebook/screenshot-rebase-vorher.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p>Nun wird <code class="literal">sqlite-support</code> ausgecheckt und neu auf
+<code class="literal">master</code> aufgebaut:</p>
+          <pre class="screen">$ <span class="strong"><strong>git checkout sqlite-support</strong></span>
+$ <span class="strong"><strong>git rebase master</strong></span>
+First, rewinding head to replay your work on top of it...
+Applying: include sqlite header files, prototypes
+Applying: generalize queries
+Applying: modify Makefile to support sqlite</pre>
+          <p>Rebase wendet die drei Änderungen, die durch Commits aus dem Branch
+<code class="literal">sqlite-support</code> eingeführt werden, auf den
+<code class="literal">master</code>-Branch an. Danach sieht das Repository in Gitk wie
+folgt aus:</p>
+          <div class="figure">
+            <a id="fig.screenshot-rebase-nachher"></a>
+            <p class="title">
+              <strong>Abbildung 4.4. Nach Rebase</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/screenshot-rebase-nachher.png" width="486" alt="bilder_ebook/screenshot-rebase-nachher.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.rebase-extended"></a>4.1.2. Erweiterte Syntax und Konflikte</h3>
+              </div>
+            </div>
+          </div>
+          <p>Normalerweise wird <code class="literal">git rebase</code> immer den Branch, auf dem Sie
+gerade arbeiten, auf einen neuen aufbauen. Allerdings gibt es eine
+Abkürzung: Wollen Sie <code class="literal">topic</code> auf <code class="literal">master</code> aufbauen,
+befinden sich aber auf einem ganz anderen Branch, können Sie das per</p>
+          <pre class="screen">$ <span class="strong"><strong>git rebase master topic</strong></span></pre>
+          <p>Git macht intern Folgendes:</p>
+          <pre class="screen">$ <span class="strong"><strong>git checkout topic</strong></span>
+$ <span class="strong"><strong>git rebase master</strong></span></pre>
+          <p>Beachten Sie die (leider wenig intuitive) Reihenfolge:</p>
+          <pre class="screen">git rebase &lt;worauf&gt; &lt;was&gt;</pre>
+          <p>Bei einem Rebase kann es zu Konflikten kommen. Der Prozess hält dann
+mit folgender Fehlermeldung an:</p>
+          <pre class="screen">$ <span class="strong"><strong>git rebase master</strong></span>
+...
+CONFLICT (content): Merge conflict in &lt;datei&gt;
+Failed to merge in the changes.
+Patch failed at ...
+The copy of the patch that failed is found in:
+   .../.git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase
+--abort".</pre>
+          <p>Sie gehen vor wie bei einem regulären Merge-Konflikt (siehe
+<a class="xref" href="ch03.html#sec.merge-conflicts" title="3.4. Merge-Konflikte lösen">Abschnitt 3.4, „Merge-Konflikte lösen“</a>) – <code class="literal">git mergetool</code> ist hier
+sehr hilfreich. Fügen Sie dann einfach die geänderte Datei per
+<code class="literal">git add</code> hinzu und lassen Sie den Prozess per <code class="literal">git
+  rebase --continue</code> weiterlaufen.<a href="#ftn.idm45240358319184" class="footnote" id="idm45240358319184"><sup class="footnote">[54]</sup></a></p>
+          <p>Alternativ lässt sich der problematische Commit auch überspringen, und
+zwar mit dem Kommando <code class="literal">git rebase --skip</code>. Der Commit ist
+dann aber verloren, sofern er nicht in einem anderen Branch irgendwo
+referenziert wird! Sie sollten diese Aktion also nur ausführen, wenn
+Sie sicher wissen, dass der Commit obsolet ist.</p>
+          <p>Wenn das alles nicht weiterhilft (Sie z.B. den Konflikt nicht an
+der Stelle lösen können oder gemerkt haben, dass Sie gerade den
+falschen Baum umbauen), ziehen Sie die Notbremse: <code class="literal">git rebase
+  --abort</code>.  Dies verwirft alle Änderungen am Repository (auch schon
+erfolgreich kopierte Commits), so dass der Zustand danach genau so
+ist, wie zu dem Zeitpunkt, als der Rebase-Prozess gestartet wurde. Das
+Kommando hilft auch, wenn Sie irgendwann vergessen haben, einen
+Rebase-Prozess zu Ende zu führen, und sich andere Kommandos
+beschweren, dass sie ihre Arbeit nicht verrichten können, weil gerade
+ein Rebase im Gang ist.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.rebase-sinnvoll"></a>4.1.3. Warum Rebase sinnvoll ist</h3>
+              </div>
+            </div>
+          </div>
+          <p>Rebase ist vor allem sinnvoll, um die Commit-Geschichte eines Projekts
+einfach und leicht verständlich zu halten. Beispielsweise arbeitet ein
+Entwickler an einem Feature, hat dann aber ein paar Wochen lang etwas
+anderes zu tun. Währenddessen ist die Entwicklung im Projekt aber
+schon weiter vorangeschritten, es gab ein neues Release etc.  Erst
+jetzt kommt der Entwickler dazu, ein Feature zu beenden. (Auch wenn
+Sie Patches per E-Mail verschicken wollen, hilft Rebase, Konflikte zu
+vermeiden, siehe dazu <a class="xref" href="ch05.html#sec.patch-queue" title="5.9. Patches per E-Mail">Abschnitt 5.9, „Patches per E-Mail“</a>.)</p>
+          <p>Für die Versionsgeschichte ist es nun viel logischer, wenn sein
+Feature nicht über einen langen Zeitraum unfertig neben der
+eigentlichen Entwicklung „mitgeschleppt“ wurde, sondern wenn
+die Entwicklung vom letzten stabilen Release abzweigt.</p>
+          <p>Für genau diese Änderung in der Geschichte ist Rebase gut: Der
+Entwickler kann nun einfach auf seinem Branch, auf dem er das Feature
+entwickelt hat, das Kommando <code class="literal">git rebase v1.4.2</code> eingeben, um
+seinen Feature-Branch neu auf dem Commit mit dem Release-Tag
+<code class="literal">v1.4.2</code> aufzubauen. So lässt sich wesentlich leichter
+ablesen, welche Unterschiede das Feature wirklich in die Software
+einbringt.</p>
+          <p>Auch passiert es jedem Entwickler im Eifer des Gefechts, dass Commits
+im falschen Branch landen. Da findet sich zufällig ein Fehler, der
+schnell durch einen entsprechenden Commit behoben wird; aber dann muss
+direkt noch ein Test geschrieben werden, um diesen Fehler in Zukunft
+zu vermeiden (ein weiterer Commit), was wiederum in der Dokumentation
+entsprechend zu vermerken ist. Nachdem die eigentliche Arbeit getan
+ist, kann man diese Commits mit Rebase an eine andere Stelle im
+Commit-Graphen „transplantieren“.</p>
+          <p>Rebase kann auch dann sinnvoll sein, wenn in einem Branch ein Feature
+benötigt wird, das erst kürzlich in die Software eingeflossen ist. Ein
+<span class="emphasis"><em>Merge</em></span> des <code class="literal">master</code>-Branches ist semantisch nicht
+sinnvoll, da dann diese und andere Änderungen untrennbar mit dem
+Feature-Branch verschmolzen werden. Stattdessen baut man den Branch
+per Rebase auf einen neuen Commit auf, in dem das benötigte Feature
+schon enthalten ist, und kann dieses dann in der weiteren Entwicklung
+nutzen.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.rebase-vs-merge"></a>4.1.4. Wann Rebase <span class="emphasis"><em>nicht</em></span> sinnvoll ist – Rebase vs. Merge</h3>
+              </div>
+            </div>
+          </div>
+          <p>Das Konzept von Rebase ist zunächst etwas schwierig zu verstehen. Aber
+sobald Sie verstanden haben, was damit möglich ist, stellt sich die
+Frage: Wozu braucht man überhaupt noch ein simples Merge, wenn man
+doch alles mit Rebase bearbeiten kann?</p>
+          <p>Wenn Git-Rebase nicht oder kaum angewendet wird, entwickelt sich
+häufig eine Projektgeschichte, die relativ unüberschaubar wird, weil
+ständig und jeweils für wenige Commits Merges ausgeführt werden
+müssen.</p>
+          <p>Wird Rebase dagegen zu viel angewendet, besteht die Gefahr, dass das
+gesamte Projekt sinnlos linearisiert wird: Das flexible Branching von
+Git wird zwar zur Entwicklung genutzt, die Branches werden aber dann
+reißverschlussartig per Rebase hintereinander(!) in den
+Veröffentlichungsbranch integriert. Das stellt uns vor allem vor zwei
+Probleme:</p>
+          <div class="itemizedlist">
+            <ul class="itemizedlist" style="list-style-type: disc; ">
+              <li class="listitem">
+Logisch zusammengehörige Commits sind nicht mehr als solche
+  zu erkennen. Da alle Commits linear sind, vermischt sich die
+  Entwicklung mehrerer Features untrennbar.
+</li>
+              <li class="listitem">
+Die Integration eines Branches kann nicht mehr ohne
+  weiteres rückgängig gemacht werden, denn diejenigen Commits zu
+  identifizieren, die einmal zu einem Feature-Branch gehörten, ist nur
+  manuell möglich.
+</li>
+            </ul>
+          </div>
+          <p>So verspielen Sie die Vorteile des flexiblen Branchings von Git. Die
+Schlussfolgerung ist, dass Rebase weder zu viel noch zu wenig
+angewendet werden sollte. Beides macht die Projektgeschichte (auf
+unterschiedliche Art und Weise) unübersichtlich.</p>
+          <p>Generell fahren Sie mit den folgenden Faustregeln gut:</p>
+          <div class="orderedlist">
+            <ol class="orderedlist" type="1">
+              <li class="listitem">
+Ein Feature wird, wenn es fertig wird, per <span class="emphasis"><em>Merge</em></span>
+  integriert. Sinnvollerweise sollte vermieden werden, einen
+  <span class="emphasis"><em>Fast-Forward-Merge</em></span> zu erzeugen, damit der Merge-Commit als
+  Zeitpunkt der Integration erhalten bleibt.
+</li>
+              <li class="listitem">
+Während Sie entwickeln, sollten Sie häufig Rebase benutzen
+  (besonders interaktives Rebase, s.u.).
+</li>
+              <li class="listitem">
+Logisch getrennte Einheiten sollten auf getrennten Branches
+  entwickelt werden – logisch zusammengehörige eventuell auf mehreren,
+  die dann per Rebase verschmolzen werden (wenn das sinnvoll ist).
+  Die Zusammenführung logisch getrennter Einheiten erfolgt dann per
+  Merge.
+</li>
+            </ol>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.rebase-warnung"></a>4.1.5. Ein Wort der Warnung</h3>
+              </div>
+            </div>
+          </div>
+          <p>Wie schon angesprochen, ändern sich bei einem Rebase zwangsläufig die
+SHA-1-Summen aller Commits, die „umgebaut“ werden. Wenn diese
+Änderungen noch nicht veröffentlicht wurden, d.h. bei einem
+Entwickler im privaten Repository liegen, ist das auch nicht schlimm.</p>
+          <p>Wenn aber ein Branch (z.B. <code class="literal">master</code>) veröffentlicht<a href="#ftn.idm45240358277248" class="footnote" id="idm45240358277248"><sup class="footnote">[55]</sup></a>
+und später per Rebase umgeschrieben wird, hat das unschöne Folgen
+für alle Beteiligten: Alle Branches, die auf <code class="literal">master</code> aufbauen,
+referenzieren nun die alte Kopie des mittlerweile umgeschriebenen
+<code class="literal">master</code>-Branches. Also muss jeder Branch wiederum per Rebase
+auf den neuen <code class="literal">master</code> aufgebaut werden (wodurch sich wiederum
+alle Commit-IDs ändern). Dieser Effekt setzt sich fort und kann (je
+nachdem, wann so ein Rebase passiert und wie viele Entwickler an dem
+Projekt beteiligt sind) sehr zeitaufwendig zu beheben sein (das trifft
+vor allem dann zu, wenn Git-Neulinge dabei sind).</p>
+          <p>Daher sollten Sie immer an folgende Regel denken:</p>
+          <div class="warning" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Warnung</h3>
+            <p>Bearbeiten Sie mit dem Rebase-Kommando nur  unveröffentlichte Commits!</p>
+          </div>
+          <p>Ausnahmen bilden Konventionen wie persönliche Branches oder
+<code class="literal">pu</code>. Letzterer ist ein Kürzel für <span class="emphasis"><em>Proposed Updates</em></span> und
+ist in der Regel ein Branch, in dem neue, experimentelle Features auf
+Kompatibilität getestet werden. Auf diesen Branch baut sinnvollerweise
+niemand seine eigene Arbeit auf, daher kann er ohne Probleme und
+vorherige Ankündigung umgeschrieben werden.</p>
+          <p>Eine weitere Möglichkeit bieten private Branches, also solche, die zum
+Beispiel mit <code class="literal">&lt;user&gt;/</code> starten. Trifft man die
+Vereinbarung, dass Entwickler auf diesen Branches eigene Entwicklung
+betreiben, aber ihre Features immer nur auf „offiziellen“
+Branches aufbauen, dann dürfen die Entwickler ihre Branches beliebig
+umschreiben.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.rebase-cp"></a>4.1.6. Code-Dopplungen vermeiden</h3>
+              </div>
+            </div>
+          </div>
+          <p>Wird über einen langen Zeitraum an einem Feature entwickelt, und Teile
+des Features fließen schon in ein Mainstream-Release (z.B. per
+<code class="literal">cherry-pick</code>), dann erkennt das Rebase-Kommando diese Commits
+und lässt sie beim Kopieren bzw. Neuaufbauen der Commits aus, da die
+Änderung schon in dem Branch enthalten ist.</p>
+          <p>So besteht der neue Branch nach einem Rebase nur aus den Commits, die
+noch nicht in den Basis-Branch eingeflossen sind.  Auf diese Weise
+treten Commits nicht doppelt in der Versionsgeschichte eines Projekts
+auf. Wäre der Branch einfach nur per Merge integriert worden, so wären
+mitunter die gleichen Commits mit unterschiedlichen SHA-1-Summen an
+verschiedenen Stellen im Commit-Graphen vorhanden.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.rebase-ps"></a>4.1.7. Patch-Stacks verwalten</h3>
+              </div>
+            </div>
+          </div>
+          <p>Es gibt Situationen, in denen es von einer Software eine
+Vanilla-Version („einfachste Version“) gibt und außerdem
+eine gewisse Anzahl von Patches, die darauf angewendet werden, bevor
+die Vanilla-Version ausgeliefert wird.  Zum Beispiel baut Ihre Firma
+eine Software, aber vor jeder Auslieferung an den Kunden müssen (je
+nach Kunde) einige Anpassungen vorgenommen werden. Oder Sie haben eine
+Open-Source-Software im Einsatz, diese aber ein wenig an Ihre
+Bedürfnisse angepasst – jedes Mal, wenn nun eine neue, offizielle
+Version der Software erscheint, müssen Sie Ihre Änderungen neu
+anwenden und die Software anschließend neu bauen.<a href="#ftn.idm45240358261088" class="footnote" id="idm45240358261088"><sup class="footnote">[56]</sup></a></p>
+          <p>Um Patch-Stacks zu verwalten, gibt es einige Programme, die auf Git
+aufbauen, Ihnen aber den Komfort bieten, nicht direkt mit dem
+Rebase-Kommando arbeiten zu müssen. Beispielsweise erlaubt
+<span class="emphasis"><em>TopGit</em></span><a href="#ftn.idm45240358257056" class="footnote" id="idm45240358257056"><sup class="footnote">[57]</sup></a>
+Ihnen, Abhängigkeiten zwischen Branches zu definieren – wenn sich
+dann in einem Branch etwas ändert und andere Branches
+hängen davon ab, baut TopGit diese auf Wunsch neu auf. Eine
+Alternative zu TopGit ist <span class="emphasis"><em>Stacked Git</em></span><a href="#ftn.idm45240358255136" class="footnote" id="idm45240358255136"><sup class="footnote">[58]</sup></a>.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.rebase-onto"></a>4.1.8. Rebase einschränken mit --onto</h3>
+              </div>
+            </div>
+          </div>
+          <p>Sie mögen sich nun gewundert haben: <code class="literal">git rebase &lt;referenz&gt;</code>
+kopiert immer <span class="emphasis"><em>alle</em></span> Commits, die zwischen <code class="literal">&lt;referenz&gt;</code>
+und <code class="literal">HEAD</code> liegen. Was aber, wenn Sie nur einen Teil eines
+Branches umsetzen, quasi „transplantieren“ möchten?
+Betrachten Sie folgende Situation:</p>
+          <div class="figure">
+            <a id="fig.rebase-onto-vorher-dia"></a>
+            <p class="title">
+              <strong>Abbildung 4.5. Vor dem <code class="literal">rebase --onto</code></strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/rebase-onto-vorher.png" width="486" alt="bilder_ebook/rebase-onto-vorher.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p>Sie haben gerade auf dem Branch <code class="literal">topic</code> ein Feature entwickelt,
+als Ihnen ein Fehler aufgefallen ist; Sie haben einen Branch
+<code class="literal">bugfix</code> erstellt und noch einen Fehler gefunden. Rein
+semantisch hat aber Ihr Branch <code class="literal">bugfix</code> nichts  mit dem
+<code class="literal">topic</code>-Branch zu tun. Sinnvollerweise sollte er daher vom
+<code class="literal">master</code>-Branch abzweigen.</p>
+          <p>Wenn Sie nun aber per <code class="literal">git rebase master</code> den Branch
+<code class="literal">bugfix</code> neu aufbauen, passiert Folgendes: Alle Knoten, die in
+<code class="literal">bugfix</code> enthalten sind, aber nicht im <code class="literal">master</code>, werden
+der Reihe nach auf den <code class="literal">master</code>-Branch kopiert – das sind also
+die Knoten D, E, F und G. Dabei gehören jedoch D und E gar nicht zum
+Bugfix.</p>
+          <p>Hier kommt nun die Option <code class="literal">--onto</code> ins Spiel: Sie erlaubt, einen
+Start- und Endpunkt für die Liste der zu kopierenden Commits
+anzugeben. Die allgemeine Syntax lautet:</p>
+          <pre class="screen">git rebase --onto &lt;worauf&gt; &lt;start&gt; &lt;ziel&gt;</pre>
+          <p>In diesem Beispiel wollen wir nur die Commits F und G (oder auch: die
+Commits von <code class="literal">topic</code> bis <code class="literal">bugfix</code>) von oben auf
+<code class="literal">master</code> aufbauen. Daher lautet das Kommando:</p>
+          <pre class="screen">$ <span class="strong"><strong>git rebase --onto master topic bugfix</strong></span></pre>
+          <p>Das Ergebnis sieht aus wie erwartet:</p>
+          <div class="figure">
+            <a id="fig.rebase-onto-nachher-dia"></a>
+            <p class="title">
+              <strong>Abbildung 4.6. Nach einem <code class="literal">rebase --onto</code></strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/rebase-onto-nachher.png" width="486" alt="bilder_ebook/rebase-onto-nachher.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.rebase-onto-ci-amend"></a>4.1.9. Einen Commit verbessern</h3>
+              </div>
+            </div>
+          </div>
+          <p>Sie haben in <a class="xref" href="ch02.html#sec.grundlagen" title="2.1. Git-Kommandos">Abschnitt 2.1, „Git-Kommandos“</a> das Kommando <code class="literal">commit
+  --amend</code> kennengelernt, mit dem Sie einen Commit verbessern. Es
+bezieht sich aber immer nur auf den aktuellen (letzten) Commit. Mit
+<code class="literal">rebase --onto</code> können Sie auch Commits anpassen, die weiter
+in der Vergangenheit liegen.</p>
+          <p>Suchen Sie zunächst den Commit heraus, den Sie editieren wollen, und
+erstellen Sie einen Branch darauf:</p>
+          <pre class="screen">$ <span class="strong"><strong>git checkout -b fix-master 21d8691</strong></span></pre>
+          <p>Anschließend führen Sie Ihre Änderungen aus, fügen geänderte Dateien
+mit <code class="literal">git add</code> hinzu und korrigieren dann den Commit mit
+<code class="literal">git commit --amend --no-edit</code> (die Option <code class="literal">--no-edit</code>
+übernimmt Meta-Informationen wie die Beschreibung des
+alten Commits und bietet diese nicht erneut zum Editieren an).</p>
+          <p>Nun spielen Sie alle Commits aus dem <code class="literal">master</code>-Branch von oben
+auf Ihren korrigierten Commit auf:</p>
+          <pre class="screen">$ <span class="strong"><strong>git rebase --onto fix-master 21d8691 master</strong></span></pre>
+          <p>Sie kopieren so alle Commits von <code class="literal">21d8691</code> (exklusive!) bis
+<code class="literal">master</code> (inklusive!). Der fehlerhafte Commit <code class="literal">21d8691</code>
+wird nicht mehr referenziert und taucht daher nicht mehr auf. Der
+Branch <code class="literal">fix-master</code> ist nun obsolet und kann gelöscht werden.</p>
+          <p>Eine äquivalente Möglichkeit, einen Commit zu editieren, haben Sie
+mit der Aktion <code class="literal">edit</code> im interaktiven Rebase (siehe <a class="xref" href="ch04.html#sec.rebase-i-edit" title="4.2.2. Commits beliebig editieren">Abschnitt 4.2.2, „Commits beliebig editieren“</a>).</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.rebase-optionen"></a>4.1.10. Rebase feinjustieren</h3>
+              </div>
+            </div>
+          </div>
+          <p>Es gibt Situationen, in denen Sie das Standardverhalten von
+<code class="literal">git rebase</code> anpassen müssen. Erstens ist dies der Fall, wenn
+Sie einen Branch mit Rebase bearbeiten, der Merges enthält. Rebase
+kann versuchen, diese nachzuahmen statt die Commits zu linearisieren.
+Zuständig ist die Option <code class="literal">-p</code> bzw.
+<code class="literal">--preserve-merges</code>.<a href="#ftn.idm45240358209184" class="footnote" id="idm45240358209184"><sup class="footnote">[59]</sup></a></p>
+          <p>Mit der Option <code class="literal">-m</code> bzw. <code class="literal">--merge</code> können Sie
+<code class="literal">git rebase</code> anweisen, Merge-Strategien zu verwenden (siehe
+dafür auch  <a class="xref" href="ch03.html#sec.merge-strategies" title="3.3.3. Merge-Strategien">Abschnitt 3.3.3, „Merge-Strategien“</a>). Wenn Sie diese Strategien
+anwenden, bedenken Sie, dass Rebase intern Commit für Commit per
+<code class="literal">cherry-pick</code> auf den neuen Branch aufspielt; daher sind die
+Rollen von <code class="literal">ours</code> und <code class="literal">theirs</code> vertauscht: <code class="literal">theirs</code>
+bezeichnet den Branch, den Sie auf eine neue Basis aufbauen!</p>
+          <p>Ein interessanter Anwendungsfall ist daher die Strategie-Option
+<code class="literal">theirs</code> für die Merge-Strategie <code class="literal">recursive</code>: Falls
+Konflikte auftreten, wird den Änderungen aus dem Commit, der kopiert
+wird, Vorrang gegeben. Ein solches Szenario ist also sinnvoll, wenn
+Sie wissen, dass es konfliktverursachende Änderungen gibt, sich aber
+sicher sind, dass die Änderungen des neu aufzubauenden Branches
+„richtiger“ sind als die des Baumes, auf den Sie aufbauen.
+Wenn Sie <code class="literal">topic</code> neu auf <code class="literal">master</code>
+aufbauen, sähe ein solcher Aufruf so aus:</p>
+          <pre class="screen">$ <span class="strong"><strong>git checkout topic</strong></span>
+$ <span class="strong"><strong>git rebase -m -Xtheirs master</strong></span></pre>
+          <p>In den Fällen, in denen die <code class="literal">recursive</code>-Strategie (Default) den
+Änderungen aus Commits aus <code class="literal">topic</code> den Vorzug gibt, werden Sie
+einen entsprechenden Hinweis <code class="literal">Auto-merging
+  &lt;Commit-Beschreibung&gt;</code> finden.</p>
+          <p>Eine kleine, sehr nützliche Option, die von Rebase direkt an
+<code class="literal">git apply</code> weitergeleitet wird, ist
+<code class="literal">--whitespace=fix</code>. Sie veranlasst Git, automatisch
+Whitespace-Fehler (z.B. Trailing-Spaces) zu korrigieren.
+Falls Sie Merge-Konflikte aufgrund von Whitespace haben (zum Beispiel
+wegen geänderter Einrückung), können Sie auch die in <a class="xref" href="ch03.html#sec.recursive-options" title="3.3.4. Optionen für die recursive-Strategie">Abschnitt 3.3.4, „Optionen für die recursive-Strategie“</a>
+vorgestellten Strategie-Optionen verwenden, um automatisch Lösungen
+erzeugen zu lassen (zum Beispiel durch Angabe von <code class="literal">-Xignore-space-change</code>).</p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.rebase-i"></a>4.2. Die Geschichte umschreiben – Interaktives Rebase</h2>
+            </div>
+          </div>
+        </div>
+        <p>Rebase kennt einen interaktiven Modus; er ist zwar technisch gleich
+implementiert wie der normale Modus, allerdings ist der typische
+Anwendungsfall ein ganz anderer, denn der interaktive Rebase erlaubt
+es, die Geschichte umzuschreiben, d.h. Commits beliebig zu
+bearbeiten (und nicht nur zu verschieben).</p>
+        <p>Im interaktiven Rebase können Sie</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+die Reihenfolge von Commits verändern
+</li>
+            <li class="listitem">
+Commits löschen
+</li>
+            <li class="listitem">
+Commits miteinander verschmelzen
+</li>
+            <li class="listitem">
+einen Commit in mehrere aufteilen
+</li>
+            <li class="listitem">
+die Beschreibung von Commits anpassen
+</li>
+            <li class="listitem">
+Commits auf jede sonst erdenkliche Weise
+  bearbeiten
+</li>
+          </ul>
+        </div>
+        <p>Sie aktivieren den Modus durch die Option <code class="literal">-i</code>
+bzw. <code class="literal">--interactive</code>. Prinzipiell läuft dann der
+Rebase-Prozess genau so wie vorher, allerdings erhalten Sie eine Liste
+von Commits, die Rebase umschreiben wird, bevor das Kommando damit
+anfängt. Das kann zum Beispiel so aussehen:</p>
+        <pre class="screen"><span class="strong"><strong>pick e6ec2b6</strong></span> Fix expected values of setup tests on Windows
+<span class="strong"><strong>pick 95b104c</strong></span> t/README: hint about using $(pwd) rather than $PWD in tests
+<span class="strong"><strong>pick 91c031d</strong></span> tests: cosmetic improvements to the repo-setup test
+<span class="strong"><strong>pick 786dabe</strong></span> tests: compress the setup tests
+<span class="strong"><strong>pick 4868b2e</strong></span> Subject: setup: officially support --work-tree without
+   --git-dir</pre>
+        <p>Unter dieser Auflistung finden Sie einen Hilfstext, der beschreibt,
+was Sie nun mit den aufgelisteten Commits tun können.  Im Wesentlichen
+gibt es pro Commit sechs mögliche Aktionen. Die Aktion schreiben Sie
+einfach statt der Standard-Aktion <code class="literal">pick</code> an den Anfang der
+Zeile, vor die SHA-1-Summe. Im Folgenden die Aktionen – Sie können
+diese auch jeweils durch ihren Anfangsbuchstaben abkürzen, also z.B.
+<code class="literal">s</code> für <code class="literal">squash</code>.</p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+<code class="literal">pick</code>
+</span>
+            </dt>
+            <dd>
+„Commit verwenden“ (Default).  Entspricht der Behandlung
+von Commits im nicht-interaktive Rebase.
+</dd>
+            <dt>
+              <span class="term">
+<code class="literal">-</code>
+</span>
+            </dt>
+            <dd>
+Löschen Sie eine Zeile, dann wird der Commit nicht verwendet
+(geht verloren).
+</dd>
+            <dt>
+              <span class="term">
+<code class="literal">reword</code>
+</span>
+            </dt>
+            <dd>
+Commit-Beschreibung anpassen.
+</dd>
+            <dt>
+              <span class="term">
+<code class="literal">squash</code>
+</span>
+            </dt>
+            <dd>
+Commit mit dem vorherigen verschmelzen; Editor wird
+geöffnet, um die Beschreibungen zusammenzuführen.
+</dd>
+            <dt>
+              <span class="term">
+<code class="literal">fixup</code>
+</span>
+            </dt>
+            <dd>
+Wie <code class="literal">squash</code>, wirft aber die Beschreibung des Commits weg.
+</dd>
+            <dt>
+              <span class="term">
+<code class="literal">edit</code>
+</span>
+            </dt>
+            <dd>
+Freies Editieren. Sie können beliebige Aktionen ausführen.
+</dd>
+            <dt>
+              <span class="term">
+<code class="literal">exec</code>
+</span>
+            </dt>
+            <dd>
+Der Rest der Zeile wird als Kommando auf der Shell ausgeführt.
+Falls das Kommando sich nicht erfolgreich (das heißt mit Rückgabewert 0)
+beendet, hält der Rebase an.
+</dd>
+          </dl>
+        </div>
+        <p>Die Aktion <code class="literal">pick</code> ist die simpelste – sie besagt einfach, dass
+Sie den Commit verwenden wollen, Rebase soll diesen Commit so, wie er
+ist, übernehmen. Das Gegenteil von <code class="literal">pick</code> ist das simple
+Löschen einer kompletten Zeile. Der Commit geht dann verloren (wie
+<code class="literal">git rebase --skip</code>).</p>
+        <p>Wenn Sie die Reihenfolge der Zeilen tauschen, dann wird Git die
+Commits in der neu definierten Reihenfolge anwenden. Zu Anfang sind
+die Zeilen in der Reihenfolge, in der sie später angewendet werden – also genau anders herum als in der Baumansicht! Beachten Sie, dass
+Commits häufig aufeinander aufbauen; daher wird es bei der
+Vertauschung von Commits häufig zu Konflikten kommen, sofern die
+Commits auf den gleichen Dateien und an den gleichen Stellen
+Änderungen durchführen.</p>
+        <p>Das Kommando <code class="literal">reword</code> ist praktisch, wenn Sie Tippfehler in
+einer Commit-Nachricht haben und diese korrigieren wollen (oder bisher
+keine ausführliche verfasst haben und dies nun nachholen wollen). Der
+Rebase-Prozess wird bei dem mit <code class="literal">reword</code> markierten Prozess
+angehalten, und Git startet einen Editor, in dem die Nachricht des
+Commits bereits angezeigt wird.  Sobald Sie den Editor beenden
+(Speichern nicht vergessen!), wird Git die neue Beschreibung
+einpflegen und den Rebase-Prozess weiterlaufen lassen.</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.rebase-i-squash"></a>4.2.1. Kleine Fehler korrigieren: Bug Squashing</h3>
+              </div>
+            </div>
+          </div>
+          <p>Die Kommandos <code class="literal">squash</code> bzw. <code class="literal">fixup</code> erlauben es, zwei
+oder mehr Commits miteinander zu verschmelzen.</p>
+          <p>Niemand schreibt immer sofort fehlerfreien Code. Häufig gibt es einen
+großen Commit, in dem Sie ein neues Feature implementiert haben; kurz
+darauf finden sich kleine Fehler. Was tun? Eine ausführliche
+Beschreibung, warum Sie aus Unachtsamkeit vergessen haben, eine Zeile
+hinzuzufügen oder zu entfernen? Nicht wirklich sinnvoll, und vor
+allem störend für andere Entwickler, die später Ihren Code überprüfen
+wollen. Schöner wäre es doch, die Illusion zu wahren, dass der Commit
+gleich beim ersten Mal fehlerfrei war…</p>
+          <p>Für jeden Fehler, den Sie finden, machen Sie einen kleinen Commit mit
+einer mehr oder weniger sinnvollen Beschreibung. Das könnte dann zum
+Beispiel so aussehen:</p>
+          <pre class="screen">$ <span class="strong"><strong>git log --oneline master..feature</strong></span>
+b5ffeb7 fix feature 1
+34c4453 fix feature 2
+ac445c6 fix feature 1
+ae65efd implement feature 2
+cf30f4d implement feature 1</pre>
+          <p>Wenn sich einige solche Commits angesammelt haben, starten Sie einen
+interaktiven Rebase-Prozess über die letzten Commits. Schätzen Sie
+dazu einfach ab, auf wie vielen Commits Sie arbeiten wollen, und
+bearbeiten Sie dann beispielsweise per <code class="literal">git rebase -i HEAD~5</code>
+die letzten fünf.</p>
+          <p>Im Editor erscheinen die Commits nun in umgekehrter Reihenfolge im
+Vergleich zur Ausgabe von <code class="literal">git log</code>. Ordnen Sie nun die kleinen
+Bugfix-Commits so an, dass sie <span class="emphasis"><em>unter</em></span> dem Commit, den sie
+korrigieren, stehen. Markieren Sie dann die Korrektur-Commits mit
+<code class="literal">squash</code> (oder <code class="literal">s</code>), also z.B. so:</p>
+          <pre class="screen">pick cf30f4d implement feature 1
+<span class="strong"><strong>s</strong></span> ac445c6 fix feature 1
+<span class="strong"><strong>s</strong></span> b5ffeb7 fix feature 1
+pick ae65efd implement feature 2
+<span class="strong"><strong>s</strong></span> 34c4453 fix feature 2</pre>
+          <p>Speichern Sie die Datei und beenden Sie den Editor; der Rebase-Prozess
+startet. Weil Sie <code class="literal">squash</code> ausgewählt haben, hält Rebase an,
+nachdem Commits verschmolzen wurden. Im Editor erscheinen die
+Commit-Nachrichten der verschmolzenen Commits, die Sie nun geeignet
+zusammenfassen. Verwenden Sie statt <code class="literal">squash</code> das Schlüsselwort
+<code class="literal">fixup</code> oder kurz <code class="literal">f</code>, wird die Commit-Nachricht der so
+markierten Commits weggeworfen – für diese Arbeitsweise also
+vermutlich praktischer.</p>
+          <p>Nach dem Rebase sieht die Versionsgeschichte viel aufgeräumter aus:</p>
+          <pre class="screen">$ <span class="strong"><strong>git log --oneline master..feature</strong></span>
+97fe253 implement feature 2
+6329a8a implement feature 1</pre>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Oft kommt es vor, dass man eine kleine Änderung noch in den zuletzt
+getätigten Commit „schleusen“ möchte. Hier bietet sich
+folgendes Alias an, das an die <code class="literal">fixup</code>-Aktion angelehnt ist:</p>
+            <pre class="screen">$ <span class="strong"><strong>git config --global alias.fixup "commit --amend --no-edit"</strong></span></pre>
+            <p>Wie oben schon erwähnt, übernimmt die Option <code class="literal">--no-edit</code> eins zu
+eins die Meta-Informationen des alten Commits, insbesondere die
+Commit-Message.</p>
+          </div>
+          <p>Wenn Sie die Commit-Nachricht mit <code class="literal">fixup!</code> bzw.
+<code class="literal">squash!</code> beginnen, gefolgt vom Anfang der Beschreibung des
+Commits, den Sie korrigieren wollen, können Sie das Kommando</p>
+          <pre class="screen">$ <span class="strong"><strong>git rebase -i --autosquash master</strong></span></pre>
+          <p>aufrufen. Die wie oben mit <code class="literal">fixup!</code> bzw. <code class="literal">squash!</code>
+markierten Commits werden automatisch an die richtige Stelle
+verschoben und mit der Aktion <code class="literal">squash</code> bzw.  <code class="literal">fixup</code>
+versehen. So können Sie den Editor direkt beenden, und die Commits
+werden verschmolzen. Falls Sie häufig mit dieser Option arbeiten, können
+Sie dieses Verhalten auch durch eine Konfigurationsoption zum Standard
+bei Rebase-Aufrufen machen: Setzen Sie dafür die Einstellung
+<code class="literal">rebase.autosquash</code> auf <code class="literal">true</code>.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.rebase-i-edit"></a>4.2.2. Commits beliebig editieren</h3>
+              </div>
+            </div>
+          </div>
+          <p>Wenn Sie einen Commit mit <code class="literal">edit</code> markieren, kann er beliebig
+editiert werden. Dabei geht Rebase wie in den anderen Fällen auch
+sequentiell die Commits durch. Bei den Commits, die mit <code class="literal">edit</code>
+markiert sind, hält Rebase an und <code class="literal">HEAD</code> wird auf den
+entsprechenden Commit gesetzt. Sie können dann den Commit ändern, als
+wäre er der aktuellste im Branch. Anschließend lassen Sie Rebase
+weiterlaufen:</p>
+          <pre class="screen">$ <span class="strong"><strong>vim ...</strong></span>
+# Korrekturen vornehmen
+$ <span class="strong"><strong>git add ...</strong></span>
+$ <span class="strong"><strong>git commit --amend</strong></span>
+$ <span class="strong"><strong>git rebase --continue</strong></span></pre>
+          <p>Im Wesentlichen erreichen Sie dabei dasselbe wie im Beispiel
+<code class="literal">git rebase --onto</code> in <a class="xref" href="ch04.html#sec.rebase-onto-ci-amend" title="4.1.9. Einen Commit verbessern">Abschnitt 4.1.9, „Einen Commit verbessern“</a> – allerdings können Sie auch weit kompliziertere Aktionen ausführen.
+Einen häufigen Anwendungsfall beschreibt folgendes
+„Rezept“.</p>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.rebase-split-cmmits"></a>Commits aufteilen</h4>
+                </div>
+              </div>
+            </div>
+            <p>Jeder Programmierer kennt das: Diszipliniert und penibel jede Änderung
+einzuchecken, ist anstrengend und unterbricht häufig den Arbeitsfluss.
+Das führt in der Praxis zu Commits, die groß und unübersichtlich sind.
+Damit die Versionsgeschichte aber für andere Entwickler – und Sie
+selbst! – nachvollziehbar bleibt, sollten die Änderungen in so kleine
+logische Einheiten wie möglich aufgeteilt werden.</p>
+            <p>Im Übrigen ist es nicht nur für Entwickler hilfreich, so vorzugehen.
+Auch die automatisierte Fehlersuche mittels <code class="literal">git bisect</code>
+funktioniert besser und akkurater, je kleiner und sinnvoller die
+Commits sind (siehe <a class="xref" href="ch04.html#sec.bisect" title="4.8. Regressionen finden – git bisect">Abschnitt 4.8, „Regressionen finden – git bisect“</a>).</p>
+            <p>Mit ein wenig Erfahrung können Sie einen Commit sehr schnell
+aufteilen. Wenn Sie häufig große Commits produzieren, sollte Ihnen der
+folgende Arbeitsschritt zur Routine werden.</p>
+            <p>Zunächst starten Sie den Rebase-Prozess und markieren den Commit, den
+Sie aufteilen wollen, mit <code class="literal">edit</code>. Rebase hält dort an,
+<code class="literal">HEAD</code> zeigt auf diesen Commit.</p>
+            <p>Anschließend setzen Sie den <code class="literal">HEAD</code> einen Commit zurück, ohne
+allerdings die Änderungen von <code class="literal">HEAD</code> (der aufzuteilende Commit)
+wegzuwerfen. Das passiert durch das Kommando <code class="literal">reset</code> (siehe
+auch <a class="xref" href="ch03.html#sec.reset" title="3.2.3. Reset und der Index">Abschnitt 3.2.3, „Reset und der Index“</a>; beachten Sie, dass, sofern Sie die
+Commit-Beschreibung noch brauchen, Sie diese vorher kopieren sollten):</p>
+            <pre class="screen">$ <span class="strong"><strong>git reset HEAD^</strong></span></pre>
+            <p>Die Änderungen, die der aufzuteilende Commit verursacht, sind nun noch
+in den Dateien vorhanden; der Index und das Repository spiegeln aber
+den Stand des Vorgänger-Commits wider. Sie haben also die Änderungen
+des aufzuteilenden Commits in den <span class="emphasis"><em>unstaged</em></span>-Zustand verschoben
+(das können Sie verifizieren, indem Sie <code class="literal">git diff</code> vor und nach
+dem <code class="literal">reset</code>-Aufruf betrachten).</p>
+            <p>Nun können Sie einige Zeilen hinzufügen, einen Commit erstellen,
+weitere Zeilen hinzufügen und schließlich einen dritten Commit für
+die übrigen Zeilen erstellen:</p>
+            <pre class="screen">$ <span class="strong"><strong>git add -p</strong></span>
+$ <span class="strong"><strong>git commit -m "Erster Teil"</strong></span>
+$ <span class="strong"><strong>git add -p</strong></span>
+$ <span class="strong"><strong>git commit -m "Zweiter Teil"</strong></span>
+$ <span class="strong"><strong>git add -u</strong></span>
+$ <span class="strong"><strong>git commit -m "Dritter (und letzter) Teil";</strong></span></pre>
+            <p>Was passiert? Durch das Reset-Kommando haben Sie den <code class="literal">HEAD</code>
+einen Commit zurückgesetzt. Mit jedem Aufruf von <code class="literal">git commit</code>
+erstellen Sie einen neuen Commit, aufbauend auf dem jeweiligen
+<code class="literal">HEAD</code>. Statt des einen großen Commits (den Sie durch den
+<code class="literal">reset</code>-Aufruf weggeworfen haben) haben Sie nun drei kleinere
+Commits an dessen Stelle gesetzt.</p>
+            <p>Lassen Sie jetzt Rebase weiterlaufen (<code class="literal">git rebase
+  --continue</code>) und die übrigen Commits von oben auf <code class="literal">HEAD</code>
+(der jetzt der neueste Ihrer drei Commits ist) aufbauen.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.blame"></a>4.3. Wer hat diese Änderungen gemacht? – git blame</h2>
+            </div>
+          </div>
+        </div>
+        <p>Wie andere Versionskontrollsysteme hat auch Git ein Kommando
+<code class="literal">blame</code> bzw. <code class="literal">annotate</code>, das alle Zeilen einer Datei mit
+Datum und Autor der letzten Änderung versieht.  So können Sie z.B.
+schnell herausfinden, wer der Verantwortliche für eine Zeile Code ist,
+die ein Problem verursacht, oder seit wann das Problem besteht.</p>
+        <p>Dabei ist das Kommando <code class="literal">annotate</code> lediglich für Umsteiger
+gedacht und hat die gleiche Funktionalität wie das Kommando
+<code class="literal">blame</code>, nur ein etwas anderes Ausgabeformat. Sie sollten also
+im Zweifel immer <code class="literal">blame</code> verwenden.</p>
+        <p>Nützliche Optionen sind <code class="literal">-M</code>, um Code-Verschiebungen, und
+<code class="literal">-C</code>, um Code-Kopien anzuzeigen. Anhand des Dateinamens in der
+Ausgabe können Sie dann erkennen, aus welcher Datei möglicherweise
+Code kopiert oder verschoben wurde.  Wird kein Dateiname angezeigt,
+konnte Git keine Code-Bewegungen oder -Kopien finden.  Wenn Sie diese
+Optionen verwenden, ist es meist sinnvoll, per <code class="literal">-s</code> die Angabe
+von Autor und Datum zu unterdrücken, damit die Anzeige noch ganz auf
+den Bildschirm passt.</p>
+        <p>Aus der folgenden Ausgabe erkennt man z.B., dass die Funktion
+<code class="literal">end_url_with_slash</code> ursprünglich aus der Datei
+<code class="literal">http.c</code> stammte. Die Option <code class="literal">-L&lt;m&gt;,&lt;n&gt;</code> grenzt die
+Ausgabe auf die entsprechenden Zeilen ein.</p>
+        <pre class="screen">$ <span class="strong"><strong>git blame -C -s -L123,135 url.c</strong></span>
+638794cd url.c  123) char *url_decode_parameter_value(const char
+ **query)
+638794cd url.c  124) {
+ce83eda1 url.c  125)    struct strbuf out = STRBUF_INIT;
+730220de url.c  126)    return url_decode_internal(query, "&amp;", &amp;out,
+ 1);
+638794cd url.c  127) }
+d7e92806 http.c 128)
+eb9d47cf http.c 129) void end_url_with_slash(struct strbuf *buf, const
+ char *url)
+5ace994f http.c 130) {
+5ace994f http.c 131)    strbuf_addstr(buf, url);
+5ace994f http.c 132)    if (buf-&gt;len &amp;&amp; buf-&gt;buf[buf-&gt;len - 1] != '/')
+5ace994f http.c 133)            strbuf_addstr(buf, "/");
+5ace994f http.c 134) }
+3793a309 url.c  135)</pre>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.blame-gui"></a>4.3.1. Blame grafisch</h3>
+              </div>
+            </div>
+          </div>
+          <p>Eine bequeme Alternative zu <code class="literal">git blame</code> auf der Konsole bietet
+das grafische Tool <code class="literal">git gui blame</code> (hierfür müssen Sie
+gegebenenfalls das Paket <code class="literal">git-gui</code> installieren).</p>
+          <div class="figure">
+            <a id="fig.git-gui-blame"></a>
+            <p class="title">
+              <strong>Abbildung 4.7. Ein Stück Code, das aus einer anderen Datei verschoben wurde</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/git-gui-blame.png" width="540" alt="bilder_ebook/git-gui-blame.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p>Wenn Sie eine Datei per <code class="literal">git gui blame &lt;datei&gt;</code> untersuchen,
+werden die unterschiedlichen Blöcke, die aus verschiedenen Commits
+stammen, mit Grautönen hinterlegt dargestellt.  Links sehen Sie die
+abgekürzte Commit-ID sowie die Initialen des Autors.</p>
+          <p>Erst wenn Sie mit der Maus über einen solchen Block fahren, erscheint
+ein kleines Popup-Fenster mit Informationen zum Commit, der die Zeilen
+geändert hat, möglicherweise auch mit einer Mitteilung, aus welcher
+Datei und welchem Commit dieser Codeblock verschoben oder kopiert
+wurde.</p>
+          <p>Bei der Code-Review interessiert man sich häufig dafür, wie eine Datei
+eigentlich vor einer bestimmten Änderung aussah. Dafür bietet das
+grafische Blame-Tool die folgende Möglichkeit, in der
+Versionsgeschichte zurückzugehen: Klicken Sie mit der rechten
+Maustaste auf die Commit-ID eines Code-Blocks und wählen Sie im
+Kontextmenü <span class="emphasis"><em>Blame Parent Commit</em></span> aus – nun wird der
+Vorgänger dieser Änderung angezeigt. Sie können auf diese Weise
+mehrere Schritte zurückgehen. Über den grünen Pfeil links oben können
+Sie wieder in die Zukunft springen.</p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.ignore"></a>4.4. Dateien ignorieren</h2>
+            </div>
+          </div>
+        </div>
+        <p>In fast jedem Projekt fallen Dateien an, die Sie nicht versionieren
+wollen. Sei es der binäre Output des Compilers, die autogenerierte
+Dokumentation im HTML-Format oder die Backup-Dateien, die Ihr Editor
+erzeugt. Git bietet Ihnen verschiedene Ebenen, um Dateien zu
+ignorieren:</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+benutzerspezifische Einstellung
+</li>
+            <li class="listitem">
+repositoryspezifische Einstellung
+</li>
+            <li class="listitem">
+repositoryspezifische Einstellung, die mit eingecheckt wird
+</li>
+          </ul>
+        </div>
+        <p>Welche Option Sie wählen, hängt ganz von Ihrem Anwendungsfall ab. Die
+benutzerspezifischen Einstellungen sollten Dateien und Muster
+enthalten, die für den Benutzer relevant sind, beispielsweise
+Backup-Dateien, die Ihr Editor erzeugt. Solche Muster werden
+üblicherweise in einer Datei im
+<code class="literal">$HOME</code>-Verzeichnis abgelegt.  Mit der Option
+<code class="literal">core.excludesfile</code> geben Sie an, welche Datei dies sein soll,
+z.B. im Fall von <code class="literal">~/.gitignore</code>:</p>
+        <pre class="screen">$ <span class="strong"><strong>git config --global core.excludesfile ~/.gitignore</strong></span></pre>
+        <p>Bestimmte Dateien und Muster sind an ein Projekt gebunden und gelten
+für jeden Teilnehmer, z.B. Compiler-Output und autogenerierte
+HTML-Dokumentation. Diese Einstellung legen Sie in der Datei
+<code class="literal">.gitignore</code> ab, die Sie ganz normal einchecken und somit an
+alle Entwickler ausliefern.</p>
+        <p>Zuletzt lässt sich die Datei <code class="literal">.git/info/exclude</code> für
+repositoryspezifische Einstellungen nutzen, die nicht mit einem
+Klon ausgeliefert werden sollen, also Einstellungen, die gleichzeitig
+projekt- und benutzerspezifisch sind.</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.muster"></a>4.4.1. Syntax für Muster</h3>
+              </div>
+            </div>
+          </div>
+          <p>Die Syntax für Muster ist der Shell-Syntax nachempfunden:</p>
+          <div class="itemizedlist">
+            <ul class="itemizedlist" style="list-style-type: disc; ">
+              <li class="listitem">
+Leere Zeilen haben keinen Effekt und können zum Gliedern
+  und Trennen verwendet werden.
+</li>
+              <li class="listitem">
+Zeilen, die mit einem <code class="literal">#</code> anfangen, werden als
+  Kommentare gewertet und haben ebenfalls keinen Effekt.
+</li>
+              <li class="listitem">
+Ausdrücke, die mit <code class="literal">!</code> anfangen, werden als Negation
+  gewertet.
+</li>
+              <li class="listitem">
+Ausdrücke, die mit einem <code class="literal">/</code> enden, werden als
+  Verzeichnis gewertet. Der Ausdruck <code class="literal">man/</code> erfasst das
+  Verzeichnis <code class="literal">man</code>, nicht aber die gleichnamige Datei oder den
+  Symlink.
+</li>
+              <li class="listitem">
+Ausdrücke, die kein <code class="literal">/</code> enthalten, werden als
+  Shell-Glob für das aktuelle und alle Unterverzeichnisse gewertet.
+  Der Ausdruck <code class="literal">*.zip</code> in der obersten <code class="literal">.gitignore</code> etwa
+  erfasst alle Zip-Dateien in der Verzeichnisstruktur des Projekts.
+</li>
+              <li class="listitem">
+Der Ausdruck <code class="literal">**</code> umfasst Null oder mehr Dateien und Verzeichnisse.
+  Sowohl <code class="literal">t/data/set1/store.txt</code> als auch <code class="literal">t/README.txt</code> werden durch
+  das Muster <code class="literal">t/**/*.txt</code> erfasst.
+</li>
+              <li class="listitem">
+Sonst wird das Muster als Shell-Glob gewertet, genauer als
+  Shell-Glob, das von der Funktion <code class="literal">fnmatch(3)</code> mit dem Flag
+  <code class="literal">FNM_PATHNAME</code> ausgewertet wird. Das heißt, das Muster
+  <code class="literal">doc/*html</code> erfasst <code class="literal">doc/index.html</code>, nicht aber
+  <code class="literal">doc/api/singleton.html</code>.
+</li>
+              <li class="listitem">
+Ausdrücke, die mit einem <code class="literal">/</code> beginnen, sind an den
+  Pfad gebunden. Der Ausdruck <code class="literal">/*.sh</code> zum Beispiel erfasst
+  <code class="literal">upload.sh</code>, nicht aber <code class="literal">scripts/check-for-error.sh</code>.
+</li>
+            </ul>
+          </div>
+          <p>Ein Beispiel:<a href="#ftn.idm45240358022576" class="footnote" id="idm45240358022576"><sup class="footnote">[60]</sup></a></p>
+          <pre class="screen">$ <span class="strong"><strong>cat ~/.gitignore</strong></span>
+# vim swap files
+.*.sw[nop]
+
+# python bytecode
+*.pyc
+
+# documents
+*.dvi
+*.pdf
+
+# miscellaneous
+*.*~
+*.out</pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.nachtraeglich-ignorieren"></a>4.4.2. Nachträglich ignorieren oder versionieren</h3>
+              </div>
+            </div>
+          </div>
+          <p>Dateien, die bereits versioniert sind, werden nicht automatisch
+ignoriert. Um eine solche Datei trotzdem zu ignorieren, weisen Sie Git
+explizit an, die Datei zu „vergessen“:</p>
+          <pre class="screen">$ <span class="strong"><strong>git rm documentation.pdf</strong></span></pre>
+          <p>Um die Datei mit dem nächsten Commit zu löschen, aber trotzdem im
+Working Tree vorzuhalten:</p>
+          <pre class="screen">$ <span class="strong"><strong>git rm --cached documentation.pdf</strong></span></pre>
+          <p>Dateien, die bereits ignoriert werden, erscheinen in der Ausgabe von
+<code class="literal">git status</code> nicht. Außerdem weigert sich <code class="literal">git add</code>, die
+Datei zu übernehmen; mit der Option <code class="literal">--force</code> bzw.
+<code class="literal">-f</code> zwingen Sie Git, die Datei doch zu beachten:</p>
+          <pre class="screen">$ <span class="strong"><strong>git add documentation.pdf</strong></span>
+The following paths are ignored by one of your .gitignore files:
+documentation.pdf
+Use -f if you really want to add them.
+fatal: no files added
+$ <span class="strong"><strong>git add -f documentation.pdf</strong></span></pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.git-clean"></a>4.4.3. Ignorierte und unbekannte Dateien löschen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Das Kommando <code class="literal">git clean</code> löscht ignorierte sowie unbekannte
+(sog. <span class="emphasis"><em>untracked</em></span>) Dateien. Da evtl. Dateien unwiederbringlich
+verlorengehen könnten, verfügt das Kommando über die Option
+<code class="literal">--dry-run</code> (bzw.  <code class="literal">-n</code>); sie gibt Auskunft, was
+gelöscht würde.  Als weitere Vorsichtsmaßnahme weigert sich das
+Kommando, irgendetwas zu löschen, außer Sie übergeben explizit die
+Option <code class="literal">--force</code> bzw.  <code class="literal">-f</code>.<a href="#ftn.idm45240358003984" class="footnote" id="idm45240358003984"><sup class="footnote">[61]</sup></a></p>
+          <p>Standardmäßig löscht <code class="literal">git clean</code> nur die unbekannten Dateien,
+mit <code class="literal">-X</code> entfernt es nur die ignorierten Dateien und mit
+<code class="literal">-x</code> sowohl unbekannte als auch ignorierte. Mit der Option
+<code class="literal">-d</code> werden zusätzlich Verzeichnisse gelöscht, die in Frage
+kommen. Um also unbekannte sowie ignorierte Dateien und Verzeichnisse
+zu löschen, geben Sie ein:</p>
+          <pre class="screen">$ <span class="strong"><strong>git clean -dfx</strong></span></pre>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.stash"></a>4.5. Veränderungen auslagern – git stash</h2>
+            </div>
+          </div>
+        </div>
+        <p>Der Stash (Lager) ist ein Mechanismus, der dazu dient, noch nicht
+gespeicherte Veränderungen am Working Tree kurzfristig auszulagern.
+Ein klassischer Anwendungsfall: Ihr Chef bittet Sie, so schnell wie
+möglich einen kritischen Bug zu beheben, Sie haben aber gerade
+angefangen, ein neues Feature zu implementieren.  Mit dem Kommando
+<code class="literal">git stash</code> räumen Sie die unfertigen Zeilen vorübergehend
+„aus dem Weg“, ohne einen Commit zu erzeugen, und können
+sich so mit einem sauberen Working Tree dem Fehler zuwenden. Außerdem
+bietet der Stash Abhilfe, wenn Sie den Branch nicht wechseln können,
+weil dadurch Veränderungen verlorengehen würden (siehe auch <a class="xref" href="ch03.html#sec.branch-management" title="3.1.2. Branches verwalten">Abschnitt 3.1.2, „Branches verwalten“</a>).</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.stash-benutzung"></a>4.5.1. Grundlegende Benutzung</h3>
+              </div>
+            </div>
+          </div>
+          <p>Mit <code class="literal">git stash</code> speichern Sie den aktuellen Zustand von Working
+Tree und Index, sofern diese sich von <code class="literal">HEAD</code> unterscheiden:</p>
+          <pre class="screen">$ <span class="strong"><strong>git stash</strong></span>
+Saved working directory and index state WIP on master: b529e34 new spec
+ how the script should behave
+HEAD is now at b529e34 new spec how the script should behave</pre>
+          <p>Mit der Option <code class="literal">--keep-index</code> bleibt der Index intakt. Das heißt, alle
+Veränderungen die bereits im Index sind, bleiben im Working Tree und im Index
+vorhanden und werden zusätzlich im Stash gespeichert.</p>
+          <p>Die Veränderungen am Working Tree sowie dem Index werden „beiseite
+  geschafft“, und Git erzeugt keinen Commit auf dem aktuellen
+Branch.  Um den gespeicherten Zustand wieder herzustellen, also um den
+gespeicherten Patch auf dem aktuellen Working Tree anzuwenden und
+gleichzeitig den Stash zu löschen, verwenden Sie:</p>
+          <pre class="screen">$ <span class="strong"><strong>git stash pop</strong></span>
+...
+Dropped refs/stash@{0} (d4cc94c37e92390e5fabf184a3b5b7ebd5c3943a)</pre>
+          <p>Sie können zwischen dem Abspeichern und dem Wiederherstellen das
+Repository beliebig verändern, z.B. den Branch wechseln, Commits
+machen usw. Der Stash wird immer auf den aktuellen Working Tree
+angewendet.</p>
+          <p>Das Kommando <code class="literal">git stash pop</code> ist eine Abkürzung für die
+zwei Kommandos <code class="literal">git stash apply</code> (Stash anwenden) und
+<code class="literal">git stash drop</code> (Stash verwerfen):</p>
+          <pre class="screen">$ <span class="strong"><strong>git stash apply</strong></span>
+...
+$ <span class="strong"><strong>git stash drop</strong></span>
+Dropped refs/stash@{0} (d4cc94c37e92390e5fabf184a3b5b7ebd5c3943a)</pre>
+          <p>Sowohl <code class="literal">pop</code> als auch <code class="literal">apply</code> pflegen die Veränderungen
+in den Working Tree ein, der Zustand des Index wird nicht wieder
+hergestellt. Mit der Option <code class="literal">--index</code> stellen Sie auch den
+abgespeicherten Zustand des Index wieder her.</p>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Mit der Option <code class="literal">--patch</code> (bzw. kurz <code class="literal">-p</code>) starten
+Sie einen interaktiven Modus, d.h. Sie können wie mit <code class="literal">git
+add -p</code> und <code class="literal">git reset -p</code> einzelne Hunks auswählen, um sie
+dem Stash hinzuzufügen:</p>
+            <pre class="screen">$ <span class="strong"><strong>git stash -p</strong></span></pre>
+            <p>Die Konfigurationseinstellung <code class="literal">interactive.singlekey</code> (siehe
+<a class="xref" href="ch02.html#sec.add-p" title="2.1.2. Commits schrittweise erstellen">Abschnitt 2.1.2, „Commits schrittweise erstellen“</a>) gilt auch hier.</p>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.stash-konflikte"></a>4.5.2. Konflikte lösen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Es kann zu Konflikten kommen, wenn Sie einen Stash auf einem anderen
+Commit anwenden als dem, auf dem er entstanden ist:</p>
+          <pre class="screen">$ <span class="strong"><strong>git stash pop</strong></span>
+Auto-merging hello.pl
+CONFLICT (content): Merge conflict in hello.pl</pre>
+          <p>In dem Fall verwenden Sie die üblichen Rezepte zum Lösen des
+Konflikts, siehe <a class="xref" href="ch03.html#sec.merge-conflicts" title="3.4. Merge-Konflikte lösen">Abschnitt 3.4, „Merge-Konflikte lösen“</a>.  Wichtig ist aber, dass die
+Konflikt-Marker die Bezeichnungen <code class="literal">Updated Upstream</code> (die
+Version im aktuellen Working Tree) sowie <code class="literal">Stashed Changes</code>
+(Veränderungen im Stash) tragen:</p>
+          <pre class="screen">&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream
+# E-Mail: valentin.haenel@gmx.de
+========
+# E-Mail: valentin@gitbu.ch
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes</pre>
+          <div class="important" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Wichtig</h3>
+            <p>Sollten Sie versucht haben, einen Stash mit <code class="literal">git stash
+  pop</code> anzuwenden, wird der Stash <span class="emphasis"><em>nicht</em></span> automatisch gelöscht.
+Sie müssen ihn explizit mit <code class="literal">git stash drop</code> löschen.</p>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.stash-fail"></a>4.5.3. Wenn Sie den Stash nicht anwenden können…</h3>
+              </div>
+            </div>
+          </div>
+          <p>Der Stash wird per Default auf den aktuellen Working Tree
+angewendet, vorausgesetzt dieser ist sauber – wenn nicht, bricht Git
+ab:</p>
+          <pre class="screen">$ <span class="strong"><strong>git stash pop</strong></span>
+Cannot apply to a dirty working tree, please stage your changes</pre>
+          <p>Git schlägt zwar vor, dass Sie die Änderungen dem Index hinzufügen,
+wie Sie aber vorgehen sollten, hängt von Ihrem Ziel ab. Wenn Sie die
+Änderungen im Stash zusätzlich zu denen im Working Tree haben wollen,
+bietet sich Folgendes an:</p>
+          <pre class="screen">$ <span class="strong"><strong>git add -u</strong></span>
+$ <span class="strong"><strong>git stash pop</strong></span>
+$ <span class="strong"><strong>git reset HEAD</strong></span></pre>
+          <p>Zur Erläuterung: Zuerst werden die noch nicht gespeicherten
+Veränderungen am Working Tree dem Index hinzugefügt; dann die
+Veränderungen aus dem Stash herausgeholt und auf den Working Tree
+angewendet, und zuletzt noch der Index zurückgesetzt.</p>
+          <p>Alternativ dazu können Sie auch einen zusätzlichen Stash erstellen,
+und die Veränderungen, die Sie haben wollen, auf einen sauberen
+Working Tree anwenden:</p>
+          <pre class="screen">$ <span class="strong"><strong>git stash</strong></span>
+$ <span class="strong"><strong>git stash apply stash@{1}</strong></span>
+$ <span class="strong"><strong>git stash drop stash@{1}</strong></span></pre>
+          <p>Bei diesem Rezept verwenden Sie mehrere Stashes.
+Zuerst lagern Sie die Veränderungen am
+Working Tree in einen neuen Stash aus, dann holen Sie die
+Veränderungen, die Sie eigentlich haben wollen, aus dem vorherigen
+Stash und löschen diesen nach der Anwendung.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.stash-message"></a>4.5.4. Nachricht anpassen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Standardmäßig setzt Git für einen Stash die folgende Nachricht:</p>
+          <pre class="screen">WIP: on &lt;branch&gt;: &lt;sha1&gt; &lt;commit-msg&gt;</pre>
+          <div class="variablelist">
+            <dl class="variablelist">
+              <dt>
+                <span class="term">
+<code class="literal">&lt;branch&gt;</code>
+</span>
+              </dt>
+              <dd>
+der aktuelle Branch
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">&lt;sha1&gt;</code>
+</span>
+              </dt>
+              <dd>
+die Commit-ID des <code class="literal">HEAD</code>
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">&lt;commit-msg&gt;</code>
+</span>
+              </dt>
+              <dd>
+die Commit-Nachricht des <code class="literal">HEAD</code>
+</dd>
+            </dl>
+          </div>
+          <p>Meist reicht dies aus, um einen Stash zu identifizieren. Wenn Sie
+vorhaben, Ihre Stashes länger vorzuhalten (möglich, aber nicht
+wirklich zu empfehlen), oder wenn Sie mehrere machen wollen, raten
+wir, diese mit einer besseren Anmerkung zu versehen:</p>
+          <pre class="screen">$ <span class="strong"><strong>git stash save "unfertiges feature"</strong></span>
+Saved working directory and index state On master: unfertiges feature
+HEAD is now at b529e34 new spec how the script should behave</pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.multi-stash"></a>4.5.5. Stashes einsehen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Git verwaltet alle Stashes als Stack, d.h. aktuellere Zustände
+liegen oben auf und werden zuerst verarbeitet. Die Stashes sind mit
+einer Reflog-Syntax (siehe auch <a class="xref" href="ch03.html#sec.reflog" title="3.7. Reflog">Abschnitt 3.7, „Reflog“</a>) benannt:</p>
+          <pre class="screen">    stash@{0}
+    stash@{1}
+    stash@{2}
+    ...</pre>
+          <p>Erzeugen Sie einen neuen Stash, wird dieser als <code class="literal">stash@{0}</code>
+bezeichnet und die Nummer der anderen wird inkrementiert: Aus
+<code class="literal">stash@{0}</code> wird <code class="literal">stash@{1}</code>, aus <code class="literal">stash@{1}</code>
+wird <code class="literal">stash@{2}</code> usw.</p>
+          <p>Geben Sie keinen expliziten Stash an, beziehen sich die Kommandos
+<code class="literal">apply</code>, <code class="literal">drop</code> und <code class="literal">show</code> auf den neuesten, also
+<code class="literal">stash@{0}</code>.</p>
+          <p>Um einzelne Stashes einzusehen, verwenden Sie <code class="literal">git stash show</code>.
+Standardmäßig druckt dieses Kommando eine Bilanz der hinzugefügten und
+entfernten Zeilen aus (wie <code class="literal">git diff --stat</code>):</p>
+          <pre class="screen">$ <span class="strong"><strong>git stash show</strong></span>
+git-stats.sh |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)</pre>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Das Kommando <code class="literal">git stash show</code> akzeptiert zusätzlich
+allgemeine Diff-Optionen, die das Format beeinflussen, z.B. <code class="literal">-p</code>, um ein Patch im Diff-Format auszugeben:</p>
+            <pre class="screen">$ <span class="strong"><strong>git stash show -p stash@{0}</strong></span>
+diff --git a/git-stats.sh b/git-stats.sh
+index 62f92fe..1235fd3 100755
+--- a/git-stats.sh
++++ b/git-stats.sh
+@@ -1,6 +1,6 @@
+ #!/bin/bash
+-START=18.07.2010
+-END=25.07.2010
++START=18.07.2000
++END=25.07.2020
+  echo "Number of commits per author:"</pre>
+          </div>
+          <p>Das Kommando <code class="literal">git stash list</code> gibt eine Liste der derzeit
+angelegten Stashes aus:</p>
+          <pre class="screen">$ <span class="strong"><strong>git stash list</strong></span>
+stash@{0}: WIP on master: eae23b6 add number of merge commits to output
+stash@{1}: WIP on master: b1ee2cf start and end date in one place only</pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.stash-delete"></a>4.5.6. Stashes löschen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Einzelne Stashes löschen Sie mit dem Kommando <code class="literal">git stash drop</code>,
+alle mit <code class="literal">git stash clear</code>.  Sollten Sie versehentlich einen
+Stash löschen, finden Sie diesen nicht über die üblichen
+Reflog-Mechanismen wieder! Jedoch gibt folgender Befehl die ehemaligen
+Stashes aus:<a href="#ftn.idm45240357915712" class="footnote" id="idm45240357915712"><sup class="footnote">[62]</sup></a></p>
+          <pre class="screen">$ <span class="strong"><strong>git fsck --unreachable | grep commit | cut -d" "  -f3 | \</strong></span>
+  <span class="strong"><strong>xargs git log --merges --no-walk --grep=WIP</strong></span></pre>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Für den Notfall merken Sie sich, dass Sie den Befehl ganz am Ende
+der Man-Page von <code class="literal">git-stash(1)</code> finden.</p>
+          </div>
+          <p>Außerdem ist wichtig, dass die so gezeigten Einträge nur als
+unerreichbare Objekte in der Objektdatenbank vorhanden sind und somit
+auch den normalen Wartungsmechanismen unterliegen – sie werden also
+nach einiger Zeit gelöscht und nicht dauerhaft vorgehalten.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.stash-implementation"></a>4.5.7. Wie ist der Stash implementiert?</h3>
+              </div>
+            </div>
+          </div>
+          <p>Git erzeugt für jeden Stash zwei Commit-Objekte, eines für die
+Veränderungen am Working Tree und eines für die Veränderungen am
+Index. Beide haben den aktuellen <code class="literal">HEAD</code> als Vorfahren, das
+Working-Tree-Objekt hat das Index-Objekt als Vorfahren. Dadurch wird
+ein Stash in Gitk als Dreieck angezeigt, was im ersten Moment etwas
+verwirrend ist:</p>
+          <div class="figure">
+            <a id="fig.gitk-stash"></a>
+            <p class="title">
+              <strong>Abbildung 4.8. Ein Stash in Gitk</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/stash-screenshot.png" width="486" alt="bilder_ebook/stash-screenshot.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p>Mit dem Alias <code class="literal">git tree</code> (siehe <a class="xref" href="ch03.html#rev-list" title="3.6.1. Revision Parameters">Abschnitt 3.6.1, „Revision Parameters“</a>) sieht das so aus:</p>
+          <pre class="screen">*   f1fda63 (refs/stash) WIP on master: e2c67eb Kommentar fehlte
+|\
+| * 4faee09 index on master: e2c67eb Kommentar fehlte
+|/
+* e2c67eb (HEAD, master) Kommentar fehlte
+* 8e2f5f9 Test Datei
+* 308aea1 README Datei
+* b0400b0 Erste Version</pre>
+          <p>Da die Stash-Objekte nicht durch einen Branch referenziert sind, wird
+das Working-Tree-Objekt mit einer besonderen Referenz,
+<code class="literal">refs/stash</code>, am Leben erhalten. Dies gilt aber nur für den
+neuesten Stash. Ältere Stashes werden nur im Reflog (siehe <a class="xref" href="ch03.html#sec.reflog" title="3.7. Reflog">Abschnitt 3.7, „Reflog“</a>) referenziert und
+erscheinen deshalb auch nicht in Gitk. Im Gegensatz zu normalen
+Reflog-Einträgen verfallen gespeicherte Stashes jedoch nicht und
+werden deshalb auch nicht durch die normalen Wartungsmechanismen
+gelöscht.</p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.notes"></a>4.6. Commits annotieren – git notes</h2>
+            </div>
+          </div>
+        </div>
+        <p>In der Regel ist es nicht ohne Weiteres möglich, Commits, die einmal
+veröffentlicht wurden, noch einmal zu ändern oder zu erweitern.
+Manchmal wünscht man sich jedoch, man könnte Commits im Nachhinein
+noch Informationen „anhängen“, ohne dass der Commit sich
+ändert. Das könnten Ticket-Nummern sein, Informationen darüber, ob die
+Software kompiliert, wer sie getestet hat usw.</p>
+        <p>Git bietet mit dem Kommando <code class="literal">git notes</code> eine Möglichkeit,
+nachträglich Notizen an einen Commit zu heften. Dabei sind die Notizen
+ein abgekoppelter „Branch“ von Commits, referenziert durch
+<code class="literal">refs/notes/commits</code>, auf dem die Entwicklung der Notes
+gespeichert wird. Auf diesem Branch liegen die Notizen zu einem Commit
+in einer Datei vor, deren Dateiname der SHA-1-Summe des Commits
+entspricht, den sie beschreibt.</p>
+        <p>Diese Interna können Sie aber außer Acht lassen – in der Praxis
+können Sie die Notizen komplett mit <code class="literal">git notes</code> verwalten.
+Wichtig ist nur zu wissen: Pro Commit können Sie nur eine Notiz
+speichern.<a href="#ftn.idm45240357893008" class="footnote" id="idm45240357893008"><sup class="footnote">[63]</sup></a>  Dafür können Sie die Notizen
+aber im Nachhinein editieren bzw. erweitern.</p>
+        <p>Um eine neue Notiz hinzuzufügen:  <code class="literal">git notes
+  add &lt;commit&gt;</code>. Wenn Sie <code class="literal">&lt;commit&gt;</code> auslassen, wird
+<code class="literal">HEAD</code> verwendet. Analog zu <code class="literal">git commit</code> öffnet sich ein
+Editor, in dem Sie die Notiz verfassen. Alternativ können Sie diese
+direkt per <code class="literal">-m "&lt;notiz&gt;"</code> angeben.</p>
+        <p>Die Notiz wird dann per Default immer unter der Commit-Nachricht
+angezeigt:</p>
+        <pre class="screen">$ <span class="strong"><strong>git show 8e8a7c1f</strong></span>
+commit 8e8a7c1f4ca66aa024acde03a58c2b67fa901f88
+Author: Julius Plenz &lt;julius@plenz.com&gt;
+Date:   Sun May 22 15:48:46 2011 +0200
+
+    Schleife optimieren
+
+Notes:
+    Dies verursacht Bug #2319 und wird mit v2.1.3-7-g6dfa88a korrigiert</pre>
+        <p>Mit der Option <code class="literal">--no-notes</code> können Sie Kommandos wie
+<code class="literal">log</code> oder <code class="literal">show</code> explizit anweisen, Notizen nicht
+anzuzeigen.</p>
+        <p>Das Kommando <code class="literal">git notes add</code> beendet sich mit einem Fehler,
+wenn zu dem angegebenen Commit schon eine Notiz vorliegt. Verwenden
+Sie dann stattdessen das Kommando <code class="literal">git notes append</code>, um
+weitere Zeilen an die Notiz anzuhängen, oder aber direkt <code class="literal">git
+  notes edit</code>, um die Notiz beliebig zu editieren.</p>
+        <p>Per Default werden die Notizen nicht hoch- oder runtergeladen, Sie
+müssen das explizit über die folgenden Kommandos tun:</p>
+        <pre class="screen">$ <span class="strong"><strong>git push &lt;remote&gt; refs/notes/commits</strong></span>
+$ <span class="strong"><strong>git fetch &lt;remote&gt; refs/notes/commits:refs/notes/commits</strong></span></pre>
+        <p>Das Notizen-Konzept ist in Git nicht besonders weit entwickelt.
+Insbesondere macht es Probleme, wenn mehrere Entwickler parallel Notizen
+zu Commits erstellen und diese dann zusammengeführt werden müssen.
+Für weitere Informationen siehe die Man-Page <code class="literal">git-notes(1)</code>.</p>
+        <div class="tip" style="margin-left: 0; margin-right: 10%;">
+          <h3 class="title">Tipp</h3>
+          <p>Wenn Sie Notizen verwenden wollen, bietet sich dies meist nur im
+Zusammenhang mit Ticket-, Bug-Tracking- oder
+Continuous-Integration-Systemen an: Diese könnten automatisiert Notizen
+erstellen und so möglicherweise hilfreiche Zusatzinformationen im
+Repository ablegen.</p>
+          <p>Um die Notizen bei jedem <code class="literal">git fetch</code> automatisch herunterzuladen, fügen
+Sie eine Refspec der folgenden Form in die Datei <code class="literal">.git/config</code>
+ein (siehe auch <a class="xref" href="ch05.html#sec.git-fetch" title="5.3.1. git fetch">Abschnitt 5.3.1, „git fetch“</a>):</p>
+          <pre class="screen">  fetch = +refs/notes/*:refs/notes/*</pre>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.multi-root"></a>4.7. Mehrere Root-Commits</h2>
+            </div>
+          </div>
+        </div>
+        <p>Bei der Initialisierung eines Repositorys wird der erste Commit, der
+sogenannte <span class="emphasis"><em>Root-Commit</em></span>, erstellt. Dieser Commit ist in der
+Regel der einzige im ganzen Repository, der keinen Vorgänger hat.</p>
+        <p>Allerdings ist es auch möglich, mehrere Root-Commits in einem
+Repository zu haben. Das kann in den folgenden Fällen sinnvoll sein:</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+Sie wollen zwei eigenständige Projekte miteinander
+  verbinden, die vorher in getrennten Repositories entwickelt wurden
+  (siehe dafür auch Subtree-Merges in <a class="xref" href="ch05.html#sec.subtrees" title="5.11.2. Subtrees">Abschnitt 5.11.2, „Subtrees“</a>).
+</li>
+            <li class="listitem">
+Sie wollen einen vollständig abgekoppelten Branch
+  verwalten, auf dem Sie eine Todo-Liste vorhalten, kompilierte
+  Binaries oder autogenerierte Dokumentation.
+</li>
+          </ul>
+        </div>
+        <p>Im Falle, dass Sie zwei Repositories zusammenführen wollen, reicht in
+der Regel dieses Kommando:</p>
+        <pre class="screen">$ <span class="strong"><strong>git fetch -n &lt;anderes-repo&gt; master:&lt;anderer-master&gt;</strong></span>
+warning: no common commits
+...
+&gt;From &lt;anderes-repo&gt;
+ * [new branch]      master     -&gt; &lt;anderer-master&gt;</pre>
+        <p>Der Branch <code class="literal">master</code> des anderen Repositorys wird als
+<code class="literal">&lt;anderer-master&gt;</code> ins lokale Repository kopiert, inklusive
+aller Commits, bis Git eine Merge-Basis findet oder einen Root-Commit.
+Die Warnung „no common commits“ deutet schon darauf hin,
+dass die beiden Versionsgeschichten keinen gemeinsamen Commit haben.
+Das Repository hat nun zwei Root-Commits.</p>
+        <p>Beachten Sie, dass ein Merge zwischen zwei Branches, die keine
+gemeinsamen Commits haben, fehlschlagen wird, sobald eine Datei auf
+beiden Seiten existiert und nicht gleich ist. Abhilfe schaffen hier
+möglicherweise Subtree-Merges, siehe <a class="xref" href="ch05.html#sec.subtrees" title="5.11.2. Subtrees">Abschnitt 5.11.2, „Subtrees“</a>.</p>
+        <p>Sie können aber auch, anstatt ein anderes Repository zu importieren,
+einen komplett abgekoppelten Branch neu erstellen, also einen zweiten
+Root-Commit. Dafür reichen die folgenden beiden Kommandos aus:</p>
+        <pre class="screen">$ <span class="strong"><strong>git checkout --orphan &lt;newroot&gt;</strong></span>
+$ <span class="strong"><strong>git rm --cached -rf .</strong></span></pre>
+        <p>Das erste setzt den <code class="literal">HEAD</code> auf den (noch nicht existierenden)
+Branch <code class="literal">&lt;newroot&gt;</code>. Das <code class="literal">rm</code>-Kommando löscht alle von Git
+verwalteten Dateien aus dem Index, lässt sie aber im Working Tree
+intakt. Sie haben nun also einen Index, der nichts enthält, und einen
+Branch, auf dem noch kein Commit existiert.</p>
+        <p>Sie können jetzt mit dem Kommando <code class="literal">git add</code> Dateien zum neuen
+Root-Commit hinzufügen und ihn dann mit <code class="literal">git commit</code> erzeugen.</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.bisect"></a>4.8. Regressionen finden – git bisect</h2>
+            </div>
+          </div>
+        </div>
+        <p>Eine Regression bezeichnet in der Softwareentwicklung den Zeitpunkt,
+ab dem ein bestimmtes Feature eines Programms nicht mehr funktioniert.
+Das kann nach einem Update von Bibliotheken sein, nach der Einführung
+neuer Features, die Seiteneffekte verursachen etc.</p>
+        <p>Solche Regressionen zu finden, ist mitunter schwer. Wenn Sie eine
+umfangreiche Test-Suite einsetzen, dann sind Sie relativ gut davor
+geschützt, trivial erkennbare Regressionen einzubauen (z.B.  weil
+Sie vor jedem Commit ein <code class="literal">make test</code> laufen lassen).</p>
+        <p>Wenn die Regression reproduzierbar ist („Mit den Argumenten &lt;x&gt;
+stürzt das Programm ab“, „die Konfigurationseinstellung &lt;y&gt;
+führt zu einem Speicherzugriffsfehler“), dann können Sie mit Git
+die Suche nach dem Commit, der diese Regression verursacht,
+automatisieren.</p>
+        <p>Git stellt dafür das Kommando <code class="literal">bisect</code> zur Verfügung, dessen
+Algorithmus nach dem Prinzip „teile und herrsche“ (engl.
+<span class="emphasis"><em>divide and conquer</em></span>) funktioniert: Zunächst definieren Sie einen
+Zeitpunkt (also einen Commit), zu dem die Regression noch nicht
+aufgetreten war (<code class="literal">good</code>), anschließend einen Zeitpunkt, zu dem
+sie auftritt (genannt <code class="literal">bad</code>, lassen Sie diesen weg, nimmt Git
+<code class="literal">HEAD</code> an).</p>
+        <p>Das <code class="literal">bisect</code>-Kommando geht von der idealisierten Annahme aus,
+dass die Regression durch <span class="emphasis"><em>einen</em></span> Commit eingeleitet wurde – es
+gibt also einen Commit, <span class="emphasis"><em>vor</em></span> dem alles in Ordnung war, und
+<span class="emphasis"><em>nach</em></span> dem der Fehler auftritt.<a href="#ftn.idm45240357842144" class="footnote" id="idm45240357842144"><sup class="footnote">[64]</sup></a></p>
+        <p>Nun wählt Git einen Commit aus der Mitte zwischen <code class="literal">good</code> und
+<code class="literal">bad</code> und checkt ihn aus. Sie müssen dann überprüfen, ob die
+Regression weiterhin vorhanden ist. Wenn ja, dann setzt Git <code class="literal">bad</code>
+auf diesen Commit, wenn nein, wird <code class="literal">good</code> auf diesen Commit
+gesetzt. Dadurch fällt circa die Hälfte der zu untersuchenden Commits
+weg. Git wiederholt den Schritt, bis nur noch ein Commit übrig bleibt.</p>
+        <p>Die Anzahl der Schritte, die <code class="literal">bisect</code> benötigt, verhält sich
+also logarithmisch zur Anzahl der Commits, die Sie untersuchen: Für <span class="emphasis"><em>n</em></span>
+Commits benötigen Sie ca. log<sub>2</sub>(<span class="emphasis"><em>n</em></span>) Schritte. Bei 32 Commits sind
+das zwar maximal fünf Schritte, für 1024 Commits aber maximal  10
+Schritte, weil Sie ja im ersten Schritt schon 512 Commits eliminieren
+können.</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.bisect-usage"></a>4.8.1. Benutzung</h3>
+              </div>
+            </div>
+          </div>
+          <p>Eine <code class="literal">bisect</code>-Sitzung starten Sie mit den folgenden Kommandos:</p>
+          <pre class="screen">$ <span class="strong"><strong>git bisect start</strong></span>
+$ <span class="strong"><strong>git bisect bad &lt;funktioniert-nicht&gt;</strong></span>
+$ <span class="strong"><strong>git bisect good &lt;funktioniert&gt;</strong></span></pre>
+          <p>Sobald Sie die beiden Punkte definiert haben, checkt Git einen Commit
+in der Mitte aus, Sie befinden sich also ab jetzt im <span class="emphasis"><em>Detached-Head</em></span>-Modus (siehe <a class="xref" href="ch03.html#sec.detached-head" title="3.2.1. Detached HEAD">Abschnitt 3.2.1, „Detached HEAD“</a>). Nachdem Sie
+überprüft haben, ob die Regression noch immer vorhanden ist, können
+Sie ihn mit <code class="literal">git bisect good</code> bzw. <code class="literal">git bisect bad</code>
+markieren. Git checkt automatisch den nächsten Commit aus.</p>
+          <p>Möglicherweise können Sie den ausgecheckten Commit nicht testen,
+z.B. weil das Programm nicht fehlerfrei kompiliert. In diesem Fall
+können Sie per Git <code class="literal">git bisect skip</code> einen anderen Commit in
+der Nähe auswählen lassen und mit diesem wie gewohnt verfahren.  Die
+Fehlersuche können Sie jederzeit abbrechen per <code class="literal">git bisect
+  reset</code>.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.bisect-run"></a>4.8.2. Automatisierung</h3>
+              </div>
+            </div>
+          </div>
+          <p>Idealerweise können Sie automatisiert testen, ob der Fehler auftritt – mit einem Test, der erfolgreich laufen muss, wenn die Regression
+nicht auftritt.</p>
+          <p>Sie können dann wie oben die Punkte <code class="literal">good</code> und <code class="literal">bad</code>
+definieren. Danach geben Sie <code class="literal">git bisect run
+  &lt;pfad/zum/test&gt;</code> ein.</p>
+          <p>Anhand des Rückgabewerts entscheidet <code class="literal">bisect</code>, ob der
+überprüfte Commit <code class="literal">good</code> ist (wenn das Script sich erfolgreich,
+d.h. mit Rückgabewert 0 beendet) oder <code class="literal">bad</code> (Werte 1—127). Ein
+Spezialfall ist der Rückgabewert 125, der ein <code class="literal">git bisect skip</code>
+bewirkt. Wenn Sie also ein Programm haben, das kompiliert werden muss,
+sollten Sie als erstes ein Kommando wie <code class="literal">make || exit 125</code>
+einbauen, so dass der Commit übersprungen wird, wenn das Programm
+nicht richtig kompiliert.</p>
+          <p>Bisect kann dann ganz automatisch den problematischen Commit
+identifizieren. Das sieht z.B. so aus:</p>
+          <pre class="screen">$ <span class="strong"><strong>git bisect run ./t.sh</strong></span>
+Bisecting: 9 revisions left to test after this (roughly 3 steps) ...
+Bisecting: 4 revisions left to test after this (roughly 2 steps) ...
+Bisecting: 2 revisions left to test after this (roughly 1 step) ...
+Bisecting: 0 revisions left to test after this (roughly 0 steps) ...
+d29758fffc080d0d0a8ee9e5266fdf75fcb98076 is the first bad commit</pre>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Mit kleinen Commits und sinnvollen Beschreibungen können Sie sich
+durch das <code class="literal">bisect</code>-Kommando bei der Suche nach obskuren
+Fehlern viel Arbeit sparen.</p>
+            <p>Achten Sie daher besonders darauf, dass Sie keine Commits erzeugen,
+die die Software in einem „kaputten“ Zustand lassen
+(kompiliert nicht etc.), was ein späterer Commit repariert.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footnotes">
+        <br />
+        <hr style="width:100; text-align:left;margin-left: 0" />
+        <div id="ftn.idm45240358319184" class="footnote">
+          <p><a href="#idm45240358319184" class="simpara"><sup class="simpara">[54] </sup></a>Wenn Sie Patch-Stacks mit Git verwalten, bei denen
+  potentiell Konflikte auftreten können, sollten Sie sich in jedem
+  Fall das Feature <span class="emphasis"><em>Reuse Recorded Resolution</em></span> ansehen, kurz
+  <span class="emphasis"><em>rerere</em></span>. <span class="emphasis"><em>Rerere</em></span> speichert Konfliktlösungen und
+  korrigiert Konflikte automatisch, wenn schon eine Lösung gespeichert
+  wurde, siehe auch <a class="xref" href="ch03.html#sec.rerere" title="3.4.2. rerere: Reuse Recorded Resolution">Abschnitt 3.4.2, „rerere: Reuse Recorded Resolution“</a>.</p>
+        </div>
+        <div id="ftn.idm45240358277248" class="footnote">
+          <p><a href="#idm45240358277248" class="simpara"><sup class="simpara">[55] </sup></a>Indem zum Beispiel der
+Branch in ein öffentlich verfügbares Repository hochgeladen wird,
+siehe <a class="xref" href="ch05.html#sec.hochladen" title="5.4. Commits hochladen: git push">Abschnitt 5.4, „Commits hochladen: git push“</a>.</p>
+        </div>
+        <div id="ftn.idm45240358261088" class="footnote">
+          <p><a href="#idm45240358261088" class="simpara"><sup class="simpara">[56] </sup></a>Im letzteren Fall machen Sie z.B. einfach ein
+  <code class="literal">git remote update</code> (die neuen Commits werden in den Branch
+  <code class="literal">origin/master</code> geladen) und bauen anschließend Ihren eigenen
+  Branch von neuem auf <code class="literal">origin/master</code> auf. Siehe auch <a class="xref" href="ch05.html#sec.verteilte_systeme" title="5.1. Wie funktioniert verteilte Versionsverwaltung?">Abschnitt 5.1, „Wie funktioniert verteilte Versionsverwaltung?“</a>.</p>
+        </div>
+        <div id="ftn.idm45240358257056" class="footnote">
+          <p><a href="#idm45240358257056" class="simpara"><sup class="simpara">[57] </sup></a>Den Quellcode finden Sie unter
+  <a class="ulink" href="http://repo.or.cz/w/topgit.git" target="_top">http://repo.or.cz/w/topgit.git</a>.</p>
+        </div>
+        <div id="ftn.idm45240358255136" class="footnote">
+          <p><a href="#idm45240358255136" class="simpara"><sup class="simpara">[58] </sup></a>Kurz <code class="literal">stg</code> oder StGit, erreichbar unter
+  <a class="ulink" href="http://www.procode.org/stgit/" target="_top">http://www.procode.org/stgit/</a>.</p>
+        </div>
+        <div id="ftn.idm45240358209184" class="footnote">
+          <p><a href="#idm45240358209184" class="simpara"><sup class="simpara">[59] </sup></a>Das funktioniert auch problemlos,
+  sofern alle Abzweigungen und Zusammenführungen <span class="emphasis"><em>oberhalb</em></span> der
+  neuen Referenz sind (also nur Commits enthalten sind, von denen aus
+  man die neue Basis erreichen kann). Sonst schlägt Rebase bei jedem
+  Commit fehl, der schon in der Geschichte enthalten ist
+  (Fehlermeldung: „nothing to commit“); diese müssen dann stets mit einem <code class="literal">git rebase --continue</code> übersprungen werden.</p>
+        </div>
+        <div id="ftn.idm45240358022576" class="footnote">
+          <p><a href="#idm45240358022576" class="simpara"><sup class="simpara">[60] </sup></a>Weitere Beispiele finden Sie auf der Man-Page zu <code class="literal">gitignore(5)</code> und unter <a class="ulink" href="http://help.github.com/git-ignore/" target="_top">http://help.github.com/git-ignore/</a>.</p>
+        </div>
+        <div id="ftn.idm45240358003984" class="footnote">
+          <p><a href="#idm45240358003984" class="simpara"><sup class="simpara">[61] </sup></a>Das Verhalten wird unterbunden, indem Sie die Einstellung <code class="literal">clean.requireForce</code> auf <code class="literal">false</code> setzen.</p>
+        </div>
+        <div id="ftn.idm45240357915712" class="footnote">
+          <p><a href="#idm45240357915712" class="simpara"><sup class="simpara">[62] </sup></a>Das Kommando sucht zuerst alle Commit-Objekte heraus, die nicht mehr erreichbar sind, und schränkt die Liste dann auf diejenigen ein, die Merge-Commits sind und deren Commit-Message die Zeichenkette <code class="literal">WIP</code> enthält – die Eigenschaften, die ein Commit-Objekt aufweist, das als Stash erstellt wurde, vgl.
+<a class="xref" href="ch04.html#sec.stash-implementation" title="4.5.7. Wie ist der Stash implementiert?">Abschnitt 4.5.7, „Wie ist der Stash implementiert?“</a>.</p>
+        </div>
+        <div id="ftn.idm45240357893008" class="footnote">
+          <p><a href="#idm45240357893008" class="simpara"><sup class="simpara">[63] </sup></a>Das stimmt nicht ganz; Sie können
+  unter <code class="literal">refs/notes/commits</code> nur eine Notiz pro Commit
+  speichern, zusätzlich aber z.B. unter <code class="literal">refs/notes/bts</code> noch
+  weitere Notizen, die sich auf das Bug-Tracking-System beziehen – dort aber auch nur eine pro Commit.</p>
+        </div>
+        <div id="ftn.idm45240357842144" class="footnote">
+          <p><a href="#idm45240357842144" class="simpara"><sup class="simpara">[64] </sup></a>Dieser Commit muss natürlich
+  nicht den Kern der Regression ausmachen, sie wurde möglicherweise
+  durch einen ganz anderen Commit vorbereitet.</p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="ch03.html">Zurück</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="ch05.html">Weiter</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top"> </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index.html">Zum Anfang</a>
+          </td>
+          <td width="40%" align="right" valign="top"> </td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="cc-license">
+      <hr />
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Lizensiert unter der <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+    </p>
+    </div>
+  </body>
+</html>

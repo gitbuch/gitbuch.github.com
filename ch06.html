@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kapitel 6. Workflows</title>
+    <link rel="stylesheet" type="text/css" href="gitbuch.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="home" href="index.html" title="Git" />
+    <link rel="up" href="index.html" title="Git" />
+    <link rel="prev" href="ch05.html" title="Kapitel 5. Verteiltes Git" />
+    <link rel="next" href="ch07.html" title="Kapitel 7. Git auf dem Server" />
+    <meta xmlns="" name="language" content="de" />
+    <script xmlns="" src="http://hyphenator.googlecode.com/svn/trunk/Hyphenator.js" type="text/javascript"></script>
+    <script xmlns="" type="text/javascript">
+        Hyphenator.run();
+    </script>
+  </head>
+  <body class="hyphenate">
+    <div xmlns="" class="toc">
+<p><a href="index.html">Startseite</a></p>
+<dl class="toc">
+          <dt>
+            <span class="preface">
+              <a href="pr01.html">Vorwort</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.leser">1. An wen richtet sich dieses Buch?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.struktur">2. Wie ist das Buch zu lesen?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.konventionen">3. Konventionen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.install-git-repo">4. Installation und „das Git-Repository“</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.doku">5. Dokumentation und Hilfe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.kontakt">6. Downloads und Kontakt</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.dank">7. Danksagungen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-2te-auflage">8. Vorwort zur 2. Auflage</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-cc-ausgabe">9. Vorwort zur CreativeCommons-Ausgabe</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch01.html">1. Einführung und erste Schritte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.begriffe">1.1. Grundbegriffe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.erste-schritte">1.2. Erste Schritte mit Git</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#chap.git-config">1.3. Git konfigurieren</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch02.html">2. Grundlagen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.grundlagen">2.1. Git-Kommandos</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.objektmodell">2.2. Das Objektmodell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch03.html">3. Praktische Versionsverwaltung</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.branches">3.1. Referenzen: Branches und Tags</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.undo">3.2. Versionen wiederherstellen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge">3.3. Branches zusammenführen: Merges</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge-conflicts">3.4. Merge-Konflikte lösen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.cherry-pick">3.5. Einzelne Commits übernehmen: Cherry-Pick</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.visualization">3.6. Visualisierung von Repositories</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.reflog">3.7. Reflog</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch04.html">4. Fortgeschrittene Konzepte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase">4.1. Commits verschieben – Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase-i">4.2. Die Geschichte umschreiben – Interaktives Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.blame">4.3. Wer hat diese Änderungen gemacht? – git blame</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.ignore">4.4. Dateien ignorieren</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.stash">4.5. Veränderungen auslagern – git stash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.notes">4.6. Commits annotieren – git notes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.multi-root">4.7. Mehrere Root-Commits</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.bisect">4.8. Regressionen finden – git bisect</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch05.html">5. Verteiltes Git</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.verteilte_systeme">5.1. Wie funktioniert verteilte Versionsverwaltung?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.clone">5.2. Repositories klonen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.git_fetch">5.3. Commits herunterladen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.hochladen">5.4. Commits hochladen: git push</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-check">5.5. Remotes untersuchen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.multi-remote">5.6. Verteilter Workflow mit mehreren Remotes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-verwalten">5.7. Remotes verwalten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remote-tags">5.8. Tags austauschen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.patch-queue">5.9. Patches per E-Mail</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.dictator">5.10. Ein verteilter, hierarchischer Workflow</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.subprojects">5.11. Unterprojekte verwalten</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch06.html">6. Workflows</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.workflows-user">6.1. Anwender</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.branch-modell">6.2. Ein Branching-Modell</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.releases-management">6.3. Releases-Management</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch07.html">7. Git auf dem Server</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.server">7.1. Einen Git-Server hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitolite">7.2. Gitolite: Git einfach hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.git-daemon">7.3. Git-Daemon: Anonymer, lesender Zugriff</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitweb">7.4. Gitweb: Das integrierte Web-Frontend</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.cgit">7.5. CGit – CGI for Git</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch08.html">8. Git automatisieren</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.attributes">8.1. Git-Attribute – Dateien gesondert behandeln</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.hooks">8.2. Hooks</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.scripting">8.3. Eigene Git-Kommandos schreiben</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.filter-branch">8.4. Versionsgeschichte umschreiben</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch09.html">9. Zusammenspiel mit anderen Versionsverwaltungssystemen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.subversion">9.1. Subversion</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.fast-import">9.2. Eigene Importer</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch10.html">10. Shell-Integration</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.bash-integration">10.1. Git und die Bash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.zsh-integration">10.2. Git und die Z-Shell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch11.html">11. Github</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="appendix">
+              <a href="apa.html">A. Installation</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#linux">A.1. Linux</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.osx">A.2. Mac OS X</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.windows">A.3. Windows</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="appendix">
+              <a href="apb.html">B. Struktur eines Repositorys</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc">B.1. Aufräumen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc-performance">B.2. Performance</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl></div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="ch05.html">Zurück</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="ch07.html">Weiter</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="sec.workflows"></a>Kapitel 6. Workflows</h1>
+          </div>
+        </div>
+      </div>
+      <p>Mit <span class="emphasis"><em>Workflows</em></span> (dt. <span class="emphasis"><em>Arbeitsabläufe</em></span>) werden in der
+Software-Entwicklung in der Regel Strategien bezeichnet, die
+Arbeitsabläufe im Team definieren (z.B. die <span class="emphasis"><em>Agile
+  Softwareentwicklung</em></span>). Wir können uns bei diesem Thema allgemein
+hier nur auf Literaturhinweise
+beschränken.<a href="#ftn.idm45240356975440" class="footnote" id="idm45240356975440"><sup class="footnote">[88]</sup></a></p>
+      <p>In Git kann man „Workflows“ unter zwei Aspekten sehen:
+Abläufe (Kommandosequenzen), die den einzelnen Nutzer betreffen, sowie
+projektbezogene Arbeitsabläufe (z.B.  Release-Management). Auf beide
+Aspekte wird im Folgenden eingegangen.</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.workflows-user"></a>6.1. Anwender</h2>
+            </div>
+          </div>
+        </div>
+        <p>Nachfolgend finden Sie eine Auflistung genereller
+Entwicklungsstrategien (ohne bestimmte Reihenfolge):</p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Machen Sie möglichst kleine, eigenständige Commits</em></span>
+</span>
+            </dt>
+            <dd>
+Unterteilen Sie
+Ihre Arbeit in kleine, logische Schritte und tätigen Sie für jeden
+Schritt einen Commit. Die Commits sollten unabhängig von zukünftigen
+Commits sein und möglichst alle Tests (sofern vorhanden) bestehen. Das
+erleichtert es Ihren Kollegen bzw. den Maintainern, nachzuvollziehen,
+was Sie gemacht haben. Außerdem steigert es den Wirkungsgrad von
+Kommandos, die die Geschichte untersuchen, bspw. <code class="literal">git bisect</code> und <code class="literal">git
+blame</code>. Haben Sie keine Angst, zu kleine Commits zu tätigen. Es ist im
+Nachhinein einfacher, mehrere kleine Commits mit <code class="literal">git rebase
+--interactive</code> zusammenzufassen als einen großen in mehrere kleine zu
+teilen.
+</dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Entwickeln Sie in Topic-Branches</em></span>
+</span>
+            </dt>
+            <dd>
+              <p class="simpara">
+Branching geht in Git leicht,
+schnell und intuitiv vonstatten.  Anschließendes Mergen funktioniert
+problemlos, auch wiederholt.  Nutzen Sie diese Flexibilität von Git:
+Entwickeln Sie nicht direkt in <code class="literal">master</code>, sondern jedes Feature in
+seinem eigenen Branch, genannt <span class="emphasis"><em>Topic-Branch</em></span>.
+</p>
+              <p class="simpara">Dadurch bieten sich einige Vorteile: Sie können Features unabhängig
+voneinander entwickeln; Sie erhalten einen wohldefinierten Zeitpunkt
+der Integration (Merge); Sie können die Entwicklung per Rebase
+„stromlinienförmig“ und übersichtlich gestalten, bevor Sie sie
+veröffentlichen; Sie erleichtern es anderen Entwicklern, ein neues
+Feature isoliert zu testen.</p>
+            </dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Verwenden Sie Namespaces</em></span>
+</span>
+            </dt>
+            <dd>
+Sie können durch <code class="literal">/</code>-Zeichen im
+Branch-Namen verschiedene Klassen von Branches kreieren. In einem
+zentralen Repository können Sie sich durch Ihre Initialen einen
+eigenen Namensraum schaffen (z.B. <code class="literal">jp/refactor-base64</code>) oder Ihre
+Features je nach Stabilität unter <code class="literal">experimental/</code> oder <code class="literal">pu/</code> (s.u.)
+ablegen.
+</dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Rebase early, Rebase often</em></span>
+</span>
+            </dt>
+            <dd>
+              <p class="simpara">
+Wenn Sie auf Topic-Branches häufig mit
+Rebase arbeiten, erzeugen Sie eine deutlich lesbarere
+Versionsgeschichte. Das ist für Sie und andere Entwickler praktisch
+und hilft, den eigentlichen Programmiervorgang in logische Einheiten
+aufzuteilen.
+</p>
+              <p class="simpara">Verschmelzen Sie Kleinstcommits, wenn sie zusammengehören.  Nehmen Sie
+sich bei Bedarf die Zeit, große Commits noch einmal sinnvoll
+aufzuteilen (siehe <a class="xref" href="ch04.html#sec.rebase-i-edit" title="4.2.2. Commits beliebig editieren">Abschnitt 4.2.2, „Commits beliebig editieren“</a>).</p>
+              <p class="simpara">Verwenden Sie allerdings Rebase nur für eigene Commits: Verändern Sie
+keinesfalls bereits veröffentlichte Commits oder die Commits anderer
+Entwickler.</p>
+            </dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Unterscheiden Sie bewusst zwischen FF- und regulären Merges</em></span>
+</span>
+            </dt>
+            <dd>
+Integrieren Sie Änderungen aus dem Upstream immer per Fast-Forward
+(Sie spulen die lokale Kopie der Branches einfach vor). Integrieren
+Sie im Gegensatz dazu neue Features durch reguläre Merges. Hilfreich
+für die Unterscheidung sind auch die in <a class="xref" href="ch03.html#sec.merge-ff" title="3.3.2. Fast-Forward-Merges: Einen Branch vorspulen">Abschnitt 3.3.2, „Fast-Forward-Merges: Einen Branch vorspulen“</a> vorgestellten
+Aliase.
+</dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Beachten Sie die Merge-Richtung</em></span>
+</span>
+            </dt>
+            <dd>
+              <p class="simpara">
+Das Kommando <code class="literal">git merge</code> zieht
+einen oder mehrere Branches in den aktuellen hinein. Beachten Sie
+daher immer die Richtung, in der Sie einen Merge durchführen:
+Integrieren Sie Topic-Branches in die <span class="emphasis"><em>Mainline</em></span> (den Branch, auf dem
+Sie das stabile Release vorbereiten), nicht umgekehrt.<a href="#ftn.idm45240356943328" class="footnote" id="idm45240356943328"><sup class="footnote">[89]</sup></a>  Auf diese Weise können
+Sie auch im Nachhinein noch die Geschichte eines Features von der
+Mainline isolieren (<code class="literal">git log topic</code> listet nur die relevanten Commits
+auf).
+</p>
+              <p class="simpara"><span class="emphasis"><em>Criss-Cross-Merges</em></span> (überkreuzte Merges) sind nach Möglichkeit zu
+vermeiden: Sie entstehen, wenn Sie einen Branch A in einen Branch B
+und eine ältere Version von B in A integrieren.</p>
+            </dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Testen Sie die Verträglichkeit von Features per Throw-Away-Integration</em></span>
+</span>
+            </dt>
+            <dd>
+    Erstellen Sie einen neuen (Wegwerf-)Branch
+    und mergen Sie die Features, deren Kompatibilität Sie testen
+    wollen. Lassen Sie die Testsuite laufen oder testen Sie das
+    Zusammenspiel der neuen Komponenten auf andere Weise. Den Branch
+    können Sie anschließend löschen und die Features weiter getrennt
+    voneinander entwickeln. Solche <span class="emphasis"><em>Throw-Away</em></span>-Branches werden in der
+    Regel nicht veröffentlicht.
+</dd>
+          </dl>
+        </div>
+        <p>Gewisse Arbeitsschritte tauchen wieder und wieder auf. Im Folgenden
+ein paar allgemeine Lösungsstrategien:</p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Einen kleinen Bug fixen</em></span>
+</span>
+            </dt>
+            <dd>
+Wenn Sie einen kleinen
+    Bug bemerken, den Sie schnell korrigieren wollen, können Sie das
+    auf zwei Arten tun: vorliegende Änderungen per Stash in den
+    Hintergrund schieben (siehe <a class="xref" href="ch04.html#sec.stash" title="4.5. Veränderungen auslagern – git stash">Abschnitt 4.5, „Veränderungen auslagern – git stash“</a>), den
+    entsprechenden Branch auschecken, den Bug beheben, wieder den
+    Branch wechseln und den Stash anwenden.
+   
+    Die andere Möglichkeit besteht darin, auf dem Branch, auf dem Sie
+    gerade arbeiten, den Fehler zu beheben und nachträglich den/die
+    entsprechenden Commit(s) per Cherry-Pick oder Rebase-Onto (siehe
+    <a class="xref" href="ch03.html#sec.cherry-pick" title="3.5. Einzelne Commits übernehmen: Cherry-Pick">Abschnitt 3.5, „Einzelne Commits übernehmen: Cherry-Pick“</a> bzw.  <a class="xref" href="ch04.html#sec.rebase-onto" title="4.1.8. Rebase einschränken mit --onto">Abschnitt 4.1.8, „Rebase einschränken mit --onto“</a>)
+    in den dafür vorgesehenen Bugfix- oder Topic-Branch zu übernehmen.
+</dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Einen Commit korrigieren</em></span>
+</span>
+            </dt>
+            <dd>
+              <p class="simpara">
+Mit <code class="literal">git commit --amend</code> können Sie den letzten Commit anpassen. Die Option <code class="literal">--no-edit</code> bewirkt, dass die Beschreibung beibehalten und nicht erneut zur Bearbeitung angeboten wird.
+</p>
+              <p class="simpara">Um tiefer liegende Commits zu korrigieren, verwenden Sie entweder
+interaktives Rebase und das <code class="literal">edit</code>-Keyword (siehe
+<a class="xref" href="ch04.html#sec.rebase-i-edit" title="4.2.2. Commits beliebig editieren">Abschnitt 4.2.2, „Commits beliebig editieren“</a>) oder Sie erstellen für jede
+Korrektur einen kleinen Commit, ordnen diese schließlich im
+interaktiven Rebase entsprechend an und versehen sie mit der
+Aktion <code class="literal">fixup</code>, um den ursprünglichen Commit zu
+korrigieren.</p>
+            </dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Welche Branches sind noch nicht in</em></span> <code class="literal">master</code>?
+</span>
+            </dt>
+            <dd>
+Verwenden Sie <code class="literal">git branch -vv --no-merged</code>, um herauszufinden, welche Branches noch nicht in den aktuellen Branch integriert sind.
+</dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Mehrere Änderungen aus unterschiedlichen Quellen zusammenfassen</em></span>
+</span>
+            </dt>
+            <dd>
+Nutzen Sie den Index, um mehrere Änderungen
+zusammenzufassen, z.B.   Änderungen, die einander
+ergänzen, aber in verschiedenen Branches oder als Patches
+vorliegen. Die Kommandos <code class="literal">git apply</code>, <code class="literal">git
+cherry-pick --no-commit</code> sowie <code class="literal">git merge --squash</code>
+wenden die entsprechenden Änderungen nur auf den Working Tree bzw.
+Index an, ohne einen Commit zu erzeugen.
+</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.branch-modell"></a>6.2. Ein Branching-Modell</h2>
+            </div>
+          </div>
+        </div>
+        <p>Der folgende Abschnitt stellt ein Branching-Modell vor, das an das in
+der Man-Page <code class="literal">gitworkflows(7)</code> beschriebene Modell
+angelehnt ist. Das Branching-Modell bestimmt, welcher Branch
+welche Funktionen erfüllt, wann und wie Commits aus einem Branch übernommen
+werden, welche Commits als Releases getaggt werden sollen usw. Es ist flexibel,
+skaliert gut und kann bei Bedarf erweitert werden (s.u.).</p>
+        <p>In seiner Grundform besteht das Modell aus vier Branches:
+<code class="literal">maint</code>, <code class="literal">master</code>, <code class="literal">next</code>, und <code class="literal">pu</code>
+(<span class="emphasis"><em>Proposed Updates</em></span>). Der <code class="literal">master</code>-Branch dient vor allem
+der Vorbereitung des nächsten Releases und zum Sammeln trivialer
+Änderungen. <code class="literal">pu</code>-Branch(es) dienen der Feature-Entwicklung
+(Topic-Branches).  In dem Branch <code class="literal">next</code> werden halbwegs
+stabile neue Features gesammelt, im Verbund auf Kompatibilität,
+Stabilität und Korrektheit getestet und bei Bedarf verbessert. Auf dem
+<code class="literal">maint</code>-Branch werden kritische Bug-Fixes für vorangegangene
+Versionen gesammelt und als Maintenance-Releases veröffentlicht.</p>
+        <p>Prinzipiell werden Commits immer durch einen Merge in einen anderen
+Branch integriert (in <a class="xref" href="ch06.html#fig.branch-model" title="Abbildung 6.1. Branch-Modell gemäß gitworkflows (7)">Abbildung 6.1, „Branch-Modell gemäß <code class="literal">gitworkflows (7)</code>“</a> durch Pfeile
+angedeutet). Im Gegensatz zum Cherry-Picking werden dabei Commits
+nicht gedoppelt, und Sie können einem Branch leicht ansehen, ob er
+einen bestimmten Commit schon enthält oder nicht.</p>
+        <p>Das folgende Diagramm ist eine schematische Darstellung des zehn
+Punkte umfassenden Workflows, der unten detailliert erläutert wird.</p>
+        <div class="figure">
+          <a id="fig.branch-model"></a>
+          <p class="title">
+            <strong>Abbildung 6.1. Branch-Modell gemäß <code class="literal">gitworkflows (7)</code></strong>
+          </p>
+          <div class="figure-contents">
+            <div class="mediaobject">
+              <img src="bilder_ebook/branch-model.png" width="486" alt="bilder_ebook/branch-model.png" />
+            </div>
+          </div>
+        </div>
+        <br class="figure-break" />
+        <div class="orderedlist">
+          <ol class="orderedlist" type="1">
+            <li class="listitem">
+              <p class="simpara">
+Neue Topic-Branches entstehen von
+  wohldefinierten Punkten, z.B. getaggten Releases, auf dem
+  <code class="literal">master</code>.
+</p>
+              <pre class="screen">$ <span class="strong"><strong>git checkout -b pu/cmdline-refactor v0.1</strong></span></pre>
+            </li>
+            <li class="listitem">
+              <p class="simpara">
+Hinreichend stabile Features werden aus ihrem
+jeweiligen <code class="literal">pu</code>-Branch nach <code class="literal">next</code> übernommen
+(<span class="emphasis"><em>Feature Graduation</em></span>).
+</p>
+              <pre class="screen">$ <span class="strong"><strong>git checkout next</strong></span>
+$ <span class="strong"><strong>git merge pu/cmdline-refactor</strong></span></pre>
+            </li>
+            <li class="listitem">
+              <p class="simpara">
+Releasevorbereitung: Wenn sich genügend neue Features in
+<code class="literal">next</code> (featuregetriebene Entwicklung) angesammelt haben, wird
+<code class="literal">next</code> nach <code class="literal">master</code> gemergt und ggf. ein Release-Candidate-Tag
+(RC-Tag) erzeugt (Suffix <code class="literal">-rc&lt;n&gt;</code>).
+</p>
+              <pre class="screen">$ <span class="strong"><strong>git checkout master</strong></span>
+$ <span class="strong"><strong>git merge next</strong></span>
+$ <span class="strong"><strong>git tag -a v0.2-rc1</strong></span></pre>
+            </li>
+            <li class="listitem">
+              <p class="simpara">
+Von nun an werden nur noch sogenannte <span class="emphasis"><em>Release-Critical Bugs</em></span>
+(RC-Bugs) direkt im <code class="literal">master</code> korrigiert. Es handelt sich hierbei um
+„Show-Stopper“, also Bugs, die die Funktionalität der Software
+maßgeblich einschränken oder neue Features unbenutzbar machen.
+Gegebenenfalls können Sie Merges von problematischen Branches wieder
+rückgängig machen (siehe <a class="xref" href="ch03.html#sec.revert" title="3.2.2. Commits rückgängig machen">Abschnitt 3.2.2, „Commits rückgängig machen“</a>).
+</p>
+              <p class="simpara">Was während der Release-Phase mit <code class="literal">next</code> passiert, hängt von
+der Größe des Projekts ab. Sind alle Entwickler damit beschäftigt,
+die RC-Bugs zu beheben, so bietet sich ein Entwicklungsstopp für
+<code class="literal">next</code> an.  Bei größeren Projekten, wo während der
+Release-Phase schon die Entwicklung für das übernächste Release
+vorangetrieben wird, kann <code class="literal">next</code> weiterhin als
+Integrations-Branch für neue Features dienen.</p>
+            </li>
+            <li class="listitem">
+              <p class="simpara">
+Sind alle RC-Bugs getilgt, wird der <code class="literal">master</code> als Release getaggt und
+ggf. als Quellcode-Archiv, Distributions-Paket usw. veröffentlicht.
+Außerdem wird <code class="literal">master</code> nach <code class="literal">next</code> gemergt, um alle Fixes für RC-Bugs
+zu übertragen. Wurden in der Zwischenzeit keine weiteren Commits auf
+<code class="literal">next</code> getätigt, so ist dies ein Fast-Forward-Merge. Nun können auch
+wieder neue Topic-Branches aufgemacht werden, die auf dem neuen
+Release basieren.
+</p>
+              <pre class="screen">$ <span class="strong"><strong>git tag -a v0.2</strong></span>
+$ <span class="strong"><strong>git checkout next</strong></span>
+$ <span class="strong"><strong>git merge master</strong></span></pre>
+            </li>
+            <li class="listitem">
+              <p class="simpara">
+Feature-Branches, die es nicht ins Release
+geschafft haben, können nun entweder in den <code class="literal">next</code>-Branch
+gemergt werden, oder aber, falls sie noch nicht fertig sind, per
+Rebase auf eine neue, wohldefinierte Basis aufgebaut werden.
+</p>
+              <pre class="screen">$ <span class="strong"><strong>git checkout pu/numeric-integration</strong></span>
+$ <span class="strong"><strong>git rebase next</strong></span></pre>
+            </li>
+            <li class="listitem">
+Um Feature-Entwicklung sauber von Bug-Fixes und <span class="emphasis"><em>Maintenance</em></span>
+(„Instandhaltung“) zu trennen, werden Bug-Fixes, die eine
+vorangegangene Version betreffen, im Branch <code class="literal">maint</code> getätigt. Dieser
+Maintenance-Branch zweigt, wie die Feature-Branches auch, an
+wohldefinierten Stellen von <code class="literal">master</code> ab.
+</li>
+            <li class="listitem">
+              <p class="simpara">
+Haben sich genügend Bug-Fixes angesammelt oder wurde ein kritischer
+Bug behoben, z.B. ein Security-Bug, wird der aktuelle Commit auf dem
+<code class="literal">maint</code>-Branch als Maintenance-Release getaggt und kann über die
+gewohnten Kanäle publiziert werden.
+</p>
+              <pre class="screen">$ <span class="strong"><strong>git checkout maint</strong></span>
+$ <span class="strong"><strong>git tag -a v0.1.1</strong></span></pre>
+              <p class="simpara">Manchmal kommt es vor, dass Bug-Fixes, die auf <code class="literal">master</code> gemacht
+wurden, auch in <code class="literal">maint</code> gebraucht werden. In diesem Fall ist es
+in Ordnung, diese per <code class="literal">git cherry-pick</code> dorthin zu übertragen.
+Das sollte aber eher die Ausnahme als die Regel sein.</p>
+            </li>
+            <li class="listitem">
+              <p class="simpara">
+Damit Bug-Fixes auch künftig verfügbar sind, wird der <code class="literal">maint</code>-Branch
+nach einem Maintenance-Release nach <code class="literal">master</code> gemergt.
+</p>
+              <pre class="screen">$ <span class="strong"><strong>git checkout master</strong></span>
+$ <span class="strong"><strong>git merge maint</strong></span></pre>
+              <p class="simpara">Sind die Bug-Fixes sehr dringend, können sie mit <code class="literal">git cherry-pick</code> in
+  den entsprechenden Branch (<code class="literal">next</code> oder <code class="literal">pu/*</code>) übertragen
+  werden. Wie bei einem <code class="literal">git cherry-pick</code> nach <code class="literal">maint</code> auch, sollte
+  dies nur selten passieren.</p>
+            </li>
+            <li class="listitem">
+              <p class="simpara">
+Bei einem neuen Release wird der <code class="literal">maint</code>-Branch per Fast-Forward auf
+den Stand von <code class="literal">master</code> gebracht, so dass <code class="literal">maint</code> nun auch alle Commits
+enthält, die das neue Release ausmachen. Ist hier kein Fast-Forward
+möglich, ist das ein Anzeichen dafür, dass sich noch Bug-Fixes in
+<code class="literal">maint</code> befinden, die nicht in <code class="literal">master</code> sind (siehe Punkt 9).
+</p>
+              <pre class="screen">$ <span class="strong"><strong>git checkout maint</strong></span>
+$ <span class="strong"><strong>git merge --ff-only master</strong></span></pre>
+            </li>
+          </ol>
+        </div>
+        <p>Das Branching-Modell können Sie beliebig erweitern. Ein Ansatz, den
+man oft antrifft, ist die Verwendung von <span class="emphasis"><em>Namespaces</em></span> (siehe
+<a class="xref" href="ch03.html#sec.branches" title="3.1. Referenzen: Branches und Tags">Abschnitt 3.1, „Referenzen: Branches und Tags“</a>) im Zusatz zu den
+<code class="literal">pu/*</code>-Branches.  Das hat den Vorteil, dass jeder Entwickler
+einen eigenen Namensraum verwendet, der per Konvention abgegrenzt ist.
+Eine andere, sehr beliebte Erweiterung ist es, für jede vorangegangene
+Version einen eigenen <code class="literal">maint</code>-Branch zu erhalten.  Dadurch wird
+es möglich, beliebig viele ältere Versionen zu pflegen. Dazu wird vor
+dem Merge von <code class="literal">maint</code> nach <code class="literal">master</code> in Punkt 9
+ein entsprechender Branch für die Version erstellt.</p>
+        <pre class="screen">$ <span class="strong"><strong>git branch maint-v0.1.2</strong></span></pre>
+        <p>Bedenken Sie aber, dass diese zusätzlichen Maintenance-Branches einen
+erhöhten Wartungsaufwand bedeuten, da jeder neue Bug-Fix geprüft
+werden muss. Ist er auch für eine ältere Version relevant, muss er per
+<code class="literal">git cherry-pick</code> in den Maintenance-Branch für die Version
+eingebaut werden. Außerdem muss ggf. eine neue Maintenance-Version
+getaggt und veröffentlicht werden.</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.releases-management"></a>6.3. Releases-Management</h2>
+            </div>
+          </div>
+        </div>
+        <p>Sobald ein Projekt mehr als nur ein, zwei Entwickler hat, ist es in
+der Regel sinnvoll, einen Entwickler mit dem Management der Releases
+zu beauftragen. Dieser <span class="emphasis"><em>Integration Manager</em></span> entscheidet nach
+Rücksprache mit den anderen (z.B. über die Mailingliste), welche
+Branches integriert und wann neue Releases erstellt werden.</p>
+        <p>Jedes Projekt hat eigene Anforderungen an den Release-Ablauf.
+Nachfolgend einige generelle Tipps, wie Sie die Entwicklung überwachen
+und den Release-Prozess teilweise automatisieren können.<a href="#ftn.idm45240356827456" class="footnote" id="idm45240356827456"><sup class="footnote">[90]</sup></a></p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.release-check-branches"></a>6.3.1. Aufgaben sondieren</h3>
+              </div>
+            </div>
+          </div>
+          <p>Der Maintainer einer Software muss einen guten Überblick über die
+Features haben, die aktiv entwickelt und bald integriert werden
+sollen. In den meisten Entwicklungsmodellen <span class="emphasis"><em>graduieren</em></span> Commits
+von einem Branch auf den nächsten – im oben vorgestellten Modell
+zunächst aus den <code class="literal">pu</code>-Branches nach <code class="literal">next</code> und dann
+nach <code class="literal">master</code>.</p>
+          <p>Zunächst sollten Sie Ihre lokalen Branches immer aufräumen, um nicht
+den Überblick zu verlieren. Dabei hilft besonders das Kommando
+<code class="literal">git branch --merged master</code>, das alle Branches auflistet,
+die schon vollständig in <code class="literal">master</code> (oder einen
+anderen Branch) integriert sind. Diese können Sie in der Regel
+löschen.</p>
+          <p>Um einen groben Überblick zu erhalten, welche Aufgaben anstehen,
+empfiehlt es sich, <code class="literal">git show-branch</code> einzusetzen. Ohne weitere
+Argumente listet es alle lokalen Branches auf, jeden mit einem
+Ausrufezeichen (<code class="literal">!</code>) in eigener Farbe. Der aktuelle Branch
+erhält einen Stern (<code class="literal">*</code>). Unterhalb der Ausgabe werden alle
+Commits ausgegeben sowie für jeden Branch in der jeweiligen Spalte ein
+Plus (<code class="literal">+</code>) bzw.  ein Stern (<code class="literal">*</code>), wenn der Commit Teil
+des Branches ist. Ein Minus (<code class="literal">-</code>) signalisiert Merge-Commits.</p>
+          <pre class="screen">$ <span class="strong"><strong>git show-branch</strong></span>
+! [for-hjemli] initialize buf2 properly
+ * [master] Merge branch 'stable'
+  ! [z-custom] silently discard "error opening directory" messages
+---
++   [for-hjemli] initialize buf2 properly
+--  [master] Merge branch 'stable'
++*  [master^2] Add advice about scan-path in cgitrc.5.txt
++*  [master^2^] fix two encoding bugs
++*  [master^] make enable-log-linecount independent of -filecount
++*  [master~2] new_filter: correctly initialise ... for a new filter
++*  [master~3] source_filter: fix a memory leak
+  + [z-custom] silently discard "error opening directory" messages
+  + [z-custom^] Highlight odd rows
+  + [z-custom~2] print upstream modification time
+  + [z-custom~3] make latin1 default charset
++*+ [master~4] CGIT 0.9</pre>
+          <p>Es werden nur so viele Commits gezeigt, bis eine gemeinsame
+Merge-Basis aller Commits gefunden wird (im Beispiel:
+<code class="literal">master~4</code>). Wollen Sie nicht alle Branches
+gleichzeitig untersuchen, sondern z.B. nur die Branches unter
+<code class="literal">pu/</code>, dann geben Sie dies explizit als Argument an.
+<code class="literal">--topics &lt;branch&gt;</code> bestimmt <code class="literal">&lt;branch&gt;</code> als
+Integrations-Zweig, dessen Commits nicht explizit angezeigt werden.</p>
+          <p>Das folgende Kommando zeigt Ihnen also alle Commits aller
+<code class="literal">pu</code>-Branches und deren Relation zu <code class="literal">master</code>:</p>
+          <pre class="screen">$ <span class="strong"><strong>git show-branch --topics master "pu/*"</strong></span></pre>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Es lohnt sich, die Kommandos, die Sie zum Release-Management
+verwenden, zu dokumentieren (so dass andere Ihre Aufgaben eventuell
+weiterführen können). Außerdem sollten Sie gängige Schritte durch
+Aliase abkürzen.</p>
+            <p>Das o.g. Kommando könnten Sie wie folgt in ein Alias <code class="literal">todo</code>
+  umwandeln:</p>
+            <pre class="screen">$ <span class="strong"><strong>git config --global alias.todo \</strong></span>
+  <span class="strong"><strong>"!git rev-parse --symbolic --branches | \</strong></span>
+  <span class="strong"><strong>xargs git show-branch --topics master"</strong></span></pre>
+          </div>
+          <p>Das Kommando <code class="literal">git show-branch</code> erkennt allerdings nur
+<span class="emphasis"><em>gleiche</em></span>, das heißt identische Commits. Wenn Sie einen Commit
+per <code class="literal">git cherry-pick</code> in einen anderen Branch übernehmen, sind
+die Änderungen fast die gleichen, <code class="literal">git show-branch</code> würde dies
+aber nicht erkennen, da sich die SHA-1-Summe des Commits ändert.</p>
+          <p>Für diese Fälle ist das Tool <code class="literal">git cherry</code> zuständig.  Es
+verwendet intern das kleine Tool <code class="literal">git-patch-id</code>, das einen
+Commit auf seine bloßen Änderungen reduziert. Dabei werden
+Whitespace-Änderungen sowie die kontextuelle Position der Hunks
+(Zeilennummern) ignoriert. Das Tool liefert also für Patches, die
+essentiell die gleiche Änderung einbringen, die gleiche ID.</p>
+          <p>In der Regel wird <code class="literal">git cherry</code> eingesetzt, wenn sich die Frage
+stellt: Welche Commits wurden schon in den Integrations-Branch
+übernommen? Dafür wird das Kommando <code class="literal">git cherry -v &lt;upstream&gt;
+  &lt;topic&gt;</code> verwendet: Es listet alle Commits auf <code class="literal">&lt;topic&gt;</code> auf,
+und stellt ihnen ein Minus (<code class="literal">-</code>) voran, wenn sie schon in
+<code class="literal">&lt;upstream&gt;</code> sind, ansonsten ein Plus (<code class="literal">+</code>).  Das sieht z.B.
+so aus:</p>
+          <pre class="screen">$ <span class="strong"><strong>git cherry --abbrev=7 -v master z-custom</strong></span>
++ ae8538e guess default branch from HEAD
+- 6f70c3d fix two encoding bugs
+- 42a6061 Add advice about scan-path in cgitrc.5.txt
++ cd3cf53 make latin1 default charset
++ 95f7179 Highlight odd rows
++ bbaabe9 silently discard "error opening directory" messages</pre>
+          <p>Zwei der Patches wurden schon nach <code class="literal">master</code> übernommen. Das
+erkennt <code class="literal">git cherry</code>, obwohl sich die Commit-IDs  dabei geändert
+haben.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.release-create"></a>6.3.2. Release erstellen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Git bietet die folgenden zwei nützlichen Werkzeuge, um ein Release
+vorzubereiten:</p>
+          <div class="variablelist">
+            <dl class="variablelist">
+              <dt>
+                <span class="term">
+<code class="literal">git shortlog</code>
+</span>
+              </dt>
+              <dd>
+Fasst die Ausgabe von <code class="literal">git log</code> zusammen.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">git archive</code>
+</span>
+              </dt>
+              <dd>
+Erstellt automatisiert ein Quellcode-Archiv.
+</dd>
+            </dl>
+          </div>
+          <p>Zu einem guten Release gehört ein sogenanntes <span class="emphasis"><em>Changelog</em></span>, also
+eine Zusammenfassung der wichtigsten Neuerungen inklusive
+Danksagungen an Personen, die Hilfe beigesteuert haben. Hier kommt
+<code class="literal">git shortlog</code> zum Einsatz. Das Kommando zeigt die jeweiligen
+Autoren, wie viele Commits jeder gemacht hat und die Commit-Messages
+der einzelnen Commits. So ist sehr gut ersichtlich, wer was gemacht
+hat.</p>
+          <pre class="screen">$ <span class="strong"><strong>git shortlog HEAD~3..</strong></span>
+Georges Khaznadar (1):
+      bugfix: 3294518
+
+Kai Dietrich (6):
+      delete grammar tests in master
+      updated changelog and makefile
+      in-code version number updated
+      version number in README
+      version number in distutils setup.py
+      Merge branch 'prepare-release-0.9.3'
+
+Valentin Haenel (3):
+      test: add trivial test for color transform
+      test: expose bug with ID 3294518
+      Merge branch 'fix-3294518'</pre>
+          <p>Mit der Option <code class="literal">--numbered</code> bzw. <code class="literal">-n</code> wird die
+Ausgabe, statt alphabetisch, nach der Anzahl der Commits sortiert. Mit
+<code class="literal">--summary</code> bzw. <code class="literal">-s</code> fallen die Commit-Nachrichten
+weg.</p>
+          <p>Sehen Sie aber im Zweifel davon ab, einfach die Ausgabe von
+<code class="literal">git log</code> oder <code class="literal">git shortlog</code> in die Datei
+<code class="literal">CHANGELOG</code> zu schreiben. Gerade bei vielen, technischen
+Commits ist das Changelog dann nicht hilfreich (wen diese
+Informationen interessieren, der kann immer im Repository
+nachschauen). Sie können aber die Ausgabe als Grundlage nehmen,
+unwichtige Änderungen löschen und die restlichen zu sinnvollen
+Gruppen zusammenfassen.</p>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Oft stellt sich für den Maintainer die Frage, was sich seit dem
+letzten Release verändert hat. Hier hilft
+<code class="literal">git-describe</code> (siehe <a class="xref" href="ch03.html#sec.tags" title="3.1.3. Tags – Wichtige Versionen markieren">Abschnitt 3.1.3, „Tags – Wichtige Versionen markieren“</a>), das in
+Verbindung mit <code class="literal">--abbrev=0</code> das erste erreichbare Tag vom
+<code class="literal">HEAD</code> aus ausgibt:</p>
+            <pre class="screen">$ <span class="strong"><strong>git describe</strong></span>
+wiki2beamer-0.9.2-20-g181f09a
+$ <span class="strong"><strong>git describe --abbrev=0</strong></span>
+wiki2beamer-0.9.2</pre>
+            <p>In Kombination mit <code class="literal">git shortlog</code> lässt sich die gestellte
+Frage sehr einfach beantworten:</p>
+            <pre class="screen">$ <span class="strong"><strong>git shortlog -sn $(git describe --abbrev=0)..</strong></span>
+    15  Kai Dietrich
+     4  Valentin Haenel
+     1  Georges Khaznadar</pre>
+          </div>
+          <p>Das Kommando <code class="literal">git archive</code> hilft beim Erstellen eines
+Quellcode-Archivs. Das Kommando beherrscht sowohl das Tar- als auch
+das Zip-Format. Zusätzlich können Sie mit der Option
+<code class="literal">--prefix=</code> ein Präfix für die zu speichernden Dateien
+setzen. Die oberste Ebene des Repositorys wird dann unterhalb dieses
+Präfix abgelegt, üblicherweise der Name und die Versionsnummer der
+Software:</p>
+          <pre class="screen">$ <span class="strong"><strong>git archive --format=zip --prefix=wiki2beamer-0.9.3/ HEAD \</strong></span>
+    <span class="strong"><strong>&gt; wiki2beamer-0.9.3.zip</strong></span>
+$ <span class="strong"><strong>git archive --format=tar --prefix=wiki2beamer-0.9.3/ HEAD \</strong></span>
+    <span class="strong"><strong>| gzip &gt; wiki2beamer-0.9.3.tgz</strong></span></pre>
+          <p>Als zwingendes Argument erwartet das Kommando einen Commit (bzw. einen
+Tree), der als Archiv gepackt werden soll. Im o.g. Beispiel ist das
+<code class="literal">HEAD</code>.  Es hätte aber auch eine Commit-ID, eine Referenz
+(Branch oder Tag) oder direkt ein Tree-Objekt sein können.<a href="#ftn.idm45240356750208" class="footnote" id="idm45240356750208"><sup class="footnote">[91]</sup></a></p>
+          <p>Auch hier können Sie <code class="literal">git describe</code> einsetzen, nachdem Sie
+einen Release-Commit getaggt haben. Bei einem geeigneten Tag-Schema
+<code class="literal">&lt;name&gt;-&lt;X.Y.Z&gt;</code> wie oben reicht dann folgendes Kommando:</p>
+          <pre class="screen">$ <span class="strong"><strong>version=$(git describe)</strong></span>
+$ <span class="strong"><strong>git archive --format=zip --prefix=$version/ HEAD &gt; $version.zip</strong></span></pre>
+          <p>Es kann sein, dass nicht alle Dateien, die Sie in Ihrem Git-Repository
+verwalten, auch in den Quellcode-Archiven vorkommen sollten, z.B.
+die Projekt-Webseite.  Sie können zusätzlich noch Pfade angeben – um
+also das Archiv auf das Verzeichnis <code class="literal">src</code> und die Dateien
+<code class="literal">LICENSE</code> und <code class="literal">README</code> zu beschränken, verwenden Sie:</p>
+          <pre class="screen">$ <span class="strong"><strong>version=$(git describe)</strong></span>
+$ <span class="strong"><strong>git archive --format=zip --prefix=$version/ HEAD src LICENSE README \</strong></span>
+    <span class="strong"><strong>&gt; $version.zip</strong></span></pre>
+          <p>Git speichert, sofern Sie einen Commit als Argument angeben, die
+SHA-1-Summe mit im Archiv ab. Im Tar-Format wird dies als
+<span class="emphasis"><em>Pax-Header-Eintrag</em></span> mit eingespeichert, den Git mit dem Kommando
+<code class="literal">git get-tar-commit-id</code> wieder auslesen kann:</p>
+          <pre class="screen">$ <span class="strong"><strong>zcat wiki2beamer-0.9.3.tgz | git get-tar-commit-id</strong></span>
+181f09a469546b4ebdc6f565ac31b3f07a19cecb</pre>
+          <p>In Zip-Dateien speichert Git die SHA-1-Summe einfach im Kommentarfeld:</p>
+          <pre class="screen">$ <span class="strong"><strong>unzip -l wiki2beamer-0.9.3.zip | head -5</strong></span>
+Archive:  wiki2beamer-0.9.3.zip
+181f09a469546b4ebdc6f565ac31b3f07a19cecb
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  05-06-2011 20:45   wiki2beamer-0.9.3/</pre>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Ein Problem, das Sie bedenken sollten, ist, dass zum Beispiel
+<code class="literal">.gitignore</code>-Dateien automatisch mit gepackt werden. Da sie aber
+außerhalb eines Git-Repositorys keine Bedeutung haben, lohnt es sich,
+sie mit dem Git-Attribut (siehe <a class="xref" href="ch08.html#sec.attributes" title="8.1. Git-Attribute – Dateien gesondert behandeln">Abschnitt 8.1, „Git-Attribute – Dateien gesondert behandeln“</a>) <code class="literal">export-ignore</code>
+auszuschließen.  Das geschieht durch einen Eintrag <code class="literal">.gitignore
+export-ignore</code> in <code class="literal">.git/info/attributes</code>.</p>
+            <p>Auch können Sie vor dem Einpacken des Archivs automatische
+Keyword-Ersetzungen vornehmen (siehe
+<a class="xref" href="ch08.html#sec.smudge-clean-keywords" title="8.1.2. Keywords in Dateien">Abschnitt 8.1.2, „Keywords in Dateien“</a>).</p>
+          </div>
+        </div>
+      </div>
+      <div class="footnotes">
+        <br />
+        <hr style="width:100; text-align:left;margin-left: 0" />
+        <div id="ftn.idm45240356975440" class="footnote">
+          <p><a href="#idm45240356975440" class="simpara"><sup class="simpara">[88] </sup></a>Zu empfehlen ist u.a.
+  das dritte Kapitel von <span class="emphasis"><em>Open Source Projektmanagement</em></span> von
+  Michael Prokop (Open Source Press, München, 2010). Auch das
+  <span class="emphasis"><em>Manifesto for Agile Software Development</em></span> hält unter
+  <a class="ulink" href="http://agilemanifesto.org/" target="_top">http://agilemanifesto.org/</a> aufschlussreiche Hinweise
+  bereit.</p>
+        </div>
+        <div id="ftn.idm45240356943328" class="footnote">
+          <p><a href="#idm45240356943328" class="simpara"><sup class="simpara">[89] </sup></a>Eine
+Ausnahme besteht, wenn Sie eine neue Entwicklung in der Mainline in
+Ihrem Topic-Branch benötigen; in dem Fall können Sie allerdings auch
+überlegen, den Topic-Branch per Rebase neu aufzubauen, so dass er die
+benötigte Funktionalität schon beinhaltet.</p>
+        </div>
+        <div id="ftn.idm45240356827456" class="footnote">
+          <p><a href="#idm45240356827456" class="simpara"><sup class="simpara">[90] </sup></a>Weitere Anregungen finden Sie im
+  Kapitel 6 des Buches <span class="emphasis"><em>Open Source Projektmanagement</em></span> von Michael
+  Prokop (Open Source Press, München, 2010).</p>
+        </div>
+        <div id="ftn.idm45240356750208" class="footnote">
+          <p><a href="#idm45240356750208" class="simpara"><sup class="simpara">[91] </sup></a>Jeder Commit referenziert
+genau einen Tree. Allerdings verhält sich <code class="literal">git archive</code>
+verschieden, je nachdem, ob Sie einen Commit (der einen Tree
+referenziert) oder einen Tree direkt angeben: Der Zeitpunkt der
+letzten Modifikation, der im Archiv aufgenommen wird, ist bei Trees
+die Systemzeit – bei einem Commit allerdings wird der Zeitpunkt des
+Commits gesetzt.</p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="ch05.html">Zurück</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="ch07.html">Weiter</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top"> </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index.html">Zum Anfang</a>
+          </td>
+          <td width="40%" align="right" valign="top"> </td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="cc-license">
+      <hr />
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Lizensiert unter der <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+    </p>
+    </div>
+  </body>
+</html>

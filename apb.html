@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Anhang B. Struktur eines Repositorys</title>
+    <link rel="stylesheet" type="text/css" href="gitbuch.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="home" href="index.html" title="Git" />
+    <link rel="up" href="index.html" title="Git" />
+    <link rel="prev" href="apa.html" title="Anhang A. Installation" />
+    <meta xmlns="" name="language" content="de" />
+    <script xmlns="" src="http://hyphenator.googlecode.com/svn/trunk/Hyphenator.js" type="text/javascript"></script>
+    <script xmlns="" type="text/javascript">
+        Hyphenator.run();
+    </script>
+  </head>
+  <body class="hyphenate">
+    <div xmlns="" class="toc">
+<p><a href="index.html">Startseite</a></p>
+<dl class="toc">
+          <dt>
+            <span class="preface">
+              <a href="pr01.html">Vorwort</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.leser">1. An wen richtet sich dieses Buch?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.struktur">2. Wie ist das Buch zu lesen?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.konventionen">3. Konventionen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.install-git-repo">4. Installation und „das Git-Repository“</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.doku">5. Dokumentation und Hilfe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.kontakt">6. Downloads und Kontakt</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.dank">7. Danksagungen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-2te-auflage">8. Vorwort zur 2. Auflage</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-cc-ausgabe">9. Vorwort zur CreativeCommons-Ausgabe</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch01.html">1. Einführung und erste Schritte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.begriffe">1.1. Grundbegriffe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.erste-schritte">1.2. Erste Schritte mit Git</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#chap.git-config">1.3. Git konfigurieren</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch02.html">2. Grundlagen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.grundlagen">2.1. Git-Kommandos</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.objektmodell">2.2. Das Objektmodell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch03.html">3. Praktische Versionsverwaltung</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.branches">3.1. Referenzen: Branches und Tags</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.undo">3.2. Versionen wiederherstellen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge">3.3. Branches zusammenführen: Merges</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge-conflicts">3.4. Merge-Konflikte lösen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.cherry-pick">3.5. Einzelne Commits übernehmen: Cherry-Pick</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.visualization">3.6. Visualisierung von Repositories</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.reflog">3.7. Reflog</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch04.html">4. Fortgeschrittene Konzepte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase">4.1. Commits verschieben – Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase-i">4.2. Die Geschichte umschreiben – Interaktives Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.blame">4.3. Wer hat diese Änderungen gemacht? – git blame</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.ignore">4.4. Dateien ignorieren</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.stash">4.5. Veränderungen auslagern – git stash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.notes">4.6. Commits annotieren – git notes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.multi-root">4.7. Mehrere Root-Commits</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.bisect">4.8. Regressionen finden – git bisect</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch05.html">5. Verteiltes Git</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.verteilte_systeme">5.1. Wie funktioniert verteilte Versionsverwaltung?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.clone">5.2. Repositories klonen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.git_fetch">5.3. Commits herunterladen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.hochladen">5.4. Commits hochladen: git push</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-check">5.5. Remotes untersuchen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.multi-remote">5.6. Verteilter Workflow mit mehreren Remotes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-verwalten">5.7. Remotes verwalten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remote-tags">5.8. Tags austauschen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.patch-queue">5.9. Patches per E-Mail</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.dictator">5.10. Ein verteilter, hierarchischer Workflow</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.subprojects">5.11. Unterprojekte verwalten</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch06.html">6. Workflows</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.workflows-user">6.1. Anwender</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.branch-modell">6.2. Ein Branching-Modell</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.releases-management">6.3. Releases-Management</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch07.html">7. Git auf dem Server</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.server">7.1. Einen Git-Server hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitolite">7.2. Gitolite: Git einfach hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.git-daemon">7.3. Git-Daemon: Anonymer, lesender Zugriff</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitweb">7.4. Gitweb: Das integrierte Web-Frontend</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.cgit">7.5. CGit – CGI for Git</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch08.html">8. Git automatisieren</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.attributes">8.1. Git-Attribute – Dateien gesondert behandeln</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.hooks">8.2. Hooks</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.scripting">8.3. Eigene Git-Kommandos schreiben</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.filter-branch">8.4. Versionsgeschichte umschreiben</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch09.html">9. Zusammenspiel mit anderen Versionsverwaltungssystemen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.subversion">9.1. Subversion</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.fast-import">9.2. Eigene Importer</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch10.html">10. Shell-Integration</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.bash-integration">10.1. Git und die Bash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.zsh-integration">10.2. Git und die Z-Shell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch11.html">11. Github</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="appendix">
+              <a href="apa.html">A. Installation</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#linux">A.1. Linux</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.osx">A.2. Mac OS X</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.windows">A.3. Windows</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="appendix">
+              <a href="apb.html">B. Struktur eines Repositorys</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc">B.1. Aufräumen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc-performance">B.2. Performance</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl></div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="apa.html">Zurück</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> </td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="appendix">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="sec.git-repository-layout"></a>Anhang B. Struktur eines Repositorys</h1>
+          </div>
+        </div>
+      </div>
+      <p>Git speichert die Objektdatenbank, die zugehörigen Referenzen usw. im
+sogenannten <span class="emphasis"><em>Git-Directory</em></span>, oft auch als <code class="literal">$GIT_DIR</code>
+bezeichnet.  Standardmäßig ist dies <code class="literal">.git/</code>. Es existiert
+für jedes Git-Repository nur einmal, d.h. es werden keine
+zusätzlichen <code class="literal">.git/</code>-Verzeichnisse in Unterverzeichnissen
+angelegt.<a href="#ftn.idm45240354550352" class="footnote" id="idm45240354550352"><sup class="footnote">[154]</sup></a> Es enthält unter anderem
+folgende Einträge:</p>
+      <div class="variablelist">
+        <dl class="variablelist">
+          <dt>
+            <span class="term">
+<code class="literal">HEAD</code>
+</span>
+          </dt>
+          <dd>
+Der <code class="literal">HEAD</code>, siehe <a class="xref" href="ch03.html#sec.branch-refs" title="3.1.1. HEAD und andere symbolische Referenzen">Abschnitt 3.1.1, „HEAD und andere symbolische Referenzen“</a>. Neben <code class="literal">HEAD</code> liegen
+ggf. auch andere wichtige symbolische Referenzen auf oberster Ebene,
+z.B. <code class="literal">ORIG_HEAD</code> oder <code class="literal">FETCH_HEAD</code>.
+</dd>
+          <dt>
+            <span class="term">
+<code class="literal">config</code>
+</span>
+          </dt>
+          <dd>
+Die Konfigurationsdatei des Repositorys, siehe
+<a class="xref" href="ch01.html#chap.git-config" title="1.3. Git konfigurieren">Abschnitt 1.3, „Git konfigurieren“</a>.
+</dd>
+          <dt>
+            <span class="term">
+<code class="literal">hooks/</code>
+</span>
+          </dt>
+          <dd>
+Enthält die für dieses Repository gesetzten Hooks, siehe
+<a class="xref" href="ch08.html#sec.hooks" title="8.2. Hooks">Abschnitt 8.2, „Hooks“</a>.
+</dd>
+          <dt>
+            <span class="term">
+<code class="literal">index</code>
+</span>
+          </dt>
+          <dd>
+Der Index bzw. Stage, siehe <a class="xref" href="ch02.html#sec.index" title="2.1.1. Index">Abschnitt 2.1.1, „Index“</a>.
+</dd>
+          <dt>
+            <span class="term">
+<code class="literal">info/</code>
+</span>
+          </dt>
+          <dd>
+Zusätzliche Repository-Informationen, z.B. zu ignorierende
+Muster (siehe <a class="xref" href="ch04.html#sec.ignore" title="4.4. Dateien ignorieren">Abschnitt 4.4, „Dateien ignorieren“</a>) und auch Grafts (siehe
+<a class="xref" href="ch08.html#sec.fb-grafts" title="8.4.3. Grafts: Nachträgliche Merges">Abschnitt 8.4.3, „Grafts: Nachträgliche Merges“</a>). Sie können eigene Informationen dort ablegen, wenn
+andere Tools damit umgehen können (siehe z.B. der Abschnitt über
+Caching von CGit, <a class="xref" href="ch07.html#sec.cgit-cache" title="7.5.4. Caching ausnutzen">Abschnitt 7.5.4, „Caching ausnutzen“</a>).
+</dd>
+        </dl>
+      </div>
+      <div class="figure">
+        <a id="fig.git-dir-listing"></a>
+        <p class="title">
+          <strong>Abbildung B.1. Die wichtigsten Einträge in <code class="literal">.git</code></strong>
+        </p>
+        <div class="figure-contents">
+          <div class="mediaobject">
+            <img src="bilder_ebook/git-dir-crop.png" width="108" alt="bilder_ebook/git-dir-crop.png" />
+          </div>
+        </div>
+      </div>
+      <br class="figure-break" />
+      <div class="variablelist">
+        <dl class="variablelist">
+          <dt>
+            <span class="term">
+<code class="literal">logs/</code>
+</span>
+          </dt>
+          <dd>
+Protokoll der Veränderungen an Referenzen; zugänglich über
+das Reflog, siehe <a class="xref" href="ch03.html#sec.reflog" title="3.7. Reflog">Abschnitt 3.7, „Reflog“</a>. Enthält eine Logdatei für jede
+Referenz unter <code class="literal">refs/</code> sowie <code class="literal">HEAD</code>.
+</dd>
+          <dt>
+            <span class="term">
+<code class="literal">objects/</code>
+</span>
+          </dt>
+          <dd>
+Die Objektdatenbank, siehe <a class="xref" href="ch02.html#sec.od" title="2.2.3. Die Objektdatenbank">Abschnitt 2.2.3, „Die Objektdatenbank“</a>.  Aus
+Performance-Gründen sind die Objekte in Unterverzeichnisse, die einem
+Zwei-Zeichen-Präfix ihrer SHA-1-Summe entsprechen, einsortiert (der
+Commit <code class="literal">0a7ba55...</code> liegt also unter <code class="literal">0a/7ba55...</code>). Im
+Unterverzeichnis <code class="literal">pack/</code> finden Sie die Packfiles und zugehörigen
+Indizes, die u.a. von der Garbage-Collection (s.u.) erstellt
+wird. Im Unterverzeichnis <code class="literal">info/</code> legt Git bei Bedarf eine Auflistung
+vorhandener Packfiles ab.
+</dd>
+          <dt>
+            <span class="term">
+<code class="literal">refs/</code>
+</span>
+          </dt>
+          <dd>
+Alle Referenzen, unter anderem Branches in <code class="literal">refs/heads/</code>,
+siehe <a class="xref" href="ch03.html#sec.branch-refs" title="3.1.1. HEAD und andere symbolische Referenzen">Abschnitt 3.1.1, „HEAD und andere symbolische Referenzen“</a>, Tags in <code class="literal">refs/tags/</code>, siehe <a class="xref" href="ch03.html#sec.tags" title="3.1.3. Tags – Wichtige Versionen markieren">Abschnitt 3.1.3, „Tags – Wichtige Versionen markieren“</a>
+sowie Remote-Tracking-Branches unter <code class="literal">refs/remotes/</code>, siehe
+<a class="xref" href="ch05.html#sec.remote_tracking_branches" title="5.2.2. Remote-Tracking-Branches">Abschnitt 5.2.2, „Remote-Tracking-Branches“</a>.
+</dd>
+        </dl>
+      </div>
+      <p>Eine ausführliche technische Beschreibung finden Sie in der
+Man-Page <code class="literal">gitrepository-layout(5)</code>.</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.gc"></a>B.1. Aufräumen</h2>
+            </div>
+          </div>
+        </div>
+        <p>Wie beispielsweise schon in <a class="xref" href="ch03.html#sec.branch-management" title="3.1.2. Branches verwalten">Abschnitt 3.1.2, „Branches verwalten“</a> erwähnt, sind
+Commits, die nicht mehr referenziert werden (sei es durch Branches
+oder andere Commits), nicht mehr zu erreichen. In der Regel ist das der
+Fall, wenn Sie einen Commit löschen wollten (oder Commits mit Rebase
+umgebaut haben). Git löscht diese nicht sofort aus der
+Objektdatenbank, sondern belässt sie per Default zwei Wochen dort,
+auch wenn sie nicht mehr erreichbar sind.</p>
+        <p>Intern verwendet Git die Kommandos <code class="literal">prune</code>,
+<code class="literal">prune-packed</code>, <code class="literal">fsck</code>, <code class="literal">repack</code> u.a.
+Allerdings werden die  Tools mit entsprechenden Optionen
+automatisch von der <span class="emphasis"><em>Garbage Collection</em></span> („Müllabfuhr“)
+ausgeführt: <code class="literal">git gc</code>. Folgende Aufgaben erledigt das Tool:</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+<span class="emphasis"><em>Dangling</em></span> und <span class="emphasis"><em>Unreachable Objects</em></span> löschen.
+  Diese entstehen bei diversen Operationen und können in der Regel
+  nach einiger Zeit gelöscht werden, um Platz zu sparen (Default:
+  nach zwei Wochen).
+</li>
+            <li class="listitem">
+<span class="emphasis"><em>Loose Objects</em></span> neu packen. Git verwendet sog.
+  <span class="emphasis"><em>Packfiles</em></span>, um mehrere Git-Objekte zusammenzuschnüren. (Dann
+  existiert nicht mehr eine Datei unterhalb von <code class="literal">.git/objects/</code>
+  pro Blob, Tree und Commit – diese werden in einer großen,
+  <span class="emphasis"><em>zlib</em></span>-komprimierten Datei zusammengefasst).
+</li>
+            <li class="listitem">
+Existierende Packfiles nach alten (unerreichbaren) Objekten
+  durchsuchen und die Packfiles entsprechend „ausdünnen“.
+  Ggf. werden mehrere kleine Packfiles zu großen kombiniert.
+</li>
+            <li class="listitem">
+Referenzen packen. Es entstehen sog. <span class="emphasis"><em>Packed Refs</em></span>,
+  siehe auch <a class="xref" href="ch03.html#sec.branches" title="3.1. Referenzen: Branches und Tags">Abschnitt 3.1, „Referenzen: Branches und Tags“</a>.
+</li>
+            <li class="listitem">
+Alte Reflog-Einträge löschen. Das geschieht per Default
+  nach 90 Tagen.
+</li>
+            <li class="listitem">
+Alte Konflikt-Resolutionen (siehe Rerere,
+  <a class="xref" href="ch03.html#sec.rerere" title="3.4.2. rerere: Reuse Recorded Resolution">Abschnitt 3.4.2, „rerere: Reuse Recorded Resolution“</a>) werden entsorgt (15/60 Tage Haltezeit für
+  ungelöst/gelöst).
+</li>
+          </ul>
+        </div>
+        <p>Die Garbage Collection kennt drei Modi: automatisch, normal und
+aggressiv. Den automatischen Modus rufen Sie per <code class="literal">git gc
+  --auto</code> auf – der Modus überprüft, ob es wirklich eklatante
+Mängel im Repository gibt. Was „eklatant“ bedeutet, ist
+konfigurierbar. Über folgende Konfigurationseinstellungen können Sie
+(global oder per Repository) bestimmen, ab wann, d.h. ab welcher
+Anzahl „kleiner“ Dateien der automatische Modus aufräumt,
+also diese in große Archive zusammenfasst.</p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+<code class="literal">gc.auto</code> (Default: 6700 Objekte)
+</span>
+            </dt>
+            <dd>
+Objekte zu einem Packfile
+zusammenfassen
+</dd>
+            <dt>
+              <span class="term">
+<code class="literal">gc.autopacklimit</code> (Default: 50 Packs)
+</span>
+            </dt>
+            <dd>
+Packs zu einem großen
+Packfile zusammenfassen
+</dd>
+          </dl>
+        </div>
+        <p>Der automatische Modus wird häufig aufgerufen, u.a. von
+<code class="literal">receive-pack</code> und <code class="literal">rebase</code> (interaktiv).  In den
+meisten Fällen tut der automatische Modus allerdings nichts, da die
+Defaults sehr konservativ sind. Wenn doch, sieht das so aus:</p>
+        <pre class="screen">$ <span class="strong"><strong>git gc --auto</strong></span>
+Auto packing the repository for optimum performance. You may also
+run "git gc" manually. See "git help gc" for more information.
+...</pre>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.gc-performance"></a>B.2. Performance</h2>
+            </div>
+          </div>
+        </div>
+        <p>Sie sollten entweder die Schwellen, ab denen die automatische Garbage
+Collection greift, deutlich herabsetzen, oder von Zeit zu Zeit
+<code class="literal">git gc</code> aufrufen. Dies hat einen offensichtlichen Vorteil,
+nämlich dass Plattenplatz gespart wird:</p>
+        <pre class="screen">$ <span class="strong"><strong>du -sh .git</strong></span>
+20M     .git
+$ <span class="strong"><strong>git gc</strong></span>
+Counting objects: 3726, done.
+Compressing objects: 100% (1639/1639), done.
+Writing objects: 100% (3726/3726), done.
+Total 3726 (delta 1961), reused 2341 (delta 1279)
+Removing duplicate objects: 100% (256/256), done.
+$ <span class="strong"><strong>du -sh .git</strong></span>
+6.3M    .git</pre>
+        <p>Einzelne Objekte unterhalb von <code class="literal">.git/objects/</code> wurden zu einem
+Packfile zusammengefasst:</p>
+        <pre class="screen">$ <span class="strong"><strong>ls -lh .git/objects/pack/pack-a97624dd23&lt;...&gt;.pack</strong></span>
+-r-------- 1 feh feh 4.6M Jun  1 10:20 .git/objects/pack/pack-a97624dd23&lt;...&gt;.pack
+$ <span class="strong"><strong>file .git/objects/pack/pack-a97624dd23&lt;...&gt;.pack</strong></span>
+.git/objects/pack/pack-a97624dd23&lt;...&gt;.pack: Git pack, version 2, 3726 objects</pre>
+        <p>Sie können sich per <code class="literal">git count-objects</code> ausgeben lassen, aus
+wie vielen Dateien die Objektdatenbank besteht. Hier nebeneinander vor
+und nach dem obigen Packvorgang:</p>
+        <pre class="screen">$ <span class="strong"><strong>git count-objects -v</strong></span>
+count: 1905                             count: 58
+size: 12700                             size: 456
+in-pack: 3550                           in-pack: 3726
+packs: 7                                packs: 1
+size-pack: 4842                         size-pack: 4716
+prune-packable: 97                      prune-packable: 0
+garbage: 0                              garbage: 0</pre>
+        <p>Nun ist Plattenplatz billig, ein auf 30% komprimiertes Repository
+also kein großer Gewinn. Der Performance-Gewinn ist allerdings nicht
+zu verachten. In der Regel zieht ein Objekt (z.B. ein Commit)
+weitere Objekte nach sich (Blobs, Trees). Wenn Git also pro Objekt
+eine Datei öffnen muss (bei <span class="emphasis"><em>n</em></span> verwalteten Dateien also mindestens
+<span class="emphasis"><em>n</em></span> Blob-Objekte), dann sind dies <span class="emphasis"><em>n</em></span> Lese-Vorgänge auf dem
+Dateisystem.</p>
+        <p>Packfiles haben zwei wesentliche Vorteile: Erstens legt Git zu jedem
+Packfile eine Indizierung an, die angibt, welches Objekt in welchem Offset
+der Datei zu finden ist. Zusätzlich hat die Packroutine noch eine
+gewisse Heuristik um die Objektplatzierung innerhalb der Datei zu optimieren
+(so dass bspw. ein Tree-Object und die davon referenzierten Blob-Objekte
+„nah“ beieinander liegen).
+Dadurch kann Git einfach das Packfile in den Speicher mappen
+(Stichwort: „sliding mmap“). Die Operation „suche
+Objekt X“ ist dann nichts weiter als eine Lookup-Operation im
+Pack-Index und ein entsprechendes Auslesen der Stelle im Packfile,
+d.h. im Speicher. Dies entlastet das Datei- und Betriebssystem
+erheblich.</p>
+        <p>Der zweite Vorteil der Packfiles liegt in der Delta-Kompression. So
+werden Objekte möglichst als <span class="emphasis"><em>Deltas</em></span> (<span class="emphasis"><em>Veränderungen</em></span>)
+anderer Objekte gespeichert.<a href="#ftn.idm45240354455504" class="footnote" id="idm45240354455504"><sup class="footnote">[155]</sup></a>  Das spart Speicherplatz, ermöglicht aber
+andererseits auch Kommandos wie <code class="literal">git blame</code>,
+„kostengünstig“, also ohne großen Rechenaufwand, Kopien
+von Code-Stücken zwischen Dateien zu entdecken.</p>
+        <p>Der aggressive Modus sollte nur in begründeten Ausnahmefällen
+eingesetzt werden.<a href="#ftn.idm45240354452624" class="footnote" id="idm45240354452624"><sup class="footnote">[156]</sup></a></p>
+        <div class="tip" style="margin-left: 0; margin-right: 10%;">
+          <h3 class="title">Tipp</h3>
+          <p>Lassen Sie auf Ihren öffentlich zugänglichen Repositories auch
+regelmäßig, z.B. per Cron, ein <code class="literal">git gc</code> laufen. Commits werden über
+das Git-Protokoll immer als Packfiles übertragen, die <span class="emphasis"><em>on demand</em></span>, das
+heißt zum Zeitpunkt des Abrufs, erzeugt werden.  Wenn das gesamte
+Repository schon als ein großes Packfile vorliegt, können Teile daraus
+schneller extrahiert werden, und ein kompletter Clone des Repositorys
+benötigt keine zusätzlichen Rechenoperationen (es muss kein riesiges
+Packfile gepackt werden).  Eine regelmäßige Garbage Collection kann
+also die Auslastung Ihres Servers senken, außerdem wird der
+Clone-Vorgang der Nutzer beschleunigt.</p>
+          <p>Ist das Repository besonders groß, kann es bei einem <code class="literal">git clone</code> sehr
+lange dauern, bis der Server alle Objekte gezählt hat. Dies können Sie
+beschleunigen, indem Sie regelmäßig per Cron-Job <code class="literal">git repack -A -d -b</code>
+aufrufen: Git erstellt dann zusätzlich zu den Pack-Files eine
+Bitmap-Datei, die diesen Vorgang um ein bis zwei Größenordnungen
+beschleunigt.</p>
+        </div>
+      </div>
+      <div class="footnotes">
+        <br />
+        <hr style="width:100; text-align:left;margin-left: 0" />
+        <div id="ftn.idm45240354550352" class="footnote">
+          <p><a href="#idm45240354550352" class="simpara"><sup class="simpara">[154] </sup></a>Da ein Bare-Repository
+  (siehe <a class="xref" href="ch07.html#sec.bare-repos" title="7.1.3. Bare Repositories – Repositories ohne Working Tree">Abschnitt 7.1.3, „Bare Repositories – Repositories ohne Working Tree“</a>) keinen Working Tree besitzt,
+  bilden die Inhalte, die normalerweise in <code class="literal">.git</code> liegen, die
+  oberste Ebene in der Verzeichnisstruktur, und es gibt kein
+  zusätzliches Verzeichnis <code class="literal">.git</code>.</p>
+        </div>
+        <div id="ftn.idm45240354455504" class="footnote">
+          <p><a href="#idm45240354455504" class="simpara"><sup class="simpara">[155] </sup></a>Das ist nicht zu verwechseln mit
+  Versionskontrollsystemen, die inkrementelle Versionen einer Datei
+  speichern. Innerhalb von Packfiles werden die Objekte unabhängig von
+  ihrem semantischen Zusammenhang, d.h. speziell ihrer zeitlichen
+  Abfolge, gepackt.</p>
+        </div>
+        <div id="ftn.idm45240354452624" class="footnote">
+          <p><a href="#idm45240354452624" class="simpara"><sup class="simpara">[156] </sup></a>Eine ausführliche
+  Auseinandersetzung mit dem Thema finden Sie unter
+  <a class="ulink" href="http://metalinguist.wordpress.com/2007/12/06/the-woes-of-git-gc-aggressive-and-how-git-deltas-work/" target="_top">http://metalinguist.wordpress.com/2007/12/06/the-woes-of-git-gc-aggressive-and-how-git-deltas-work/</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="apa.html">Zurück</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> </td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top"> </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index.html">Zum Anfang</a>
+          </td>
+          <td width="40%" align="right" valign="top"> </td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="cc-license">
+      <hr />
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Lizensiert unter der <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+    </p>
+    </div>
+  </body>
+</html>

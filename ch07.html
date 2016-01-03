@@ -1,0 +1,2095 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kapitel 7. Git auf dem Server</title>
+    <link rel="stylesheet" type="text/css" href="gitbuch.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="home" href="index.html" title="Git" />
+    <link rel="up" href="index.html" title="Git" />
+    <link rel="prev" href="ch06.html" title="Kapitel 6. Workflows" />
+    <link rel="next" href="ch08.html" title="Kapitel 8. Git automatisieren" />
+    <meta xmlns="" name="language" content="de" />
+    <script xmlns="" src="http://hyphenator.googlecode.com/svn/trunk/Hyphenator.js" type="text/javascript"></script>
+    <script xmlns="" type="text/javascript">
+        Hyphenator.run();
+    </script>
+  </head>
+  <body class="hyphenate">
+    <div xmlns="" class="toc">
+<p><a href="index.html">Startseite</a></p>
+<dl class="toc">
+          <dt>
+            <span class="preface">
+              <a href="pr01.html">Vorwort</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.leser">1. An wen richtet sich dieses Buch?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.struktur">2. Wie ist das Buch zu lesen?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.konventionen">3. Konventionen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.install-git-repo">4. Installation und „das Git-Repository“</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.doku">5. Dokumentation und Hilfe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.kontakt">6. Downloads und Kontakt</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.dank">7. Danksagungen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-2te-auflage">8. Vorwort zur 2. Auflage</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-cc-ausgabe">9. Vorwort zur CreativeCommons-Ausgabe</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch01.html">1. Einführung und erste Schritte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.begriffe">1.1. Grundbegriffe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.erste-schritte">1.2. Erste Schritte mit Git</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#chap.git-config">1.3. Git konfigurieren</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch02.html">2. Grundlagen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.grundlagen">2.1. Git-Kommandos</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.objektmodell">2.2. Das Objektmodell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch03.html">3. Praktische Versionsverwaltung</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.branches">3.1. Referenzen: Branches und Tags</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.undo">3.2. Versionen wiederherstellen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge">3.3. Branches zusammenführen: Merges</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge-conflicts">3.4. Merge-Konflikte lösen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.cherry-pick">3.5. Einzelne Commits übernehmen: Cherry-Pick</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.visualization">3.6. Visualisierung von Repositories</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.reflog">3.7. Reflog</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch04.html">4. Fortgeschrittene Konzepte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase">4.1. Commits verschieben – Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase-i">4.2. Die Geschichte umschreiben – Interaktives Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.blame">4.3. Wer hat diese Änderungen gemacht? – git blame</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.ignore">4.4. Dateien ignorieren</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.stash">4.5. Veränderungen auslagern – git stash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.notes">4.6. Commits annotieren – git notes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.multi-root">4.7. Mehrere Root-Commits</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.bisect">4.8. Regressionen finden – git bisect</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch05.html">5. Verteiltes Git</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.verteilte_systeme">5.1. Wie funktioniert verteilte Versionsverwaltung?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.clone">5.2. Repositories klonen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.git_fetch">5.3. Commits herunterladen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.hochladen">5.4. Commits hochladen: git push</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-check">5.5. Remotes untersuchen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.multi-remote">5.6. Verteilter Workflow mit mehreren Remotes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-verwalten">5.7. Remotes verwalten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remote-tags">5.8. Tags austauschen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.patch-queue">5.9. Patches per E-Mail</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.dictator">5.10. Ein verteilter, hierarchischer Workflow</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.subprojects">5.11. Unterprojekte verwalten</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch06.html">6. Workflows</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.workflows-user">6.1. Anwender</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.branch-modell">6.2. Ein Branching-Modell</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.releases-management">6.3. Releases-Management</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch07.html">7. Git auf dem Server</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.server">7.1. Einen Git-Server hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitolite">7.2. Gitolite: Git einfach hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.git-daemon">7.3. Git-Daemon: Anonymer, lesender Zugriff</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitweb">7.4. Gitweb: Das integrierte Web-Frontend</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.cgit">7.5. CGit – CGI for Git</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch08.html">8. Git automatisieren</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.attributes">8.1. Git-Attribute – Dateien gesondert behandeln</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.hooks">8.2. Hooks</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.scripting">8.3. Eigene Git-Kommandos schreiben</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.filter-branch">8.4. Versionsgeschichte umschreiben</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch09.html">9. Zusammenspiel mit anderen Versionsverwaltungssystemen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.subversion">9.1. Subversion</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.fast-import">9.2. Eigene Importer</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch10.html">10. Shell-Integration</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.bash-integration">10.1. Git und die Bash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.zsh-integration">10.2. Git und die Z-Shell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch11.html">11. Github</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="appendix">
+              <a href="apa.html">A. Installation</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#linux">A.1. Linux</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.osx">A.2. Mac OS X</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.windows">A.3. Windows</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="appendix">
+              <a href="apb.html">B. Struktur eines Repositorys</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc">B.1. Aufräumen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc-performance">B.2. Performance</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl></div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="ch06.html">Zurück</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="ch08.html">Weiter</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="ch.server"></a>Kapitel 7. Git auf dem Server</h1>
+          </div>
+        </div>
+      </div>
+      <p>Im Folgenden geht es um das Hosting von Git-Repositories und
+<span class="emphasis"><em>Gitolite</em></span>, mit dem Sie Zugriffsrechte auf Repositories über
+SSH-Public-Keys flexibel verwalten. Außerdem werden Installation und
+Konfiguration der zwei Web-Interfaces <span class="emphasis"><em>Gitweb</em></span> und <span class="emphasis"><em>CGit</em></span>
+erläutert, alternativ für Apache oder Lighttpd.</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.server"></a>7.1. Einen Git-Server hosten</h2>
+            </div>
+          </div>
+        </div>
+        <p>Zunächst einige Grundlagen: Wie unterscheiden sich Repositories auf
+einem Server von denen eines normalen Nutzers? Und wie tauscht Git die
+Änderungen aus?</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.protokolle"></a>7.1.1. Das Git-Protokoll</h3>
+              </div>
+            </div>
+          </div>
+          <p>Git ist auf dezentrale Verwaltung der Repositories ausgelegt; die
+kleinste Einheit, um Änderungen zwischen Repositories
+auszutauschen, sind Commits. Da sich aber zwischen zwei Versionen
+einer Software bisweilen tausende von Commits ansammeln und eine
+einzelne, commitweise Übertragung viel Overhead erzeugen würde,
+werden Commits vor der Übertragung zu sogenannten <span class="emphasis"><em>Packfiles</em></span>
+zusammengefasst. Diese Packfiles sind ein simples, aber effektives
+Format.<a href="#ftn.idm45240356718224" class="footnote" id="idm45240356718224"><sup class="footnote">[92]</sup></a> Sie
+werden auch verwendet, um (ältere) Commits auf der Festplatte
+platzsparend zu lagern (<code class="literal">git gc</code> bzw. <code class="literal">git repack</code>,
+siehe <a class="xref" href="apb.html#sec.gc" title="B.1. Aufräumen">Abschnitt B.1, „Aufräumen“</a>).</p>
+          <p>Diese Packfiles werden in der Regel über das Git-Protokoll
+übertragen, das standardmäßig auf Port 9418/TCP läuft. Das
+Git-Protokoll ist vom Design her bewusst sehr einfach gehalten und
+bietet nur wenige Funktionen, die unmittelbar mit der Struktur von Git
+zu tun haben: Welche Daten gesendet oder empfangen werden sollen
+sowie eine Möglichkeit für Sender- und Empfängerseite, sich auf die
+kleinstmögliche Datenmenge zu einigen, die übertragen werden muss, um
+beide Seiten zu synchronisieren.</p>
+          <p>Das Git-Protokoll enthält daher <span class="emphasis"><em>keine</em></span> Möglichkeit der
+Authentifizierung. Stattdessen verwendet Git eine bereits vorhandene,
+sichere und einfache Authentifizierungsstruktur: SSH, die <span class="emphasis"><em>Secure
+  Shell</em></span>.</p>
+          <p>Während das Git-Protokoll also unverschlüsselt und in Rohform für
+anonymen <span class="emphasis"><em>Lesezugriff</em></span> uneingeschränkt verwendet werden kann,
+funktioniert ein Schreiben bzw. Hochladen über das Git-Protokoll nur,
+wenn dies über SSH erfolgt.</p>
+          <p>Des Weiteren unterstützt Git auch den Transport über HTTP(S), FTP(S),
+sowie Rsync. Zwar gilt die Unterstützung für letzteres mittlerweile
+als <span class="emphasis"><em>deprecated</em></span>, es sollte also nicht mehr benutzt werden; für
+HTTP(S) finden sich aber gewisse Anwendungsfälle: In besonders
+restriktiven Umgebungen mit sehr einschränkenden Firewall-Regeln
+kann man eventuell über HTTP(S) (also nur auf Port 80 bzw. 443) auf
+ein Repository lesend wie schreibend zugreifen. Plattformen wie GitHub
+(siehe <a class="xref" href="ch11.html" title="Kapitel 11. Github">Kapitel 11, <em>Github</em></a>) bieten HTTPS daher als Standard-Transportmethode
+an.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.git-pack-same-machine"></a>7.1.2. Repositories auf dem gleichen Rechner</h3>
+              </div>
+            </div>
+          </div>
+          <p>Wollen Sie Änderungen an Repositories auf dem gleichen Rechner
+synchronisieren, muss dies nicht über Umwege erfolgen: Git
+kommuniziert direkt über Unix-Pipes mit der Gegenseite, handelt eine
+gemeinsame Basis aus und synchronisiert die Daten. (Dafür ist es
+natürlich nötig, dass der Nutzer, der das Git-Kommando aufruft,
+zumindest Leseberechtigung auf die Packfiles des anderen Repositorys
+hat.)</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.bare-repos"></a>7.1.3. Bare Repositories – Repositories ohne Working Tree</h3>
+              </div>
+            </div>
+          </div>
+          <p>Bisher haben Sie vermutlich größtenteils mit Git-Repositories
+gearbeitet, die Working Tree und Repository in einem waren: Die
+repositoryinternen Daten werden in einem Unterverzeichnis
+<code class="literal">.git</code> gespeichert, alle anderen Dateien gehören dem Working
+Tree an, d.h. Sie können sie editieren, während Git die Veränderung
+an diesen Dateien beobachtet und abspeichert (<span class="emphasis"><em>Tracking</em></span>).</p>
+          <p>Ein sogenanntes <span class="emphasis"><em>Bare Repository</em></span>, also ein „bloßes“
+Repository, hat keinen zugeordneten Working Tree. Es enthält nur die
+Dateien und Verzeichnisse, die in einem „regulären“
+Repository unterhalb von <code class="literal">.git</code> gespeichert sind.</p>
+          <p>Ein solches Bare Repository erstellen Sie durch <code class="literal">git init
+  --bare</code>. Schauen Sie sich den Unterschied zwischen den beiden
+Möglichkeiten an:</p>
+          <pre class="screen">$ <span class="strong"><strong>cd /tmp/ &amp;&amp; mkdir init-test &amp;&amp; cd init-test</strong></span>
+$ <span class="strong"><strong>git init</strong></span>
+Initialized empty Git repository in /tmp/init-test/.git/
+$ <span class="strong"><strong>ls -AF</strong></span>
+.git/
+
+$ <span class="strong"><strong>mkdir ../init-test-bare &amp;&amp; cd ../init-test-bare</strong></span>
+$ <span class="strong"><strong>git init --bare</strong></span>
+Initialized empty Git repository in /tmp/init-test-bare/
+$ <span class="strong"><strong>ls -AF</strong></span>
+branches/  config  description  HEAD  hooks/  info/  objects/  refs/</pre>
+          <p>Um ein Backup eines Ihrer normalen Repositories anzulegen, können Sie
+(z.B. auf einem USB-Stick) ein neues Bare Repository erstellen und
+alle Ihre Referenzen (und damit alle Ihre Commits) hochladen:</p>
+          <pre class="screen">$ <span class="strong"><strong>git init --bare /mnt/usb/repo-backup/</strong></span>
+$ <span class="strong"><strong>git push --all /mnt/usb/repo-backup/</strong></span></pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.permissions"></a>7.1.4. Zugriffsrechte eines Repositorys</h3>
+              </div>
+            </div>
+          </div>
+          <p>Bei <code class="literal">git init</code> werden die Dateien in der Regel mit Lese-
+und Schreibberechtigung entsprechend der gesetzten <code class="literal">umask</code>
+angelegt. Für den Endanwender ist dies auch eine günstige Wahl.
+Wollen Sie aber ein Repository auf einem Server einrichten, dann
+können Sie mit der Option <code class="literal">--shared</code> angeben, wer (auf
+Dateisystemebene) auf das Repository zugreifen kann.</p>
+          <div class="variablelist">
+            <dl class="variablelist">
+              <dt>
+                <span class="term">
+<code class="literal">umask</code>
+</span>
+              </dt>
+              <dd>
+Default, wenn <code class="literal">--shared</code> nicht angegeben ist; verwendet die
+aktuell gesetzte <code class="literal">umask</code>.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">group</code>
+</span>
+              </dt>
+              <dd>
+Default, wenn nur <code class="literal">--shared</code> angegeben wird.  Vergibt
+Schreibrechte an alle Gruppenmitglieder.  Speziell werden auch
+Verzeichnisse auf den Modus <code class="literal">g+sx</code> gesetzt, erlauben es also allen
+Gruppenmitgliedern, neue Dateien zu erstellen (also Commits
+hochzuladen). Beachten Sie, dass, wenn die <code class="literal">umask</code> Leseberechtigung
+für alle Nutzer (<code class="literal">a+r</code>) vorgibt, diese weiterhin vergeben wird.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">all</code>
+</span>
+              </dt>
+              <dd>
+Das gleiche wie <code class="literal">group</code>, nur dass unabhängig von der <code class="literal">umask</code>
+Leseberechtigung für alle explizit vergeben wird.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">0&lt;nnn&gt;</code>
+</span>
+              </dt>
+              <dd>
+Setzt die <code class="literal">umask</code> explizit auf <code class="literal">&lt;nnn&gt;</code>.
+</dd>
+            </dl>
+          </div>
+          <p>Wenn Sie ein Repository mit <code class="literal">--shared</code> initialisieren, wird
+automatisch die Option <code class="literal">receive.denyNonFastForwards</code> gesetzt.
+Sie verhindert, dass Commits hochgeladen werden, die nicht per
+Fast-Forward integriert werden können (selbst, wenn der Nutzer dies
+explizit will via <code class="literal">git push -f</code>).</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.git-shell"></a>7.1.5. Zugriff per SSH: Die Git-Shell</h3>
+              </div>
+            </div>
+          </div>
+          <p>In der Regel kann der Schreib-Zugriff auf Git-Repositories, die auf
+einem anderen Rechner liegen, nur per SSH erfolgen. Allerdings ist es
+im Allgemeinen nicht wünschenswert, einem Nutzer, der Zugriffsrechte
+auf ein Repository erhalten soll, auch gleich Nutzerrechte auf dem
+ganzen System einzuräumen.</p>
+          <p>Dieses Problem umgeht Git mit dem mitgelieferten Programm
+<code class="literal">git-shell</code>. Es funktioniert wie eine Shell, erlaubt aber nur
+die Ausführung von vier Git-Kommandos, die für das Hoch- und
+Runterladen von Packfiles zuständig sind. Interaktive Benutzung oder
+Ausführung anderer Kommandos verweigert die Shell, sofern Sie nicht den
+„Interaktiven Modus“ der Shell explizit aktivieren – siehe dafür
+die Man-Page <code class="literal">git-shell(1)</code>.</p>
+          <p>Wenn Sie einen neuen Benutzer anlegen und ihm z.B. per
+<code class="literal">chsh &lt;user&gt;</code> die Git-Shell zuweisen, kann er sich nicht
+per SSH einloggen, aber auf alle Git-Repositories, auf denen er
+Schreibberechtigung hat, Commits hochladen.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.ssh-pubkey"></a>7.1.6. Zugriff per SSH: Öffentliche Schlüssel</h3>
+              </div>
+            </div>
+          </div>
+          <p>Es ist ein wesentlicher Vorteil, dass Git SSH als verschlüsselten und
+authentifizierten Transportkanal verwendet, denn die meisten Nutzer
+haben bereits ein Schlüsselpaar (öffentlich/privat), mit dem sie sich
+auf anderen Rechnern einloggen.</p>
+          <p>Anstatt also umständlich Passwörter für Accounts zu vergeben (und dann
+zu versenden), kann ein Systemadministrator den Zugriff auf
+Git-Repositories auf Nutzer limitieren, die sich gegen öffentliche
+SSH-Schlüssel authentifizieren. Das spart dem Nutzer Zeit (durch die
+möglicherweise wegfallende wiederholte Eingabe eines Passworts), aber
+auch dem Administrator, der sich nicht um Passwortänderungen kümmern
+muss (die durch Einsatz der Git-Shell nicht ohne weiteres möglich
+wären).</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.two-users"></a>7.1.7. Beispiel: Zwei Nutzer wollen kollaborieren</h3>
+              </div>
+            </div>
+          </div>
+          <p>Im Folgenden wollen wir beispielhaft die Kommandos entwickeln, mit
+denen Sie zwei Nutzer <code class="literal">max</code> und <code class="literal">moritz</code> auf Ihrem
+System einrichten und sie auf dem gleichen Repository arbeiten
+lassen.</p>
+          <p>Zunächst müssen wir ein Repository einrichten, auf das die beiden
+später zugreifen wollen. Unter der Annahme, dass vielleicht später
+weitere Repositories folgen sollen, erstellen wir eine Unix-Gruppe
+<code class="literal">git</code> (generell für Git-Nutzer) und ein Verzeichnis
+<code class="literal">/var/repositories</code> mit Leseberechtigung für Mitglieder der
+Gruppe <code class="literal">git</code>, außerdem eine Gruppe <code class="literal">git-beispiel</code> und
+ein entsprechendes Verzeichnis, schreibbar nur für Mitglieder von
+<code class="literal">git-beispiel</code>, in dem sich dann später das Repository
+befindet:</p>
+          <pre class="screen">$ <span class="strong"><strong>groupadd git</strong></span>
+$ <span class="strong"><strong>groupadd git-beispiel</strong></span>
+$ <span class="strong"><strong>mkdir -m 0750 /var/repositories</strong></span>
+$ <span class="strong"><strong>mkdir -m 0770 /var/repositories/git-beispiel</strong></span>
+$ <span class="strong"><strong>chown root:git /var/repositories</strong></span>
+$ <span class="strong"><strong>chown root:git-beispiel /var/repositories/git-beispiel</strong></span></pre>
+          <p>Wir erstellen auch gleich ein Repository in dem zuletzt angelegten
+Verzeichnis:</p>
+          <pre class="screen">$ <span class="strong"><strong>git init --bare --shared /var/repositories/git-beispiel</strong></span>
+$ <span class="strong"><strong>chown -R nobody:git /var/repositories/git-beispiel</strong></span></pre>
+          <p>Als nächstes erstellen wir die beiden Nutzer. Beachten Sie, dass bei
+diesem Aufruf <span class="emphasis"><em>kein</em></span> Homeverzeichnis für die Nutzer unter
+<code class="literal">/home/</code> erstellt wird. Außerdem werden beide der Gruppe
+<code class="literal">git</code> und <code class="literal">git-beispiel</code> hinzugefügt:</p>
+          <pre class="screen">$ <span class="strong"><strong>adduser --no-create-home --shell /usr/bin/git-shell max</strong></span>
+$ <span class="strong"><strong>adduser --no-create-home --shell /usr/bin/git-shell moritz</strong></span>
+$ <span class="strong"><strong>adduser max git</strong></span>
+$ <span class="strong"><strong>adduser max git-beispiel</strong></span>
+$ <span class="strong"><strong>adduser moritz git</strong></span>
+$ <span class="strong"><strong>adduser moritz git-beispiel</strong></span></pre>
+          <p>Als nächstes müssen wir den Nutzern per <code class="literal">passwd</code> noch jeweils
+ein Passwort zuweisen, damit sie sich per SSH einloggen können.
+Anschließend können die neuen Nutzer nun gemeinsam an einem Projekt
+entwickeln. Das Remote fügen Sie wie folgt hinzu:</p>
+          <pre class="screen">$ <span class="strong"><strong>git remote add origin max@server:/var/repositories/git-example</strong></span></pre>
+          <p>Alle weiteren Nutzer, die an diesem Projekt mitarbeiten wollen, müssen
+der Gruppe <code class="literal">git-beispiel</code> angehören. Dieser Ansatz basiert also
+wesentlich auf der Nutzung von Unix-Gruppen und Unix-Nutzern.
+Allerdings will ein Server-Admin in der Regel nicht nur Git anbieten,
+sondern diverse Services. Und die Nutzerverwaltung vollständig über
+Unix-Gruppen zu regeln, ist eher unflexibel.</p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.gitolite"></a>7.2. Gitolite: Git einfach hosten</h2>
+            </div>
+          </div>
+        </div>
+        <p>Die oben beschriebene Art und Weise, Nutzer zu verwalten, bringt einige
+wesentliche Nachteile. Namentlich:</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+Für jeden Nutzer muss ein vollwertiger Unix-Account angelegt
+  werden. Das bedeutet einen großen Mehraufwand für den Administrator
+  und öffnet möglicherweise auch Sicherheitslücken.
+</li>
+            <li class="listitem">
+Für jedes Projekt muss eine eigene Unix-Gruppe erstellt werden.
+</li>
+            <li class="listitem">
+Für jeden angelegten Nutzer müssen manuell (oder per Script) die
+  Zugriffsberechtigungen angepasst werden.
+</li>
+          </ul>
+        </div>
+        <p>Abhilfe schafft das Programm <span class="emphasis"><em>Gitolite</em></span>.<a href="#ftn.idm45240356618848" class="footnote" id="idm45240356618848"><sup class="footnote">[93]</sup></a></p>
+        <p>Gitolite ist aus dem Projekt <span class="emphasis"><em>Gitosis</em></span> hervorgegangen, das
+mittlerweile als veraltet angesehen wird. Die Idee: Auf dem Server
+wird lediglich <span class="emphasis"><em>ein</em></span> Unix-Benutzer (z.B. <code class="literal">git</code>)
+angelegt. Intern verwaltet dann Gitolite eine Liste von Nutzern mit
+zugehörigen SSH-Schlüsseln. Diese Nutzer haben aber keinen
+„wirklichen“ Nutzer-Account auf dem System.</p>
+        <p>Nutzer loggen sich <span class="emphasis"><em>ausschließlich</em></span> mit ihrem öffentlichen
+SSH-Schüssel auf diesem Account <code class="literal">git</code> ein. Das bringt drei
+wesentliche Vorteile:</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+Kein Passwort muss vergeben oder geändert werden.
+</li>
+            <li class="listitem">
+Nutzer können mehrere SSH-Schlüssel hinterlegen (für
+  verschiedene Rechner, auf denen sie arbeiten).
+</li>
+            <li class="listitem">
+Anhand des SSH-Schlüssels, mit dem sich ein Nutzer einloggt, kann
+  Gitolite <span class="emphasis"><em>eindeutig</em></span><a href="#ftn.idm45240356609920" class="footnote" id="idm45240356609920"><sup class="footnote">[94]</sup></a> den internen Nutzernamen
+  ableiten und somit auch die Berechtigungen auf den von Gitolite
+  verwalteten Repositories.
+</li>
+          </ul>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.gitolite-install"></a>7.2.1. Gitolite installieren</h3>
+              </div>
+            </div>
+          </div>
+          <p>Die Installation von Gitolite ist einfach. Sie müssen dafür nur Ihren
+Public-Key bereithalten, um sich als Administrator eintragen zu können.
+Root-Rechte benötigen Sie nicht, es
+sei denn, Sie müssen den Nutzer <code class="literal">git</code> erst erstellen.<a href="#ftn.idm45240356605584" class="footnote" id="idm45240356605584"><sup class="footnote">[95]</sup></a>
+Überspringen Sie also den nachfolgenden Schritt, wenn Sie bereits
+einen solchen Nutzer erstellt haben.</p>
+          <p>Zunächst erstellen Sie einen Nutzer auf dem Rechner, der als
+Git-Server arbeiten soll (im Folgenden <code class="literal">&lt;server&gt;</code>). In der
+Regel wird dieser Nutzer <code class="literal">git</code> genannt, Sie können ihn aber auch
+anders nennen (z.B. <code class="literal">gitolite</code>). Als Homeverzeichnis können
+Sie <code class="literal">/home/git</code> angeben oder auch, wie hier im Beispiel, etwas
+wie <code class="literal">/var/git</code>:</p>
+          <pre class="screen">server# <span class="strong"><strong>adduser --home /var/git git</strong></span></pre>
+          <p>Werden Sie nun zum Nutzer <code class="literal">git</code>. Gitolite braucht die Verzeichnisse
+<code class="literal">.ssh/</code> und <code class="literal">bin/</code>, also müssen wir diese erstellen:</p>
+          <pre class="screen">server$ <span class="strong"><strong>mkdir -m 0700 ~/.ssh ~/bin</strong></span></pre>
+          <p>Klonen Sie nun das Gitolite-Repository, und installieren Sie einen
+Symlink nach <code class="literal">bin</code> (dies ist schon die ganze Installation):</p>
+          <pre class="screen">server$ <span class="strong"><strong>git clone git://github.com/sitaramc/gitolite</strong></span>
+server$ <span class="strong"><strong>gitolite/install -ln</strong></span></pre>
+          <p>Sie können nun Gitolite konfigurieren und Ihren öffentlichen Schlüssel
+eintragen, mit dem Sie die Gitolite-Konfiguration verwalten wollen:</p>
+          <pre class="screen">server$ <span class="strong"><strong>bin/gitolite setup -pk &lt;ihr-key&gt;.pub</strong></span></pre>
+          <p>Überprüfen Sie auf dem Rechner, auf dem Sie normalerweise arbeiten (und
+wo Sie den entsprechenden privaten Schlüssel hinterlegt haben), ob
+Gitolite funktioniert:</p>
+          <pre class="screen">client$ <span class="strong"><strong>ssh -T git@&lt;server&gt;</strong></span>
+...
+ R W    gitolite-admin</pre>
+          <p>Sie sollten erkennen, dass Sie mit Ihrem Key Lese- und
+Schreibberechtigung auf dem Repository <code class="literal">gitolite-admin</code> besitzen. Dieses
+klonen Sie nun auf Ihren Computer:</p>
+          <pre class="screen">client$ <span class="strong"><strong>git clone git@&lt;server&gt;:gitolite-admin</strong></span></pre>
+          <p>Das Repository enthält die gesamte Konfiguration für Gitolite. Sie
+checken Ihre Änderungen dort ein und laden Sie per <code class="literal">git push</code> hoch: Der
+Server aktualisiert automatisch die Einstellungen.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.gitolite-config"></a>7.2.2. Gitolite-Konfiguration</h3>
+              </div>
+            </div>
+          </div>
+          <p>Im Gitolite-Admin-Verzeichnis befinden sich zwei Unterverzeichnisse,
+<code class="literal">conf</code> und <code class="literal">keydir</code>. Um Gitolite einen neuen Nutzer
+vorzustellen, müssen Sie dessen SSH-Schlüssel unter
+<code class="literal">keydir/&lt;nutzer&gt;.pub</code> ablegen. Hat der Nutzer mehrere
+Schlüssel, können Sie diese in einzelnen Dateien vom
+Format <code class="literal">&lt;nutzer&gt;@&lt;beschreibung&gt;.pub</code> ablegen:</p>
+          <pre class="screen">client$ <span class="strong"><strong>cat &gt; keydir/feh@laptop1.pub</strong></span>
+ssh-dss AAAAB3NzaC1kc3M ... dTw== feh@mali
+^D
+client$ <span class="strong"><strong>cat &gt; keydir/feh@laptop2.pub</strong></span>
+ssh-dss AAAAB3NzaC1kc3M ... 5LA== feh@deepthought
+^D</pre>
+          <p>Vergessen Sie nicht, mit <code class="literal">git add keydir</code> und einem
+anschließenden <code class="literal">git commit</code> die neuen Schlüssel einzuchecken.
+Um diese der Gitolite-Installation bekannt zu machen, müssen Sie
+außerdem die Commits durch <code class="literal">git push</code> hochladen.</p>
+          <p>Danach können Sie diesem Nutzernamen in der Konfigurationsdatei
+<code class="literal">conf/gitolite.conf</code> Berechtigungen zuweisen.</p>
+          <p>Über sogenannte <span class="emphasis"><em>Makros</em></span> können Sie sich viel administrativen
+Aufwand bzw. Tipparbeit sparen. Sie können Gruppen (von Nutzern oder
+Repositories) zusammenfassen, z.B.</p>
+          <pre class="screen">@test_entwickler = max markus felix
+@test_repos      = test1 test2 test3</pre>
+          <p>Diese Makros werden auch rekursiv ausgewertet. Bei der Definition muss
+nicht klar sein, ob es sich um Nutzer oder Repositories handelt; die
+Makros werden erst zur Laufzeit ausgewertet. So können Sie Gruppen aus
+anderen Gruppen zusammensetzen:</p>
+          <pre class="screen">@proj = @developer @tester @admins</pre>
+          <p>Es gibt eine spezielle Gruppe <code class="literal">@all</code>, die, je nach Kontext,
+alle Nutzer oder alle Repositories enthält.</p>
+          <p>Ein (oder mehrere) Repositories können Sie wie folgt konfigurieren:</p>
+          <pre class="screen">repo @test_repos
+    RW+ = @test_entwickler</pre>
+          <p><code class="literal">R</code> und <code class="literal">W</code> stehen für Lese- bzw. Schreibzugriff. Das
+Plus bedeutet, dass auch ein forciertes Hochladen erlaubt ist
+(<span class="emphasis"><em>non-fast-forward</em></span>, also auch das Löschen von Commits).</p>
+          <p>Für ein Repository können natürlich mehrere solcher Zeilen eingetragen
+werden. In einem kleinen Projekt könnte es Maintainer, weitere
+Entwickler und Tester geben. Dann könnten die Zugriffsrechte wie folgt
+geregelt werden:</p>
+          <pre class="screen">@maintainers = ... # Hauptentwickler/Chefs
+@developers  = ... # Weitere Entwickler
+@testers     = ...
+
+repo Projekt
+    RW+ = @maintainers
+    RW  = @developers
+    R   = @testers</pre>
+          <p>So haben die Tester nur Lesezugriff, während die Entwickler zwar neue
+Commits hochladen dürfen, aber nur, wenn diese per <span class="emphasis"><em>fast-forward</em></span>
+integriert werden können. Die Hauptmaintainer dürfen
+„alles“.</p>
+          <p>Diese Zeilen werden sequentiell abgearbeitet. Trifft die Zeile für
+einen Nutzer zu, so autorisiert Gitolite den Nutzer und stattet ihn
+mit den entsprechenden Rechten aus. Sofern keine Zeile auf den Nutzer
+zutrifft, wird er zurückgewiesen und darf an dem Repository nichts
+verändern.</p>
+          <p>Ein Nutzer kann alle seine Berechtigungen anzeigen lassen, indem er
+sich einfach per SSH auf dem Git-Server einloggt.
+Direkt nach der Installation sieht dies für den Administrator dann so aus:</p>
+          <pre class="screen">$ <span class="strong"><strong>ssh -q git@&lt;server&gt;</strong></span>
+hello feh, this is git@mjanja running gitolite3 v3.6.1-6-gdc8b590 on git 2.1.0
+
+ R W     gitolite-admin
+ R W     testing</pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.gitweb-name"></a>7.2.3. Eigentümer und Beschreibung</h3>
+              </div>
+            </div>
+          </div>
+          <p>Sofern Sie später ein webbasiertes Tool installieren wollen, mit dem
+man die Git-Repositories durchstöbern kann, sollten Sie auch gleich
+einen Verantwortlichen  benennen und das Projekt beschreiben:</p>
+          <pre class="screen">repo &lt;repo-name&gt;
+  # Zugriffsrechte
+  config gitweb.owner = "Julius Plenz"
+  config gitweb.description = "Ein Test-Repository"</pre>
+          <p>Damit dies funktioniert, müssen Sie allerdings erst aktivieren, dass
+Gitolite diese Config-Einstellungen setzen darf: Das
+geschieht auf dem Server, wo Gitolite installiert ist, in der Datei
+<code class="literal">.gitolite.rc</code>: Tragen Sie dort unter dem Schlüssel
+<code class="literal">GIT_CONFIG_KEYS</code> den Wert <code class="literal">gitweb\..*</code> ein.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.zugriffdateiebene"></a>7.2.4. Zugriffsrechte auf Datei- oder Branch-Ebene</h3>
+              </div>
+            </div>
+          </div>
+          <p>Gerade in Firmenumgebungen müssen die Zugriffsrechte häufig noch
+feiner differenziert werden als ein bloßes „hat Zugriff“ und
+„darf nicht zugreifen“. Dafür bietet Gitolite
+Zugriffsbeschränkung auf Verzeichnis- und Datei- sowie Tag- und
+Branch-Ebene an.</p>
+          <p>Wir betrachten zunächst einen Fall, der häufig auftritt: Entwickler
+sollen auf Entwicklungs-Branches beliebig entwickeln können, aber nur
+eine kleine Gruppe von Maintainern soll „wichtige“ Branches
+wie z.B. <code class="literal">master</code>, bearbeiten können.</p>
+          <p>Das ließe sich in etwa so umsetzen:</p>
+          <pre class="screen">@maintainers = ...
+@developers  = ...
+
+repo Projekt
+    RW+ dev/    = @developers
+    RW+         = @maintainers
+    R           = @developers</pre>
+          <p>Hier wird ein „Entwicklungs-Namespace“ geschaffen: Die
+Gruppe der Entwickler kann beliebig mit Branches unterhalb von
+<code class="literal">dev/</code> verfahren, also z.B. <code class="literal">dev/feature</code> erstellen
+oder auch wieder löschen. Den Branch <code class="literal">master</code> können die
+Entwickler allerdings nur lesen, nicht aber verändern – das ist den
+Maintainern vorbehalten.</p>
+          <p>Der Teil zwischen den <span class="emphasis"><em>Flags</em></span> (<code class="literal">RW+</code>) und dem
+Gleichzeichen ist ein sogenannter Perl-kompatibler regulärer Ausdruck
+(<span class="emphasis"><em>Perl-Compatible Regular Expression</em></span>, kurz PCRE). Sofern er
+<span class="emphasis"><em>nicht</em></span> mit <code class="literal">refs/</code> beginnt, bezieht sich der Ausdruck auf
+alle Referenzen unterhalb von <code class="literal">refs/heads/</code>, also Branches. Im
+o.g. Beispiel können also beliebige Referenzen <span class="emphasis"><em>unterhalb</em></span> von
+<code class="literal">refs/heads/dev/</code> modifiziert werden – nicht aber der Branch
+<code class="literal">dev</code> selbst oder <code class="literal">irgendwas-dev</code>!</p>
+          <p>Beginnt ein solcher Ausdruck aber explizit mit einem <code class="literal">refs/</code>,
+kann man beliebige Referenzen verwalten. Auf die folgende Weise
+richtet man ein, dass alle Maintainer <span class="emphasis"><em>Release-Candidate</em></span>-Tags<a href="#ftn.idm45240356533664" class="footnote" id="idm45240356533664"><sup class="footnote">[96]</sup></a>
+erstellen dürfen, aber nur <span class="emphasis"><em>ein</em></span> Maintainer wirklich den
+Versionierungs-Tag (bzw. beliebige andere) erstellen darf:</p>
+          <pre class="screen">repo Projekt
+    RW+ refs/tags/v.*-rc[0-9]+$     = @maintainers
+    RW+ refs/tags/                  = &lt;projektleiter&gt;</pre>
+          <p>Will einer der Maintainer trotzdem einen Tag wie z.B. <code class="literal">v1.0</code>
+hochladen, passiert Folgendes:</p>
+          <pre class="screen">remote: W refs/tags/v1.0 &lt;repository&gt; &lt;user&gt; DENIED by fallthru
+remote: error: hook declined to update refs/tags/v1.0
+To &lt;user&gt;:&lt;repository&gt;
+ ! [remote rejected] v1.0 -&gt; v1.0 (hook declined)</pre>
+          <p>Wie oben schon angesprochen, werden hier die Regeln nacheinander
+angewendet. Da der Tag <code class="literal">v1.0</code> nicht auf den o.g. regulären
+Ausdruck zutrifft, kommt nur die untere Zeile in Frage, allerdings
+passt der Nutzername nicht. Keine Zeile bleibt übrig
+(<code class="literal">fallthru</code>), daher wird die Aktion nicht erlaubt.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.personal-namespace"></a>7.2.5. Persönliche Namespaces</h3>
+              </div>
+            </div>
+          </div>
+          <p>Etwas flexibler ist das Konzept persönlicher Namespaces. So erhält
+jeder Entwickler seine eigene Hierarchie von Branches, die er
+verwalten kann.</p>
+          <p>Dafür gibt es ein spezielles Schlüsselwort, <code class="literal">USER</code>, das jeweils
+durch den gerade zugreifenden Nutzernamen ersetzt wird. Damit wird
+Folgendes möglich:</p>
+          <pre class="screen">repo Projekt
+    RW+ p/USER/  = @developers
+    R            = @developers @maintainers</pre>
+          <p>Nun können alle Developer unterhalb von <code class="literal">p/&lt;user&gt;/</code> beliebig
+ihre Branches verwalten. Die untere Direktive sorgt dafür, dass alle
+diese Branches auch lesen können. Nun kann <code class="literal">max</code> z.B. <code class="literal">p/max/bugfixes</code> erstellen, aber <code class="literal">moritz</code> kann nur
+lesend darauf zugreifen.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.file-level-acl"></a>7.2.6. Zugriffsregelung auf Dateiebene</h3>
+              </div>
+            </div>
+          </div>
+          <p>Gitolite erlaubt auch Zugriffsbeschränkungen auf Datei- und
+Verzeichnisebene. Zuständig dafür ist die virtuelle Referenz <code class="literal">VREF/NAME</code>.
+So können Sie beispielsweise dem Dokumentations-Team nur den
+(schreibenden<a href="#ftn.idm45240356513344" class="footnote" id="idm45240356513344"><sup class="footnote">[97]</sup></a>)
+Zugriff auf <code class="literal">doc/</code> erlauben:</p>
+          <pre class="screen">@doc = ...  # Dokumentations-Team
+
+repo Projekt
+    RW VREF/NAME/doc/   = @doc
+    -  VREF/NAME/       = @doc</pre>
+          <p>Hierbei sind allerdings folgende Fallstricke zu beachten: Sobald das
+Schlüsselwort <code class="literal">VREF/NAME</code> einmal auftaucht, werden die
+dateibasierten Regeln für <span class="emphasis"><em>alle</em></span> Nutzer angewendet. Trifft keine von
+ihnen zu, so wird der Zugriff <span class="emphasis"><em>zugelassen</em></span> – daher ist die zweite Regel
+wichtig, die den Zugriff für <code class="literal">@doc</code> verbietet, es sei denn, der Commit
+modifiziert nur Dateien unter <code class="literal">doc/</code> (siehe auch weiter unten
+<a class="xref" href="ch07.html#sec.gl-deny" title="7.2.7. Aktionen explizit verbieten">Abschnitt 7.2.7, „Aktionen explizit verbieten“</a>).</p>
+          <p>Die Zugriffskontrolle prüft auf Commit-Ebene, welche Dateien verändert
+werden; stecken in einem Commit Änderungen an einer Datei, die der
+Nutzer nicht editieren darf, wird der gesamte <code class="literal">push</code>-Vorgang
+abgebrochen. Insbesondere können keine Aktionen ausgeführt werden, die
+Commits anderer Entwickler involvieren, die Dateien außerhalb des
+erlaubten Bereiches modifizieren.</p>
+          <p>Konkret auf das o.g. Beispiel bezogen heißt das, dass die Mitglieder
+von <code class="literal">@doc</code> im Allgemeinen <span class="emphasis"><em>keine neuen Branches erstellen
+  können</em></span>. Einen neuen Branch zu erstellen hieße nämlich, ein neue
+Referenz auf einen initialen Commit zu erstellen und dann alle
+Commits vom obersten bis zur Wurzel per <span class="emphasis"><em>fast-forward</em></span> zu
+integrieren, also die gesamte Projekt-Historie. Darin befinden sich
+aber sicherlich Commits, die Dateien außerhalb von <code class="literal">doc/</code>
+verändern, und somit wird die Aktion verboten.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.gl-deny"></a>7.2.7. Aktionen explizit verbieten</h3>
+              </div>
+            </div>
+          </div>
+          <p>Bisher wurde ein Nutzer nur abgewiesen, wenn er durch alle Regeln
+durchgefallen war (<code class="literal">fallthru</code>), ihm also keine Rechte zugewiesen
+wurden.  Allerdings lässt sich durch das Flag <code class="literal">-</code> (statt
+<code class="literal">RW</code>) explizit der Zugriff einschränken. Auch hier werden die
+Regeln wieder von oben nach unten durchgegangen.</p>
+          <pre class="screen">repo Projekt
+    -   VREF/NAME/Makefile   = @developers</pre>
+          <p>Diese Direktive verbietet Mitgliedern von <code class="literal">@developers</code>,
+Commits zu erstellen, die das <code class="literal">Makefile</code>
+verändern.<a href="#ftn.idm45240356493200" class="footnote" id="idm45240356493200"><sup class="footnote">[98]</sup></a></p>
+          <p>Nach Konvention sollten Sie niemals forcierte Updates in die Branches
+<code class="literal">master</code> oder <code class="literal">maint</code> hochladen (siehe auch <a class="xref" href="ch03.html#sec.branches" title="3.1. Referenzen: Branches und Tags">Abschnitt 3.1, „Referenzen: Branches und Tags“</a>). Diese Policy können
+Sie nun mit Gitolite forcieren:</p>
+          <pre class="screen">repo Projekt
+    RW  master maint    = @developers
+    -   master maint    = @developers
+    RW+                 = @developers</pre>
+          <p>Wird ein Branch, der <span class="emphasis"><em>nicht</em></span> <code class="literal">master</code> oder <code class="literal">maint</code>
+heißt, hochgeladen, so wird lediglich die dritte Regel angewendet und
+der beliebige Zugriff (inkl. nicht-<span class="emphasis"><em>fast-forward</em></span>-Updates)
+erlaubt. Commits, die per <span class="emphasis"><em>fast-forward</em></span> auf <code class="literal">master</code> oder
+<code class="literal">maint</code> integriert werden können, werden durch die erste Regel
+erlaubt. Beachten Sie allerdings das fehlende Plus-Zeichen: Ein
+forciertes Update wird nicht durch die erste Regel abgedeckt, aber
+durch die zweite, die explizit alles verbietet (was nicht vorher schon
+erlaubt wurde).</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.enforce-policy"></a>7.2.8. Sollte man Policies forcieren?</h3>
+              </div>
+            </div>
+          </div>
+          <p>Mit den hier vorgestellten Mitteln und weiteren, die Sie der
+Dokumentation<a href="#ftn.idm45240356481680" class="footnote" id="idm45240356481680"><sup class="footnote">[99]</sup></a>
+entnehmen können, sind Sie in der Lage, Policies sehr flexibel zu
+forcieren. Allerdings ist es möglicherweise nicht sinnvoll, alles bis
+ins kleinste Detail zu kontrollieren. Wie oben bereits angesprochen,
+ist besonders eine Kontrolle auf Dateinamen-Ebene problematisch. Wenn
+dann stundenlange Arbeit in einem Commit steckt, er aber nicht
+hochgeladen werden kann, weil eine dieser Restriktionen es verbietet,
+ist die Frustration groß (und diesen Commit zu korrigieren, ist auch
+nicht ganz trivial, siehe <span class="emphasis"><em>Rebase</em></span>, <a class="xref" href="ch04.html#sec.rebase" title="4.1. Commits verschieben – Rebase">Abschnitt 4.1, „Commits verschieben – Rebase“</a>).</p>
+          <p>Auf Branch-Ebene ist es sinnvoll, nur einer eingeschränkten Gruppe von
+Entwicklern Zugriff auf „wichtige“ Branches zu geben (wie
+z.B. <code class="literal">master</code>). Allerdings geht natürlich eine strikte
+Kontrolle, wer was machen darf, erheblich zu Lasten der Flexibilität,
+und gerade diese Flexibilität macht das Branching in Git so praktisch.</p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.git-daemon"></a>7.3. Git-Daemon: Anonymer, lesender Zugriff</h2>
+            </div>
+          </div>
+        </div>
+        <p>Der Git-Daemon erlaubt unverschlüsselten, anonymen, lesenden Zugriff
+auf Git-Repositories über das Git-Protokoll. Er wird mit Git
+mitgeliefert und läuft in der Regel auf TCP-Port 9418 (und kann somit
+auch ohne Root-Rechte gestartet werden).</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+Die Übertragung findet unverschlüsselt statt. Die kryptografische
+  Integrität, die Git ständig überprüft, schließt es allerdings aus,
+  dass Angreifer den Datenstrom manipulieren und Schadcode
+  einschmuggeln können.<a href="#ftn.idm45240356473376" class="footnote" id="idm45240356473376"><sup class="footnote">[100]</sup></a>
+</li>
+            <li class="listitem">
+Dieser Weg ist ideal, um schnell und einfach Quellcode
+  einer großen Menge von Leuten zugänglich zu machen. Es wird nur das
+  Minimum an nötigen Informationen heruntergeladen (es werden nur die
+  benötigten Commits ausgehandelt und dann gepackt übertragen).
+</li>
+          </ul>
+        </div>
+        <p>Um ein oder mehrere Repositories zu exportieren, reicht prinzipiell
+ein einfacher Aufruf von <code class="literal">git daemon &lt;pfad&gt;</code>, wobei
+<code class="literal">&lt;pfad&gt;</code> der Pfad ist, in dem Ihre Repositories liegen. Es
+können auch mehrere Pfade angegeben werden. Sofern Sie Gitolite schon
+wie oben aufgesetzt haben, ist <code class="literal">/var/git/repositories</code> ein
+sinnvoller Pfad.</p>
+        <p>Zum Testen können Sie einen Git-Daemon auf einem einzigen Repository
+laufen lassen:</p>
+        <pre class="screen">$ <span class="strong"><strong>touch .git/git-daemon-export-ok</strong></span>
+$ <span class="strong"><strong>git daemon --verbose /home/feh/testrepo</strong></span></pre>
+        <p>Dann klonen Sie (am besten in ein temporäres Verzeichnis) eben dieses
+Repository:</p>
+        <pre class="screen">$ <span class="strong"><strong>git clone git://localhost/home/feh/testrepo</strong></span>
+Initialized empty Git repository in /tmp/tmp.kXtkwxKgkc/testrepo/.git/
+remote: Counting objects: 130, done.
+remote: Compressing objects: 100% (102/102), done.
+Receiving objects: 100% (130/130), 239.71 KiB, done.
+Resolving deltas: 100% (54/54), done.
+remote: Total 130 (delta 54), reused 0 (delta 0)</pre>
+        <p>Der Git-Daemon exportiert ein Repository aber nur, wenn eine Datei
+<code class="literal">git-daemon-export-ok</code> im <code class="literal">.git</code>-Verzeichnis angelegt
+wird (wie oben geschehen; im Falle von <span class="emphasis"><em>Bare Repositories</em></span> muss
+dies natürlich im Verzeichnis selbst geschehen). Dies erfolgt aus
+Sicherheitsgründen: So können etwa unter
+<code class="literal">/var/git/repositories</code> viele (auch private) Repositories
+liegen, aber nur diejenigen, die wirklich ohne Zugriffskontrolle
+exportiert werden sollen, erhalten diese Datei.</p>
+        <p>Der Daemon akzeptiert allerdings die Option <code class="literal">--export-all</code>,
+die diese Restriktion aufhebt und alle Repositories in allen
+Unterverzeichnissen exportiert.</p>
+        <p>Eine weitere wichtige Einstellung ist der <span class="emphasis"><em>Base Path</em></span>, also der
+Pfad, in dem die eigentlichen Git-Repositories liegen. Startet man den
+Git-Daemon wie folgt:</p>
+        <pre class="screen">$ <span class="strong"><strong>git daemon --base-path=/var/git/repositories /var/git/repositories</strong></span></pre>
+        <p>wird jeder Anfrage nach einem Git-Repository der <span class="emphasis"><em>Base Path</em></span>
+vorangestellt. Nun können Nutzer ein Repository mit der Adresse
+<code class="literal">git://&lt;server&gt;/&lt;projekt&gt;.git</code> klonen, anstatt
+das umständliche
+<code class="literal">git://&lt;server&gt;/var/git/repositories/&lt;projekt&gt;.git</code> zu
+verwenden.</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.git-daemon-inetd"></a>7.3.1. Git-Daemon und Inetd</h3>
+              </div>
+            </div>
+          </div>
+          <p>Im Regelfall soll der Git-Daemon eine große Anzahl von Repositories
+ständig ausliefern. Dafür läuft er ständig im Hintergrund oder wird
+für jede Anfrage neu gestartet. Letztere Aufgabe übernimmt
+typischerweise der aus OpenBSD stammende <span class="emphasis"><em>Inetd</em></span>. Damit das
+funktioniert, muss lediglich folgende (eine!)  Zeile in die
+<code class="literal">/etc/inetd.conf</code> eingetragen werden:</p>
+          <pre class="screen">git     stream  tcp     nowait  &lt;user&gt;   /usr/bin/git git daemon
+  --inetd --base-path=/var/git/repositories /var/git/repositories</pre>
+          <p>Dabei muss <code class="literal">&lt;user&gt;</code> ein Nutzer sein, der auf die Repositories
+lesend zugreifen kann. Das kann <code class="literal">root</code> sein, weil der Inetd
+normalerweise mit Root-Rechten läuft, sollte aber sinnvollerweise
+<code class="literal">git</code> oder ein ähnlich unprivilegierter Account sein.</p>
+          <p>Die Konfiguration für den <code class="literal">xinetd</code> ist analog, aber selbsterklärender. Sie wird z.B. unter
+<code class="literal">/etc/xinet.d/git-daemon</code> abgelegt:</p>
+          <pre class="screen">service git
+{
+    disable         = no
+    type            = UNLISTED
+    port            = 9418
+    socket_type     = stream
+    wait            = no
+    user            = &lt;user&gt;
+    server          = /usr/bin/git
+    server_args     = daemon --inetd --base-path=... ...
+    log_on_failure  += USERID
+}</pre>
+          <p>Vergessen Sie nicht, den jeweiligen Daemon per
+<code class="literal">/etc/init.d/[x]inetd restart</code> neu zu
+starten.<a href="#ftn.idm45240356440496" class="footnote" id="idm45240356440496"><sup class="footnote">[101]</sup></a></p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.git-daemon-sv"></a>7.3.2. Der Debian-Weg: Git-Daemon sv</h3>
+              </div>
+            </div>
+          </div>
+          <p>Debian bietet ein Paket <code class="literal">git-daemon-run</code> an, das
+Konfigurationsdateien für <code class="literal">sv</code><a href="#ftn.idm45240356436336" class="footnote" id="idm45240356436336"><sup class="footnote">[102]</sup></a>
+enthält. Das Paket erstellt im wesentlichen einen Nutzer
+<code class="literal">gitlog</code> sowie zwei ausführbare Shell-Scripte, <code class="literal">/etc/sv/git-daemon/run</code> und <code class="literal">/etc/sv/git-daemon/log/run</code>. Modifizieren Sie ersteres, damit
+der Git-Daemon auf dem Verzeichnis gestartet wird, in dem Ihre
+Repositories liegen:</p>
+          <pre class="screen">#!/bin/sh
+exec 2&gt;&amp;1
+echo 'git-daemon starting.'
+exec git-daemon --verbose --listen=203.0.113.1 --user=git --group=git \
+  --reuseaddr --base-path=/var/git/repositories /var/git/repositories</pre>
+          <p>Wenn Sie den Git-Daemon auf diese Weise (oder auf ähnliche Weise per
+SysV-Init) aus einem Shell-Script starten, wird das Skript mit
+Root-Rechten ausgeführt. Folgende Optionen sind daher sinnvoll:</p>
+          <div class="variablelist">
+            <dl class="variablelist">
+              <dt>
+                <span class="term">
+<code class="literal">--user=&lt;user&gt;</code>
+</span>
+              </dt>
+              <dd>
+Nutzer, als der der Daemon läuft (z.B. <code class="literal">git</code>). Muss
+lesend auf die Repositories zugreifen können.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">--group=&lt;group&gt;</code>
+</span>
+              </dt>
+              <dd>
+Gruppe, als die der Daemon läuft.  Sinnvollerweise
+die Nutzergruppe (<code class="literal">git</code>) oder <code class="literal">nobody</code>.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">--reuseaddr</code>
+</span>
+              </dt>
+              <dd>
+Verhindert, dass der Neustart des Daemons schief
+läuft, weil noch offene Verbindungen auf ein Timeout warten.  Diese
+Option benutzt die Bind-Adresse trotz eventuell noch bestehender
+Verbindungen. Diese Option sollten Sie immer dann angeben, wenn eine
+Instanz kontinuierlich läuft.
+</dd>
+            </dl>
+          </div>
+          <p>Wenn Sie das SysV-Init verwenden, Dienste also in der Regel über
+Symlinks in <code class="literal">/etc/rc2.d/</code> zu Scripten in <code class="literal">/etc/init.d/</code>
+gestartet werden, müssen Sie für einen automatischen Start des
+Git-Daemon beim Booten des Systems außerdem folgende Symlinks anlegen:</p>
+          <pre class="screen"># <span class="strong"><strong>ln -s /usr/bin/sv /etc/init.d/git-daemon</strong></span>
+# <span class="strong"><strong>ln -s ../init.d/git-daemon /etc/rc2.d/S92git-daemon</strong></span>
+# <span class="strong"><strong>ln -s ../init.d/git-daemon /etc/rc0.d/K10git-daemon</strong></span>
+# <span class="strong"><strong>ln -s ../init.d/git-daemon /etc/rc6.d/K10git-daemon</strong></span></pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.git-daemon-productive"></a>7.3.3. Der Git-Daemon auf einem Produktivsystem</h3>
+              </div>
+            </div>
+          </div>
+          <p>Auf einem Produktivsystem, das mehr als nur ein Git-Server ist, trifft
+man möglicherweise auf folgende Situationen:</p>
+          <div class="itemizedlist">
+            <ul class="itemizedlist" style="list-style-type: disc; ">
+              <li class="listitem">
+Es gibt mehrere Netzwerkkarten bzw. virtuelle Interfaces.
+</li>
+              <li class="listitem">
+Der Service soll auf einem anderen Port laufen.
+</li>
+              <li class="listitem">
+Verschiedene IPs sollen verschiedene Repositories
+  ausliefern.
+</li>
+            </ul>
+          </div>
+          <p>Der Git-Daemon bietet Optionen, um auf solche Situationen zu
+reagieren. Sie sind nachfolgend zusammengefasst. Für
+detailliertere Erklärungen ist die Man-Page <code class="literal">git-daemon</code> zu
+konsultieren.</p>
+          <div class="variablelist">
+            <dl class="variablelist">
+              <dt>
+                <span class="term">
+<code class="literal">--max-connections=&lt;n&gt;</code>
+</span>
+              </dt>
+              <dd>
+Per Default erlaubt der Git-Daemon nur 32
+gleichzeitige Verbindungen. Mit dieser Optionen können Sie die Anzahl
+erhöhen. Ein Wert von 0 lässt beliebig viele Verbindungen
+zu.<a href="#ftn.idm45240356404528" class="footnote" id="idm45240356404528"><sup class="footnote">[103]</sup></a>
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">--syslog</code>
+</span>
+              </dt>
+              <dd>
+Verwendet den Syslog-Mechanismus statt Standard-Error, um
+Fehlermeldungen zu loggen.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">--port=&lt;n&gt;</code>
+</span>
+              </dt>
+              <dd>
+Verwendet einen anderen Port als 9418.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">--listen=&lt;host/ip&gt;</code>
+</span>
+              </dt>
+              <dd>
+Bestimmt, an welches Interface sich der
+Git-Daemon binden soll. Per Default ist der Daemon auf allen
+Interfaces erreichbar, bindet also auf <code class="literal">0.0.0.0</code>. Ein Einstellung von
+<code class="literal">127.0.0.1</code> z.B. erlaubt nur Verbindungen vom lokalen Rechner.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">--interpolated-path=&lt;template&gt;</code>
+</span>
+              </dt>
+              <dd>
+Soll ein Git-Daemon abhängig von
+der Interface-Adresse verschiedene Repositories anbieten, so wird dies
+über das <code class="literal">&lt;template&gt;</code> geregelt: <code class="literal">%IP</code> wird durch die IP-Adresse des
+Interfaces, über das die Verbindung eingeht, ersetzt, und <code class="literal">%D</code> durch
+den angegebenen Pfad. Mit einem Template von <code class="literal">/repos/%IP%D</code>
+erscheint bei einem <code class="literal">git clone git://localhost/testrepo</code> die folgende
+Nachricht in den Logfiles: <code class="literal">Interpolated dir
+'/repos/127.0.0.1/testrepo'</code> (weil die Verbindung über das
+Loopback-Interface zustande kommt). Für jedes Interface, auf dem der
+Git-Daemon läuft, muss in diesem Fall in <code class="literal">/repos/</code> ein
+Unterverzeichnis mit der entsprechenden IP-Adresse des Interfaces
+existieren, in dem sich exportierbare Repositories befinden.
+</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.gitoliteexport"></a>7.3.4. Über Gitolite exportierbare Repositories festlegen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Gitolite kennt einen speziellen Nutzernamen, <code class="literal">daemon</code>. Für alle
+Repositories, auf denen dieser Nutzer Leseberechtigung hat, wird
+automatisch die Datei <code class="literal">git-daemon-export-ok</code> angelegt. Sie
+können also über Gitolite direkt festlegen, welche Repositories
+exportiert werden sollen:</p>
+          <pre class="screen">repo Projekt
+    R = daemon</pre>
+          <p>Beachten Sie allerdings, dass diese Einstellung wirkungslos ist, wenn
+Sie den Git-Daemon mit der Option <code class="literal">--export-all</code> starten.
+Auch können Sie nicht per <code class="literal">repo @all</code> allen Repositories diese
+Berechtigung vergeben.</p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.gitweb"></a>7.4. Gitweb: Das integrierte Web-Frontend</h2>
+            </div>
+          </div>
+        </div>
+        <p>Git kommt mit einem integrierten, browserbasierten Frontend, genannt
+<span class="emphasis"><em>Gitweb</em></span>. Über das Frontend lässt sich die gesamte
+Versionsgeschichte eines Projekts durchsuchen: Jeder Commit kann mit
+allen Details angezeigt werden, Unterschiede zwischen Commits, Dateien
+oder Branches ebenso wie alle Log-Nachrichten. Außerdem kann jeder
+Snapshot individuell als Tar-Archiv heruntergeladen werden (das ist
+besonders für Git-Neulinge praktisch).</p>
+        <p>Um einen Überblick über die Funktionalität zu erhalten, können Sie mit
+dem Kommando <code class="literal">git instaweb</code> ohne weitere Konfiguration einen
+temporären Webserver mit Gitweb aufsetzen.</p>
+        <p>Git bringt keinen eigenen Webserver mit. Über die Option
+<code class="literal">--httpd=&lt;webserver&gt;</code> können Sie festlegen, welchen Webserver
+Git verwenden soll, um die Seite auszuliefern. Um Gitweb lediglich
+auszuprobieren, empfiehlt es sich, den Webserver <code class="literal">webrick</code> zu
+verwenden – das ist ein kleiner Webserver, der automatisch mit der
+Scriptsprache Ruby ausgeliefert wird.</p>
+        <p>Sobald Sie das nachfolgende Kommando ausführen, wird der Webserver
+gestartet und die Seite im Browser aufgerufen (welcher Browser
+verwendet wird, können Sie über die Option <code class="literal">--browser</code>
+festlegen).</p>
+        <pre class="screen">$ <span class="strong"><strong>git instaweb --httpd=webrick</strong></span></pre>
+        <p>Beachten Sie, dass das Kommando auf der obersten Ebene eines
+Git-Verzeichnisses gestartet werden muss.
+Stoppen Sie den Webserver, wenn nötig, mit folgendem Befehl:</p>
+        <pre class="screen">$ <span class="strong"><strong>git instaweb --stop</strong></span></pre>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.gitweb-install"></a>7.4.1. Gitweb global installieren</h3>
+              </div>
+            </div>
+          </div>
+          <p>Viele Distributionen bringen Gitweb bereits als eigenes Paket oder
+direkt im Git-Paket mit. Unter Debian heißt das korrespondierende
+Paket <code class="literal">gitweb</code>. Wenn Sie nicht sicher sind, ob Gitweb auf Ihrem
+System verfügbar ist, sollten Sie das unter <code class="literal">/usr/share/gitweb</code> prüfen und ggf. nachinstallieren.</p>
+          <p>Gitweb benötigt lediglich ein großes Perl-Script plus
+Konfigurationsdatei sowie optional ein Logo, CSS-Stylesheet und
+Favicon.  Die Konfigurationsdatei liegt üblicherweise unter <code class="literal">/etc/gitweb.conf</code>, kann aber auch beliebig anders benannt
+werden. Wichtig ist, dass bei jedem Aufruf des Perl-Scripts über die
+Umgebungsvariable <code class="literal">GITWEB_CONFIG</code> übergeben wird, wo sich
+diese Datei befindet.</p>
+          <p>In der Regel sollten Sie schon eine solche Datei haben. In
+nachfolgender Liste sind die wichtigsten Konfigurationsmöglichkeiten
+dargestellt.</p>
+          <p>Achtung: Die Datei muss in validem Perl geschrieben sein. Vergessen
+Sie also insbesondere nicht das abschließende Semikolon bei der
+Variablenzuweisung!</p>
+          <div class="variablelist">
+            <dl class="variablelist">
+              <dt>
+                <span class="term">
+<code class="literal">$projectroot</code>
+</span>
+              </dt>
+              <dd>
+Verzeichnis, in dem Ihre Git-Repositories liegen.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">$export_ok</code>
+</span>
+              </dt>
+              <dd>
+Dateiname, der bestimmt, ob ein Repository in Gitweb
+sichtbar sein soll. Sie sollten diese Variable auf
+<code class="literal">"git-daemon-export-ok"</code> setzen, damit nur diejenigen Repositories
+angezeigt werden, die auch durch den Git-Daemon ausgeliefert werden.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">@git_base_url_list</code>
+</span>
+              </dt>
+              <dd>
+Array von URLs, über die das Projekt geklont
+werden kann. Diese URLs erscheinen in der Projektübersicht und sind
+sehr hilfreich, um Leuten schnellen Zugriff auf den Quellcode zu
+geben, nachdem sie sich einen kurzen Überblick verschafft haben. Geben
+Sie am besten die URL an, unter der Ihr Git-Daemon erreichbar ist,
+also z.B.  <code class="literal">('git://git.example.com')</code>.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">$projects_list</code>
+</span>
+              </dt>
+              <dd>
+Zuordnung von Projekten und ihren Besitzern.
+Diese Projektliste kann automatisch von Gitolite erzeugt werden; siehe
+die Beispiel-Konfigurationsdatei weiter unten.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">$home_text</code>
+</span>
+              </dt>
+              <dd>
+Absoluter Pfad zu einer Datei, die z.B. einen firmen-
+oder projektspezifischen Textbaustein enthält. Dieser wird oberhalb
+der Auflistung der Repositories eingeblendet.
+</dd>
+            </dl>
+          </div>
+          <p>Sofern Sie Gitolite wie oben installiert haben und Ihre Repositories
+unter <code class="literal">/var/git/repositories</code> liegen, sollte folgende
+Konfiguration für Gitweb ausreichen:</p>
+          <pre class="screen">$projects_list = "/var/git/projects.list";
+$projectroot = "/var/git/repositories";
+$export_ok = "git-daemon-export-ok";
+@git_base_url_list = ('git://example.com');</pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.gitweb-apache"></a>7.4.2. Gitweb und Apache</h3>
+              </div>
+            </div>
+          </div>
+          <p>Ausgehend davon, dass Sie das CGI-Script unter <code class="literal">/usr/lib/cgi-bin</code> und die Bild- und CSS-Dateien unter <code class="literal">/usr/share/gitweb</code> installiert haben (wie es z.B. auch das
+Debian-Paket <code class="literal">gitweb</code> macht), konfigurieren Sie Apache wie
+folgt:</p>
+          <p>Erstellen Sie <code class="literal">/etc/apache2/sites-available/git.example.com</code>
+mit folgendem Inhalt:</p>
+          <pre class="screen">&lt;VirtualHost *:80&gt;
+  ServerName    git.example.com
+  ServerAdmin   admins@example.com
+
+  SetEnv GITWEB_CONFIG /etc/gitweb.conf
+
+  Alias /gitweb.css         /usr/share/gitweb/gitweb.css
+  Alias /git-logo.png       /usr/share/gitweb/git-logo.png
+  Alias /git-favicon.png    /usr/share/gitweb/git-favicon.png
+  Alias /                   /usr/lib/cgi-bin/gitweb.cgi
+
+  Options +ExecCGI
+&lt;/VirtualHost&gt;</pre>
+          <p>Dann müssen Sie den virtuellen Host aktivieren und Apache die
+Konfiguration neu laden lassen:</p>
+          <pre class="screen"># <span class="strong"><strong>a2ensite git.example.com</strong></span>
+# <span class="strong"><strong>/etc/init.d/apache2 reload</strong></span></pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.gitweb-lighty"></a>7.4.3. Gitweb und Lighttpd</h3>
+              </div>
+            </div>
+          </div>
+          <p>Je nachdem, wie Sie virtuelle Hosts in Lighttpd realisieren, sieht die
+Konfiguration möglicherweise anders aus. Wichtig sind drei Dinge: Dass
+Sie Aliase für die global installierten Gitweb-Dateien machen, die
+Umgebungsvariable <code class="literal">GITWEB_CONFIG</code> setzen und dass CGI-Scripte
+ausgeführt werden. Dafür müssen Sie die Module <code class="literal">mod_alias</code>,
+<code class="literal">mod_setenv</code> und <code class="literal">mod_cgi</code> laden (sofern noch nicht
+geschehen).</p>
+          <p>Die Konfiguration sieht dann wie folgt aus:<a href="#ftn.idm45240356329376" class="footnote" id="idm45240356329376"><sup class="footnote">[104]</sup></a></p>
+          <pre class="screen">$HTTP["host"] =~ "^git\.example\.com(:\d+)?$" {
+    setenv.add-environment = ( "GITWEB_CONFIG" =&gt; "/etc/gitweb.conf" )
+    alias.url = (
+        "/gitweb.css"       =&gt; "/usr/share/gitweb/gitweb.css",
+        "/git-logo.png"     =&gt; "/usr/share/gitweb/git-logo.png",
+        "/git-favicon.png"  =&gt; "/usr/share/gitweb/git-favicon.png",
+        "/"                 =&gt; "/usr/lib/cgi-bin/gitweb.cgi",
+    )
+    $HTTP["url"] =~ "^/$" {
+        cgi.assign = ( ".cgi" =&gt; "" )
+    }
+}</pre>
+          <div class="figure">
+            <a id="fig.gitweb-overview"></a>
+            <p class="title">
+              <strong>Abbildung 7.1. Übersichtsseite von Gitweb</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/gitweb-overview.png" width="486" alt="bilder_ebook/gitweb-overview.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <div class="figure">
+            <a id="fig.gitweb-commitdiff"></a>
+            <p class="title">
+              <strong>Abbildung 7.2. Darstellung eines Commits in Gitweb</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/gitweb-commitdiff.png" width="486" alt="bilder_ebook/gitweb-commitdiff.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.cgit"></a>7.5. CGit – CGI for Git</h2>
+            </div>
+          </div>
+        </div>
+        <p>CGit („CGI für Git“) ist ein alternatives Webfrontend. Im
+Gegensatz zu Gitweb, das komplett in Perl geschrieben ist, ist CGit in
+C geschrieben und arbeitet, wo möglich, mit Caching. Dadurch ist es
+viel schneller als Gitweb.</p>
+        <p>Um CGit zu installieren, müssen Sie zuerst die Sourcen herunterladen.
+Es wird die aktuelle Git-Version benötigt, um auf Routinen aus dem
+Git-Quellcode zurückzugreifen. Dafür muss das bereits konfigurierte
+Submodul initialisiert und der Code heruntergeladen werden:</p>
+        <pre class="screen">$ <span class="strong"><strong>git clone git://git.zx2c4.com/cgit</strong></span>
+...
+$ <span class="strong"><strong>cd cgit</strong></span>
+$ <span class="strong"><strong>git submodule init</strong></span>
+Submodule 'git' (git://git.kernel.org/pub/scm/git/git.git) registered
+for path 'git'
+$ <span class="strong"><strong>git submodule update</strong></span>
+&lt;Git-Sourcen werden heruntergeladen.&gt;</pre>
+        <p>Per Default installiert CGit die CGI-Datei in einem etwas obskuren
+Verzeichnis <code class="literal">/var/www/htdocs/cgit</code>. Um etwas sinnvollere
+Alternativen zu wählen, legen Sie im CGit-Verzeichnis eine Datei
+<code class="literal">cgit.conf</code> an, die automatisch vom <code class="literal">Makefile</code>
+inkludiert wird:</p>
+        <pre class="screen">CGIT_SCRIPT_PATH=/usr/lib/cgi-bin
+CGIT_DATA_PATH=/usr/share/cgit</pre>
+        <p>Nun lässt sich das Programm mit <code class="literal">make install</code> übersetzen und
+installieren. Allerdings empfiehlt es sich, <code class="literal">checkinstall</code><a href="#ftn.idm45240356306128" class="footnote" id="idm45240356306128"><sup class="footnote">[105]</sup></a>
+zu verwenden, so dass Sie das Paket ggf. leicht wieder loswerden
+können.</p>
+        <div class="figure">
+          <a id="fig.cgit-overview"></a>
+          <p class="title">
+            <strong>Abbildung 7.3. Übersichtsseite von CGit</strong>
+          </p>
+          <div class="figure-contents">
+            <div class="mediaobject">
+              <img src="bilder_ebook/cgit-overview.png" width="486" alt="bilder_ebook/cgit-overview.png" />
+            </div>
+          </div>
+        </div>
+        <br class="figure-break" />
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.cgit-integration"></a>7.5.1. CGit und Apache und Lighttpd</h3>
+              </div>
+            </div>
+          </div>
+          <p>Die Einbindung in Apache und Lighttpd erfolgt ähnlich. Da CGit
+allerdings „hübschere“ URLs verwendet (wie z.B. <code class="literal">http://git.example.com/dwm/tree/dwm.c</code> für die Datei
+<code class="literal">dwm.c</code> aus dem <code class="literal">dwm</code>-Repository), muss ein wenig
+Aufwand betrieben werden, um die URLs umzuschreiben.</p>
+          <p>Die folgenden Konfigurationen lassen CGit auf <code class="literal">git.example.com</code>
+laufen:</p>
+          <pre class="screen">&lt;VirtualHost *:80&gt;
+  ServerName git.example.com
+
+  AcceptPathInfo On
+  Options +ExecCGI
+
+  Alias /cgit.css /usr/share/cgit/cgit.css
+  Alias /cgit.png /usr/share/cgit/cgit.png
+  AliasMatch ^/(.*) /usr/lib/cgi-bin/cgit.cgi/$1
+&lt;/VirtualHost&gt;</pre>
+          <p>Für Lighttpd muss man ein wenig tricksen. Sie dürfen nicht vergessen,
+<code class="literal">virtual-root=/</code> zu konfigurieren (s.u. – diese Einstellung
+ist auch für Apache nicht schädlich).</p>
+          <pre class="screen">$HTTP["host"] =~ "^git\.example\.com(:\d+)?$" {
+    alias.url = (
+        "/cgit.css" =&gt; "/usr/share/cgit/cgit.css",
+        "/cgit.png" =&gt; "/usr/share/cgit/cgit.png",
+        "/cgit.cgi" =&gt; "/usr/lib/cgi-bin/cgit.cgi",
+        "/"         =&gt; "/usr/lib/cgi-bin/cgit.cgi",
+    )
+    cgi.assign = ( ".cgi" =&gt; "" )
+    url.rewrite-once = (
+        "^/cgit\.(css|png)" =&gt; "$0", # statische Seiten "durchreichen"
+        "^/.+" =&gt; "/cgit.cgi$0"
+    )
+}</pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.cgit-config"></a>7.5.2. Konfiguration</h3>
+              </div>
+            </div>
+          </div>
+          <p>Die Konfiguration wird über die Datei <code class="literal">/etc/cgitrc</code> geregelt.
+Eine Liste der unterstützten Optionen finden Sie in der Datei
+<code class="literal">cgitrc.5.txt</code> im Quellverzeichnis von CGit (leider bringt das
+Programm keine sonstige Dokumentation mit). Die wichtigsten sind
+nachfolgend aufgeführt:</p>
+          <div class="variablelist">
+            <dl class="variablelist">
+              <dt>
+                <span class="term">
+<code class="literal">clone-prefix</code>
+</span>
+              </dt>
+              <dd>
+URL, unter der der Quellcode (bevorzugt per
+Git-Protokoll) heruntergeladen werden kann (analog zu
+<code class="literal">@git_base_url_list</code> von Gitweb).
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">enable-index-links</code>
+</span>
+              </dt>
+              <dd>
+Wenn auf 1 gesetzt, erscheint in der Auflistung
+der Repositories eine weitere Spalte, mit direkten Links zu den Tabs
+„summary“, „log“ und „tree“.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">enable-gitweb-owner</code>
+</span>
+              </dt>
+              <dd>
+Wenn auf 1 gesetzt, dann wird der Eigentümer
+aus der Konfiguration <code class="literal">gitweb.owner</code> des Git-Repositorys
+ausgelesen. Gitolite setzt diese Option automatisch, wenn Sie einen
+Namen festlegen, siehe <a class="xref" href="ch07.html#sec.gitweb-name" title="7.2.3. Eigentümer und Beschreibung">Abschnitt 7.2.3, „Eigentümer und Beschreibung“</a>.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">enable-log-filecount</code>
+</span>
+              </dt>
+              <dd>
+Zeigt zu jedem Commit eine Spalte an, in der
+die Anzahl der geänderten Dateien stehen.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">enable-log-linecount</code>
+</span>
+              </dt>
+              <dd>
+Analog zu <code class="literal">-filecount</code>, zeigt eine Bilanz von
+hinzugekommenen/entfernten Zeilen an.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">scan-path</code>
+</span>
+              </dt>
+              <dd>
+Pfad, den CGit nach Git-Repositories durchsuchen
+soll. Achtung: Diese Option berücksichtigt <span class="emphasis"><em>nicht</em></span>, ob das Repository
+durch die Datei <code class="literal">git-daemon-export-ok</code> freigegeben wurde (siehe auch
+<code class="literal">project-list</code>)! Beachten Sie außerdem, dass die auf diese Weise
+hinzugefügten Repositories nur die Einstellungen erben, die bis dahin
+getätigt wurden. Es empfiehlt sich daher, die <code class="literal">scan-path</code>-Zeile als
+letzte in der Datei aufzuführen.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">project-list</code>
+</span>
+              </dt>
+              <dd>
+Liste von Projektdateien, die im <code class="literal">scan-path</code>
+berücksichtigt werden sollen. Gitolite legt eine solche Datei für alle
+öffentliches Repositories an. Siehe die Beispielkonfiguration weiter
+unten.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">remove-suffix</code>
+</span>
+              </dt>
+              <dd>
+Wenn die Option auf 1 gesetzt wird: Das Suffix
+<code class="literal">.git</code> wird aus URLs bzw. aus dem Namen von Repositories entfernt.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">root-title</code>
+</span>
+              </dt>
+              <dd>
+Überschrift, die auf der Startseite neben dem Logo
+angezeigt wird.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">root-desc</code>
+</span>
+              </dt>
+              <dd>
+Schriftzug, der auf der Startseite unter der Überschrift
+angezeigt wird.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">side-by-side-diffs</code>
+</span>
+              </dt>
+              <dd>
+Wird die Option auf 1 gesetzt, werden bei der
+Diff-Ausgabe zwei Dateien nebeneinander angezeigt, anstatt das
+Unified-Diff-Format zu verwenden.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">snapshots</code>
+</span>
+              </dt>
+              <dd>
+Gibt an, welche Snapshot-Formate angeboten werden. Per
+Default werden keine angeboten. Möglich sind <code class="literal">tar</code>, <code class="literal">tar.gz</code>,
+<code class="literal">tar.bz2</code> und <code class="literal">zip</code>.  Geben Sie die gewünschten Formate durch
+Leerzeichen getrennt an.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">virtual-root</code>
+</span>
+              </dt>
+              <dd>
+Legt fest, welche URL CGit jedem Link voranstellen
+soll. Sofern Sie CGit auf „oberster“ Ebene, also
+z.B. <code class="literal">http://git.example.com</code>, laufen lassen wollen, sollte diese
+Option den Wert <code class="literal">/</code> erhalten (dies ist vor allem notwendig, wenn Sie
+Lighttpd verwenden). Wollen Sie CGit stattdessen in einem
+Unterverzeichnis laufen lassen, sollten Sie diese Option entsprechend
+anpassen, z.B. auf <code class="literal">/git</code>.
+</dd>
+            </dl>
+          </div>
+          <p>Mit folgender Konfiguration taucht jedes Repository, auf dem Sie in
+Gitolite dem Nutzer <code class="literal">gitweb</code> Zugriff erlaubt haben, in der
+Auflistung auf – außerdem werden Beschreibung und Autor (sofern
+angegeben, siehe <a class="xref" href="ch07.html#sec.gitweb-name" title="7.2.3. Eigentümer und Beschreibung">Abschnitt 7.2.3, „Eigentümer und Beschreibung“</a>) angezeigt:</p>
+          <pre class="screen">virtual-root=/
+enable-gitweb-owner=1
+remove-suffix=1
+project-list=/var/git/projects.list
+scan-path=/var/git/repositories</pre>
+          <div class="figure">
+            <a id="fig.cgit-commitdiff"></a>
+            <p class="title">
+              <strong>Abbildung 7.4. Darstellung eines Commits in CGit</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/cgit-commitdiff.png" width="486" alt="bilder_ebook/cgit-commitdiff.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.cgit-special-config"></a>7.5.3. Einzelne Repositories speziell konfigurieren</h3>
+              </div>
+            </div>
+          </div>
+          <p>Durch die oben erläuterte Option <code class="literal">scan-path</code> ist es in
+Kombination mit Gitolite in der Regel nicht nötig, Repositories
+einzeln hinzuzufügen und zu konfigurieren. Wollen Sie dies aber tun
+bzw. sind Ihre Repositories nicht an einer zentralen Stelle gelagert,
+können Sie dies pro Repository wie folgt:</p>
+          <pre class="screen">repo.url=foo
+repo.path=/pub/git/foo.git
+repo.desc=the master foo repository
+repo.owner=fooman@example.com</pre>
+          <p>Für weitere repositoryspezifische Konfigurationen konsultieren Sie die
+Beispiel-Konfigurationsdatei bzw. in die Erläuterungen der Optionen
+in der Datei <code class="literal">cgitrc.5.txt</code> im Quellverzeichnis von CGit. Sie
+können diese händisch konfigurierten Repositories auch unter
+verschiedenen Sektionen gruppieren (Option
+<code class="literal">section</code>).</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.cgit-cache"></a>7.5.4. Caching ausnutzen</h3>
+              </div>
+            </div>
+          </div>
+          <p>CGit ist im Vergleich zu Gitweb besonders schnell, weil es in C
+geschrieben ist und außerdem Caching unterstützt. Das ist vor allem
+dann notwendig, wenn Sie viele Repositories und/oder viele
+Seitenzugriffe in kurzer Zeit haben.</p>
+          <p>CGit verwendet einen simplen Hash-Mechanismus, um zu überprüfen, ob
+eine Anfrage schon im Cache vorhanden und nicht zu alt ist
+(konfigurierbar, siehe folgende Liste). Wenn ein
+solcher Cache-Eintrag vorhanden ist, wird dieser ausgeliefert, statt
+die gleiche Seite neu zu erzeugen (der HTTP-Header
+<code class="literal">Last-Modified</code> bleibt auf dem alten Stand, d.h. der Browser
+weiß, von wann die Seite ist).</p>
+          <p>CGit speichert auch das Resultat von <code class="literal">scan-path</code> zwischen. So
+muss CGit für die Übersichtsseite nicht jedes Mal alle Repositories
+einzeln hinzufügen.</p>
+          <div class="variablelist">
+            <dl class="variablelist">
+              <dt>
+                <span class="term">
+<code class="literal">cache-root</code>
+</span>
+              </dt>
+              <dd>
+Pfad, unter dem die Cache-Dateien gespeichert werden;
+der Default ist <code class="literal">/var/cache/cgit</code>.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">cache-size</code>
+</span>
+              </dt>
+              <dd>
+Anzahl der Einträge (d.h.  einzelne Seiten), die der
+Cache enthält. Der Default-Wert ist 0, also ist Caching
+ausgeschaltet. Ein Wert ab 500 sollte selbst für große Seiten reichen.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">cache-&lt;typ&gt;-ttl</code>
+</span>
+              </dt>
+              <dd>
+Zeit in Minuten, die ein Cache-Eintrag als
+„aktuell“ gilt. Die Zeit können Sie für einzelne Seiten speziell
+konfigurieren. Mögliche Typen sind: <code class="literal">scanrc</code> für das Ergebnis von
+<code class="literal">scan-path</code>, <code class="literal">root</code> für die Auflistung der Repositories, <code class="literal">repo</code> für
+die „Startseite“ eines Repositorys sowie <code class="literal">dynamic</code> bzw.  <code class="literal">static</code>
+für die „dynamischen“ Seiten (wie z.B.  für Branch-Namen)
+bzw. statische Seiten (wie z.B. für einen Commit, der anhand seiner
+SHA-1-Summe identifiziert wird). Per Default sind diese Werte auf fünf
+Minuten gesetzt, bis auf <code class="literal">scanrc</code> (15).
+</dd>
+            </dl>
+          </div>
+          <p>Ein weiterer wichtiger Faktor, der beeinflusst, wie schnell sich die
+Index-Seite aufbaut, ist die Verwendung von sogenannten
+<span class="emphasis"><em>Agefiles</em></span>. Die Spalte <span class="emphasis"><em>Idle</em></span> („untätig“) wird
+normalerweise jedes Mal neu erzeugt, indem CGit die Branches jedes
+Repositorys durchgeht und das Alter notiert. Das ist allerdings nicht
+sehr schnell.</p>
+          <p>Praktischer ist es, pro Repository eine Datei zu verwenden, die
+angibt, wann der letzte Commit hochgeladen wurde. Das lässt sich am
+besten mit Hooks (siehe <a class="xref" href="ch08.html#sec.hooks" title="8.2. Hooks">Abschnitt 8.2, „Hooks“</a>) erledigen. Verwenden
+Sie dieses Kommando im Hook <code class="literal">post-update</code>:</p>
+          <pre class="screen">mkdir -p info/web || exit 1
+git for-each-ref \
+    --sort=-committerdate \
+    --format='%(committerdate:iso8601)' \
+    --count=1 'refs/heads/*' \
+    &gt; info/web/last-modified</pre>
+          <p>Wenn Sie statt <code class="literal">info/web/last-modified</code> (relativ zu
+<code class="literal">$GIT_DIR</code>) einen anderen Pfad verwenden wollen, nutzen Sie
+für die Angabe den CGit-Konfigurationsschlüssel <code class="literal">agefile</code>.</p>
+        </div>
+      </div>
+      <div class="footnotes">
+        <br />
+        <hr style="width:100; text-align:left;margin-left: 0" />
+        <div id="ftn.idm45240356718224" class="footnote">
+          <p><a href="#idm45240356718224" class="simpara"><sup class="simpara">[92] </sup></a>Eine genauere Beschreibung findet sich im Git-Quellrepository im Verzeichnis <code class="literal">Documentation/technical</code>. Dort finden sich drei Dateien, die das Packfile-Format erklären, teilweise entstanden aus Erklärungen von Linus Torvalds im IRC: <code class="literal">pack-format.txt</code>, <code class="literal">pack-heuristics.txt</code>, <code class="literal">pack-protocol.txt</code>. Moderne Versionen von Git verwenden außerdem zusätzlich einen „Bitmap Reachability Index“, der in <code class="literal">bitmap-format.txt</code> erklärt ist.</p>
+        </div>
+        <div id="ftn.idm45240356618848" class="footnote">
+          <p><a href="#idm45240356618848" class="simpara"><sup class="simpara">[93] </sup></a>Die hier beschriebene
+Installation und Konfiguration bezieht sich auf Gitolite in Version 3.6. Seit
+Gitolite Version 1.5, das in der ersten Auflage dieses Buches
+beschrieben wurde, gab es einige inkompatible Änderungen, die Sie hier nachlesen können: <a class="ulink" href="http://gitolite.com/gitolite/migr.html" target="_top">http://gitolite.com/gitolite/migr.html</a></p>
+        </div>
+        <div id="ftn.idm45240356609920" class="footnote">
+          <p><a href="#idm45240356609920" class="simpara"><sup class="simpara">[94] </sup></a>Ein Nutzer kann sich nur mit
+  seinem privaten Schlüssel bei einem SSH-Server authentifizieren,
+  wenn er eine mit seinem öffentlichen (und bei Gitolite hinterlegten)
+  Schlüssel verschlüsselte Nachricht entschlüsseln kann. Anhand des
+  Schlüssels, gegen den sich der Nutzer authentifiziert, kann Gitolite
+  also den internen Nutzernamen ableiten.</p>
+        </div>
+        <div id="ftn.idm45240356605584" class="footnote">
+          <p><a href="#idm45240356605584" class="simpara"><sup class="simpara">[95] </sup></a>Einige Distributionen stellen auch
+  vorgefertigte Pakete von Gitolite zur Verfügung. Von deren Einsatz
+  ist allerdings eher abzuraten, weil sie meist veraltet sind und
+  außerdem global und mit einer bestimmten Konfiguration installiert
+  werden. Wenn Sie dann einen anderen Nutzernamen als den von den
+  Entwicklern ausgesuchten wählen, müssen Sie einen erheblichen
+  Mehraufwand betreiben, um Gitolite zum Laufen zu
+  bringen.</p>
+        </div>
+        <div id="ftn.idm45240356533664" class="footnote">
+          <p><a href="#idm45240356533664" class="simpara"><sup class="simpara">[96] </sup></a>Ein <span class="emphasis"><em>Release Candidate</em></span> einer Software
+  ist eine Vorab-Version eines neuen Releases, das der Öffentlichkeit
+  (und nicht nur einer kleinen Gruppe von Beta-Testern) zugänglich
+  gemacht wird. In das finale Release fließen dann nur noch Bugfixes
+  ein. Auf Version 1.0 RC 1 (<code class="literal">v1.0-rc1</code>) folgt RC 2
+  (<code class="literal">v1.0-rc2</code>) usw., bis Version 1.0 herausgegeben wird
+  (<code class="literal">v1.0</code>).</p>
+        </div>
+        <div id="ftn.idm45240356513344" class="footnote">
+          <p><a href="#idm45240356513344" class="simpara"><sup class="simpara">[97] </sup></a>Den <span class="emphasis"><em>lesenden</em></span> Zugriff auf ein
+  Unterverzeichnis kann Gitolite natürlich nicht verbieten; das würde
+  das Konzept des Git-Objekt-Modells mit seiner kryptografisch
+  garantierten Integrität ad absurdum führen.</p>
+        </div>
+        <div id="ftn.idm45240356493200" class="footnote">
+          <p><a href="#idm45240356493200" class="simpara"><sup class="simpara">[98] </sup></a>Beachten Sie auch,
+  dass es hier wieder zu Problemen bei der Erstellung von Branches
+  kommen kann, s.o.</p>
+        </div>
+        <div id="ftn.idm45240356481680" class="footnote">
+          <p><a href="#idm45240356481680" class="simpara"><sup class="simpara">[99] </sup></a>Die Dokumentation findet sich unter <a class="ulink" href="http://gitolite.com/" target="_top">http://gitolite.com/</a>.
+    Der Autor hat außerdem das Buch „Gitolite Essentials“
+    veröffentlicht (Packt Publishing, 2014).</p>
+        </div>
+        <div id="ftn.idm45240356473376" class="footnote">
+          <p><a href="#idm45240356473376" class="simpara"><sup class="simpara">[100] </sup></a>Streng genommen ist es dafür nötig,
+  dass der kopierte <code class="literal">HEAD</code> mit dem der Gegenseite übereinstimmt.
+  Besser noch überprüfen Sie ein von einem Entwickler signiertes
+  Versions-Tag.</p>
+        </div>
+        <div id="ftn.idm45240356440496" class="footnote">
+          <p><a href="#idm45240356440496" class="simpara"><sup class="simpara">[101] </sup></a>In manchen Distributionen, wie
+  z.B. Debian, heißt der Daemon <code class="literal">openbsd-inetd</code>.</p>
+        </div>
+        <div id="ftn.idm45240356436336" class="footnote">
+          <p><a href="#idm45240356436336" class="simpara"><sup class="simpara">[102] </sup></a>Das Programm <code class="literal">sv</code> ist Teil des
+  Init-Frameworks <span class="emphasis"><em>runit</em></span>
+  (<a class="ulink" href="http://smarden.org/runit/" target="_top">http://smarden.org/runit/</a>). Es ersetzt die Funktionalität
+  des SysV-Init, kann aber auch darin integriert werden.</p>
+        </div>
+        <div id="ftn.idm45240356404528" class="footnote">
+          <p><a href="#idm45240356404528" class="simpara"><sup class="simpara">[103] </sup></a>Beachten Sie, dass eine Instanz des Git-Daemons nicht
+„teuer“ ist. Das Zusammenpacken der angeforderten Objekte ist es
+allerdings. Nur weil Ihr Server also mehrere Dutzend HTTP-Abfragen pro
+Sekunde schafft, heißt das nicht, dass er auch dieselbe Anzahl
+Git-Verbindungen schafft.</p>
+        </div>
+        <div id="ftn.idm45240356329376" class="footnote">
+          <p><a href="#idm45240356329376" class="simpara"><sup class="simpara">[104] </sup></a>Beachten Sie, dass die Reihenfolge in der
+  <code class="literal">alias.url</code>-Direktive wichtig ist. Wenn Sie die Zeile
+  <code class="literal">"/" =&gt; ...</code> nach oben verschieben, startet Lighttpd nicht
+  mehr bzw. die Alias-Zuordnung wird nicht die gewünschte sein.</p>
+        </div>
+        <div id="ftn.idm45240356306128" class="footnote">
+          <p><a href="#idm45240356306128" class="simpara"><sup class="simpara">[105] </sup></a>Das Tool <code class="literal">checkinstall</code> baut
+  automatisch Debian- oder RPM-Pakete, die alle Dateien enthalten, die
+  durch <code class="literal">make install</code> installiert worden wären. Homepage des
+  Programmes:
+  <a class="ulink" href="http://www.asic-linux.com.mx/~izto/checkinstall/" target="_top">http://www.asic-linux.com.mx/~izto/checkinstall/</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="ch06.html">Zurück</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="ch08.html">Weiter</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top"> </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index.html">Zum Anfang</a>
+          </td>
+          <td width="40%" align="right" valign="top"> </td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="cc-license">
+      <hr />
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Lizensiert unter der <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+    </p>
+    </div>
+  </body>
+</html>

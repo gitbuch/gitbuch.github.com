@@ -1,0 +1,2779 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kapitel 5. Verteiltes Git</title>
+    <link rel="stylesheet" type="text/css" href="gitbuch.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="home" href="index.html" title="Git" />
+    <link rel="up" href="index.html" title="Git" />
+    <link rel="prev" href="ch04.html" title="Kapitel 4. Fortgeschrittene Konzepte" />
+    <link rel="next" href="ch06.html" title="Kapitel 6. Workflows" />
+    <meta xmlns="" name="language" content="de" />
+    <script xmlns="" src="http://hyphenator.googlecode.com/svn/trunk/Hyphenator.js" type="text/javascript"></script>
+    <script xmlns="" type="text/javascript">
+        Hyphenator.run();
+    </script>
+  </head>
+  <body class="hyphenate">
+    <div xmlns="" class="toc">
+<p><a href="index.html">Startseite</a></p>
+<dl class="toc">
+          <dt>
+            <span class="preface">
+              <a href="pr01.html">Vorwort</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.leser">1. An wen richtet sich dieses Buch?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.struktur">2. Wie ist das Buch zu lesen?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.konventionen">3. Konventionen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.install-git-repo">4. Installation und „das Git-Repository“</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.doku">5. Dokumentation und Hilfe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.kontakt">6. Downloads und Kontakt</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.dank">7. Danksagungen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-2te-auflage">8. Vorwort zur 2. Auflage</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-cc-ausgabe">9. Vorwort zur CreativeCommons-Ausgabe</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch01.html">1. Einführung und erste Schritte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.begriffe">1.1. Grundbegriffe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.erste-schritte">1.2. Erste Schritte mit Git</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#chap.git-config">1.3. Git konfigurieren</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch02.html">2. Grundlagen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.grundlagen">2.1. Git-Kommandos</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.objektmodell">2.2. Das Objektmodell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch03.html">3. Praktische Versionsverwaltung</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.branches">3.1. Referenzen: Branches und Tags</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.undo">3.2. Versionen wiederherstellen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge">3.3. Branches zusammenführen: Merges</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge-conflicts">3.4. Merge-Konflikte lösen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.cherry-pick">3.5. Einzelne Commits übernehmen: Cherry-Pick</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.visualization">3.6. Visualisierung von Repositories</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.reflog">3.7. Reflog</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch04.html">4. Fortgeschrittene Konzepte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase">4.1. Commits verschieben – Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase-i">4.2. Die Geschichte umschreiben – Interaktives Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.blame">4.3. Wer hat diese Änderungen gemacht? – git blame</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.ignore">4.4. Dateien ignorieren</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.stash">4.5. Veränderungen auslagern – git stash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.notes">4.6. Commits annotieren – git notes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.multi-root">4.7. Mehrere Root-Commits</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.bisect">4.8. Regressionen finden – git bisect</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch05.html">5. Verteiltes Git</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.verteilte_systeme">5.1. Wie funktioniert verteilte Versionsverwaltung?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.clone">5.2. Repositories klonen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.git_fetch">5.3. Commits herunterladen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.hochladen">5.4. Commits hochladen: git push</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-check">5.5. Remotes untersuchen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.multi-remote">5.6. Verteilter Workflow mit mehreren Remotes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-verwalten">5.7. Remotes verwalten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remote-tags">5.8. Tags austauschen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.patch-queue">5.9. Patches per E-Mail</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.dictator">5.10. Ein verteilter, hierarchischer Workflow</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.subprojects">5.11. Unterprojekte verwalten</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch06.html">6. Workflows</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.workflows-user">6.1. Anwender</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.branch-modell">6.2. Ein Branching-Modell</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.releases-management">6.3. Releases-Management</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch07.html">7. Git auf dem Server</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.server">7.1. Einen Git-Server hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitolite">7.2. Gitolite: Git einfach hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.git-daemon">7.3. Git-Daemon: Anonymer, lesender Zugriff</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitweb">7.4. Gitweb: Das integrierte Web-Frontend</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.cgit">7.5. CGit – CGI for Git</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch08.html">8. Git automatisieren</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.attributes">8.1. Git-Attribute – Dateien gesondert behandeln</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.hooks">8.2. Hooks</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.scripting">8.3. Eigene Git-Kommandos schreiben</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.filter-branch">8.4. Versionsgeschichte umschreiben</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch09.html">9. Zusammenspiel mit anderen Versionsverwaltungssystemen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.subversion">9.1. Subversion</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.fast-import">9.2. Eigene Importer</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch10.html">10. Shell-Integration</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.bash-integration">10.1. Git und die Bash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.zsh-integration">10.2. Git und die Z-Shell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch11.html">11. Github</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="appendix">
+              <a href="apa.html">A. Installation</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#linux">A.1. Linux</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.osx">A.2. Mac OS X</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.windows">A.3. Windows</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="appendix">
+              <a href="apb.html">B. Struktur eines Repositorys</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc">B.1. Aufräumen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc-performance">B.2. Performance</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl></div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="ch04.html">Zurück</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="ch06.html">Weiter</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="sec.verteiltes-git"></a>Kapitel 5. Verteiltes Git</h1>
+          </div>
+        </div>
+      </div>
+      <p>Git ist ein <span class="emphasis"><em>verteiltes</em></span> Versionskontrollsystem. Um diese
+Eigenschaft zu verstehen, ist zunächst ein kurzer Exkurs in die Welt
+der <span class="emphasis"><em>zentralen</em></span> Versionsverwaltung notwendig: Wie der Name schon
+sagt, wird bei einem zentralen Versionskontrollsystem, wie z.B. RCS,
+CVS und Subversion, die Entwicklungsgeschichte zentral auf einem
+Server in <span class="emphasis"><em>dem</em></span> Repository abgespeichert, und alle Entwickler
+synchronisieren ihre Arbeit mit diesem einen Repository.  Entwickler,
+die etwas verändern möchten, laden sich eine aktuelle Version auf
+ihren Rechner herunter (<span class="emphasis"><em>Checkout</em></span>), pflegen ihre Modifikationen
+ein und schicken diese dann wieder an den Server zurück
+(<span class="emphasis"><em>Commit</em></span>).</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.verteilte_systeme"></a>5.1. Wie funktioniert verteilte Versionsverwaltung?</h2>
+            </div>
+          </div>
+        </div>
+        <p>Einer der großen Nachteile des zentralen Ansatzes ist, dass für die meisten
+Arbeitsschritte eine Verbindung zum Server bestehen muss.  Möchten Sie
+z.B. die Geschichte einsehen oder einen Commit machen, brauchen Sie
+eine Netzwerkverbindung zum Server. Leider ist diese nicht immer
+gewährleistet, vielleicht ist der Server außer Betrieb oder Sie
+arbeiten gerade auf Ihrem Laptop ohne (W)LAN-Anschluss.</p>
+        <p>Bei verteilten Systemen ist das anders geregelt: Grundsätzlich verfügt
+hier jeder Entwickler über eine eigene, lokale Kopie des Repositorys – stellt sich also die Frage, wie Entwickler Veränderungen
+untereinander austauschen.</p>
+        <p>Ein Ansatz ist, ein einzelnes „Haupt-Repository“
+bereitzustellen, das alle Entwickler nutzen, um ihre lokalen
+Repositories zu synchronisieren.  Die Entwickler verbinden sich also
+ab und zu mit diesem Repository, laden die eigenen Commits hoch
+(<span class="emphasis"><em>Push</em></span>) und die der Kollegen herunter (<span class="emphasis"><em>Fetch</em></span>
+bzw. <span class="emphasis"><em>Pull</em></span>). Dieser sehr zentrale Ansatz kommt in der Praxis
+häufig zum Einsatz. Eine Darstellung finden Sie in
+<a class="xref" href="ch05.html#fig.zentraler-workflow" title="Abbildung 5.1. Zentraler Workflow mit verteilter Versionsverwaltung">Abbildung 5.1, „Zentraler Workflow mit verteilter Versionsverwaltung“</a>.</p>
+        <p>Es gibt im Git-Umfeld allerdings zwei nennenswerte Alternativen, die
+wir in diesem Kapitel vorstellen: den
+<span class="emphasis"><em>Integration-Manager</em></span>-Workflow, bei dem mehrere öffentliche
+Repositories zum Einsatz kommen (<a class="xref" href="ch05.html#sec.multi-remote" title="5.6. Verteilter Workflow mit mehreren Remotes">Abschnitt 5.6, „Verteilter Workflow mit mehreren Remotes“</a>),
+und den Patch-Austausch per E-Mail (<a class="xref" href="ch05.html#sec.patch-queue" title="5.9. Patches per E-Mail">Abschnitt 5.9, „Patches per E-Mail“</a>).</p>
+        <div class="figure">
+          <a id="fig.zentraler-workflow"></a>
+          <p class="title">
+            <strong>Abbildung 5.1. Zentraler Workflow mit verteilter Versionsverwaltung</strong>
+          </p>
+          <div class="figure-contents">
+            <div class="mediaobject">
+              <img src="bilder_ebook/zentral.png" width="378" alt="bilder_ebook/zentral.png" />
+            </div>
+          </div>
+        </div>
+        <br class="figure-break" />
+        <p>Im Unterschied zu zentralen Systemen erfolgen die Commit- und
+Checkout-Vorgänge bei Git lokal.  Auch andere alltägliche Aufgaben,
+wie das Einsehen der Geschichte oder das Wechseln in einen Branch,
+spielen sich lokal ab. Einzig das Hoch- und Herunterladen von Commits
+sind nicht-lokale Vorgänge. Dadurch ergeben sich im Vergleich zur
+zentralen Versionsverwaltung zwei wichtige Vorteile: Es wird kein
+Netzwerk gebraucht, und alles geht (darum) schneller. Wie häufig Sie
+Ihr Repository synchronisieren, hängt unter anderem von der Größe und
+der Entwicklungsgeschwindigkeit des Projekts ab.  Arbeiten Sie gerade
+mit einem Kollegen an den Interna Ihrer Software, müssen Sie
+wahrscheinlich häufiger synchronisieren als bei einem Feature, das
+keine weitreichenden Auswirkungen auf die übrige Codebasis hat. Es
+kann durchaus sein, dass einmaliges Synchronisieren pro Tag genügt.  So können
+Sie auch ohne permanente Netzanbindung produktiv arbeiten.</p>
+        <p>In diesem Kapitel geht es darum, wie Sie Veränderungen zwischen Ihrem
+lokalen und einem entfernten Repository (<span class="emphasis"><em>Remote Repository</em></span> oder
+<span class="emphasis"><em>Remote</em></span>) austauschen, was Sie beachten müssen, wenn Sie mit
+mehreren Remotes arbeiten, und wie Sie Patches per E-Mail verschicken,
+so dass sie leicht vom Empfänger einzupflegen sind.</p>
+        <p>Die wichtigsten Kommandos im Überblick:</p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+<code class="literal">git remote</code>
+</span>
+            </dt>
+            <dd>
+Allgemeine Konfiguration von Remotes: hinzufügen,
+  entfernen, umbenennen usw.
+</dd>
+            <dt>
+              <span class="term">
+<code class="literal">git clone</code>
+</span>
+            </dt>
+            <dd>
+Komplette Kopie herunterladen.
+</dd>
+            <dt>
+              <span class="term">
+<code class="literal">git pull</code> und <code class="literal">git fetch</code>
+</span>
+            </dt>
+            <dd>
+Commits und Referenzen aus einem Remote
+  herunterladen.
+</dd>
+            <dt>
+              <span class="term">
+<code class="literal">git push</code>
+</span>
+            </dt>
+            <dd>
+Commits und Referenzen in ein Remote hochladen.
+</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.clone"></a>5.2. Repositories klonen</h2>
+            </div>
+          </div>
+        </div>
+        <p>Den ersten Befehl in Zusammenhang mit den Remote-Repositories haben
+Sie bereits kennengelernt: <code class="literal">git clone</code>. Hier illustrieren wir
+den Klonvorgang mit unserem
+„Git-Spickzettel“<a href="#ftn.idm45240357776128" class="footnote" id="idm45240357776128"><sup class="footnote">[65]</sup></a>:</p>
+        <pre class="screen">$ <span class="strong"><strong>git clone git://github.com/esc/git-cheatsheet-de.git</strong></span>
+Initialized empty Git repository in /tmp/test/git-cheatsheet-de/.git/
+remote: Counting objects: 77, done.
+remote: Compressing objects: 100% (77/77), done.
+remote: Total 77 (delta 45), reused 0 (delta 0)
+Receiving objects: 100% (77/77), 132.44 KiB, done.
+Resolving deltas: 100% (45/45), done.</pre>
+        <p>Bei diesem Aufruf gibt Git diverse Statusmeldungen aus. Die
+wichtigsten sind: die Benachrichtigung, in welches Verzeichnis das
+neue Repository geklont wird (<code class="literal">Initialized empty Git repository
+  in /tmp/test/git-cheatsheet-de/.git/</code>), sowie die Bestätigung, dass
+alle Objekte erfolgreich empfangen wurden (<code class="literal">Receiving objects:
+  100% (77/77), 132.44 KiB, done.</code>). Ist der Klonvorgang erfolgreich,
+wird der <code class="literal">master</code>-Branch ausgecheckt,<a href="#ftn.idm45240357769248" class="footnote" id="idm45240357769248"><sup class="footnote">[66]</sup></a>  und der Working Tree samt
+Repository befindet sich in dem Verzeichnis
+<code class="literal">git-cheatsheet-de</code>.</p>
+        <pre class="screen">$ <span class="strong"><strong>cd git-cheatsheet-de</strong></span>
+$ <span class="strong"><strong>ls</strong></span>
+cheatsheet.pdf  cheatsheet.tex  Makefile  README
+$ <span class="strong"><strong>ls -d .*</strong></span>
+.git/</pre>
+        <p>Um den Klon in einem anderen Verzeichnis zu erstellen, übergeben Sie
+es einfach als Argument:</p>
+        <pre class="screen">$ <span class="strong"><strong>git clone git://github.com/esc/git-cheatsheet-de.git cheatsheet</strong></span>
+Initialized empty Git repository in /tmp/test/cheatsheet/.git/
+$ <span class="strong"><strong>ls</strong></span>
+cheatsheet/</pre>
+        <p>Außerdem wird das Ursprungsrepository, also die Herkunft des Klons,
+als Remote-Repository mit dem Namen <code class="literal">origin</code> konfiguriert. Das
+Kommando <code class="literal">git remote</code> zeigt die Einstellung an:</p>
+        <pre class="screen">$ <span class="strong"><strong>git remote</strong></span>
+origin</pre>
+        <p>Die Einstellung wird in der Konfigurationsdatei <code class="literal">.git/config</code> mit dem Eintrag
+<code class="literal">remote</code> festgehalten, in diesem Fall nur für <code class="literal">origin</code>:</p>
+        <pre class="screen">[remote "origin"]
+    fetch = +refs/heads/*:refs/remotes/origin/*
+    url = git://github.com/esc/git-cheatsheet-de.git</pre>
+        <p>Sie sehen in dem Ausschnitt zwei Einstellungen: <code class="literal">fetch</code> und
+<code class="literal">url</code>.  Die erste, der sog. <span class="emphasis"><em>Refspec</em></span>, gibt an, welche
+Veränderungen bei der Synchronisation mit dem Remote-Repository
+heruntergeladen werden sollen, und die zweite, mit welcher URL dies
+geschieht.</p>
+        <p>Außerdem dient <code class="literal">git remote</code> zum Verwalten von
+Remote-Repositories.  Sie können z.B. mit <code class="literal">git remote add</code>
+weitere Remote-Repositories hinzufügen, über <code class="literal">git remote
+  set-url</code> die URL für das Remote-Repository anpassen usw., doch dazu später
+  mehr.</p>
+        <p>Der Name <code class="literal">origin</code> ist nur eine Konvention; mit <code class="literal">git
+  remote rename</code> passen Sie den Namen des Ursprungsrepositorys Ihren
+Wünschen entsprechend an, z.B. von <code class="literal">origin</code>
+zu <code class="literal">github</code>:</p>
+        <pre class="screen">$ <span class="strong"><strong>git remote rename origin github</strong></span>
+$ <span class="strong"><strong>git remote</strong></span>
+github</pre>
+        <p>Mit der Option <code class="literal">--origin</code> bzw. <code class="literal">-o</code> setzen Sie den
+Namen gleich beim Klonen:</p>
+        <pre class="screen">$ <span class="strong"><strong>git clone -o github git://github.com/esc/git-cheatsheet-de.git</strong></span></pre>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.repository-url"></a>5.2.1. Repository-URLs</h3>
+              </div>
+            </div>
+          </div>
+          <p>Git unterstützt mehrere Protokolle, um auf ein Remote-Repository
+zuzugreifen, die gängigsten drei sind das Git-Protokoll, SSH und
+HTTP(S). Das Git-Protokoll wurde speziell für Git entwickelt und
+begünstigt die Datenübertragung, da immer die kleinstmögliche
+Datenmenge übertragen wird. Es unterstützt keine Authentifizierung und
+wird daher häufig in einer SSH-Verbindung übertragen. Dadurch wird
+sowohl eine effiziente (Git-Protokoll) als auch sichere (SSH)
+Übertragung gewährleistet. HTTP(S) kommt dann zum Einsatz, wenn eine
+Firewall sehr restriktiv konfiguriert ist und die zugelassenen Ports
+drastisch eingeschränkt sind.<a href="#ftn.idm45240357736512" class="footnote" id="idm45240357736512"><sup class="footnote">[67]</sup></a></p>
+          <p>Im Allgemeinen enthält eine valide URL das Übertragungsprotokoll, die
+Adresse des Servers sowie den Pfad zu dem Repository:<a href="#ftn.idm45240357733792" class="footnote" id="idm45240357733792"><sup class="footnote">[68]</sup></a></p>
+          <div class="itemizedlist">
+            <ul class="itemizedlist" style="list-style-type: disc; ">
+              <li class="listitem">
+<code class="literal">ssh://[user@]gitbu.ch[:port]/pfad/zum/repo.git/</code>
+</li>
+              <li class="listitem">
+<code class="literal">git://gitbu.ch[:port]/pfad/zum/repo.git/</code>
+</li>
+              <li class="listitem">
+<code class="literal">http[s]://gitbu.ch[:port]/pfad/zum/repo.git/</code>
+</li>
+            </ul>
+          </div>
+          <p>Für das SSH-Protokoll existiert noch die Kurzform:</p>
+          <div class="itemizedlist">
+            <ul class="itemizedlist" style="list-style-type: disc; ">
+              <li class="listitem">
+<code class="literal">[user@]gitbu.ch:pfad/zum/repo.git/</code>
+</li>
+            </ul>
+          </div>
+          <p>Außerdem ist es möglich, lokale Repositories mit der folgenden Syntax
+zu klonen:</p>
+          <div class="itemizedlist">
+            <ul class="itemizedlist" style="list-style-type: disc; ">
+              <li class="listitem">
+<code class="literal">/pfad/zum/repo.git/</code>
+</li>
+              <li class="listitem">
+<code class="literal">file:///pfad/zum/repo.git/</code>
+</li>
+            </ul>
+          </div>
+          <p>Wenn Sie wissen wollen, welche URLs für ein Remote-Repository
+konfiguriert sind, verwenden Sie die Option <code class="literal">--verbose</code>
+bzw. <code class="literal">-v</code> von <code class="literal">git remote</code>:</p>
+          <pre class="screen">$ <span class="strong"><strong>git remote -v</strong></span>
+origin  git://github.com/esc/git-cheatsheet-de.git (fetch)
+origin  git://github.com/esc/git-cheatsheet-de.git (push)</pre>
+          <p>Sie sehen, dass es zwei URLs für das Remote-Repository <code class="literal">origin</code>
+gibt, die aber standardmäßig auf denselben Wert gesetzt sind. Die
+erste URL (<code class="literal">fetch</code>) gibt an, von wo und mit welchem Protokoll
+Veränderungen heruntergeladen werden. Die zweite URL (<code class="literal">push</code>)
+gibt an, wohin und mit welchem Protokoll Veränderungen hochgeladen
+werden. Unterschiedliche URLs sind vor allem dann interessant, wenn
+Sie mit verschiedenen Protokollen herunter- bzw.  hochladen.  Ein
+gängiges Beispiel ist, mit dem Git-Protokoll (<code class="literal">git://</code>)
+herunterzuladen und mit dem SSH-Protokoll (<code class="literal">ssh://</code>) hoch.  Es
+wird dann ohne Authentifizierung und Verschlüsselung heruntergeladen,
+was einen Geschwindigkeitsvorteil bietet, aber mit Authentifizierung
+und Verschlüsselung hochgeladen, was sicherstellt, dass nur Sie oder
+andere zugriffsberechtigte Personen hochladen können. Mit dem
+Kommando <code class="literal">git remote set-url</code> passen Sie die URLs an:</p>
+          <pre class="screen">$ <span class="strong"><strong>git remote set-url --add \</strong></span>
+  <span class="strong"><strong>--push origin git@github.com:esc/git-cheatsheet-de.git</strong></span>
+$ <span class="strong"><strong>git remote -v</strong></span>
+origin  git://github.com/esc/git-cheatsheet-de.git (fetch)
+origin  git@github.com:esc/git-cheatsheet-de.git (push)</pre>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Falls Sie die URL eines Repositorys anpassen wollen, ist es häufig
+schneller, dies direkt in der Konfigurationsdatei <code class="literal">.git/config</code>
+zu tun. Git stellt dafür das Kommando <code class="literal">git config -e</code> bereit: es öffnet
+diese Datei in Ihrem Editor.</p>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.remote_tracking_branches"></a>5.2.2. Remote-Tracking-Branches</h3>
+              </div>
+            </div>
+          </div>
+          <p>Der aktuelle Zustand des Remote-Repositorys wird lokal gespeichert.
+Git verwendet dazu den Mechanismus der
+<span class="emphasis"><em>Remote-Tracking-Branches</em></span>, spezielle Branches – also lokale
+Referenzen – , die den Zustand der Branches im Remote,
+sog. <span class="emphasis"><em>Remote-Branches</em></span>, widerspiegeln. Sie „verfolgen“
+also die Remote-Branches und werden bei einer Synchronisation mit dem
+Remote entsprechend von Git vorgerückt bzw.  gesetzt, sofern sich die
+Branches in dem Remote verändert haben.  Im Hinblick auf den
+Commit-Graphen sind Remote-Tracking-Branches Markierungen innerhalb
+des Graphen, die auf die gleichen Commits zeigen wie die Branches im
+Remote-Repository.  Sie können Remote-Tracking-Branches nicht wie
+normale Branches verändern, Git verwaltet sie automatisch, sorgt also
+für deren Aktualisierung. Wenn Sie ein Repository klonen,
+initialisiert Git für jeden Remote-Branch einen
+Remote-Tracking-Branch.</p>
+          <div class="figure">
+            <a id="fig.clone"></a>
+            <p class="title">
+              <strong>Abbildung 5.2. Erzeugte Remote-Tracking-Branches</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/clone.png" width="540" alt="bilder_ebook/clone.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p>In <a class="xref" href="ch05.html#fig.clone" title="Abbildung 5.2. Erzeugte Remote-Tracking-Branches">Abbildung 5.2, „Erzeugte Remote-Tracking-Branches“</a> sehen Sie ein Beispiel. Das
+Remote-Repository <code class="literal">origin</code> hat drei Branches: <code class="literal">pu</code>,
+<code class="literal">maint</code> und <code class="literal">master</code>. Git erstellt in dem geklonten
+Repository für jeden dieser <span class="emphasis"><em>Remote-Branches</em></span> einen
+<span class="emphasis"><em>Remote-Tracking-Branch</em></span>.  Außerdem wird in dem Klon ein lokaler
+Branch <code class="literal">master</code> erstellt, der dem Remote-Branch <code class="literal">master</code>
+entspricht. Dieser wird ausgecheckt und ist der Branch, in dem Sie
+arbeiten sollten, wenn Sie vorhaben, Commits in den <code class="literal">master</code>
+hochzuladen (siehe aber auch
+<a class="xref" href="ch05.html#sec.git-fetch" title="5.3.1. git fetch">Abschnitt 5.3.1, „git fetch“</a>).</p>
+          <p>In dem Beispiel mit dem Git-Spickzettel gibt es auf der Remote-Seite
+nur einen einzigen Branch, nämlich <code class="literal">master</code>. Darum erzeugt Git
+in dem Klon auch nur einen Remote-Tracking-Branch, und zwar
+<code class="literal">origin/master</code>. Der Befehl <code class="literal">git branch -r</code> zeigt alle
+Remote-Tracking-Branches an:</p>
+          <pre class="screen">$ <span class="strong"><strong>git branch -r</strong></span>
+  origin/HEAD -&gt; origin/master
+  origin/master</pre>
+          <p>Der Sondereintrag <code class="literal">origin/HEAD -&gt; origin/master</code> besagt, dass
+in dem Remote-Repository der <code class="literal">HEAD</code> auf den Branch
+<code class="literal">master</code> zeigt. Das ist für das Klonen insofern wichtig, als
+dieser Branch nach dem Klonen ausgecheckt wird. Die Liste der
+Remote-Tracking-Branches ist in dem Beispiel etwas spärlich, mehr
+Einträge sehen Sie in einem Klon des Git-via-Git Repositorys:</p>
+          <pre class="screen">$ <span class="strong"><strong>git branch -r</strong></span>
+  origin/HEAD -&gt; origin/master
+  origin/html
+  origin/maint
+  origin/man
+  origin/master
+  origin/next
+  origin/pu
+  origin/todo</pre>
+          <p>Alle Branches lassen Sie sich mit <code class="literal">git branch -a</code> anzeigen:</p>
+          <pre class="screen">$ <span class="strong"><strong>git branch -a</strong></span>
+* master
+  remotes/origin/HEAD -&gt; origin/master
+  remotes/origin/master</pre>
+          <p>In diesem Fall verwendet Git das Präfix <code class="literal">remotes/</code>, um
+Remote-Tracking-Branches eindeutig von den normalen zu unterscheiden.
+Haben Sie die Farbausgabe aktiviert, werden die
+unterschiedlichen Branches zudem farblich kodiert:
+der ausgecheckte Branch grün, Remote-Tracking-Branches rot.</p>
+          <p>Remote-Tracking-Branches sind auch nur Referenzen und werden daher wie
+alle Referenzen unter <code class="literal">.git/refs</code> gespeichert. Da es sich aber
+um besondere Referenzen handelt, die zudem noch mit einem
+Remote-Repository verknüpft sind, landen sie unter
+<code class="literal">.git/refs/remotes/&lt;remote-name&gt;</code> (siehe auch
+<a class="xref" href="ch03.html#sec.branch-refs" title="3.1.1. HEAD und andere symbolische Referenzen">Abschnitt 3.1.1, „HEAD und andere symbolische Referenzen“</a>).
+In Gitk werden die Remote-Tracking-Branches mit
+dem Präfix <code class="literal">remotes/&lt;remote-name&gt;/</code> angezeigt, das zudem dunkelgelb
+gefärbt ist (<a class="xref" href="ch05.html#fig.remote-tracking-gitk" title="Abbildung 5.3. Branch next und der entsprechende Remote-Tracking-Branch in Gitk">Abbildung 5.3, „Branch <code class="literal">next</code> und der entsprechende Remote-Tracking-Branch in Gitk“</a>).</p>
+          <div class="figure">
+            <a id="fig.remote-tracking-gitk"></a>
+            <p class="title">
+              <strong>Abbildung 5.3. Branch <code class="literal">next</code> und der entsprechende Remote-Tracking-Branch in Gitk</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/remote-tracking-gitk.png" width="486" alt="bilder_ebook/remote-tracking-gitk.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.git_fetch"></a>5.3. Commits herunterladen</h2>
+            </div>
+          </div>
+        </div>
+        <p>Was bedeutet es nun, wenn Sie zwei Repositories synchronisieren,
+etwa einen Klon mit dem Ursprung? Synchronisation bedeutet in diesem
+Kontext zweierlei: erstens das Herunterladen von Commits und
+Referenzen, zweitens das Hochladen. Im Hinblick auf den Commit-Graphen
+muss der lokale Graph mit dem auf der Remote-Seite synchronisiert
+werden, damit beide dieselbe Struktur haben.  In diesem Abschnitt
+behandeln wir zunächst, wie Sie Commits und Referenzen aus einem
+Remote herunterladen. Dafür gibt es zwei Kommandos: <code class="literal">git fetch</code>
+und <code class="literal">git pull</code>. Wir stellen zuerst beide Kommandos vor und
+beschreiben in <a class="xref" href="ch05.html#sec.fetch-vs-pull" title="5.3.3. git fetch vs. git pull">Abschnitt 5.3.3, „git fetch vs. git pull“</a>, welches Kommando
+unter welchen Umständen zu bevorzugen ist.</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.git-fetch"></a>5.3.1. git fetch</h3>
+              </div>
+            </div>
+          </div>
+          <p>Sobald in einem Remote neue Commits von anderen Entwicklern angelegt
+wurden, wollen Sie diese in Ihr lokales Repository herunterladen. Im
+einfachsten Fall wollen Sie nur herausfinden, welche Commits Sie lokal
+noch nicht haben, diese herunterladen und die Remote-Tracking-Branches
+auf den neuesten Stand bringen, so dass sie den aktuellen Zustand im
+Remote widerspiegeln.</p>
+          <p>Verwenden Sie dazu das Kommando <code class="literal">git fetch</code>:</p>
+          <pre class="screen">$ <span class="strong"><strong>git fetch origin</strong></span>
+...
+From github.com:esc/git-cheatsheet-de
+   79170e8..003e3c7  master     -&gt; origin/master</pre>
+          <p>Git quittiert den Aufruf mit einer Meldung, dass
+<code class="literal">origin/master</code> von dem Commit <code class="literal">79170e8</code> auf den Commit
+<code class="literal">003e3c7</code> gesetzt wurde. Die Notation <code class="literal">master -&gt;
+  origin/master</code> besagt, dass der Branch <code class="literal">master</code> aus dem
+Remote verwendet wurde, um den Remote-Tracking-Branch
+<code class="literal">origin/master</code> zu aktualisieren.  Sprich: Branches aus dem
+Remote auf der linken Seite und Remote-Tracking-Branches auf der
+rechten.</p>
+          <p>Welche Auswirkung das auf den Commit-Graphen hat, sehen Sie in
+<a class="xref" href="ch05.html#fig.fetch" title="Abbildung 5.4. Remote-Tracking-Branches werden aktualisiert">Abbildung 5.4, „Remote-Tracking-Branches werden aktualisiert“</a>: Auf der linken Seite ist der
+Ausgangszustand des Remote <code class="literal">origin</code> und daneben der des
+Klons dargestellt. Sowohl im Remote als auch im Klon sind seit der
+letzten Synchronisation neue Commits hinzugekommen (C und D). Der
+Remote-Tracking-Branch <code class="literal">origin/master</code> im Klon zeigt auf Commit
+B; dies ist der letzte Zustand des Remotes, der dem Klon bekannt ist.
+Durch einen Aufruf von <code class="literal">git fetch origin</code> aktualisiert Git den
+Remote-Tracking-Branch im Klon, damit dieser den aktuellen Zustand des
+<code class="literal">master</code> (zeigt auf Commit C) im Remote widerspiegelt.  Dazu
+lädt Git den fehlenden Commit C herunter und setzt anschließend den
+Remote-Tracking-Branch darauf.</p>
+          <div class="figure">
+            <a id="fig.fetch"></a>
+            <p class="title">
+              <strong>Abbildung 5.4. Remote-Tracking-Branches werden aktualisiert</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/fetch.png" width="486" alt="bilder_ebook/fetch.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.refspec"></a>Refspec</h4>
+                </div>
+              </div>
+            </div>
+            <p>Der <span class="emphasis"><em>Refspec</em></span> (<span class="emphasis"><em>Reference Specification</em></span>) sorgt dafür, dass
+die Remote-Tracking-Branches gesetzt werden.  Dies ist eine
+Beschreibung der Referenzen, die aus dem Remote geholt werden sollen.
+Ein Beispiel gab es schon weiter oben:</p>
+            <pre class="screen">[remote "origin"]
+    fetch = +refs/heads/*:refs/remotes/origin/*
+    url = git://github.com/esc/git-cheatsheet-de.git</pre>
+            <p>In dem Eintrag <code class="literal">fetch</code> wird der Refspec für das Remote
+gespeichert. Er hat die Form: <code class="literal">&lt;remote-refs&gt;:&lt;lokale-refs&gt;</code> mit
+einem optionalen Plus (+). Das Beispiel ist so konfiguriert,
+dass alle Branches, also alle Referenzen, die im Remote unter
+<code class="literal">refs/heads</code> gespeichert sind, lokal unter
+<code class="literal">refs/remotes/origin</code>
+landen.<a href="#ftn.idm45240357636240" class="footnote" id="idm45240357636240"><sup class="footnote">[69]</sup></a> Somit wird
+z.B. der Branch <code class="literal">master</code> aus dem Remote
+<code class="literal">origin</code> (<code class="literal">refs/heads/master</code>) lokal als
+<code class="literal">refs/remotes/origin/master</code> gespeichert.</p>
+            <p>Im Normalfall werden die Remote-Tracking-Branches, ähnlich wie bei
+einem Fast-Forward-Merge, „vorgespult“. Der
+Remote-Tracking-Branch wird also nur aktualisiert, wenn der
+Ziel-Commit ein Nachfahre der aktuellen Referenz ist. Es kann
+vorkommen, dass dies nicht möglich ist, z.B. nach einem Rebase. In
+dem Fall verweigert Git, den Remote-Tracking-Branch zu aktualisieren.
+Das Plus setzt jedoch dieses Verhalten außer Kraft, und der
+Remote-Tracking-Branch wird trotzdem aktualisiert. Sollte das
+vorkommen, weist Git mit dem Zusatz <code class="literal">(forced update)</code> darauf
+hin:</p>
+            <pre class="screen"> + f5225b8..0efec48 pu         -&gt; origin/pu  (forced update)</pre>
+            <p>Diese Einstellung ist in der Praxis sinnvoll und wird daher
+standardmäßig gesetzt. Außerdem müssen Sie sich als Benutzer nicht
+darum kümmern, den Refspec zu setzen, denn wenn Sie das Kommando
+<code class="literal">git clone</code> oder <code class="literal">git remote add</code> verwenden, erstellt Ihnen Git automatisch den entsprechenden Default-Eintrag. Manchmal
+wollen Sie den Refspec explizit einschränken. Wenn Sie
+z.B. Namespaces für alle Entwickler verwenden und Sie nur an dem
+<code class="literal">master</code>-Branch sowie an den Branches der anderen Entwickler
+in Ihrem Team (Beatrice und Carlos) interessiert sind, könnte das so
+aussehen:</p>
+            <pre class="screen">[remote "firma"]
+    url = axel@example.com:produkt.git
+    fetch = +refs/heads/master:refs/remotes/origin/master
+    fetch = +refs/heads/beatrice/*:refs/remotes/origin/beatrice/*
+    fetch = +refs/heads/carlos/*:refs/remotes/origin/carlos/*</pre>
+            <p>Im Hinblick auf den Commit-Graphen ist es so, dass Git nur die Commits
+herunterlädt, die notwendig sind, um Referenzen in dem Commit-Graphen
+zu erreichen.  Das ist sinnvoll, weil Commits, die nicht durch eine
+Referenz „gesichert“ sind, als unerreichbar gelten, und
+letztlich irgendwann gelöscht werden (siehe auch
+<a class="xref" href="ch03.html#sec.branch-management" title="3.1.2. Branches verwalten">Abschnitt 3.1.2, „Branches verwalten“</a>). In dem letzten Beispiel ist es
+deshalb für Git nicht notwendig, Commits herunterzuladen, die durch
+die Branches referenziert werden, die nicht im Refspec stehen.  Im
+Sinne der Verteiltheit muss Git also nicht zwingend den gesamten
+Commit-Graphen synchronisieren, es reichen die „relevanten“
+Teile.</p>
+            <p>Sie können alternativ auch den Refspec auf der Kommandozeile angeben:</p>
+            <pre class="screen">$ <span class="strong"><strong>git fetch origin +refs/heads/master:refs/remotes/origin/master</strong></span></pre>
+            <p>Sollte ein Refspec vorliegen, der keine Referenz auf der rechten Seite
+des Doppelpunkts hat, liegt kein Ziel zum Speichern vor. In dem Fall
+legt Git die Referenz stattdessen in der Datei
+<code class="literal">.git/FETCH_HEAD</code> ab, und Sie können den Spezialbegriff
+<code class="literal">FETCH_HEAD</code> für einen Merge verwenden:</p>
+            <pre class="screen">$ <span class="strong"><strong>git fetch origin master</strong></span>
+From github.com:esc/git-cheatsheet-de
+ * branch            master     -&gt; FETCH_HEAD
+$ <span class="strong"><strong>cat .git/FETCH_HEAD</strong></span>
+003e3c70ce7310f6d6836748f45284383480d40e
+    branch 'master' of github.com:esc/git-cheatsheet-de
+$ <span class="strong"><strong>git merge FETCH_HEAD</strong></span></pre>
+            <p>Das Feature kann nützlich sein, wenn Sie ein einziges Mal an einem
+Branch im Remote interessiert sind, für den Sie keinen
+Remote-Tracking-Branch konfiguriert haben und das auch nicht tun
+wollen.</p>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.prune"></a>Verfallene Remote-Tracking-Branches löschen</h4>
+                </div>
+              </div>
+            </div>
+            <p>Sollte ein Remote-Branch gelöscht werden (wie z.B. in
+<a class="xref" href="ch05.html#sec.push-delete" title="5.4.1. Remote-Referenzen löschen">Abschnitt 5.4.1, „Remote-Referenzen löschen“</a> beschrieben), bezeichnet man den
+entsprechenden Remote-Tracking-Branch als <span class="emphasis"><em>stale</em></span>
+(„abgelaufen“ bzw.  „verfallen“).  Da solche
+Branches meist keinen weiteren Nutzen haben, löschen Sie sie (engl.
+<span class="emphasis"><em>prune</em></span>, „beschneiden“):</p>
+            <pre class="screen">$ <span class="strong"><strong>git remote prune origin</strong></span></pre>
+            <p>Direkt beim Herunterladen löschen:</p>
+            <pre class="screen">$ <span class="strong"><strong>git fetch --prune</strong></span></pre>
+            <p>Da dies häufig das gewünschte Verhalten ist, bietet Git die Option
+<code class="literal">fetch.prune</code> an. Setzen Sie diese auf <code class="literal">true</code>, dann verhält sich <code class="literal">git fetch</code>
+bei jedem Aufruf so, als ob Sie es mit der Option <code class="literal">--prune</code> aufgerufen
+hätten.</p>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.local-working-branches"></a>Lokale Branches zum Arbeiten</h4>
+                </div>
+              </div>
+            </div>
+            <p>Bisher haben wir nur besprochen, wie Sie die Veränderung in einem
+Remote verfolgen. Wenn Sie selbst Veränderungen vornehmen, die auf
+einem der Branches im Remote aufbauen, müssen Sie zuerst einen lokalen
+Branch erstellen, in dem Sie Commits machen
+dürfen:<a href="#ftn.idm45240357600736" class="footnote" id="idm45240357600736"><sup class="footnote">[70]</sup></a></p>
+            <pre class="screen">$ <span class="strong"><strong>git checkout -b next origin/next</strong></span>
+Branch next set up to track remote branch next from origin.
+Switched to a new branch <span class="emphasis"><em>next</em></span></pre>
+            <p>Wenn noch kein lokaler Branch mit Namen <code class="literal">next</code> existiert,
+funktioniert auch folgende Abkürzung:</p>
+            <pre class="screen">$ <span class="strong"><strong>git checkout next</strong></span>
+Branch next set up to track remote branch next from origin.
+Switched to a new branch <span class="emphasis"><em>next</em></span></pre>
+            <p>Die Meldung <code class="literal">set up to track</code> besagt, dass Git den Branch
+<code class="literal">next</code> aus dem Remote <code class="literal">origin</code> als
+<span class="emphasis"><em>Upstream-Branch</em></span> für den lokalen Branch <code class="literal">next</code>
+konfiguriert. Dies ist eine Art „Verknüpfung“, die anderen
+Git-Kommandos zugute kommt. Genaueres finden Sie in <a class="xref" href="ch05.html#sec.pull" title="5.3.2. git pull">Abschnitt 5.3.2, „git pull“</a>.</p>
+            <p>In dem lokalen Branch können Sie wie gewohnt arbeiten. Beachten Sie
+aber, dass Sie die Commits immer nur <span class="emphasis"><em>lokal</em></span> tätigen. Um Ihre
+Arbeit zu veröffentlichen, also in ein Remote hochzuladen, brauchen
+Sie noch das Kommando <code class="literal">git push</code> (<a class="xref" href="ch05.html#sec.hochladen" title="5.4. Commits hochladen: git push">Abschnitt 5.4, „Commits hochladen: git push“</a>).</p>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.pull"></a>5.3.2. git pull</h3>
+              </div>
+            </div>
+          </div>
+          <p>Angenommen, Sie wollen Commits aus dem Remote-Repository in Ihren lokalen Branch
+übernehmen. Dazu führen Sie zuerst ein <code class="literal">git fetch</code> aus, um neue Commits
+zu holen, und anschließend mergen Sie die Veränderung aus dem entsprechenden
+Remote-Tracking-Branch:<a href="#ftn.idm45240357584592" class="footnote" id="idm45240357584592"><sup class="footnote">[71]</sup></a></p>
+          <pre class="screen">$ <span class="strong"><strong>git merge origin/master</strong></span>
+Updating 79170e8..003e3c7
+Fast-forward
+ cheatsheet.pdf |  Bin 89792 -&gt; 95619 bytes
+ cheatsheet.tex |   19 +++++++++++++++++---
+ 2 files changed, 16 insertions(+), 3 deletions(-)</pre>
+          <p>Für diesen Anwendungsfall stellt Git das Kommando <code class="literal">git pull</code>
+bereit, um Ihren Workflow zu beschleunigen. Es ist eine Kombination
+von <code class="literal">git fetch</code> und <code class="literal">git merge</code> oder <code class="literal">git
+  rebase</code>.</p>
+          <p>Neue Commits von <code class="literal">origin</code> herunterladen und alle Commits, die
+vom dortigen <code class="literal">master</code> referenziert werden, in den aktuellen
+Branch mergen ist also mit folgendem Kommando zu erledigen:</p>
+          <pre class="screen">$ <span class="strong"><strong>git pull origin master</strong></span>
+...
+From github.com:esc/git-cheatsheet-de
+   79170e8..003e3c7  master     -&gt; origin/master
+Updating 79170e8..003e3c7
+Fast-forward
+ cheatsheet.pdf |  Bin 89792 -&gt; 95619 bytes
+ cheatsheet.tex |   19 ++++++++++++++++---
+ 2 files changed, 16 insertions(+), 3 deletions(-)</pre>
+          <p>In <a class="xref" href="ch05.html#fig.pull" title="Abbildung 5.5. Was bei einem Pull passiert">Abbildung 5.5, „Was bei einem Pull passiert“</a> illustrieren wir den Vorgang. Auf
+der linken Seite sehen Sie das Remote-Repository <code class="literal">origin</code> und
+daneben den aktuellen Zustand des lokalen Repositorys. Das Repository
+wurde geklont, als es nur die Commits A und B enthielt, daher zeigt
+der Remote-Tracking-Branch <code class="literal">origin/master</code> auf B. Mittlerweile
+sind sowohl im Remote (<code class="literal">C</code>) als auch im lokalen Repository (<code class="literal">D</code>) Commits
+hinzugekommen.</p>
+          <p>Auf der rechten Seite ist der Zustand nach <code class="literal">git
+  pull origin master</code> abgebildet.  Commit C wurde ins lokale
+Repository übernommen.  Der im <code class="literal">pull</code> enthaltene
+<code class="literal">fetch</code>-Aufruf hat den Remote-Tracking-Branch aktualisiert,
+d.h. er zeigt auf denselben Commit wie der <code class="literal">master</code> in
+<code class="literal">origin</code> und spiegelt somit den dortigen Zustand wider.
+Außerdem hat der im <code class="literal">pull</code> enthaltene <code class="literal">merge</code>-Aufruf den
+<code class="literal">master</code> aus <code class="literal">origin</code> in den lokalen <code class="literal">master</code>
+integriert, was Sie an dem Merge-Commit M sowie der
+aktuellen Position des lokalen <code class="literal">master</code> erkennen.</p>
+          <div class="figure">
+            <a id="fig.pull"></a>
+            <p class="title">
+              <strong>Abbildung 5.5. Was bei einem Pull passiert</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/pull.png" width="486" alt="bilder_ebook/pull.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p>Alternativ weist die Option <code class="literal">--rebase</code> das Pull-Kommando an, nach dem
+<code class="literal">fetch</code> den lokalen Branch per Rebase auf den
+Remote-Tracking-Branch aufzubauen:</p>
+          <pre class="screen">$ <span class="strong"><strong>git pull --rebase  origin master</strong></span></pre>
+          <p>In <a class="xref" href="ch05.html#fig.pull_rebase" title="Abbildung 5.6. Was bei einem Pull mit Rebase passiert">Abbildung 5.6, „Was bei einem Pull mit Rebase passiert“</a> sehen Sie, was passiert, wenn
+Sie statt des Standard-Merge einen Rebase ausführen.</p>
+          <div class="figure">
+            <a id="fig.pull_rebase"></a>
+            <p class="title">
+              <strong>Abbildung 5.6. Was bei einem Pull mit Rebase passiert</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/pull_rebase.png" width="486" alt="bilder_ebook/pull_rebase.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p>Die Ausgangssituation ist dieselbe wie in
+<a class="xref" href="ch05.html#fig.pull" title="Abbildung 5.5. Was bei einem Pull passiert">Abbildung 5.5, „Was bei einem Pull passiert“</a>.  Der im <code class="literal">pull</code> enthaltene <code class="literal">fetch</code>
+rückt den Remote-Tracking-Branch <code class="literal">origin/master</code> auf den Commit
+C. Der <code class="literal">rebase</code> erzeugt jedoch keinen Merge-Commit; stattdessen
+erhält der Commit D durch einen Aufruf von <code class="literal">rebase</code> eine neue
+Basis, und der lokale <code class="literal">master</code> wird auf den neuen Commit D'
+gesetzt.  (Rebase wird ausführlich in <a class="xref" href="ch04.html#sec.rebase" title="4.1. Commits verschieben – Rebase">Abschnitt 4.1, „Commits verschieben – Rebase“</a> beschrieben.)</p>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.upstream"></a>Upstream-Branches</h4>
+                </div>
+              </div>
+            </div>
+            <p>Oft werden <code class="literal">git fetch</code>, <code class="literal">git pull</code> und <code class="literal">git push</code> ohne
+Argumente ausgeführt.  Git verwendet in dem Fall unter anderem die Konfiguration
+der Upstream-Branches, um zu entscheiden, was zu tun ist. Aus der Config des
+Repositorys:</p>
+            <pre class="screen">[branch "master"]
+    remote = origin
+    merge = refs/heads/master</pre>
+            <p>Der Eintrag besagt, dass der lokale Branch <code class="literal">master</code> mit dem
+Remote-Branch <code class="literal">master</code> im <code class="literal">origin</code>-Repository verknüpft
+ist.</p>
+            <p>Der Eintrag <code class="literal">remote</code> weist <code class="literal">git fetch</code> und <code class="literal">git
+  pull</code> an, von welchem Remote aus Commits heruntergeladen werden. Der
+Eintrag <code class="literal">merge</code> wiederum weist <code class="literal">git pull</code> an, dass die
+neuen Commits aus dem Remote-Branch <code class="literal">master</code> in den lokalen
+<code class="literal">master</code> gemergt werden sollen. Das erlaubt es, beide Kommandos
+ohne Argumente zu verwenden, was in der Praxis sehr häufig vorkommt.</p>
+            <pre class="screen">$ <span class="strong"><strong>git fetch</strong></span>
+...
+From github.com:esc/git-cheatsheet-de
+   79170e8..003e3c7  master     -&gt; origin/master
+$ <span class="strong"><strong>git pull</strong></span>
+...
+From github.com:esc/git-cheatsheet-de
+   79170e8..003e3c7  master     -&gt; origin/master
+Updating 79170e8..003e3c7
+Fast-forward
+ cheatsheet.pdf |  Bin 89792 -&gt; 95619 bytes
+ cheatsheet.tex |   19 ++++++++++++++++---
+ 2 files changed, 16 insertions(+), 3 deletions(-)</pre>
+            <p>Wenn kein Upstream-Branch konfiguriert ist, versucht es <code class="literal">git fetch</code> mit
+<code class="literal">origin</code> und bricht ansonsten ab:</p>
+            <pre class="screen">$ <span class="strong"><strong>git fetch</strong></span>
+fatal: No remote repository specified.  Please, specify either a URL or
+a remote name from which new revisions should be fetched.</pre>
+            <div class="tip" style="margin-left: 0; margin-right: 10%;">
+              <h3 class="title">Tipp</h3>
+              <p>Wenn Sie möchten, dass die Änderungen aus einem Upstream-Branch bei
+<code class="literal">git pull</code> standardmäßig per Rebase statt mit einem Merge übernommen
+werden, setzen Sie den Wert der Einstellung <code class="literal">branch.&lt;name&gt;.rebase</code>
+auf <code class="literal">true</code>, z.B.:</p>
+              <pre class="screen">$ <span class="strong"><strong>git config branch.master.rebase true</strong></span></pre>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.fetch-vs-pull"></a>5.3.3. git fetch vs. git pull</h3>
+              </div>
+            </div>
+          </div>
+          <p>Git-Anfängern stellt sich häufig die Frage, ob sie nun <code class="literal">fetch</code>
+oder <code class="literal">pull</code> verwenden sollen. Die Antwort hängt davon ab, wie
+entwickelt wird: Wie groß ist das Projekt? Wie viele Remotes gibt es?
+Wie stark werden Branches eingesetzt?</p>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.push-pull"></a>Verteiltes Git für Anfänger</h4>
+                </div>
+              </div>
+            </div>
+            <p>Besonders für Anfänger ist es sinnvoll, dass alle Teilnehmer auf
+demselben Branch arbeiten (meist <code class="literal">master</code>), sich mit demselben
+Repository synchronisieren (zentraler Workflow) und nur <code class="literal">git
+  pull</code> zum Herunterladen bzw. <code class="literal">git push</code> zum Hochladen
+verwenden. Das erübrigt die Auseinandersetzung mit komplexeren
+Aspekten wie Objektmodell, Branching und Verteilung; und die Teilnehmer
+können mit einigen wenigen Kommandos Verbesserungen beisteuern.</p>
+            <p>Es entsteht der folgende Arbeitsablauf:</p>
+            <pre class="screen"># Repository Klonen
+$ <span class="strong"><strong>git clone &lt;URL&gt;</strong></span>
+# Arbeiten und lokale Commits machen
+$ <span class="strong"><strong>git add ...</strong></span>
+$ <span class="strong"><strong>git commit</strong></span>
+# Veränderungen von Anderen herunterladen
+$ <span class="strong"><strong>git pull</strong></span>
+# Eigene Veränderungen hochladen
+$ <span class="strong"><strong>git push</strong></span>
+# Weiter arbeiten, und Synchronisation bei Bedarf wiederholen
+$ <span class="strong"><strong>git commit</strong></span></pre>
+            <p>Dieser Ansatz hat Vor- und Nachteile. Von Vorteil ist sicherlich, dass
+nur ein geringes Verständnis von Git notwendig ist, um dem
+Arbeitsablauf erfolgreich zu folgen. Die automatische Konfiguration
+der Upstream-Branches sorgt dafür, dass <code class="literal">git push</code> und
+<code class="literal">git pull</code> auch ohne Argument das „Richtige“ tun.
+Außerdem ähnelt dieser Workflow dem, was Umsteiger von Subversion
+gewöhnt sind.</p>
+            <p>Allerdings gibt es auch Nachteile, die hauptsächlich mit dem
+impliziten Merge zusammenhängen. Angenommen, das Team besteht aus zwei
+Teilnehmern, Beatrice und Carlos.  Beide haben lokale Commits gemacht,
+und Beatrice hat ihre bereits hochgeladen.  Carlos führt nun
+<code class="literal">git pull</code> aus und erhält die Meldung <code class="literal">Merge made by
+  recursive</code>.  Behält man den Commit-Graphen im Hinterkopf, ist das
+logisch: Der lokale Branch und der <code class="literal">master</code> des Remote sind
+auseinandergelaufen (<span class="emphasis"><em>diverged</em></span>), darum wurden sie durch einen
+Merge wieder vereint.  Jedoch versteht Carlos die Meldung nicht, da er
+ja an einem anderen Teil des Codes gearbeitet hat als seine Kollegin
+und seines Erachtens kein Merge notwendig war. Ein Problem liegt
+darin, dass der Term <span class="emphasis"><em>Merge</em></span> bei vielen, die zentrale
+Versionsverwaltung gewohnt sind, die Assoziation hat, Veränderungen
+würden an derselben Datei zusammengeführt.  Bei Git jedoch ist ein
+Merge in jedem Fall als Zusammenführung von Commits in einem
+Commit-Graphen zu verstehen.  Dies kann das Zusammenführen von
+Veränderungen an derselben Datei meinen, setzt das aber nicht voraus.</p>
+            <p>Neben der Verwirrung der Nutzer sorgt dieser Arbeitsablauf
+für „unsinnige“ Commits in der Geschichte. Im Idealfall
+sollen Merge-Commits ein sinnvoller Eintrag in der Geschichte sein.
+Ein Außenstehender erkennt sofort, dass ein Entwicklungszweig
+eingeflossen ist.  Jedoch kommt bei diesem Arbeitsablauf zwangsläufig
+hinzu, dass der lokale <code class="literal">master</code> und dessen Pendant im Remote
+auseinanderlaufen und durch einen Merge wieder zusammengeführt werden.
+Die dabei entstehenden Merge-Commits sind aber nicht sinnvoll – sie
+sind eigentlich nur eine Nebenwirkung des Workflows und verringern die
+Lesbarkeit der Geschichte. Zwar bietet die Option <code class="literal">--rebase</code>
+für <code class="literal">git pull</code> Abhilfe, aber die Man-Page rät explizit vom
+Einsatz der Option ab, sofern Sie nicht schon das Prinzip des Rebase
+verinnerlicht haben. Haben Sie dieses verstanden, ist Ihnen auch die
+Entstehung des Commit-Graphen vertraut und wie er zu manipulieren ist – dann lohnt es sich für Sie, als Workflow gleich die
+featuregetriebene Entwicklung mit Branches anzustreben.</p>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.fetch-push"></a>Verteiltes Git für Fortgeschrittene</h4>
+                </div>
+              </div>
+            </div>
+            <p>Sobald Sie das Objektmodell und den Commit-Graphen verstanden haben,
+empfehlen wir Ihnen einen Workflow einzusetzen, der im Wesentlichen
+aus <code class="literal">git fetch</code>, manuellen Merges und vielen Branches besteht.
+Es folgen als Anregung einige Rezepte.</p>
+            <p>Sofern Sie <code class="literal">master</code> als Integrationsbranch verwenden, müssen
+Sie nach einem Aufruf von <code class="literal">git fetch</code> Ihren lokalen
+<code class="literal">master</code> vorrücken.  Um genau zu sein, müssen Sie alle lokalen
+Branches, die eine Entsprechung auf der Remote-Seite haben, vorrücken.
+Git bietet dafür die Syntax <code class="literal">@{upstream}</code> bzw.
+<code class="literal">@{u}</code> an, was dem für den aktuellen Branch konfigurierten
+Remote-Tracking-Branch entspricht. Dies kann sehr hilfreich sein.</p>
+            <pre class="screen"># Veränderungen von Anderen herunterladen
+$ <span class="strong"><strong>git remote update</strong></span>
+...
+   79170e8..003e3c7  master     -&gt; origin/master
+
+# Den Status der Remote-Tracking-Branches abfragen
+$ <span class="strong"><strong>git branch -vv</strong></span>
+* master 79170e8 [origin/master: behind 1] Lizenz hinzugefügt
+
+# Veränderungen einsehen
+$ <span class="strong"><strong>git log -p ..@{u}</strong></span>
+
+# Heruntergeladene Änderungen übernehmen
+$ <span class="strong"><strong>git merge @{u}</strong></span>
+Updating 79170e8..003e3c7
+Fast-forward
+...
+
+# ... oder eigene Änderungen darauf neu aufbauen
+$ <span class="strong"><strong>git rebase @{u}</strong></span>
+
+# Änderungen dann hochladen
+$ <span class="strong"><strong>git push</strong></span></pre>
+            <div class="tip" style="margin-left: 0; margin-right: 10%;">
+              <h3 class="title">Tipp</h3>
+              <p>Wenn Sie häufiger lokale Branches mit Ihrem Remote-Tracking-Branch
+synchronisieren, empfehlen wir Ihnen folgendes Alias:</p>
+              <pre class="screen">$ <span class="strong"><strong>git config --global alias.fft "merge --ff-only @{u}"</strong></span></pre>
+              <p>Damit können Sie ganz bequem mit <code class="literal">git fft</code>
+(<span class="emphasis"><em>Fast-Forward-Tracking</em></span>) einen Branch vorrücken. Die Option
+<code class="literal">--ff-only</code> verhindert, dass versehentlich Merge-Commits
+entstehen, wo eigentlich keine hingehören.</p>
+            </div>
+            <p>Hilfreich ist in diesem Kontext auch
+<a class="xref" href="ch06.html" title="Kapitel 6. Workflows">Kapitel 6, <em>Workflows</em></a>, wo beschrieben wird, wie Sie übersichtlich mit
+vielen Topic-Branches arbeiten.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.hochladen"></a>5.4. Commits hochladen: git push</h2>
+            </div>
+          </div>
+        </div>
+        <p>Das Gegenstück zu <code class="literal">fetch</code> und <code class="literal">pull</code> bildet das Kommando
+<code class="literal">git push</code>. Damit laden Sie Git-Objekte und Referenzen in ein
+Remote hoch – z.B. den lokalen <code class="literal">master</code> in den Branch
+<code class="literal">master</code> im Remote <code class="literal">origin</code>:</p>
+        <pre class="screen">$ <span class="strong"><strong>git push origin master:master</strong></span></pre>
+        <p>Wie bei <code class="literal">git fetch</code> geben Sie die Referenzen zum Hochladen mit
+einem Refspec an. Dieser hat jedoch die umgekehrte Form:</p>
+        <pre class="screen">&lt;lokale-refs&gt;:&lt;remote-refs&gt;</pre>
+        <p>Diesmal befinden sich die lokalen Referenzen auf der linken Seite des
+Doppelpunktes, und die Remote-Referenzen auf der rechten.</p>
+        <p>Lassen Sie den Doppelpunkt und die Remote-Referenz weg, wird der
+lokale Name auch auf der Remote-Seite verwendet und von Git erstellt,
+falls er nicht existiert:</p>
+        <pre class="screen">$ <span class="strong"><strong>git push origin master</strong></span>
+Counting objects: 73, done.
+Compressing objects: 100% (33/33), done.
+Writing objects: 100% (73/73), 116.22 KiB, done.
+Total 73 (delta 42), reused 68 (delta 40)
+Unpacking objects: 100% (73/73), done.
+To git@github.com:esc/git-cheatsheet-de.git
+ * [new branch]      master -&gt; master</pre>
+        <p>Den Vorgang hinter <code class="literal">git push</code> zeigt
+<a class="xref" href="ch05.html#fig.push" title="Abbildung 5.7. Referenzen und Commits hochladen">Abbildung 5.7, „Referenzen und Commits hochladen“</a>. Die Ausgangssituation sehen Sie auf
+der linken Seite (es ist das Ergebnis eines <code class="literal">pull</code>-Aufrufes).
+Die fehlenden Commits D und M lädt Git in das Remote <code class="literal">origin</code>
+hoch. Gleichzeitig wird der Remote-Branch <code class="literal">master</code> auf den
+Commit M vorgerückt, so dass dieser dem lokalen Branch <code class="literal">master</code>
+entspricht. Außerdem wird der Remote-Tracking-Branch
+<code class="literal">origin/master</code> vorgerückt, damit er den aktuellen Zustand im
+Remote widerspiegelt.</p>
+        <div class="figure">
+          <a id="fig.push"></a>
+          <p class="title">
+            <strong>Abbildung 5.7. Referenzen und Commits hochladen</strong>
+          </p>
+          <div class="figure-contents">
+            <div class="mediaobject">
+              <img src="bilder_ebook/push.png" width="540" alt="bilder_ebook/push.png" />
+            </div>
+          </div>
+        </div>
+        <br class="figure-break" />
+        <p>Analog zu <code class="literal">fetch</code> weigert sich Git, Referenzen zu aktualisieren,
+bei denen der Ziel-Commit kein Nachfahre des aktuellen Commits ist:</p>
+        <pre class="screen">$ <span class="strong"><strong>git push origin master</strong></span>
+...
+ ! [rejected]        master -&gt; master (non-fast-forward)
+error: failed to push some refs to 'git@github.com:esc/git-cheatsheet-de.git'
+To prevent you from losing history, non-fast-forward updates were
+rejected
+Merge the remote changes before pushing again.  See the 'Note about
+fast-forwards' section of 'git push --help' for details.</pre>
+        <p>Dieses Verhalten setzen Sie entweder durch ein vorangestelltes Plus
+(<code class="literal">+</code>) im Refspec oder durch die Option <code class="literal">--force</code> bzw.
+kurz <code class="literal">-f</code> außer Kraft:<a href="#ftn.idm45240357442736" class="footnote" id="idm45240357442736"><sup class="footnote">[72]</sup></a></p>
+        <pre class="screen">$ <span class="strong"><strong>git push origin --force master</strong></span>
+$ <span class="strong"><strong>git push origin +master</strong></span></pre>
+        <p>Vorsicht! Es können Commits auf der Remote-Seite verloren gehen – zum
+Beispiel wenn sie per <code class="literal">git reset --hard</code> einen Branch
+verschoben haben und Commits nicht mehr referenziert werden.</p>
+        <p>Sie erhalten die Fehlermeldung auch, wenn Sie Commits, die bereits per
+<code class="literal">git push</code> veröffentlicht wurden, nachträglich mit <code class="literal">git
+  rebase</code> oder <code class="literal">git commit --amend</code> modifiziert haben. Daher
+hier noch einmal die ausdrückliche Warnung: Vermeiden Sie es, Commits,
+die Sie bereits veröffentlicht haben, nachträglich zu verändern!
+Durch die veränderten SHA-1-Summen kommt es zu Doppelungen, wenn
+Andere die ursprünglichen Commits bereits heruntergeladen haben.</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.push-delete"></a>5.4.1. Remote-Referenzen löschen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Es gibt zwei Möglichkeiten, um Referenzen im Remote wieder zu löschen:
+Die ältere (vor Git Version 1.7.0) ist, beim Refspec die lokale
+Referenz wegzulassen – diese Anweisung bedeutet, Sie möchten
+„nichts“ hochladen. Sie ersetzen also eine existierende durch
+die leere Referenz.</p>
+          <pre class="screen">$ <span class="strong"><strong>git push origin :bugfix</strong></span></pre>
+          <p>In neueren Git-Versionen wird aber in der Regel das Kommando <code class="literal">git
+push</code> mit der Option <code class="literal">--delete</code> verwendet, was syntaktisch viel
+deutlicher ist:</p>
+          <pre class="screen">$ <span class="strong"><strong>git push origin --delete bugfix</strong></span></pre>
+          <p>Beachten Sie, dass in anderen Klonen der ggf. vorhandene
+Remote-Tracking-Branch <code class="literal">origin/bugfix</code> dadurch <span class="emphasis"><em>nicht</em></span> automatisch verschwindet!
+Siehe dafür den Abschnitt über <span class="emphasis"><em>Pruning</em></span> weiter oben (<a class="xref" href="ch05.html#sec.git_fetch" title="5.3. Commits herunterladen">Abschnitt 5.3, „Commits herunterladen“</a>).</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.push-default"></a>5.4.2. Push ohne Argumente: push.default</h3>
+              </div>
+            </div>
+          </div>
+          <p>Im Alltag führen Sie <code class="literal">git push</code> oft ohne Angabe von Remote und Refspec
+aus. In dem Fall entscheidet Git anhand der Konfigurationseinträge
+(Upstream-Branch und <code class="literal">push.default</code>), welche Referenzen wohin geschickt
+werden.</p>
+          <pre class="screen">$ <span class="strong"><strong>git push</strong></span>
+...
+To git@github.com:esc/git-cheatsheet-de.git
+   79170e8..003e3c7  master -&gt; master</pre>
+          <p>Git geht standardmäßig so vor:<a href="#ftn.idm45240357417856" class="footnote" id="idm45240357417856"><sup class="footnote">[73]</sup></a>
+Wenn Sie kein Remote angeben, dann sucht Git die Upstream-Konfiguration
+des aktuellen Branches heraus. Sofern der Name des Branches auf der
+Remote-Seite mit dem Namen des lokalen Branches übereinstimmt, wird die
+entsprechende Referenz hochgeladen (dies soll Sie davor schützen, bei
+fehlerhafter Upstream-Konfiguration zum Beispiel Ihren Branch <code class="literal">devel</code> nach
+<code class="literal">master</code> hochzuladen). Ist kein Upstream-Branch konfiguriert, bricht Git
+mit einer Fehlermeldung ab:</p>
+          <pre class="screen">$ <span class="strong"><strong>git push</strong></span>
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master</pre>
+          <p>Wenn Sie mit <code class="literal">git push &lt;remote&gt;</code> zwar ein Remote, aber keinen Branch
+angeben, so versucht Git, den aktuellen Branch unter dem gleichen Namen
+in das Remote hochzuladen.</p>
+          <p>Die hier beschriebene Strategie wird auch als <code class="literal">simple</code> bezeichnet. Sie
+tut für die meisten Anwendungsfälle das, was der Nutzer erwartet, und
+schützt vor vermeidbaren Fehlern. Die dafür zuständige Option
+<code class="literal">push.default</code> können Sie aber bei Bedarf auch auf einen der folgenden
+Werte setzen:</p>
+          <div class="variablelist">
+            <dl class="variablelist">
+              <dt>
+                <span class="term">
+<code class="literal">nothing</code>
+</span>
+              </dt>
+              <dd>
+Nichts hochladen. Dies ist sinnvoll, wenn Sie immer
+explizit angeben wollen, welchen Branch Sie wohin hochladen wollen.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">upstream</code>
+</span>
+              </dt>
+              <dd>
+Wenn der aktuelle Branch einen Upstream-Branch hat,
+dorthin pushen.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">current</code>
+</span>
+              </dt>
+              <dd>
+Den aktuellen Branch in einen Remote-Branch gleichen
+Namens pushen.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">matching</code>
+</span>
+              </dt>
+              <dd>
+Lädt alle lokal existierenden Referenzen hoch, für die es
+im entsprechenden Remote bereits eine Referenz gleichen Namens gibt.
+Achtung: Sie laden dadurch potentiell mehrere Branches gleichzeitig
+hoch!
+</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.upstream-config"></a>5.4.3. Konfiguration des Upstream-Branches</h3>
+              </div>
+            </div>
+          </div>
+          <p>Git nimmt die Konfiguration von Upstream-Branches in einigen Fällen
+automatisch vor (zum Beispiel nach einem <code class="literal">git clone</code>). Insbesondere für
+neue Branches, die Sie das erste Mal hochladen, müssen Sie dies
+allerdings explizit tun.
+Sie können dafür entweder im Nachhinein die Option <code class="literal">--set-upstream-to</code>
+oder kurz <code class="literal">-u</code> von <code class="literal">git branch</code> verwenden:</p>
+          <pre class="screen">$ <span class="strong"><strong>git push origin new-feature</strong></span>
+$ <span class="strong"><strong>git branch -u origin/new-feature</strong></span>
+Branch new-feature set up to track remote branch new-feature from origin.</pre>
+          <p>Alternativ und wenn Sie daran denken, können Sie aber auch gleich beim
+Aufruf von <code class="literal">git push</code> mit der Option <code class="literal">-u</code> die Konfiguration schreiben
+lassen:</p>
+          <pre class="screen">$ <span class="strong"><strong>git push -u origin new-feature</strong></span></pre>
+          <p>Um die Upstream-Konfiguration Ihrer Branches anzuzeigen, rufen Sie <code class="literal">git
+branch -vv</code> auf. In der Ausgabe wird (falls vorhanden) der
+Upstream-Partner eines Branches in eckigen Klammern angezeigt.</p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.remotes-check"></a>5.5. Remotes untersuchen</h2>
+            </div>
+          </div>
+        </div>
+        <p>In diesem Abschnitt stellen wir  Techniken vor, mit denen Sie
+ein Remote einsehen und Ihr lokales Repository damit vergleichen.</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.remotes-show"></a>5.5.1. Zusammenfassung eines Remotes</h3>
+              </div>
+            </div>
+          </div>
+          <p>Das Kommando <code class="literal">git remote show</code> gibt eine prägnante
+Zusammenfassung des Remotes, inklusive den dort verfügbaren Branches,
+ob diese lokal verfolgt werden (Tracking-Status) und welche lokalen
+Branches für bestimmte Aufgaben konfiguriert sind.</p>
+          <p>Das Kommando muss beim Remote den aktuellen Stand erfragen,
+d.h. der Befehl scheitert, wenn das Remote nicht verfügbar ist,
+z.B. aufgrund fehlender Netzwerkverbindung. Die Option <code class="literal">-n</code>
+unterbindet die Abfrage.</p>
+          <pre class="screen">$ <span class="strong"><strong>git remote show origin</strong></span>
+* remote origin
+  Fetch URL: git://git.kernel.org/pub/scm/git/git.git
+  Push  URL: git://git.kernel.org/pub/scm/git/git.git
+  HEAD branch: master
+  Remote branches:
+    html   tracked
+    maint  tracked
+    man    tracked
+    master tracked
+    next   tracked
+    pu     tracked
+    todo   tracked
+  Local branches configured for 'git pull':
+    master merges with remote master
+    pu     merges with remote pu
+  Local refs configured for 'git push':
+    master pushes to master (local out of date)
+    pu     pushes to pu     (up to date)</pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.remote-branch-vv"></a>5.5.2. Vergleich mit dem Upstream</h3>
+              </div>
+            </div>
+          </div>
+          <p>Haben Sie einen Upstream-Branch konfiguriert, erhalten Sie beim
+Wechseln des Branches (<code class="literal">git checkout</code>) und Abfragen des Status
+(<code class="literal">git status</code>) eine Benachrichtigung über den Zustand des
+Branches im Vergleich mit dem Upstream, z.B.:</p>
+          <pre class="screen">$ <span class="strong"><strong>git checkout master</strong></span>
+Your branch is behind 'origin/master' by 73 commits, and can be
+fast-forwarded.</pre>
+          <p>Hier gibt es vier verschiedene Möglichkeiten:</p>
+          <div class="itemizedlist">
+            <ul class="itemizedlist" style="list-style-type: disc; ">
+              <li class="listitem">
+Die Branches zeigen auf denselben Commit. Git zeigt keine
+  besondere Nachricht an. Dieser Zustand heißt auch <span class="emphasis"><em>up-to-date</em></span>.
+</li>
+              <li class="listitem">
+                <p class="simpara">
+Der lokale Branch hat Commits, die noch nicht im Upstream verfügbar sind:
+</p>
+                <p class="simpara">
+                  <code class="literal">Your branch is ahead of 'origin/master' by 16 commits.</code>
+                </p>
+              </li>
+              <li class="listitem">
+                <p class="simpara">
+Der Remote-Tracking-Branch hat Commits, die in dem lokalen Branch
+  noch nicht verfügbar sind:
+</p>
+                <p class="simpara">
+                  <code class="literal">Your branch is behind 'origin/master' by 73 commits, and can be fast-forwarded.</code>
+                </p>
+              </li>
+              <li class="listitem">
+                <p class="simpara">
+Sowohl die zweite als auch die dritte Bedingung treffen zu, ein
+  Zustand der im Git-Jargon als <span class="emphasis"><em>diverged</em></span> bezeichnet wird:
+</p>
+                <p class="simpara">
+                  <code class="literal">Your branch and 'origin/master' have diverged, and have 16 and 73
+  different commit(s) each, respectively.</code>
+                </p>
+              </li>
+            </ul>
+          </div>
+          <p>Mit der Option <code class="literal">-v</code> (nur den Vergleich) oder <code class="literal">-vv</code>
+(Vergleich und Upstream-Bezeichnung) zeigt <code class="literal">git branch</code> die
+entsprechenden Informationen für lokale Branches:</p>
+          <pre class="screen">$ <span class="strong"><strong>git branch -vv</strong></span>
+* master      0a464e9 [origin/master: ahead 1] docs: fix grammar in
+git-tags.txt
+  feature     cd3065f Merge branch 'kc/gitweb-pathinfo-w-anchor'
+  next        be8b495 [origin/next] Merge branch <span class="emphasis"><em>master</em></span> into next
+  pu          0c0c536 [origin/pu: behind 3] Merge branch
+'jk/maint-merge-rename-create' into pu</pre>
+          <p>Das Kommando gibt für alle Branches das SHA-1-Präfix sowie die
+Commit-Message des aktuellen Commits aus. Ist für den Branch ein
+Upstream konfiguriert, liefert Git sowohl den Namen als auch einen
+Vergleich zum Upstream. In dem Beispiel sehen Sie vier verschiedene
+Branches. <code class="literal">master</code> hat einen zusätzlichen Commit, der noch
+nicht ins Remote hochgeladen wurde, und ist daher <span class="emphasis"><em>ahead</em></span>. Der
+Branch <code class="literal">feature</code> wiederum hat keinen Upstream-Branch
+konfiguriert, ergo: er existiert momentan nur lokal.  Der Branch
+<code class="literal">next</code> ist auf demselben Stand wie der entsprechende
+Remote-Tracking-Branch (<span class="emphasis"><em>up-to-date</em></span>).  Der Branch <code class="literal">pu</code>
+andererseits „hinkt“ seinem Upstream hinterher und wird
+daher als <code class="literal">behind</code> angezeigt. Der einzige Zustand, der hier fehlt,
+ist <span class="emphasis"><em>diverged</em></span> – dann werden sowohl <span class="emphasis"><em>ahead</em></span> als auch
+<span class="emphasis"><em>behind</em></span> inklusive der Anzahl der „fehlenden“ Commits
+angezeigt.</p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.multi-remote"></a>5.6. Verteilter Workflow mit mehreren Remotes</h2>
+            </div>
+          </div>
+        </div>
+        <p>Git unterstützt das Arbeiten mit mehreren Remotes. Ein beliebter
+Workflow, der sich diese Eigenschaft zu Nutze macht, ist der
+<span class="emphasis"><em>Integration-Manager Workflow</em></span>. Hier gibt es kein
+„zentrales“ Repository im eigentlichen Sinne, das heißt
+eines, auf das alle aktiven Entwickler Schreibzugriff haben.
+Stattdessen gibt es nur ein quasi-offizielles Repository, das
+<span class="emphasis"><em>blessed</em></span> („gesegnet“) genannt wird. Es ist
+beispielsweise über die jeweilige Projekt-Domain erreichbar und
+erlaubt nur den wichtigsten Maintainern (oder gar nur einem)
+Schreibzugriff.</p>
+        <p>Jeder, der zu dem Projekt beitragen will, klont das Blessed Repository
+und beginnt mit der Arbeit. Sobald er Fehler behoben oder ein neues
+Feature implementiert hat, stellt er seine Verbesserungen über ein
+öffentlich zugängliches Repository, einem
+sog. <span class="emphasis"><em>Developer-Public</em></span>, zur
+Verfügung. Danach sendet
+er an einen der Maintainer des offiziellen Repositorys (oder an die
+Mailingliste) einen sog. <span class="emphasis"><em>Pull-Request</em></span>, also die Aufforderung,
+gewissen Code aus seinem öffentlichen Repository in das offizielle
+Repository zu übernehmen. Die Infrastruktur für diesen Ablauf sehen
+Sie in <a class="xref" href="ch05.html#fig.developer-public-workflow" title="Abbildung 5.8. Integration-Manager Workflow">Abbildung 5.8, „Integration-Manager Workflow“</a>. Es ist
+zwar theoretisch möglich, Interessenten direkten Zugriff auf die
+eigene Entwicklungsmaschine zu geben, das geschieht in der Praxis aber
+beinahe nie.</p>
+        <div class="figure">
+          <a id="fig.developer-public-workflow"></a>
+          <p class="title">
+            <strong>Abbildung 5.8. Integration-Manager Workflow</strong>
+          </p>
+          <div class="figure-contents">
+            <div class="mediaobject">
+              <img src="bilder_ebook/developer-public.png" width="378" alt="bilder_ebook/developer-public.png" />
+            </div>
+          </div>
+        </div>
+        <br class="figure-break" />
+        <p>Einer der Maintainer, die Zugriff auf das Haupt-Repository haben,
+überprüft dann, ob der Code funktioniert, ob er den
+Qualitätsanforderungen entspricht usw. Eventuelle Fehler oder
+Unklarheiten teilt er dem Autor des Codes mit, der diese dann wiederum
+in seinem Repository korrigiert. Erst wenn der Maintainer zufrieden
+ist, übernimmt er die Änderungen in das Haupt-Repository, so dass der
+Code in einem der folgenden Releases mitgeliefert wird. Maintainer,
+die neuen Code eingliedern, werden oft als <span class="emphasis"><em>Integration Manager</em></span>
+bezeichnet, was dem Workflow seinen Namen gegeben hat. Oft
+haben solche Maintainer mehrere Remotes konfiguriert, eines für jeden
+Mitwirkenden.</p>
+        <p>Einer der großen Vorteile dieses Workflows ist, dass außer den
+Maintainern auch interessierte User Zugriff auf die öffentlichen
+Entwickler-Repositories haben, etwa Kollegen oder Freunde des
+Entwicklers.  Diese müssen nicht warten, bis der Code seinen Weg in
+das offizielle Repository gefunden hat, sondern können direkt nach der
+Bereitstellung die Verbesserungen ausprobieren.  Insbesondere die
+Hosting-Plattform Github setzt sehr stark auf diesen Workflow. Die dort
+eingesetzte Weboberfläche bietet eine Vielzahl von Features, um diesen
+Workflow zu unterstützen, z.B. eine Visualisierung, die alle
+verfügbaren Klons eines Projekts und die darin enthaltenen Commits
+anzeigt, sowie die Möglichkeit, Merges direkt im Webinterface
+durchzuführen. Eine ausführliche Beschreibung dieses Dienstes finden
+Sie in <a class="xref" href="ch11.html" title="Kapitel 11. Github">Kapitel 11, <em>Github</em></a>.</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.remotes-verwalten"></a>5.7. Remotes verwalten</h2>
+            </div>
+          </div>
+        </div>
+        <p>Mit <code class="literal">git remote</code> verwalten Sie zusätzliche Remotes. Um
+z.B. ein neues Remote eines anderen Entwicklers hinzuzufügen,
+verwenden Sie das Kommando <code class="literal">git remote add</code>. Meist wollen
+Sie im Anschluss die Remote-Tracking-Branches initialisieren, was Sie
+mit <code class="literal">git fetch</code> erreichen:</p>
+        <pre class="screen">$ <span class="strong"><strong>git remote add example git://example.com/example.git</strong></span>
+$ <span class="strong"><strong>git fetch example</strong></span>
+...</pre>
+        <div class="tip" style="margin-left: 0; margin-right: 10%;">
+          <h3 class="title">Tipp</h3>
+          <p>Um beide Arbeitsschritte in einem Aufruf zu erledigen, verwenden
+Sie die Option <code class="literal">-f</code>, für <span class="emphasis"><em>fetch</em></span>:</p>
+          <pre class="screen">$ <span class="strong"><strong>git remote add -f example git://example.com/example.git</strong></span></pre>
+        </div>
+        <p>Brauchen Sie das Remote nicht mehr, können Sie es mit
+<code class="literal">git remote rm</code> aus Ihrer lokalen Konfiguration wieder
+entfernen. Dadurch werden auch alle Remote-Tracking-Branches für
+dieses Remote wieder gelöscht:</p>
+        <pre class="screen">$ <span class="strong"><strong>git remote rm example</strong></span></pre>
+        <p>Remotes müssen nicht zwingend per <code class="literal">git remote add</code> konfiguriert
+werden. Sie können einfach die URL auf der Kommandozeile
+verwenden,<a href="#ftn.idm45240357322464" class="footnote" id="idm45240357322464"><sup class="footnote">[74]</sup></a> zum Beispiel, um die
+Objekte und Referenzen für einen Bugfix herunterzuladen:</p>
+        <pre class="screen">$ <span class="strong"><strong>git fetch git://example.com/example.git bugfix:bugfix</strong></span></pre>
+        <p>Selbstverständlich geht das auch mit <code class="literal">pull</code> und <code class="literal">push</code>.</p>
+        <p>Arbeiten Sie mit mehreren Remotes, bietet sich das Kommando
+<code class="literal">git remote update --prune</code> an. Damit führen Sie
+<code class="literal">fetch</code> für alle Remotes durch, wobei die Option
+<code class="literal">--prune</code> dafür sorgt, dass alle abgelaufenen
+Remote-Tracking-Branches gelöscht werden.</p>
+        <div class="tip" style="margin-left: 0; margin-right: 10%;">
+          <h3 class="title">Tipp</h3>
+          <p>Folgendes Alias hat sich bei uns sehr bewährt, da es viele
+Arbeitsschritte, die in der Praxis oft hintereinander ausgeführt
+werden, vereint:</p>
+          <pre class="screen">$ <span class="strong"><strong>git config --global alias.ru "remote update --prune"</strong></span></pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.pull-request"></a>5.7.1. Pull-Request</h3>
+              </div>
+            </div>
+          </div>
+          <p>Um einen Pull-Request automatisch zu generieren, gibt es das
+Git-Kommando <code class="literal">request-pull</code>. Die Syntax lautet:</p>
+          <pre class="screen">git request-pull &lt;Anfang&gt; &lt;URL&gt; [&lt;Ende&gt;]</pre>
+          <p>Als <code class="literal">&lt;URL&gt;</code> geben Sie Ihr öffentliches Repository an (entweder als
+tatsächliche URL oder als konfiguriertes Remote-Repository), und als
+<code class="literal">&lt;Anfang&gt;</code> wählen Sie die Referenz, auf die das Feature aufbaut (in
+vielen Fällen den Branch <code class="literal">master</code>, der mit dem Master-Branch des
+offiziellen Repositorys übereinstimmen sollte).  Optional können Sie ein
+<code class="literal">&lt;Ende&gt;</code> angeben; lassen Sie diese Angabe weg, so verwendet Git
+<code class="literal">HEAD</code>.</p>
+          <p>Die Ausgabe erfolgt nach Standard-Out und enthält die URL sowie den
+Branch-Namen des Repositorys, die Kurzbeschreibung aller Commits nach
+Autor sowie ein Diff-Stat, also eine Bilanz von hinzugekommenen und
+gelöschten Zeilen nach Dateien.  Diese Ausgabe lässt sich bequem an
+ein E-Mail-Programm weiterleiten.  Fügen Sie noch die Option
+<code class="literal">-p</code> hinzu, wird unter den Text noch ein Patch mit allen
+Änderungen angehängt.</p>
+          <p>Zum Beispiel um jemanden darum zu bitten, die zwei neuesten Commits aus einem
+Repository herunterzuladen:</p>
+          <pre class="screen">$ <span class="strong"><strong>git request-pull HEAD~2 origin</strong></span>
+The following changes since commit d2640ac6a1a552781[...]c48e08e695d53:
+
+  README verbessert (2010-11-20 21:27:20 <code class="literal">0100)
+
+are available in the git repository at:
+  git@github.com:esc/git-cheatsheet-de.git master
+
+Valentin Haenel (2):
+      Lizenz hinzugefügt
+      URL hinzugefügt und Metadaten neu formatiert
+
+ cheatsheet.pdf |  Bin 89513 -&gt; 95619 bytes
+ cheatsheet.tex |   18 ++++++++++++++++--
+ 2 files changed, 16 insertions(</code>), 2 deletions(-)</pre>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.remote-tags"></a>5.8. Tags austauschen</h2>
+            </div>
+          </div>
+        </div>
+        <p>Tags werden ebenfalls mit den Remote-Kommandos <code class="literal">fetch</code> bzw.
+<code class="literal">pull</code> und <code class="literal">push</code> ausgetauscht.  Im Gegensatz zu
+Branches, die sich verändern, sind Tags jedoch „statisch“.
+Aus diesem Grund werden Remote-Tags nicht noch einmal zusätzlich lokal
+referenziert, es gibt also kein Äquivalent zu den
+Remote-Tracking-Branches für die Tags. Tags, die Sie aus Ihren
+Remote-Repositories erhalten, speichert Git ganz normal unter
+<code class="literal">.git/refs/tags/</code> bzw. <code class="literal">.git/packed-refs</code>.</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.tags-download"></a>5.8.1. Tags herunterladen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Prinzipiell lädt Git neue Tags automatisch bei einem Aufruf von
+<code class="literal">git fetch</code> bzw.  <code class="literal">git pull</code> herunter. Das heißt, wenn
+Sie einen Commit herunterladen, auf den ein Tag zeigt, so wird dieses
+Tag mitgeliefert.  Schließen Sie jedoch mit einem Refspec einzelne
+Branches aus, so werden Commits in diesen Branches nicht
+heruntergeladen – und somit auch keine Tags, die evtl. auf diese
+Commits zeigen. Fazit: Git lädt nur relevante Tags herunter. Mit den
+Optionen <code class="literal">--no-tags</code> (keine Tags) und <code class="literal">--tags</code>
+bzw. <code class="literal">-t</code> (alle Tags) passen Sie das Standardverhalten an.
+Beachten Sie aber, dass Sie mit <code class="literal">--tags</code> nicht nur die Tags
+herunterladen, sondern notwendigerweise auch die Commits, auf die die
+Tags zeigen.</p>
+          <p>Git benachrichtigt Sie, wenn neue Tags eintreffen:</p>
+          <pre class="screen">$ <span class="strong"><strong>git fetch</strong></span>
+[fetch output]
+From git://git.kernel.org/pub/scm/git/git
+ * [new tag]         v1.7.4.2   -&gt; v1.7.4.2</pre>
+          <p>Wenn Sie wissen wollen, welche Tags auf der Remote-Seite vorhanden
+sind, verwenden Sie <code class="literal">git ls-remote</code> mit der Option
+<code class="literal">--tags</code>. Zum Beispiel erhalten Sie alle Release-Candidates der
+Git-Version <code class="literal">1.7.1</code> mit folgendem Aufruf:</p>
+          <pre class="screen">$ <span class="strong"><strong>git ls-remote origin --tags v1.7.1-rc*</strong></span>
+bdf533f9b47dc58ac452a4cc92c81dc0b2f5304f    refs/tags/v1.7.1-rc0
+537f6c7fb40257776a513128043112ea43b5cdb8    refs/tags/v1.7.1-rc0^{}
+d34cb027c31d8a80c5dbbf74272ecd07001952e6    refs/tags/v1.7.1-rc1
+b9aa901856cee7ad16737343f6a372bb37871258    refs/tags/v1.7.1-rc1^{}
+03c5bd5315930d8d88d0c6b521e998041a13bb26    refs/tags/v1.7.1-rc2
+5469e2dab133a197dc2ca2fa47eb9e846ac19b66    refs/tags/v1.7.1-rc2^{}</pre>
+          <p>Git gibt die SHA-1-Summen der Tags und deren
+Inhalt<a href="#ftn.idm45240357279344" class="footnote" id="idm45240357279344"><sup class="footnote">[75]</sup></a>  aus.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.tags-hochladen"></a>5.8.2. Tags hochladen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Git lädt Tags nicht automatisch hoch. Sie müssen diese, ähnlich den
+Branches, explizit an <code class="literal">git push</code> übergeben, z.B. um das Tag
+<code class="literal">v0.1</code> hochzuladen:</p>
+          <pre class="screen">$ <span class="strong"><strong>git push origin v0.1</strong></span></pre>
+          <p>Wenn Sie gleich alle Tags hochladen wollen, verwenden Sie die Option
+<code class="literal">--tags</code>. Aber Vorsicht: Vermeiden Sie diese Option, wenn Sie,
+wie in <a class="xref" href="ch03.html#sec.tags" title="3.1.3. Tags – Wichtige Versionen markieren">Abschnitt 3.1.3, „Tags – Wichtige Versionen markieren“</a> beschrieben,
+Annotated Tags zur Kennzeichnung von Versionen verwenden und
+Lightweight Tags, um lokal etwas zu markieren. Denn mit der Option
+würden Sie, wie schon gesagt, <span class="emphasis"><em>alle</em></span> Tags hochladen.</p>
+          <p>Achtung: Wenn Sie ein Tag einmal hochgeladen haben, sollten Sie es auf
+keinen Fall verändern! Der Grund: Angenommen, Axel verändert ein Tag,
+etwa <code class="literal">v0.7</code>, das er bereits veröffentlicht hat. Zunächst zeigte
+es auf den Commit <code class="literal">5b6eef</code> und nun auf <code class="literal">bab18e</code>.
+Beatrice hatte bereits die erste Version, die auf <code class="literal">5b6eef</code>
+zeigt, heruntergeladen, Carlos aber noch nicht. Beim nächsten Mal,
+wenn Beatrice <code class="literal">git pull</code> aufruft, lädt Git <span class="emphasis"><em>nicht</em></span> die
+neue Version von dem Tag <code class="literal">v0.7</code> herunter; die Annahme ist, dass
+sich Tags nicht verändern, und darum überprüft Git die Gültigkeit des
+Tags nicht!  Führt Carlos nun <code class="literal">git pull</code> aus, erhält er auch
+das Tag <code class="literal">v0.7</code>, das aber jetzt auf <code class="literal">bab18e</code> zeigt.
+Zuletzt sind zwei Versionen des Tags – die jeweils auf
+unterschiedliche Commits zeigen – im Umlauf.  Keine besonders
+hilfreiche Situation. Wirklich verwirrend wird es, wenn sowohl Carlos
+als auch Beatrice dasselbe, öffentliche Repository verwenden und
+standardmäßig alle Tags hochladen.<a href="#ftn.idm45240357261552" class="footnote" id="idm45240357261552"><sup class="footnote">[76]</sup></a> Das Tag
+„springt“ quasi im öffentlichen Repository zwischen zwei
+Commits hin und her; welche Version Sie mit einem Klon erhalten, hängt
+davon ab, wer zuletzt gepusht hat.</p>
+          <p>Sollte Ihnen dieses Missgeschick doch einmal passieren, haben Sie zwei
+Möglichkeiten:</p>
+          <div class="orderedlist">
+            <ol class="orderedlist" type="1">
+              <li class="listitem">
+Die vernünftige Alternative: Statt das Tag zu ersetzen, erstellen Sie
+  ein neues und laden es ebenfalls hoch. Benennen Sie das neue Tag
+  entsprechend den Projektkonventionen. Heißt das alte <code class="literal">v0.7</code>, nennen
+  Sie das neue etwa <code class="literal">v0.7.1</code>.
+</li>
+              <li class="listitem">
+Wenn Sie das Tag <span class="emphasis"><em>wirklich</em></span> ersetzen wollen: Geben Sie
+  öffentlich zu (Mailingliste, Wiki, Blog), dass Sie einen Fehler
+  gemacht haben. Weisen Sie alle Entwickler und Nutzer darauf hin,
+  dass sich ein Tag geändert hat, und bitten Sie darum, dass jeder
+  dieses Tag bei sich überprüft. Die Größe des Projekts und Ihre
+  Risikobereitschaft entscheiden, ob diese Lösung machbar ist.
+</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.patch-queue"></a>5.9. Patches per E-Mail</h2>
+            </div>
+          </div>
+        </div>
+        <p>Eine Alternative zum Einrichten eines öffentlichen Repositorys ist
+es, automatisch Patches per E-Mail zu verschicken. Das Format der
+E-Mail wird dabei so gewählt, dass die Maintainer die per E-Mail
+empfangenen Patches automatisch von Git einspielen lassen können.
+Gerade für kleine Fehlerkorrekturen und sporadische Mitarbeit ist das
+meist weniger aufwändig und schneller. Es gibt viele Projekte, die
+auf diese Art des Austauschs setzen, allen voran das Git-Projekt
+selbst.</p>
+        <p>Der Großteil der Patches für Git wird über die Mailingliste beigesteuert. Dort
+durchlaufen sie einen stringenten Review-Prozess, der meistens zu Korrekturen
+und Verbesserungen führt. Die Patches werden vom Autor so lange verbessert und
+erneut an die Liste geschickt, bis ein Konsens erreicht ist. Währenddessen
+speichert der Maintainer die Patches regelmäßig in einem Branch in seinem
+Repository, und stellt sie über den <code class="literal">pu</code>-Branch zum Testen bereit. Sofern
+die Patch-Serie von den Teilnehmern auf der Liste als fertig betrachtet wird,
+wandert der Branch über die verschiedenen Integrations-Branches <code class="literal">pu</code> und
+<code class="literal">next</code>, wo die Veränderungen auf Kompatibilität und Stabilität geprüft
+werden.  Ist alles in Ordnung, landet der Branch schließlich im <code class="literal">master</code>
+und bildet von dort aus einen Teil des nächsten Releases.</p>
+        <p>Der Ansatz <span class="emphasis"><em>Patches per E-Mail</em></span> wird durch folgende Git-Kommandos
+realisiert:</p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+<code class="literal">git format-patch</code>
+</span>
+            </dt>
+            <dd>
+Commits zum Verschicken als
+  Patches formatieren.
+</dd>
+            <dt>
+              <span class="term">
+<code class="literal">git send-email</code>
+</span>
+            </dt>
+            <dd>
+Patches verschicken.
+</dd>
+            <dt>
+              <span class="term">
+<code class="literal">git am</code>
+</span>
+            </dt>
+            <dd>
+Patches aus einer Mailbox in den
+    aktuellen Branch einpflegen (<span class="emphasis"><em>a</em></span>pply from <span class="emphasis"><em>m</em></span>ailbox).
+</dd>
+          </dl>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.patches-exportieren"></a>5.9.1. Patches exportieren</h3>
+              </div>
+            </div>
+          </div>
+          <p>Das Kommando <code class="literal">git format-patch</code> exportiert einen oder mehrere
+Commits als Patches im Unix-Mailbox-Format und gibt pro Commit eine
+Datei aus. Die Dateinamen bestehen aus einer sequenziellen
+Nummerierung und der Commit-Message und enden auf
+<code class="literal">.patch</code>.<a href="#ftn.idm45240357234096" class="footnote" id="idm45240357234096"><sup class="footnote">[77]</sup></a> Als Argument erwartet das
+  Kommando entweder einen einzelnen Commit oder eine Auswahl wie
+  z.B. <code class="literal">A..B</code>. Geben Sie einen einzelnen Commit an, wertet Git dies als
+  die Auswahl von dem Commit bis zum <code class="literal">HEAD</code>.</p>
+          <div class="figure">
+            <a id="fig.gitk-screen-format-patch"></a>
+            <p class="title">
+              <strong>Abbildung 5.9. Drei Commits nach  <code class="literal">master</code> als Patches formatieren</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/gitk-screen-format-patch.png" width="486" alt="bilder_ebook/gitk-screen-format-patch.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p><a class="xref" href="ch05.html#fig.gitk-screen-format-patch" title="Abbildung 5.9. Drei Commits nach master als Patches formatieren">Abbildung 5.9, „Drei Commits nach  <code class="literal">master</code> als Patches formatieren“</a> zeigt die
+Ausgangssituation. Wir wollen die drei Commits in dem Branch
+<code class="literal">fix-git-svn-docs</code>, also alle Commits ab <code class="literal">master</code>, als
+Patches exportieren:</p>
+          <pre class="screen">$ <span class="strong"><strong>git format-patch master</strong></span>
+0001-git-svn.txt-fix-usage-of-add-author-from.patch
+0002-git-svn.txt-move-option-descriptions.patch
+0003-git-svn.txt-small-typeface-improvements.patch</pre>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Um nur den <code class="literal">HEAD</code> zu exportieren, verwenden Sie die Option
+<code class="literal">-1</code>. Dann erzeugt <code class="literal">format-patch</code> nur für den ersten
+Commit einen Patch:</p>
+            <pre class="screen">$ <span class="strong"><strong>git format-patch -1</strong></span>
+0001-git-svn.txt-small-typeface-improvements.patch</pre>
+            <p>Das geht auch für beliebige SHA-1-Summen:</p>
+            <pre class="screen">$ <span class="strong"><strong>git format-patch -1 9126ce7</strong></span>
+0001-git-svn.txt-fix-usage-of-add-author-from.patch</pre>
+          </div>
+          <p>Die generierten Dateien enthalten unter anderem die Header-Felder
+<code class="literal">From</code>, <code class="literal">Date</code> und <code class="literal">Subject</code>, die zum Verschicken
+als E-Mail dienen. Diese Felder werden anhand der im Commit
+vorhandenen Information – Autor, Datum und Commit-Message – vervollständigt. Des weiteren enthalten die Dateien eine
+Diff-Stat-Zusammenfassung sowie die Veränderungen selbst als Patch im
+Unified-Diff-Format. Den Zusatz <code class="literal">[PATCH m/n]</code><a href="#ftn.idm45240357212224" class="footnote" id="idm45240357212224"><sup class="footnote">[78]</sup></a> in der
+Betreff-Zeile nutzt Git später, um die Patches in der richtigen
+Reihenfolge anzuwenden.</p>
+          <p>Es folgt ein entsprechender Ausschnitt:</p>
+          <pre class="screen">$ <span class="strong"><strong>cat 0003-git-svn.txt-small-typeface-improvements.patch</strong></span>
+From 6cf93e4dae1e5146242338b1b9297e6d2d8a08f4 Mon Sep 17 00:00:00 2001
+From: Valentin Haenel &lt;valentin.haenel@gmx.de&gt;
+Date: Fri, 22 Apr 2011 18:18:55 <code class="literal">0200
+Subject: [PATCH 3/3] git-svn.txt: small typeface improvements
+
+Signed-off-by: Valentin Haenel &lt;valentin.haenel@gmx.de&gt;
+Acked-by: Eric Wong &lt;normalperson@yhbt.net&gt;
+---
+ Documentation/git-svn.txt |    8 ++++----
+ 1 files changed, 4 insertions(</code>), 4 deletions(-)
+
+diff --git a/Documentation/git-svn.txt b/Documentation/git-svn.txt
+...</pre>
+          <p>Wenn Sie vorhaben, eine Serie von Patches zu verschicken, ist
+es empfehlenswert, mit der Option <code class="literal">--cover-letter</code> eine Art
+„Deckblatt“ zu erzeugen, in dem Sie die Serie beschreiben.
+Die Datei heißt standardmäßig <code class="literal">0000-cover-letter.patch</code>.
+Abgesehen von den Standard-Headern, sieht eine solche Datei wie folgt aus:</p>
+          <pre class="screen">Subject: [PATCH 0/3] *** SUBJECT HERE ***
+
+*** BLURB HERE ***
+
+Valentin Haenel (3):
+  git-svn.txt: fix usage of --add-author-from
+  git-svn.txt: move option descriptions
+  git-svn.txt: small typeface improvements
+
+ Documentation/git-svn.txt |   22 +++++++++++-----------
+ 1 files changed, 11 insertions(+), 11 deletions(-)</pre>
+          <p>Wie Sie sehen, ist im <code class="literal">Subject:</code> noch das Präfix <code class="literal">[PATCH
+  0/3]</code> eingetragen; so sehen alle Empfänger sofort, dass es sich
+um ein Deckblatt handelt. Außerdem enthält die Datei die Ausgabe von
+<code class="literal">git shortlog</code> sowie <code class="literal">git diff --stat</code>. Ersetzen Sie
+<code class="literal">*** SUBJECT HERE ***</code> durch einen Betreff und <code class="literal">*** BLURB
+  HERE ***</code> durch eine Zusammenfassung der Patch-Serie. Verschicken
+Sie die Datei zusammen mit den Patch-Dateien.</p>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Häufig werden Mailing-Listen, auf die Patches geschickt werden, dazu
+verwendet, die Patches inhaltlich und syntaktisch zu kritisieren und den
+Autor um Verbesserung zu bitten. Hat der Autor die Verbesserungen
+vorgenommen, schickt er die korrigierte Serie als <span class="emphasis"><em>Reroll</em></span> erneut an die
+Liste. Je nach Größe der Patch-Serie und Anforderungen des Projektes
+kann eine Patch-Serie durchaus mehrere Rerolls durchlaufen, bis sie
+angenommen wird.</p>
+            <p>Wenn Sie eine Patch-Serie an eine Mailing-Liste schicken: Halten Sie die
+Commits auf einem eigenen Branch vor, und arbeiten Sie die
+Korrekturen in neuen Commits (bei fehlender Funktionalität) oder mit
+interaktivem Rebase (zum Anpassen bestehender Commits) ein. Verwenden
+Sie anschließend das Kommando <code class="literal">git format-patch</code> mit der Option
+<code class="literal">--reroll-count=&lt;n&gt;</code> (oder kurz <code class="literal">-v &lt;n&gt;</code>): Sie erzeugen so Patches,
+die als Subject-Zeile z.B. <code class="literal">[PATCH v2]</code> tragen und machen so deutlich,
+dass es sich um den ersten Reroll dieser Serie handelt.</p>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.patches-versenden"></a>5.9.2. Patches versenden</h3>
+              </div>
+            </div>
+          </div>
+          <p>Versenden Sie die generierten Dateien mit <code class="literal">git send-email</code>
+(oder einem E-Mail-Client Ihrer Wahl).  Das Kommando erwartet als
+einziges zwingendes Argument entweder eine oder mehrere Patch-Dateien,
+ein Verzeichnis voller Patches oder aber eine Auswahl von Commits (in
+dem Fall ruft Git zusätzlich intern <code class="literal">git format-patch</code> auf):</p>
+          <pre class="screen">$ <span class="strong"><strong>git send-email 000*</strong></span>
+0000-cover-letter.patch
+0001-git-svn.txt-fix-usage-of-add-author-from.patch
+0002-git-svn.txt-move-option-descriptions.patch
+0003-git-svn.txt-small-typeface-improvements.patch
+Who should the emails appear to be from? [Valentin Haenel
+&lt;valentin.haenel@gmx.de&gt;]
+
+$ <span class="strong"><strong>git send-email master</strong></span>
+/tmp/HMSotqIfnB/0001-git-svn.txt-fix-usage-of-add-author-from.patch
+/tmp/HMSotqIfnB/0002-git-svn.txt-move-option-descriptions.patch
+/tmp/HMSotqIfnB/0003-git-svn.txt-small-typeface-improvements.patch
+Who should the emails appear to be from? [Valentin Haenel
+&lt;valentin.haenel@gmx.de&gt;]</pre>
+          <p>Das Kommando <code class="literal">git send-email</code> setzt die Felder
+<code class="literal">Message-Id</code> sowie <code class="literal">In-Reply-To</code>. Damit sehen alle
+E-Mails nach der ersten wie Antworten auf diese aus und werden dadurch
+von den meisten Mail-Programmen als zusammenhängender <span class="emphasis"><em>Thread</em></span>
+angezeigt:<a href="#ftn.idm45240357180864" class="footnote" id="idm45240357180864"><sup class="footnote">[79]</sup></a></p>
+          <div class="figure">
+            <a id="fig.mail-thread"></a>
+            <p class="title">
+              <strong>Abbildung 5.10. Patch-Serie als Mail-Thread</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/mail-thread.png" width="540" alt="bilder_ebook/mail-thread.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p>Das Kommando können Sie über Optionen – beispielsweise <code class="literal">--to</code>, <code class="literal">--from</code> und <code class="literal">--cc</code> – anpassen (siehe die Man-Page <code class="literal">git-send-email(1)</code>).  Die
+unbedingt benötigten Angaben werden aber, sofern nicht angegeben,
+interaktiv abgefragt – vor allem wird eine Adresse benötigt, an die
+die Patches geschickt werden sollen.<a href="#ftn.idm45240357171936" class="footnote" id="idm45240357171936"><sup class="footnote">[80]</sup></a></p>
+          <p>Bevor die E-Mails tatsächlich versendet werden,
+wird Ihnen der Header nochmals angezeigt; Sie sollten überprüfen, ob
+alles Ihren Wünschen entspricht, und anschließend die Frage
+<code class="literal">Send this email?  ([y]es|[n]o|[q]uit|[a]ll):</code> mit <code class="literal">y</code>
+für „yes“ beantworten. Um sich mit dem Kommando vertraut zu
+machen, kann man zunächst alle E-Mails nur an sich selbst schicken
+oder die Option <code class="literal">--dry-run</code> verwenden.</p>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Alternativ zu <code class="literal">git send-email</code> können Sie den Inhalt der
+Dateien in einen der vielen online <span class="emphasis"><em>Pastebin</em></span>-Dienste, zum
+Beispiel
+<span class="emphasis"><em>dpaste</em></span><a href="#ftn.idm45240357165376" class="footnote" id="idm45240357165376"><sup class="footnote">[81]</sup></a>
+oder
+<span class="emphasis"><em>gist.github</em></span><a href="#ftn.idm45240357164112" class="footnote" id="idm45240357164112"><sup class="footnote">[82]</sup></a>
+einwerfen und den Verweis darauf per IRC oder Jabber verschicken.
+Zum Einpflegen lädt sich der Empfänger den Inhalt in eine Datei
+herunter und übergibt diese an <code class="literal">git am</code> (s.u.).</p>
+          </div>
+          <p>Wenn Sie Ihren bevorzugten <span class="emphasis"><em>Mail User Agent</em></span> (MUA) (z.B. Thunderbird,
+Kmail o.a.) verwenden wollen, um Patches zu verschicken, gibt es
+eventuell einiges zu beachten. Manche MUAs sind berüchtigt, Patches so
+zu verstümmeln, dass sie Git nicht mehr als solche
+erkennt.<a href="#ftn.idm45240357160720" class="footnote" id="idm45240357160720"><sup class="footnote">[83]</sup></a></p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.patches-einpflegen"></a>5.9.3. Patches einpflegen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Mit <code class="literal">git format-patch</code> exportierte Patch-E-Mails werden von dem
+Git-Kommando <code class="literal">git am</code> (<span class="emphasis"><em>apply from mailbox</em></span>) wieder in
+Commits zurückübersetzt. Aus jeder E-Mail wird ein neuer Commit
+erzeugt, dessen Meta-Informationen (Autor, Commit-Message usw.) aus
+den Header-Zeilen der E-Mail (<code class="literal">From</code>, <code class="literal">Date</code>) generiert
+werden. Wie schon erwähnt, erkennt Git an der Nummer im Subject, in
+welcher Reihenfolge die Commits einzupflegen sind.  Um das Beispiel
+von vorhin zu vollenden: Befinden sich die E-Mails im
+Maildir-Verzeichnis <code class="literal">patches</code>, dann reicht:</p>
+          <pre class="screen">$ <span class="strong"><strong>git am patches</strong></span>
+Applying: git-svn.txt: fix usage of --add-author-from
+Applying: git-svn.txt: move option descriptions
+Applying: git-svn.txt: small typeface improvements</pre>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Das Kommando versteht neben den Formaten <span class="emphasis"><em>Maildir</em></span>
+und <span class="emphasis"><em>mbox</em></span> auch Dateien, die die Ausgabe von
+<code class="literal">git format-patch</code> enthalten:</p>
+            <pre class="screen">$ <span class="strong"><strong>git \</strong></span>
+  <span class="strong"><strong>am 0001-git-svn.txt-fix-usage-of-add-author-from.patch</strong></span>
+Applying: git-svn.txt: fix usage of --add-author-from</pre>
+          </div>
+          <p>Wenn Sie Patches von Anderen mit <code class="literal">git am</code> einpflegen,
+unterscheiden sich die Werte von <span class="emphasis"><em>Author</em></span>/<span class="emphasis"><em>AuthorDate</em></span>
+und <span class="emphasis"><em>Committer</em></span>/<span class="emphasis"><em>CommitDate</em></span>. Somit werden sowohl der Autor
+des Commits als auch der, der ihn einspielt, gewürdigt. Insbesondere
+bleiben die Attribuierungen erhalten; es bleibt nachvollziehbar, wer
+welche Codezeilen geschrieben hat. Mit Gitk werden die Author- und
+Committer-Werte standardmäßig angezeigt; auf der Kommandozeile setzen
+Sie die Option <code class="literal">--format=fuller</code> ein, die unter anderem von
+<code class="literal">git log</code> und <code class="literal">git show</code> akzeptiert wird:</p>
+          <pre class="screen">$ <span class="strong"><strong>git show --format=fuller  12d3065</strong></span>
+commit 12d30657d411979af3ab9ca7139b5290340e4abb
+Author:     Valentin Haenel &lt;valentin.haenel@gmx.de&gt;
+AuthorDate: Mon Apr 25 23:36:15 2011 +0200
+Commit:     Junio C Hamano &lt;gitster@pobox.com&gt;
+CommitDate: Tue Apr 26 11:48:34 2011 -0700
+
+    git-svn.txt: fix usage of --add-author-from</pre>
+          <p>Bei dem Workflow <span class="emphasis"><em>Dictator and Lieutenants</em></span> (<a class="xref" href="ch05.html#sec.dictator" title="5.10. Ein verteilter, hierarchischer Workflow">Abschnitt 5.10, „Ein verteilter, hierarchischer Workflow“</a>) kommt es vor, dass mehr als nur zwei Personen in
+einen Commit involviert sind. In dem Fall ist es sinnvoll, dass jeder,
+der den Patch begutachtet, ihn auch „absegnet“, allen voran
+der Autor. Zu diesem Zweck gibt es die Option <code class="literal">--signoff</code>
+(kurz <code class="literal">-s</code>) für die Kommandos <code class="literal">git commit</code> und
+<code class="literal">git am</code>, die Name und E-Mail des Committers der Commit-Message
+anhängt:</p>
+          <pre class="screen">Signed-off-by: Valentin Haenel &lt;valentin.haenel@gmx.de&gt;</pre>
+          <p>Das Feature ist vor allem bei größeren Projekten von Vorteil, meist
+haben diese auch Richtlinien, wie Commits zu formatieren sind und wie
+sie am besten verschickt
+werden.<a href="#ftn.idm45240357131600" class="footnote" id="idm45240357131600"><sup class="footnote">[84]</sup></a></p>
+          <p>Beim Einpflegen von Patches mit <code class="literal">git am</code> kann es zu Konflikten
+kommen, z.B. wenn die Patches auf einer älteren Version beruhen und
+die betreffenden Zeilen bereits verändert wurden. In dem Fall wird der
+Prozess unterbrochen und Sie haben dann mehrere Möglichkeiten, wie Sie
+weiter vorgehen. Entweder Sie lösen den Konflikt, aktualisieren den
+Index und führen den Prozess mit <code class="literal">git am --continue</code> fort,
+oder Sie überspringen den Patch mit <code class="literal">git am --skip</code>.  Mit
+<code class="literal">git am --abort</code> brechen Sie den Prozess ab und
+stellen den ursprünglichen Zustand des aktuellen Branches wieder her.</p>
+          <p>Da die Patches meist Veränderungen von Anderen enthalten, kann es
+mitunter schwierig sein, die richtige Lösung für einen Konflikt zu
+finden.  Die beste Strategie für Patches, die sich nicht anwenden
+lassen, ist es, den Autor der Patches zu bitten, diese per Rebase auf
+eine wohldefinierte Basis, bspw. den aktuellen <code class="literal">master</code>,
+aufzubauen und erneut zu schicken.</p>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Eine Alternative zu <code class="literal">git am</code> ist das etwas rudimentäre
+Kommando <code class="literal">git apply</code>. Es dient dazu, einen Patch auf den
+Working Tree oder Index (mit der Option <code class="literal">--index</code>)
+anzuwenden. Es ähnelt so dem klassischen Unix-Kommando
+<code class="literal">patch</code>. Es ist vor allem dann nützlich, wenn Sie den Patch
+bzw. die Metadaten vor dem Commit noch bearbeiten wollen oder auch
+wenn Ihnen jemand die Ausgabe von <code class="literal">git diff</code> statt
+<code class="literal">git format-patch</code> als Patch geschickt hat.</p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.dictator"></a>5.10. Ein verteilter, hierarchischer Workflow</h2>
+            </div>
+          </div>
+        </div>
+        <p>Der Integration-Manager-Workflow skaliert nicht mit der Größe des
+Projekts.  Bei großem Wachstum ist irgendwann der Maintainer mit der
+Komplexität des Projekts und der Anzahl der eingehenden Patches
+überfordert.  Der sog. <span class="emphasis"><em>Dictator and Lieutenants</em></span>-Workflow, der
+ausgiebig bei der Entwicklung des Linux-Kerns angewandt wird, schafft
+hier Abhilfe. In diesem Fall ist die Software meist in verschiedene
+Subsysteme unterteilt, und Beiträge werden von den <span class="emphasis"><em>Lieutenants</em></span>
+(auch <span class="emphasis"><em>Subsystem-Maintainer</em></span>) untersucht und dann an den
+<span class="emphasis"><em>Benevolent Dictator</em></span> („Gütiger Diktator“)
+weitergeleitet. Dieser lädt die Veränderungen schließlich in das
+<span class="emphasis"><em>blessed</em></span> („gesegnete“) Repository hoch, mit dem sich
+wiederum alle Mitstreiter synchronisieren.</p>
+        <div class="figure">
+          <a id="fig.dictator"></a>
+          <p class="title">
+            <strong>Abbildung 5.11. Workflow: <span class="emphasis"><em>Dictator and Lieutenants</em></span></strong>
+          </p>
+          <div class="figure-contents">
+            <div class="mediaobject">
+              <img src="bilder_ebook/patches-per-mail.png" width="486" alt="bilder_ebook/patches-per-mail.png" />
+            </div>
+          </div>
+        </div>
+        <br class="figure-break" />
+        <p>Der Workflow basiert auf Vertrauen: Der Diktator vertraut seinen
+Lieutenants und übernimmt deren weitergeleitete Modifikationen meist
+ohne Kontrolle.  Vorteil ist, dass der Diktator entlastet wird, aber
+trotzdem ein Vetorecht behält, was zu dem Titel Benevolent Dictator
+führte.</p>
+        <p>Historisch bedingt ist das offizielle Repository oft nur das
+öffentliche Repository des aktuellen Haupt-Maintainers oder des
+Original-Autors.  Wichtig ist, dass dieses Repository nur aufgrund
+sozialer Konventionen existiert.  Sollte eines Tages ein anderer
+Entwickler das Projekt besser vorantreiben, kann es sein, dass sein
+öffentliches Repository das neue Blessed Repository wird. Aus
+technischer Sicht spricht nichts dagegen.</p>
+        <p>Die Projekte, die in der Praxis diesen Workflow einsetzen,
+favorisieren den Patch-Austausch per Mail. Jedoch ist die Art des
+Austauschs eher zweitrangig, und die Subsystem-Maintainer könnten
+genauso gut Pull-Requests von den ihnen bekannten Entwicklern
+erhalten; oder aber die Mitstreiter mischen ganz nach Belieben
+öffentliche Repositories und per E-Mail verschickte Patches.  Die
+Flexibilität von Git – insbesondere die Vielzahl von verschiedenen
+Methoden zum Austausch von Veränderungen – unterstützen jeden
+erdenklichen Workflow im Sinne der freien, offenen Entwicklung.
+Sicherlich eine Eigenschaft, die maßgeblich zur Beliebtheit von Git
+beigetragen hat.</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.subprojects"></a>5.11. Unterprojekte verwalten</h2>
+            </div>
+          </div>
+        </div>
+        <p>Bei größeren Softwareprojekten ist es bisweilen nötig, bestimmte Teile
+eines Programms in eigene Projekte auszulagern. Das ist zum Beispiel
+in den folgenden Situationen der Fall:</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist" style="list-style-type: disc; ">
+            <li class="listitem">
+Ihre Software hängt von einer bestimmten Version einer
+  Bibliothek ab, die Sie mit dem Quellcode zusammen ausliefern wollen.
+</li>
+            <li class="listitem">
+Ihr anfänglich kleines Projekt wird mit der Zeit so groß,
+  dass Sie die Funktionalität in eine Bibliothek auslagern wollen, die
+  als eigenständiges Projekt verwaltet werden soll.
+</li>
+            <li class="listitem">
+Eigenständige Teile Ihrer Software werden von anderen
+  Entwicklergruppen verwaltet.
+</li>
+          </ul>
+        </div>
+        <p>Mit Git können Sie auf zwei verschiedene Weisen damit umgehen: Sie
+verwalten die Module als sogenannte <span class="emphasis"><em>Git-Submodules</em></span> oder als
+<span class="emphasis"><em>Subtrees</em></span> – in beiden Fällen verwalten Sie Quellcode in einem
+Unterverzeichnis Ihres Projekts.</p>
+        <p>Als Submodule verwalten Sie ein abgekoppeltes Repository, das nichts
+mit Ihrem übergeordneten Repository zu tun hat. Arbeiten Sie
+stattdessen mit Subtrees, dann wird die Projektgeschichte des
+Unterverzeichnisses untrennbar mit dem übergeordneten Projekt
+verbunden. Beides hat Vor- und Nachteile.</p>
+        <p>Wir betrachten beide Techniken beispielhaft, indem wir ein fiktionales
+Projekt erstellen, das die <code class="literal">libgit2</code> benötigt. Die Bibliothek
+bietet, ähnlich der <code class="literal">libgit.a</code>, eine API, um Git-Repositories
+zu untersuchen und zu verändern.<a href="#ftn.idm45240357095040" class="footnote" id="idm45240357095040"><sup class="footnote">[85]</sup></a>  Die in C geschriebene Bibliothek kann ihre Funktionen
+u.a. auch nach Lua, Ruby, Python, PHP und JavaScript herausreichen.</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.submodules"></a>5.11.1. Submodules</h3>
+              </div>
+            </div>
+          </div>
+          <p>Submodules werden von Git als Unterverzeichnisse verwaltet, die einen
+speziellen Eintrag in der Datei <code class="literal">.gitmodules</code> besitzen.
+Zuständig für den Umgang mit ihnen ist das Kommando <code class="literal">git
+  submodule</code>.</p>
+          <p>Zunächst müssen wir die Bibliothek importieren. Das geschieht mit dem
+folgenden Kommando:</p>
+          <pre class="screen">$ <span class="strong"><strong>git submodule add git://github.com/libgit2/libgit2.git libgit2</strong></span>
+Cloning into libgit2...
+remote: Counting objects: 4296, done.
+remote: Compressing objects: 100% (1632/1632), done.
+remote: Total 4296 (delta 3214), reused 3530 (delta 2603)
+Receiving objects: 100% (4296/4296), 1.92 MiB | 788 KiB/s, done.
+Resolving deltas: 100% (3214/3214), done.</pre>
+          <p>An der Ausgabe von <code class="literal">git status</code> können wir nun erkennen, dass
+ein neues Verzeichnis <code class="literal">libgit2</code> vorliegt, sowie die Datei
+<code class="literal">.gitmodules</code> mit folgendem Inhalt erstellt wurde:</p>
+          <pre class="screen">[submodule "libgit2"]
+  path = libgit2
+  url = git://github.com/libgit2/libgit2.git</pre>
+          <p>Diese Datei wurde auch schon dem Index hinzugefügt, also für den
+Commit vorbereitet. Das Verzeichnis <code class="literal">libgit2</code> hingegen taucht
+in der Ausgabe von <code class="literal">git diff --staged</code> nicht wie gewohnt auf:</p>
+          <pre class="screen">$ <span class="strong"><strong>git diff --staged -- libgit2</strong></span>
+diff --git a/libgit2 b/libgit2
+new file mode 160000
+index 0000000..b64e11d
+--- /dev/null
++++ b/libgit2
+@@ -0,0 +1 @@
++Subproject commit 7c80c19e1dffb4421f91913bc79b9cb7596634a4</pre>
+          <p>Anstatt alle Dateien des Verzeichnisses aufzulisten, speichert Git
+eine „spezielle“ Datei (erkennbar an dem unüblichen
+Datei-Modus <code class="literal">160000</code>), die lediglich den Commit, auf dem das
+Modul gerade steht, festhält.</p>
+          <p>Wir importieren diese Änderungen und können von nun an die
+<code class="literal">libgit2</code> in ihrem Unterverzeichnis kompilieren und dann gegen
+sie linken:</p>
+          <pre class="screen">$ <span class="strong"><strong>git commit -m "libgit2-submodule importiert"</strong></span></pre>
+          <p>Das übergeordnete Projekt und die <code class="literal">libgit2</code> sind nun im Working
+Tree zusammengeführt – ihre Versionsgeschichte aber ist und bleibt
+getrennt. In dem Git-Repository der <code class="literal">libgit2</code> können Sie sich
+genau so verhalten wie in einem „echten“ Repository.  Sie
+können sich zum Beispiel die Ausgabe von <code class="literal">git log</code> in dem
+übergeordneten Projekt und nach einem <code class="literal">cd libgit2</code> in dem
+Submodule anschauen.</p>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.submodule-mod"></a>Änderungen im Submodule</h4>
+                </div>
+              </div>
+            </div>
+            <p>Nun hat die <code class="literal">libgit2</code> als Default-Branch (also der
+<code class="literal">HEAD</code> auf der Serverseite) den Branch <code class="literal">development</code>
+ausgewählt. Es ist möglicherweise nicht die beste Idee, diesen
+Entwicklungsbranch mehr oder weniger mit Ihrem Repository zu
+verdrahten.</p>
+            <p>Wir wechseln also in das Verzeichnis <code class="literal">libgit2</code> und checken das
+neueste Tag aus, <code class="literal">v0.10.0</code>:</p>
+            <pre class="screen">$ <span class="strong"><strong>cd libgit2</strong></span>
+$ <span class="strong"><strong>git checkout v0.10.0</strong></span>
+# Nachricht über "detached HEAD state"
+$ <span class="strong"><strong>cd ..</strong></span>
+$ <span class="strong"><strong>git diff</strong></span>
+diff --git a/libgit2 b/libgit2
+index 7c80c19..7064938 160000
+--- a/libgit2
++++ b/libgit2
+@@ -1 +1 @@
+-Subproject commit 7c80c19e1dffb4421f91913bc79b9cb7596634a4
++Subproject commit 7064938bd5e7ef47bfd79a685a62c1e2649e2ce7</pre>
+            <p>Das übergeordnete Git-Repository sieht also einen Wechsel des
+<code class="literal">HEAD</code>, der durch das Kommando <code class="literal">git checkout v0.10.0</code> in
+<code class="literal">libgit2/</code> passiert ist, als Änderung der Pseudo-Datei
+<code class="literal">libgit2</code>, die nun auf den entsprechenden neuen Commit zeigt.</p>
+            <p>Jetzt können wir diese Änderung dem Index hinzufügen und als Commit
+abspeichern:</p>
+            <pre class="screen">$ <span class="strong"><strong>git add libgit2</strong></span>
+$ <span class="strong"><strong>git commit -m "Libgit2-Version auf v0.10.0 setzen"</strong></span></pre>
+            <p>Achtung: Fügen Sie niemals <span class="emphasis"><em>Dateien</em></span> aus <code class="literal">libgit2</code> oder
+das <span class="emphasis"><em>Verzeichnis</em></span> <code class="literal">libgit2/</code> (endet mit
+Slash) hinzu – das zerbricht das Modulkonzept von Git, Sie verwalten
+dann auf einmal Dateien aus dem Submodule in dem übergeordneten
+Projekt.</p>
+            <p>Analog können Sie per <code class="literal">submodule update</code> (oder
+<code class="literal">git remote update</code> im Verzeichnis <code class="literal">libgit2/</code>) neue
+Commits runterladen und ein Update der Bibliothek entsprechend im
+übergeordneten Repository festhalten.</p>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.submodule-userview"></a>Aus Sicht eines Nutzers</h4>
+                </div>
+              </div>
+            </div>
+            <p>Wie sieht das Ganze nun aus Sicht eines Nutzer aus, der das Projekt
+zum ersten Mal klont? Zunächst ist offensichtlich, dass das oder die
+Submodules <span class="emphasis"><em>nicht</em></span> fest mit dem Repository verbunden sind und
+nicht mit ausgeliefert werden:</p>
+            <pre class="screen">$ <span class="strong"><strong>git clone /dev/shm/super clone-super</strong></span>
+$ <span class="strong"><strong>cd clone-super</strong></span>
+$ <span class="strong"><strong>ls</strong></span>
+bar.c  foo.c  libgit2/
+$ <span class="strong"><strong>ls -l libgit2</strong></span>
+total 0</pre>
+            <p>Das Verzeichnis <code class="literal">libgit2/</code> ist leer. Alles, was Git also über
+die Submodules weiß, steckt in der Datei <code class="literal">.gitmodules</code>. Sie
+müssen dieses Modul erst initialisieren und dann das Repository des
+Moduls herunterladen:</p>
+            <pre class="screen">$ <span class="strong"><strong>git submodule init</strong></span>
+Submodule 'libgit2' (git://github.com/libgit2/libgit2.git)
+registered for path 'libgit2'
+$ <span class="strong"><strong>git submodule update</strong></span>
+...
+Submodule path 'libgit2': checked out '7064938bd5e7ef47bfd79a685a62c1e2649e2ce7'</pre>
+            <p>Wir sehen also, dass <code class="literal">libgit2</code> automatisch auf den in unserem
+Repository festgelegten Stand von <code class="literal">v0.10.0</code> gesetzt wird.
+Prinzipiell kann nun aber der Nutzer auch in das Verzeichnis wechseln,
+den Branch <code class="literal">development</code> auschecken und das Projekt gegen diese
+Version kompilieren. Submodules erhalten die Flexibilität des
+Unter-Repositorys – der Eintrag, auf welchem Stand das Modul steht,
+ist also nur eine „Empfehlung“.</p>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.subtrees"></a>5.11.2. Subtrees</h3>
+              </div>
+            </div>
+          </div>
+          <p>Im Gegensatz zu Submodules, die ihren Charakter als eigenständiges
+Git-Repository wahren, verschmelzen Sie die Geschichte zweier Projekte
+direkt, wenn Sie mit Subtrees arbeiten. Eine Gegenüberstellung beider
+Ansätze folgt im Anschluss.</p>
+          <p>Im Wesentlichen basiert diese Technik auf sogenannten Subtree-Merges,
+auf die schon kurz in <a class="xref" href="ch03.html#sec.merge-strategies" title="3.3.3. Merge-Strategien">Abschnitt 3.3.3, „Merge-Strategien“</a>
+über Merge-Strategien eingegangen wurde. In unserem Beispiel erfolgt ein
+Subtree-Merge, indem reguläre Commits aus dem Repository der
+<code class="literal">libgit2</code> unterhalb des <span class="emphasis"><em>Trees</em></span> (Verzeichnisses)
+<code class="literal">libgit2/</code> gemergt werden – eine Datei auf oberster Ebene in
+dem Repository der Bibliothek wird also zu einer Datei auf oberster
+Ebene des Trees <code class="literal">libgit2/</code>, der wiederum Teil eines
+Repositorys ist.</p>
+          <p>Git verfügt über ein Kommando, um Subtree-Merges zu
+verwalten.<a href="#ftn.idm45240357028544" class="footnote" id="idm45240357028544"><sup class="footnote">[86]</sup></a>
+Dabei müssen Sie immer explizit durch <code class="literal">-P &lt;prefix&gt;</code> angeben, auf welches
+Unterverzeichnis Sie sich beziehen. Um die <code class="literal">libgit2</code> in Version 0.8.0 zu
+importieren, verwenden Sie:</p>
+          <pre class="screen">$ <span class="strong"><strong>git subtree add -P libgit2 \</strong></span>
+  <span class="strong"><strong>git://github.com/libgit2/libgit2.git v0.8.0</strong></span>
+git fetch git://github.com/libgit2/libgit2.git v0.8.0
+From git://github.com/libgit2/libgit2
+ * tag               v0.8.0     -&gt; FETCH_HEAD
+Added dir 'libgit2'</pre>
+          <p>Das Kommando lädt automatisch alle benötigten Commits herunter und
+erzeugt einen Merge-Commit, der alle Dateien der <code class="literal">libgit2</code> unterhalb des
+Verzeichnisses <code class="literal">libgit2/</code> erstellt.
+Der Merge-Commit verknüpft nun die bisherige Versionsgeschichte mit
+der der <code class="literal">libgit2</code> (dadurch, dass ein Original-Commit
+referenziert wird und der wiederum andere Commits referenziert).</p>
+          <p>Dieses Vorgehen hat nun zur Folge, dass in Ihrem Repository von nun an
+<span class="emphasis"><em>alle</em></span> relevanten Commits der <code class="literal">libgit2</code> vorhanden sind.
+Ihr Repository hat also nun zwei Root-Commits (siehe auch
+Multi-Root-Repositories in <a class="xref" href="ch04.html#sec.multi-root" title="4.7. Mehrere Root-Commits">Abschnitt 4.7, „Mehrere Root-Commits“</a>).</p>
+          <p>Die Dateien liegen nun untrennbar mit dem Projekt verbunden vor. Ein
+<code class="literal">git clone</code> dieses Repositorys würde auch alle Dateien
+unterhalb von <code class="literal">libgit2</code> übertragen.<a href="#ftn.idm45240357013600" class="footnote" id="idm45240357013600"><sup class="footnote">[87]</sup></a></p>
+          <p>Was passiert nun, wenn Sie ein „Upgrade“ auf
+<code class="literal">v0.10.0</code> machen wollen? Verwenden Sie dafür das <code class="literal">pull</code>-Kommando von
+<code class="literal">git subtree</code>:</p>
+          <pre class="screen">$ <span class="strong"><strong>git subtree -P libgit2 \</strong></span>
+  <span class="strong"><strong>pull git://github.com/libgit2/libgit2.git v0.10.0</strong></span>
+From git://github.com/libgit2/libgit2
+ * tag               v0.10.0    -&gt; FETCH_HEAD
+Merge made by the 'recursive' strategy.
+...</pre>
+          <p>Beachten Sie:
+Da die Original-Commits der <code class="literal">libgit2</code> vorliegen, ändern diese
+Commits auch scheinbar Dateien auf oberster Ebene (z.B. <code class="literal">COPYING</code>, wenn Sie per <code class="literal">git log --name-status</code> die
+Versionsgeschichte untersuchen). Tatsächlich werden diese Änderungen
+aber in <code class="literal">libgit2</code> ausgeführt – dafür ist der jeweilige
+Merge-Commit verantwortlich, der die Trees entsprechend ausrichtet.</p>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Wenn Sie nicht an der Versionsgeschichte eines Unterprojektes
+interessiert sind, aber einen bestimmten Stand im Repository verankern
+wollen, können Sie die Option <code class="literal">--squash</code> verwenden. Die Kommandos <code class="literal">git
+subtree add/pull</code> mergen dann nicht die entsprechenden Commits, sondern
+erzeugen nur <span class="emphasis"><em>einen</em></span> Commit, der alle Änderungen enthält. Achtung:
+Verwenden Sie diese Option nicht, wenn Sie das Projekt nicht auch per
+<code class="literal">--squash</code> importiert haben; dies führt zu Merge-Konflikten.</p>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.split-off-subtree"></a>Ein Unterverzeichnis abspalten</h4>
+                </div>
+              </div>
+            </div>
+            <p>Möglicherweise stehen Sie irgendwann vor der Aufgabe, ein
+Unterverzeichnis Ihres Projektes als eigenes Repository verwalten zu
+wollen. Sie möchten die Änderungen aber weiterhin in dem ursprünglichen
+Projekt integrieren.</p>
+            <p>Beispielsweise wird die Dokumentation, die unter <code class="literal">doc/</code> lag,
+von nun an in einem eigenen Repository verwaltet. Gelegentlich, das
+heißt alle paar Wochen, wollen Sie die neuesten Entwicklungen dann in
+das Haupt-Repository übernehmen.</p>
+            <p>Das Kommando <code class="literal">git subtree</code> bietet dafür ein eigenes Subkommando
+<code class="literal">split</code> an, mit dem Sie diesen Schritt automatisieren können. Es
+erstellt eine Versionsgeschichte, die alle Änderungen eines
+Verzeichnisses enthält, und gibt den neuesten Commit aus – diesen können
+Sie dann in ein (leeres) Remote hochladen.</p>
+            <pre class="screen">$ <span class="strong"><strong>git subtree split -P doc --rejoin</strong></span>
+Merge made by the 'ours' strategy.
+563c68aa14375f887d104d63bf817f1357482576
+$ <span class="strong"><strong>git push &lt;neues-doku-repo&gt; 563c68aa14375:refs/heads/master</strong></span></pre>
+            <p>Die Option <code class="literal">--rejoin</code> bewirkt, dass die so abgespaltene
+Versionsgeschichte direkt wieder per <code class="literal">git subtree merge</code> in das aktuelle
+Projekt integriert wird. Sie können von nun an per <code class="literal">git subtree pull</code>
+die neuen Commits integrieren. Wollen Sie stattdessen mit der Option
+<code class="literal">--squash</code> arbeiten, lassen Sie <code class="literal">--rejoin</code> weg.</p>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.submodule-vs-subtree"></a>5.11.3. Submodules vs. Subtrees</h3>
+              </div>
+            </div>
+          </div>
+          <p>Die Frage „Submodules oder Subtrees?“ lässt sich nicht
+generell, sondern nur von Fall zu Fall beantworten. Ausschlaggebendes
+Kriterium sollte die Zugehörigkeit des Unterprojektes zu dem
+übergeordneten sein: Wenn Sie fremde Software einbinden, dann
+vermutlich eher als Submodule, eigene mit begrenztem Aufkommen an
+Commits und einer direkten Relation zum Hauptprojekt eher als
+Subtree.</p>
+          <p>Beispielsweise müssen Sie bei der Installation von CGit (siehe
+<a class="xref" href="ch07.html#sec.cgit" title="7.5. CGit – CGI for Git">Abschnitt 7.5, „CGit – CGI for Git“</a>) ein Submodule initialisieren und updaten, um die
+<code class="literal">libgit.a</code> zu kompilieren. CGit benötigt also den Sourcecode
+von Git, will aber nicht die Entwicklungsgeschichte mit der von Git
+verschmelzen (die im Vergleich wenigen CGit-Commits würden darin auch
+untergehen!). Sie können aber CGit auch gegen eine andere Git-Version
+kompilieren, wenn Sie das möchten – die Flexibilität des
+Unter-Repositorys bleibt gewahrt.</p>
+          <p>Der grafische Repository-Browser Gitk hingegen wird als Subtree
+verwaltet. Er wird in <code class="literal">git://ozlabs.org/~paulus/gitk</code>
+entwickelt, aber im Haupt-Git-Repository mit der
+Subtree-Merge-Strategie unterhalb von <code class="literal">gitk-git/</code> eingebunden.</p>
+        </div>
+      </div>
+      <div class="footnotes">
+        <br />
+        <hr style="width:100; text-align:left;margin-left: 0" />
+        <div id="ftn.idm45240357776128" class="footnote">
+          <p><a href="#idm45240357776128" class="simpara"><sup class="simpara">[65] </sup></a>Wir haben den
+  Spickzettel im Zusammenhang mit verschiedenen Git-Workshops
+  erarbeitet. Er steht unter einer Creative-Commons-Lizenz und wird
+  mit der Git-Hosting-Plattform Github, die wir in
+  <a class="xref" href="ch11.html" title="Kapitel 11. Github">Kapitel 11, <em>Github</em></a> beschreiben,
+  verwaltet.</p>
+        </div>
+        <div id="ftn.idm45240357769248" class="footnote">
+          <p><a href="#idm45240357769248" class="simpara"><sup class="simpara">[66] </sup></a>Genau genommen checkt Git nicht
+  „blind“ den Branch <code class="literal">master</code> aus. Tatsächlich schaut
+  Git nach, welchen Branch der <code class="literal">HEAD</code> der Gegenseite
+  referenziert, und checkt diesen aus.</p>
+        </div>
+        <div id="ftn.idm45240357736512" class="footnote">
+          <p><a href="#idm45240357736512" class="simpara"><sup class="simpara">[67] </sup></a>Weitere Informationen zu dem
+Git-Protokoll finden Sie in <a class="xref" href="ch07.html#sec.protokolle" title="7.1.1. Das Git-Protokoll">Abschnitt 7.1.1, „Das Git-Protokoll“</a> (siehe auch
+<a class="xref" href="ch03.html#sec.branch-refs" title="3.1.1. HEAD und andere symbolische Referenzen">Abschnitt 3.1.1, „HEAD und andere symbolische Referenzen“</a>).</p>
+        </div>
+        <div id="ftn.idm45240357733792" class="footnote">
+          <p><a href="#idm45240357733792" class="simpara"><sup class="simpara">[68] </sup></a>Eine
+vollständige Auflistung der möglichen URLs finden Sie in der Man-Page
+<code class="literal">git-clone(1)</code> im Abschnitt „Git URLs“.</p>
+        </div>
+        <div id="ftn.idm45240357636240" class="footnote">
+          <p><a href="#idm45240357636240" class="simpara"><sup class="simpara">[69] </sup></a>Der Stern (<code class="literal">*</code>) wird
+  wie bei der Shell auch als <span class="emphasis"><em>Wildcard</em></span> interpretiert und zieht
+  alle Dateien in einem Verzeichnis in Betracht.</p>
+        </div>
+        <div id="ftn.idm45240357600736" class="footnote">
+          <p><a href="#idm45240357600736" class="simpara"><sup class="simpara">[70] </sup></a>Remote-Tracking-Branches sind
+  nur dazu gedacht, die Branches in einem Remote zu verfolgen. Das
+  Auschecken eines Remote-Tracking-Branches führt zu einem
+  Detached-Head-State samt entsprechender Warnung.</p>
+        </div>
+        <div id="ftn.idm45240357584592" class="footnote">
+          <p><a href="#idm45240357584592" class="simpara"><sup class="simpara">[71] </sup></a>Das Mergen von <code class="literal">origin/master</code> nach <code class="literal">master</code> ist ein ganz normaler
+Merge-Vorgang. Im obigen Beispiel wurden in der Zwischenzeit keine weiteren
+lokalen Commits getätigt und von daher auch keine Merge-Commits erstellt. Der
+<code class="literal">master</code> wurde per Fast-Forward auf <code class="literal">origin/master</code> vorgerückt.</p>
+        </div>
+        <div id="ftn.idm45240357442736" class="footnote">
+          <p><a href="#idm45240357442736" class="simpara"><sup class="simpara">[72] </sup></a>Das „Forcieren“ findet aber nur lokal statt: Der Empfänger-Server kann trotz Angabe der Option <code class="literal">-f</code> das Hochladen unterbinden. Dafür ist die Option <code class="literal">receive.denyNonFastForwards</code> zuständig, bzw. die Rechtezuweisung <code class="literal">RW</code> bei Gitolite (siehe <a class="xref" href="ch07.html#sec.gitolite-config" title="7.2.2. Gitolite-Konfiguration">Abschnitt 7.2.2, „Gitolite-Konfiguration“</a>).</p>
+        </div>
+        <div id="ftn.idm45240357417856" class="footnote">
+          <p><a href="#idm45240357417856" class="simpara"><sup class="simpara">[73] </sup></a>Dies ist das Standard-Verhalten
+seit Version 2.0 (<code class="literal">push.default=simple</code>). Frühere Git-Versionen
+verwendeten ohne weitere Konfiguration die Einstellung
+<code class="literal">push.default=matching</code>, die besonders für Anfänger fehlerträchtig sein
+kann.</p>
+        </div>
+        <div id="ftn.idm45240357322464" class="footnote">
+          <p><a href="#idm45240357322464" class="simpara"><sup class="simpara">[74] </sup></a>Im Git-Jargon werden
+  solche Remotes als <span class="emphasis"><em>Anonymous</em></span> bezeichnet.</p>
+        </div>
+        <div id="ftn.idm45240357279344" class="footnote">
+          <p><a href="#idm45240357279344" class="simpara"><sup class="simpara">[75] </sup></a>Die Syntax <code class="literal">&lt;tag&gt;^{}</code> dereferenziert ein
+Tag-Objekt, liefert also das Commit-, Tree- oder Blob-Objekt, auf das
+das Tag zeigt.</p>
+        </div>
+        <div id="ftn.idm45240357261552" class="footnote">
+          <p><a href="#idm45240357261552" class="simpara"><sup class="simpara">[76] </sup></a>Zum
+  Beispiel mit dem Alias <code class="literal">push = push --tags</code>.</p>
+        </div>
+        <div id="ftn.idm45240357234096" class="footnote">
+          <p><a href="#idm45240357234096" class="simpara"><sup class="simpara">[77] </sup></a>Wie Sie die
+  Nummerierung, den Text und das Datei-Suffix anpassen, finden Sie in
+  der Man-Page <code class="literal">git-format-patch(1)</code>.</p>
+        </div>
+        <div id="ftn.idm45240357212224" class="footnote">
+          <p><a href="#idm45240357212224" class="simpara"><sup class="simpara">[78] </sup></a>Die Zahl <code class="literal">n</code> ist
+  die Gesamtzahl an Patches, die exportiert wurden, und <code class="literal">m</code> ist
+  die Nummer des aktuellen Patches. In der Betreff-Zeile des dritten
+  Patch von fünf steht dann z.B. <code class="literal">[PATCH 3/5]</code>.</p>
+        </div>
+        <div id="ftn.idm45240357180864" class="footnote">
+          <p><a href="#idm45240357180864" class="simpara"><sup class="simpara">[79] </sup></a>Sie sehen in
+  <a class="xref" href="ch05.html#fig.mail-thread" title="Abbildung 5.10. Patch-Serie als Mail-Thread">Abbildung 5.10, „Patch-Serie als Mail-Thread“</a> eine etwas andere Reihenfolge der
+  Patches als in den bisherigen Beispielen. Das liegt daran, dass die
+  erste Version der Patch-Serie aus nur zwei Patches bestand, und das
+  dritte erst nach dem Feedback von der Git-Mailingliste dazukam. Die
+  Serie wurde dann erweitert und per Rebase auf den Stand gebracht,
+  wie sie in diesem Abschnitt abgebildet ist.</p>
+        </div>
+        <div id="ftn.idm45240357171936" class="footnote">
+          <p><a href="#idm45240357171936" class="simpara"><sup class="simpara">[80] </sup></a>Sofern auf Ihrem System kein <span class="emphasis"><em>Mail
+    Transfer Agent</em></span> (MTA) installiert bzw. für den E-Mail-Versand
+  konfiguriert ist, können Sie auch einen externen SMTP-Server
+  verwenden.  Passen Sie dafür die in der Sektion „Use GMail as
+  the SMTP server“ der bereits erwähnten Man-Page beschriebenen
+  Einstellungen an.</p>
+        </div>
+        <div id="ftn.idm45240357165376" class="footnote">
+          <p>
+            <a href="#idm45240357165376" class="simpara">
+              <sup class="simpara">[81] </sup>
+            </a>
+            <a class="ulink" href="http://dpaste.com/" target="_top">http://dpaste.com/</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240357164112" class="footnote">
+          <p>
+            <a href="#idm45240357164112" class="simpara">
+              <sup class="simpara">[82] </sup>
+            </a>
+            <a class="ulink" href="https://gist.github.com/" target="_top">https://gist.github.com/</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240357160720" class="footnote">
+          <p><a href="#idm45240357160720" class="simpara"><sup class="simpara">[83] </sup></a>Nützliche Tipps und Tricks für diverse MUAs finden Sie in der Datei <code class="literal">Documentation/SubmittingPatches</code> im Git-via-Git-Repository im Abschnitt „MUA specific hints“ sowie in der Man-Page von <code class="literal">git-format-patch(1)</code> in den Abschnitten „MUA-specific Hints“ und „Discussion“.</p>
+        </div>
+        <div id="ftn.idm45240357131600" class="footnote">
+          <p><a href="#idm45240357131600" class="simpara"><sup class="simpara">[84] </sup></a>Für das Git-Projekt
+  finden Sie diese unter: <code class="literal">Documentation/SubmittingPatches</code> im
+  Quellcode-Repository.</p>
+        </div>
+        <div id="ftn.idm45240357095040" class="footnote">
+          <p><a href="#idm45240357095040" class="simpara"><sup class="simpara">[85] </sup></a>Die <code class="literal">libgit.a</code> wird beim
+  Kompilieren von Git erzeugt und versammelt alle Funktionen, die in
+  Git „öffentlich“ sind. Sie ist allerdings nicht
+  <span class="emphasis"><em>reentrant</em></span> oder Thread-sicher, so dass sie nur eingeschränkt
+  verwendet werden kann. Diese Einschränkungen hat <code class="literal">libgit2</code>
+  nicht.</p>
+        </div>
+        <div id="ftn.idm45240357028544" class="footnote">
+          <p><a href="#idm45240357028544" class="simpara"><sup class="simpara">[86] </sup></a>Das Kommando ist kein Standard-Kommando von Git,
+wird aber von einigen Linux-Distributionen (z.B. Debian, Archlinux)
+sowie im Windows-Git-Installer automatisch mit installiert. Überprüfen
+Sie durch einen Aufruf von <code class="literal">git subtree</code>, ob das Kommando installiert
+ist. Falls nicht, können Sie das Script unter <code class="literal">/usr/share/doc/git/contrib/subtree/</code>
+suchen, oder aus dem Quellcode von Git (unter <code class="literal">contrib/subtree</code>)
+kopieren.</p>
+        </div>
+        <div id="ftn.idm45240357013600" class="footnote">
+          <p><a href="#idm45240357013600" class="simpara"><sup class="simpara">[87] </sup></a>Achten Sie daher darauf, dass Sie mit
+  dieser Technik nur Inhalte einbinden, die Sie auch weitergeben
+  <span class="emphasis"><em>dürfen</em></span>. Je nach Lizenz ist die Benutzung einer Software möglicherweise erlaubt,
+  aber nicht die Weiterverbreitung (engl. <span class="emphasis"><em>Distribution</em></span>).</p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="ch04.html">Zurück</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="ch06.html">Weiter</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top"> </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index.html">Zum Anfang</a>
+          </td>
+          <td width="40%" align="right" valign="top"> </td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="cc-license">
+      <hr />
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Lizensiert unter der <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+    </p>
+    </div>
+  </body>
+</html>

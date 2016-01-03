@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kapitel 11. Github</title>
+    <link rel="stylesheet" type="text/css" href="gitbuch.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="home" href="index.html" title="Git" />
+    <link rel="up" href="index.html" title="Git" />
+    <link rel="prev" href="ch10.html" title="Kapitel 10. Shell-Integration" />
+    <link rel="next" href="apa.html" title="Anhang A. Installation" />
+    <meta xmlns="" name="language" content="de" />
+    <script xmlns="" src="http://hyphenator.googlecode.com/svn/trunk/Hyphenator.js" type="text/javascript"></script>
+    <script xmlns="" type="text/javascript">
+        Hyphenator.run();
+    </script>
+  </head>
+  <body class="hyphenate">
+    <div xmlns="" class="toc">
+<p><a href="index.html">Startseite</a></p>
+<dl class="toc">
+          <dt>
+            <span class="preface">
+              <a href="pr01.html">Vorwort</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.leser">1. An wen richtet sich dieses Buch?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.struktur">2. Wie ist das Buch zu lesen?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.konventionen">3. Konventionen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.install-git-repo">4. Installation und „das Git-Repository“</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.doku">5. Dokumentation und Hilfe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.kontakt">6. Downloads und Kontakt</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.dank">7. Danksagungen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-2te-auflage">8. Vorwort zur 2. Auflage</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-cc-ausgabe">9. Vorwort zur CreativeCommons-Ausgabe</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch01.html">1. Einführung und erste Schritte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.begriffe">1.1. Grundbegriffe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.erste-schritte">1.2. Erste Schritte mit Git</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#chap.git-config">1.3. Git konfigurieren</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch02.html">2. Grundlagen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.grundlagen">2.1. Git-Kommandos</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.objektmodell">2.2. Das Objektmodell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch03.html">3. Praktische Versionsverwaltung</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.branches">3.1. Referenzen: Branches und Tags</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.undo">3.2. Versionen wiederherstellen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge">3.3. Branches zusammenführen: Merges</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge-conflicts">3.4. Merge-Konflikte lösen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.cherry-pick">3.5. Einzelne Commits übernehmen: Cherry-Pick</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.visualization">3.6. Visualisierung von Repositories</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.reflog">3.7. Reflog</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch04.html">4. Fortgeschrittene Konzepte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase">4.1. Commits verschieben – Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase-i">4.2. Die Geschichte umschreiben – Interaktives Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.blame">4.3. Wer hat diese Änderungen gemacht? – git blame</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.ignore">4.4. Dateien ignorieren</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.stash">4.5. Veränderungen auslagern – git stash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.notes">4.6. Commits annotieren – git notes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.multi-root">4.7. Mehrere Root-Commits</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.bisect">4.8. Regressionen finden – git bisect</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch05.html">5. Verteiltes Git</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.verteilte_systeme">5.1. Wie funktioniert verteilte Versionsverwaltung?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.clone">5.2. Repositories klonen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.git_fetch">5.3. Commits herunterladen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.hochladen">5.4. Commits hochladen: git push</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-check">5.5. Remotes untersuchen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.multi-remote">5.6. Verteilter Workflow mit mehreren Remotes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-verwalten">5.7. Remotes verwalten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remote-tags">5.8. Tags austauschen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.patch-queue">5.9. Patches per E-Mail</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.dictator">5.10. Ein verteilter, hierarchischer Workflow</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.subprojects">5.11. Unterprojekte verwalten</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch06.html">6. Workflows</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.workflows-user">6.1. Anwender</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.branch-modell">6.2. Ein Branching-Modell</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.releases-management">6.3. Releases-Management</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch07.html">7. Git auf dem Server</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.server">7.1. Einen Git-Server hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitolite">7.2. Gitolite: Git einfach hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.git-daemon">7.3. Git-Daemon: Anonymer, lesender Zugriff</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitweb">7.4. Gitweb: Das integrierte Web-Frontend</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.cgit">7.5. CGit – CGI for Git</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch08.html">8. Git automatisieren</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.attributes">8.1. Git-Attribute – Dateien gesondert behandeln</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.hooks">8.2. Hooks</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.scripting">8.3. Eigene Git-Kommandos schreiben</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.filter-branch">8.4. Versionsgeschichte umschreiben</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch09.html">9. Zusammenspiel mit anderen Versionsverwaltungssystemen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.subversion">9.1. Subversion</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.fast-import">9.2. Eigene Importer</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch10.html">10. Shell-Integration</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.bash-integration">10.1. Git und die Bash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.zsh-integration">10.2. Git und die Z-Shell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch11.html">11. Github</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="appendix">
+              <a href="apa.html">A. Installation</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#linux">A.1. Linux</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.osx">A.2. Mac OS X</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.windows">A.3. Windows</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="appendix">
+              <a href="apb.html">B. Struktur eines Repositorys</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc">B.1. Aufräumen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc-performance">B.2. Performance</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl></div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="ch10.html">Zurück</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="apa.html">Weiter</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="sec.github"></a>Kapitel 11. Github</h1>
+          </div>
+        </div>
+      </div>
+      <p>Es gibt derzeit mehrere Hosting-Websites, die kostenfreies Git-Hosting
+für Open-Source-Projekte anbieten. Die mit Abstand bekannteste von
+allen ist
+<span class="emphasis"><em>Github</em></span>.<a href="#ftn.idm45240354717168" class="footnote" id="idm45240354717168"><sup class="footnote">[138]</sup></a>
+Zwei andere bekannte reine Git-Hoster sind
+<span class="emphasis"><em>Gitorious</em></span>⁠<a href="#ftn.idm45240354715664" class="footnote" id="idm45240354715664"><sup class="footnote">[139]</sup></a>
+und
+<span class="emphasis"><em>repo.or.cz</em></span>⁠<a href="#ftn.idm45240354714240" class="footnote" id="idm45240354714240"><sup class="footnote">[140]</sup></a>.
+Aber auch bereits etablierte Hosting-Seiten wie
+<span class="emphasis"><em>Sourceforge</em></span>⁠<a href="#ftn.idm45240354712736" class="footnote" id="idm45240354712736"><sup class="footnote">[141]</sup></a>
+und
+<span class="emphasis"><em>Berlios</em></span>⁠<a href="#ftn.idm45240354711312" class="footnote" id="idm45240354711312"><sup class="footnote">[142]</sup></a>
+bieten mittlerweile Git-Hosting an.</p>
+      <p>Github wurde 2008 von Chris Wanstrath,
+P.J. Hyett und Tom Preston-Werner
+gegründet. Die in Ruby on Rails entwickelte Plattform hat über
+drei Millionen Nutzer und hostet über zehn Millionen
+Repositories.
+Auch wenn man bedenkt, dass viele dieser Repositories sogenannte
+<span class="emphasis"><em>Forks</em></span> (Klone) anderer Repositories oder sogenannte <span class="emphasis"><em>Gists</em></span>
+(Quellcode-Schnipsel) sind, ist das trotzdem eine beachtliche Anzahl.
+Viele namhafte Projekte
+verwenden heutzutage Github, um ihren Quelltext zu verwalten, unter
+anderem das Kommandozeilen-Tool
+<span class="emphasis"><em>Curl</em></span>⁠<a href="#ftn.idm45240354707440" class="footnote" id="idm45240354707440"><sup class="footnote">[143]</sup></a>,
+das Web-Framework <span class="emphasis"><em>Ruby on
+  Rails</em></span>⁠<a href="#ftn.idm45240354705968" class="footnote" id="idm45240354705968"><sup class="footnote">[144]</sup></a> und
+die JavaScript-Bibliothek
+<span class="emphasis"><em>jQuery</em></span>⁠<a href="#ftn.idm45240354704496" class="footnote" id="idm45240354704496"><sup class="footnote">[145]</sup></a>.</p>
+      <p>Das kostenfreie Angebot umfasst unbegrenzte Git-Repositories – mit
+der Einschränkung, dass diese öffentlich verfügbar sind
+(<span class="emphasis"><em>Public Repositories</em></span>). Zusätzlich bietet Github
+kostenpflichtige Optionen für Einzelpersonen und Firmen, die es
+erlauben, zugriffsbeschränkte Repositories (<span class="emphasis"><em>Private
+  Repositories</em></span>) anzulegen und zu nutzen. Großen Unternehmen bietet
+Github eine Lösung namens <span class="emphasis"><em>GitHub Enterprise</em></span> an.</p>
+      <p>Github bietet alle wesentlichen Features, die Sie von einer
+Projekt-Hosting-Plattform erwarten, darunter auch Projekt-Wiki und
+Issue-Tracker. Das besondere daran ist aber, dass das Wiki-System
+<span class="emphasis"><em>Gollum</em></span>⁠<a href="#ftn.idm45240354699920" class="footnote" id="idm45240354699920"><sup class="footnote">[146]</sup></a>
+als Backend keine Datenbank, sondern lediglich ein Git-Repository
+verwendet.  Als Markup bietet Github mehrere
+Syntax-Optionen⁠<a href="#ftn.idm45240354698704" class="footnote" id="idm45240354698704"><sup class="footnote">[147]</sup></a>
+an, unter anderem <span class="emphasis"><em>Markdown</em></span>, <span class="emphasis"><em>Textile</em></span>, <span class="emphasis"><em>Mediawiki</em></span>
+und <span class="emphasis"><em>Asciidoc</em></span>.</p>
+      <p>Der Issue-Tracker ist auf Git ausgelegt und listet auch über das
+Webinterface erstellte Pull-Requests. Zusätzlich wurde in den
+Issue-Tracker ein E-Mail-Backend eingearbeitet. Ihre Antworten auf die
+eingehenden E-Mails werden automatisch von Github verarbeitet und auch
+im Webinterface angezeigt. Was Github jedoch nicht anbietet, sind
+Mailinglisten – dafür müssen Sie auf Alternativen ausweichen.</p>
+      <div class="figure">
+        <a id="fig.github-gollum"></a>
+        <p class="title">
+          <strong>Abbildung 11.1. Github-Seite von Gollum</strong>
+        </p>
+        <div class="figure-contents">
+          <div class="mediaobject">
+            <img src="bilder_ebook/github-gollum.png" width="540" alt="bilder_ebook/github-gollum.png" />
+          </div>
+        </div>
+      </div>
+      <br class="figure-break" />
+      <p>In <a class="xref" href="ch11.html#fig.github-gollum" title="Abbildung 11.1. Github-Seite von Gollum">Abbildung 11.1, „Github-Seite von Gollum“</a> sehen Sie einen Ausschnitt der
+Projektseite von Gollum. Wichtig sind die Menüpunkte
+<span class="emphasis"><em>Source</em></span> (Quellcode-Übersicht), <span class="emphasis"><em>Commits</em></span>, <span class="emphasis"><em>Network</em></span>
+(Forks des Projekts mit Änderungen), <span class="emphasis"><em>Pull-Requests</em></span>,
+<span class="emphasis"><em>Issues</em></span>, <span class="emphasis"><em>Wiki</em></span> und <span class="emphasis"><em>Graphs</em></span> (statistische Graphen).
+Andere wichtige Bedienelemente sind der Button <span class="emphasis"><em>Fork</em></span> sowie
+<span class="emphasis"><em>Downloads</em></span> und auch die Anzeige der Klon-URL.</p>
+      <p>Bei Github steht zunächst der Entwickler im Mittelpunkt: Repositories
+sind immer Usern zugeordnet. Das ist ein großer Unterschied zu
+etablierten Hosting-Plattformen, bei denen grundsätzlich die Projekte
+im Vordergrund stehen, und die Nutzer diesen untergeordnet sind. (Es
+ist aber auch in Github möglich, Projekt-Konten anzulegen, denen dann
+wiederum User zugeordnet werden – beliebt bei privaten Repositories
+und größeren Projekten.)</p>
+      <p>Github bietet viele Möglichkeiten, Veränderungen auszutauschen.
+Zwar ist es mit Github möglich, einen zentralisierten Ansatz (siehe
+<a class="xref" href="ch05.html#fig.zentraler-workflow" title="Abbildung 5.1. Zentraler Workflow mit verteilter Versionsverwaltung">Abbildung 5.1, „Zentraler Workflow mit verteilter Versionsverwaltung“</a>) zu verfolgen, indem Sie Anderen
+Zugriff auf Ihre eigenen Repositories ermöglichen – die jedoch am
+meisten genutzte Form des Austausches ist eher ein
+Integration-Manager-Workflow (siehe
+<a class="xref" href="ch05.html#fig.developer-public-workflow" title="Abbildung 5.8. Integration-Manager Workflow">Abbildung 5.8, „Integration-Manager Workflow“</a>).</p>
+      <div class="figure">
+        <a id="fig.github-workflow"></a>
+        <p class="title">
+          <strong>Abbildung 11.2. Workflow bei Github</strong>
+        </p>
+        <div class="figure-contents">
+          <div class="mediaobject">
+            <img src="bilder_ebook/github-workflow.png" width="378" alt="bilder_ebook/github-workflow.png" />
+          </div>
+        </div>
+      </div>
+      <br class="figure-break" />
+      <div class="orderedlist">
+        <ol class="orderedlist" type="1">
+          <li class="listitem">
+Ein potentieller Contributor
+<span class="emphasis"><em>forkt</em></span>⁠<a href="#ftn.idm45240354676688" class="footnote" id="idm45240354676688"><sup class="footnote">[148]</sup></a> ein Repository bei Github.
+</li>
+          <li class="listitem">
+Das öffentliche Repository wird wiederum geklont, Veränderungen
+werden eingepflegt.
+</li>
+          <li class="listitem">
+Commits werden in das öffentliche Repository hochgeladen.
+</li>
+          <li class="listitem">
+Dem Projekt-Autor wird ein Pull-Request geschickt. Diese können, wie
+bereits erwähnt, direkt im Web-Interface erstellt und verschickt
+werden.
+</li>
+          <li class="listitem">
+Der Autor lädt die Neuerungen aus dem öffentlichen Repository,
+überprüft, ob sie seinen Qualitätsansprüchen genügen und integriert
+sie ggf. per Merge oder Cherry-Pick lokal.
+</li>
+          <li class="listitem">
+Die Veränderungen des Contributors werden in das öffentliche
+Repository des Autors hochgeladen und verschmelzen so mit der
+Software.
+</li>
+          <li class="listitem">
+Der Contributor gleicht sein lokales Repository mit dem öffentlichen
+Repository des Autors ab.
+</li>
+        </ol>
+      </div>
+      <p>Das Github Webinterface bietet einiges an Web-2.0-Komfort. So können
+Sie z.B. statt der Schritte 5. und 6. mit einem
+einzigen Klick direkt über das Webinterface einen Merge vollziehen.
+Selbstverständlich wird vorher überprüft, ob der Merge konfliktfrei
+bewerkstelligt werden kann – falls nicht, erscheint statt der Option
+zum Mergen eine Warnung.</p>
+      <p>Seit kurzem ist es auch möglich, die Schritte 1., 2.,
+3. und 4. vollständig im Webinterface durchzuführen.
+Dafür klicken Sie in einem fremden Repository auf den Button
+<span class="emphasis"><em>Fork and edit this file</em></span> – das Repository wird automatisch für
+Ihr Benutzerkonto geforkt, und es tut sich ein web-basierter Editor
+auf, in dem Sie Ihre Veränderungen sowie eine Commit-Message
+eintragen.  Danach werden Sie automatisch auf die Pull-Request Seite
+weitergeleitet.</p>
+      <p>Da Sie bei vielen Forks schnell den Überblick verlieren, stellt Github
+eine grafische Darstellung der Forks mit noch ausstehenden Änderungen
+bereit, den sogenannten <span class="emphasis"><em>Network-Graph</em></span>:</p>
+      <div class="figure">
+        <a id="fig.github-network"></a>
+        <p class="title">
+          <strong>Abbildung 11.3. Der Github Network-Graph</strong>
+        </p>
+        <div class="figure-contents">
+          <div class="mediaobject">
+            <img src="bilder_ebook/github-network.png" width="540" alt="bilder_ebook/github-network.png" />
+          </div>
+        </div>
+      </div>
+      <br class="figure-break" />
+      <p>Github bietet Ihnen unter <span class="emphasis"><em>Graphs</em></span> noch weitere Visualisierungen.
+Unter <span class="emphasis"><em>Languages</em></span> wird angezeigt, welche Programmiersprachen das
+Projekt einsetzt. Die Grafik <span class="emphasis"><em>Impact</em></span> (engl. Auswirkung) zeigt,
+welcher Entwickler wann und wie viel geleistet hat.  <span class="emphasis"><em>Punchcard</em></span>
+(Lochkarte) zeigt die Commit-Aktivität für Wochentage und Tageszeiten.
+<span class="emphasis"><em>Traffic</em></span> (Verkehr) schließlich listet die Anzahl der
+Projektseitenaufrufe während der letzten drei Monate auf.</p>
+      <p>Wie das Motto <span class="emphasis"><em>Social Coding</em></span> schon andeutet, hat Github mehrere
+Features, die Sie auch in sozialen Netzwerken finden. Zum Beispiel
+können Sie sowohl einzelnen Usern als auch Repositories folgen (engl.
+<span class="emphasis"><em>follow</em></span>). Sie erhalten dann in Ihrem <span class="emphasis"><em>Dashboard</em></span>
+(Armaturenbrett) über eine Art Github-Newsticker: Meldungen über neue und
+geschlossene Pull-Requests, neue Commits, die hochgeladen wurden,
+Forks usw. Die Newsfeeds der User und Repositories sind aber auch als
+RSS-Feed verfügbar, sollten Sie externe Newsreader vorziehen.</p>
+      <p>Ein kleines, noch relativ unbekanntes Projekt kann daher über Github
+sehr schnell bekannt werden, wenn eine kritische Anzahl an
+„Followern“ erreicht ist.</p>
+      <p>Github bietet auch einen Pastebin-Dienst an, den <span class="emphasis"><em>Gist</em></span>
+(Kernaussage).  Im Gegensatz jedoch zu anderen Pastebin-Diensten ist
+bei Github jeder Gist ein vollwertiges Git-Repository. Besonders für
+Code-Schnipsel ist dies eine interessante Neuerung.</p>
+      <p>Auch bei der Anbindung an externe Dienste leistet Github ganze Arbeit.
+Es gibt 50 sogenannte <span class="emphasis"><em>Service Hooks</em></span>, mit denen Sie Nachrichten
+bzgl. eines Repositorys an externe Dienste weiterleiten. Dabei sind
+unter anderem altbewährte Klassiker wie E-Mail und IRC, aber auch
+modernere Alternativen wie Twitter und Jabber.</p>
+      <p>Github bietet aber noch zusätzliche „Gimmicks“, die sehr
+praktisch sind.  So werden aus Tags automatisch Quellcode-Archive zum
+Herunterladen.  Wie Sie in <a class="xref" href="ch11.html#fig.github-downloads" title="Abbildung 11.4. Aus Tags erstellte Downloads">Abbildung 11.4, „Aus Tags erstellte Downloads“</a>
+sehen, sowohl als <code class="literal">tar.gz</code> als auch als <code class="literal">.zip</code> Archiv.</p>
+      <div class="figure">
+        <a id="fig.github-downloads"></a>
+        <p class="title">
+          <strong>Abbildung 11.4. Aus Tags erstellte Downloads</strong>
+        </p>
+        <div class="figure-contents">
+          <div class="mediaobject">
+            <img src="bilder_ebook/github-download.png" width="351" alt="bilder_ebook/github-download.png" />
+          </div>
+        </div>
+      </div>
+      <br class="figure-break" />
+      <p>Für Entwickler, die oft mit Bildern arbeiten, bietet Github sogenannte
+<span class="emphasis"><em>Image View
+  Modes</em></span>.<a href="#ftn.idm45240354645424" class="footnote" id="idm45240354645424"><sup class="footnote">[149]</sup></a>
+Sie zeigen Unterschiede zwischen zwei Versionen einer Grafik an,
+ähnlich dem in <a class="xref" href="ch08.html#sec.external-diff" title="8.1.3. Eigene Diff-Programme">Abschnitt 8.1.3, „Eigene Diff-Programme“</a> vorgestellten Script. Es gibt folgende
+Modi:</p>
+      <div class="variablelist">
+        <dl class="variablelist">
+          <dt>
+            <span class="term">
+<span class="emphasis"><em>2-up</em></span>
+</span>
+          </dt>
+          <dd>
+            <p class="simpara">
+Die zwei verschiedenen Versionen werden nebeneinander
+dargestellt, siehe <a class="xref" href="ch11.html#fig.github-2up" title="Abbildung 11.5. Modus 2-up">Abbildung 11.5, „Modus <span class="emphasis"><em>2-up</em></span>“</a>.  Auch Größenunterschiede sind
+ersichtlich.
+</p>
+            <div class="figure">
+              <a id="fig.github-2up"></a>
+              <p class="title">
+                <strong>Abbildung 11.5. Modus <span class="emphasis"><em>2-up</em></span></strong>
+              </p>
+              <div class="figure-contents">
+                <div class="mediaobject">
+                  <img src="bilder_ebook/github-image-diff-2up.png" width="486" alt="bilder_ebook/github-image-diff-2up.png" />
+                </div>
+              </div>
+            </div>
+            <br class="figure-break" />
+          </dd>
+          <dt>
+            <span class="term">
+<span class="emphasis"><em>Swipe</em></span>
+</span>
+          </dt>
+          <dd>
+            <p class="simpara">
+Das Bild wird in der Mitte geteilt. Links sehen Sie die alte
+Version und rechts die neue. Schieben Sie den Regler hin und her, um
+die Änderungen zu beobachten.  Siehe <a class="xref" href="ch11.html#fig.github-swipe" title="Abbildung 11.6. Modus Swipe">Abbildung 11.6, „Modus <span class="emphasis"><em>Swipe</em></span>“</a>.
+</p>
+            <div class="figure">
+              <a id="fig.github-swipe"></a>
+              <p class="title">
+                <strong>Abbildung 11.6. Modus <span class="emphasis"><em>Swipe</em></span></strong>
+              </p>
+              <div class="figure-contents">
+                <div class="mediaobject">
+                  <img src="bilder_ebook/github-image-diff-swipe.png" width="486" alt="bilder_ebook/github-image-diff-swipe.png" />
+                </div>
+              </div>
+            </div>
+            <br class="figure-break" />
+          </dd>
+          <dt>
+            <span class="term">
+<span class="emphasis"><em>Onion Skin</em></span>
+</span>
+          </dt>
+          <dd>
+Auch hier kommt ein Regler zum Einsatz, diesmal wird
+jedoch die neue Version eingeblendet, es entsteht also ein fließender
+Übergang zwischen alt und neu.
+</dd>
+          <dt>
+            <span class="term">
+<span class="emphasis"><em>Difference</em></span>
+</span>
+          </dt>
+          <dd>
+Zeigt nur die Pixel an, die verändert wurden.
+</dd>
+        </dl>
+      </div>
+      <p>Die Programmierer hinter Github feilen weiter am Webinterface und so
+kommen regelmäßig innovative Verbesserungen hinzu. Die Seite hat eine
+eigene
+Hilfe-Seite<a href="#ftn.idm45240354624688" class="footnote" id="idm45240354624688"><sup class="footnote">[150]</sup></a>, auf
+der Arbeitsschritte mit dem Webinterface detailliert mit Screenshots
+erklärt werden.</p>
+      <div class="footnotes">
+        <br />
+        <hr style="width:100; text-align:left;margin-left: 0" />
+        <div id="ftn.idm45240354717168" class="footnote">
+          <p>
+            <a href="#idm45240354717168" class="simpara">
+              <sup class="simpara">[138] </sup>
+            </a>
+            <a class="ulink" href="https://github.com/" target="_top">https://github.com/</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240354715664" class="footnote">
+          <p>
+            <a href="#idm45240354715664" class="simpara">
+              <sup class="simpara">[139] </sup>
+            </a>
+            <a class="ulink" href="http://gitorious.org/" target="_top">http://gitorious.org/</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240354714240" class="footnote">
+          <p>
+            <a href="#idm45240354714240" class="simpara">
+              <sup class="simpara">[140] </sup>
+            </a>
+            <a class="ulink" href="http://repo.or.cz/" target="_top">http://repo.or.cz/</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240354712736" class="footnote">
+          <p>
+            <a href="#idm45240354712736" class="simpara">
+              <sup class="simpara">[141] </sup>
+            </a>
+            <a class="ulink" href="http://sourceforge.net/" target="_top">http://sourceforge.net/</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240354711312" class="footnote">
+          <p>
+            <a href="#idm45240354711312" class="simpara">
+              <sup class="simpara">[142] </sup>
+            </a>
+            <a class="ulink" href="http://www.berlios.de/" target="_top">http://www.berlios.de/</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240354707440" class="footnote">
+          <p>
+            <a href="#idm45240354707440" class="simpara">
+              <sup class="simpara">[143] </sup>
+            </a>
+            <a class="ulink" href="http://curl.haxx.se/" target="_top">http://curl.haxx.se/</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240354705968" class="footnote">
+          <p>
+            <a href="#idm45240354705968" class="simpara">
+              <sup class="simpara">[144] </sup>
+            </a>
+            <a class="ulink" href="http://rubyonrails.org/" target="_top">http://rubyonrails.org/</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240354704496" class="footnote">
+          <p>
+            <a href="#idm45240354704496" class="simpara">
+              <sup class="simpara">[145] </sup>
+            </a>
+            <a class="ulink" href="http://jquery.com/" target="_top">http://jquery.com/</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240354699920" class="footnote">
+          <p>
+            <a href="#idm45240354699920" class="simpara">
+              <sup class="simpara">[146] </sup>
+            </a>
+            <a class="ulink" href="https://github.com/github/gollum" target="_top">https://github.com/github/gollum</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240354698704" class="footnote">
+          <p>
+            <a href="#idm45240354698704" class="simpara">
+              <sup class="simpara">[147] </sup>
+            </a>
+            <a class="ulink" href="https://github.com/github/markup" target="_top">https://github.com/github/markup</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240354676688" class="footnote">
+          <p><a href="#idm45240354676688" class="simpara"><sup class="simpara">[148] </sup></a>Nicht als Projekt-Fork
+  misszuverstehen, bei dem sich ein Projekt aufgrund interner
+  Differenzen spaltet.</p>
+        </div>
+        <div id="ftn.idm45240354645424" class="footnote">
+          <p>
+            <a href="#idm45240354645424" class="simpara">
+              <sup class="simpara">[149] </sup>
+            </a>
+            <a class="ulink" href="https://github.com/blog/817-behold-image-view-modes" target="_top">https://github.com/blog/817-behold-image-view-modes</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240354624688" class="footnote">
+          <p>
+            <a href="#idm45240354624688" class="simpara">
+              <sup class="simpara">[150] </sup>
+            </a>
+            <a class="ulink" href="http://help.github.com/" target="_top">http://help.github.com/</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="ch10.html">Zurück</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="apa.html">Weiter</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top"> </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index.html">Zum Anfang</a>
+          </td>
+          <td width="40%" align="right" valign="top"> </td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="cc-license">
+      <hr />
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Lizensiert unter der <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+    </p>
+    </div>
+  </body>
+</html>

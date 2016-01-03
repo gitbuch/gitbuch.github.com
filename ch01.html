@@ -1,0 +1,1254 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kapitel 1. Einführung und erste Schritte</title>
+    <link rel="stylesheet" type="text/css" href="gitbuch.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="home" href="index.html" title="Git" />
+    <link rel="up" href="index.html" title="Git" />
+    <link rel="prev" href="pr01.html" title="Vorwort" />
+    <link rel="next" href="ch02.html" title="Kapitel 2. Grundlagen" />
+    <meta xmlns="" name="language" content="de" />
+    <script xmlns="" src="http://hyphenator.googlecode.com/svn/trunk/Hyphenator.js" type="text/javascript"></script>
+    <script xmlns="" type="text/javascript">
+        Hyphenator.run();
+    </script>
+  </head>
+  <body class="hyphenate">
+    <div xmlns="" class="toc">
+<p><a href="index.html">Startseite</a></p>
+<dl class="toc">
+          <dt>
+            <span class="preface">
+              <a href="pr01.html">Vorwort</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.leser">1. An wen richtet sich dieses Buch?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.struktur">2. Wie ist das Buch zu lesen?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.konventionen">3. Konventionen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.install-git-repo">4. Installation und „das Git-Repository“</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.doku">5. Dokumentation und Hilfe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.kontakt">6. Downloads und Kontakt</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.dank">7. Danksagungen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-2te-auflage">8. Vorwort zur 2. Auflage</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-cc-ausgabe">9. Vorwort zur CreativeCommons-Ausgabe</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch01.html">1. Einführung und erste Schritte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.begriffe">1.1. Grundbegriffe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.erste-schritte">1.2. Erste Schritte mit Git</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#chap.git-config">1.3. Git konfigurieren</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch02.html">2. Grundlagen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.grundlagen">2.1. Git-Kommandos</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.objektmodell">2.2. Das Objektmodell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch03.html">3. Praktische Versionsverwaltung</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.branches">3.1. Referenzen: Branches und Tags</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.undo">3.2. Versionen wiederherstellen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge">3.3. Branches zusammenführen: Merges</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge-conflicts">3.4. Merge-Konflikte lösen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.cherry-pick">3.5. Einzelne Commits übernehmen: Cherry-Pick</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.visualization">3.6. Visualisierung von Repositories</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.reflog">3.7. Reflog</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch04.html">4. Fortgeschrittene Konzepte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase">4.1. Commits verschieben – Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase-i">4.2. Die Geschichte umschreiben – Interaktives Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.blame">4.3. Wer hat diese Änderungen gemacht? – git blame</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.ignore">4.4. Dateien ignorieren</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.stash">4.5. Veränderungen auslagern – git stash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.notes">4.6. Commits annotieren – git notes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.multi-root">4.7. Mehrere Root-Commits</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.bisect">4.8. Regressionen finden – git bisect</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch05.html">5. Verteiltes Git</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.verteilte_systeme">5.1. Wie funktioniert verteilte Versionsverwaltung?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.clone">5.2. Repositories klonen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.git_fetch">5.3. Commits herunterladen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.hochladen">5.4. Commits hochladen: git push</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-check">5.5. Remotes untersuchen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.multi-remote">5.6. Verteilter Workflow mit mehreren Remotes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-verwalten">5.7. Remotes verwalten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remote-tags">5.8. Tags austauschen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.patch-queue">5.9. Patches per E-Mail</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.dictator">5.10. Ein verteilter, hierarchischer Workflow</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.subprojects">5.11. Unterprojekte verwalten</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch06.html">6. Workflows</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.workflows-user">6.1. Anwender</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.branch-modell">6.2. Ein Branching-Modell</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.releases-management">6.3. Releases-Management</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch07.html">7. Git auf dem Server</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.server">7.1. Einen Git-Server hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitolite">7.2. Gitolite: Git einfach hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.git-daemon">7.3. Git-Daemon: Anonymer, lesender Zugriff</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitweb">7.4. Gitweb: Das integrierte Web-Frontend</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.cgit">7.5. CGit – CGI for Git</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch08.html">8. Git automatisieren</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.attributes">8.1. Git-Attribute – Dateien gesondert behandeln</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.hooks">8.2. Hooks</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.scripting">8.3. Eigene Git-Kommandos schreiben</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.filter-branch">8.4. Versionsgeschichte umschreiben</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch09.html">9. Zusammenspiel mit anderen Versionsverwaltungssystemen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.subversion">9.1. Subversion</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.fast-import">9.2. Eigene Importer</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch10.html">10. Shell-Integration</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.bash-integration">10.1. Git und die Bash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.zsh-integration">10.2. Git und die Z-Shell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch11.html">11. Github</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="appendix">
+              <a href="apa.html">A. Installation</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#linux">A.1. Linux</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.osx">A.2. Mac OS X</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.windows">A.3. Windows</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="appendix">
+              <a href="apb.html">B. Struktur eines Repositorys</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc">B.1. Aufräumen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc-performance">B.2. Performance</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl></div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="pr01.html">Zurück</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="ch02.html">Weiter</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="ch.intro"></a>Kapitel 1. Einführung und erste Schritte</h1>
+          </div>
+        </div>
+      </div>
+      <p>Das folgende Kapitel bietet eine kompakte Einführung in Grundbegriffe
+und Konfigurationseinstellungen von Git. Ein kleines Beispielprojekt
+zeigt, wie Sie eine Datei mit Git unter Versionsverwaltung stellen und
+mit welchen Kommandos Sie die wichtigsten Arbeitsschritte erledigen.</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.begriffe"></a>1.1. Grundbegriffe</h2>
+            </div>
+          </div>
+        </div>
+        <p>Einige wichtige Fachbegriffe werden im Folgenden immer wieder
+vorkommen und bedürfen darum einer kurzen Erläuterung. Wenn Sie schon
+Erfahrung mit einem anderen Versionskontrollsystem gesammelt haben,
+werden Ihnen einige der damit verbundenen Konzepte bekannt sein, wenn
+vielleicht auch unter anderem Namen.</p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Versionskontrollsystem</em></span> (<span class="emphasis"><em>Version Control System</em></span>, VCS)
+</span>
+            </dt>
+            <dd>
+              <p class="simpara">
+Ein System
+zur Verwaltung und Versionierung von Software oder anderer digitaler
+Informationen.  Prominente Beispiele sind Git, Subversion, CVS,
+Mercurial (hg), Darcs und Bazaar.  Synonyme sind <span class="emphasis"><em>Software
+Configuration Management</em></span> (SCM) und <span class="emphasis"><em>Revision Control System</em></span>.
+</p>
+              <p class="simpara">Wir unterscheiden zwischen <span class="emphasis"><em>zentralen</em></span> und <span class="emphasis"><em>verteilten</em></span> Systemen.  In
+einem zentralen System, wie z.B. Subversion, muss es einen zentralen
+Server geben, auf dem die Geschichte des Projekts gespeichert
+wird. Alle Entwickler müssen sich mit diesem Server verbinden, um die
+Versionsgeschichte einzusehen oder Änderungen vorzunehmen. In einem
+verteilten System wie Git gibt es viele gleichwertige Instanzen des
+Repositorys, so dass jeder Entwickler über sein eigenes Repository
+verfügt. Der Austausch von Veränderungen ist flexibler und erfolgt
+nicht zwingend über einen zentralen Server.</p>
+            </dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Repository</em></span>
+</span>
+            </dt>
+            <dd>
+Das Repository ist eine Datenbank, in der Git die
+verschiedenen Zustände jeder Datei eines Projekts über die Zeit hinweg
+ablegt. Insbesondere wird jede Änderung als Commit verpackt und
+abgespeichert.
+</dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Working Tree</em></span>
+</span>
+            </dt>
+            <dd>
+Das <span class="emphasis"><em>Arbeitsverzeichnis</em></span> von Git (in anderen Systemen
+manchmal auch <span class="emphasis"><em>Sandbox</em></span> oder <span class="emphasis"><em>Checkout</em></span> genannt). Hier nehmen Sie alle
+Modifikationen am Quellcode vor. Oft findet man dafür auch die
+Bezeichnung <span class="emphasis"><em>Working Directory</em></span>.
+</dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Commit</em></span>
+</span>
+            </dt>
+            <dd>
+Veränderungen am Working Tree, also z.B. modifizierte oder
+neue Dateien, werden im Repository als Commits gespeichert. Ein Commit
+enthält sowohl diese Veränderungen als auch Metadaten, wie den Autor
+der Veränderungen, Datum und Uhrzeit, und eine Nachricht (<span class="emphasis"><em>Commit
+Message</em></span>), die die Veränderungen beschreibt.  Ein Commit referenziert
+immer den Zustand <span class="emphasis"><em>aller</em></span> verwalteten Dateien zu einem bestimmten
+Zeitpunkt.  Die verschiedenen Git-Kommandos dienen dazu, Commits zu
+erstellen, zu manipulieren, einzusehen oder die Beziehungen zwischen
+ihnen zu verändern.
+</dd>
+            <dt>
+              <span class="term">
+<code class="literal">HEAD</code>
+</span>
+            </dt>
+            <dd>
+Eine symbolische Referenz auf den neuesten Commit im
+aktuellen Branch. Von dieser Referenz hängt ab, welche Dateien Sie im
+Working Tree zur Bearbeitung vorfinden.  Es handelt sich also um den
+„Kopf“ bzw. die Spitze eines Entwicklungsstrangs (nicht zu
+verwechseln mit <code class="literal">HEAD</code> in Systemen wie CVS oder SVN).
+</dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>SHA-1</em></span>
+</span>
+            </dt>
+            <dd>
+Der <span class="emphasis"><em>Secure Hash Algorithm</em></span> erstellt eine eindeutige, 160
+Bit lange Prüfsumme (40 hexadezimale Zeichen) für beliebige digitale
+Informationen. Alle Commits in Git werden nach ihrer SHA-1-Summe
+benannt (<span class="emphasis"><em>Commit-ID</em></span>), die aus dem Inhalt und den Metadaten des
+Commits errechnet wird. Es ist sozusagen eine <span class="emphasis"><em>inhaltsabhängige</em></span>
+Versionsnummer, z.B. <code class="literal">f785b8f9ba1a1f5b707a2c83145301c807a7d661</code>.
+</dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Objektmodell</em></span>
+</span>
+            </dt>
+            <dd>
+Ein Git-Repository lässt sich als Graph von Commits
+modellieren, der durch Git-Kommandos manipuliert wird.  Durch diese
+Modellierung ist es sehr einfach, die Funktionsweise von Git
+detailliert zu beschreiben. Für eine ausführliche Beschreibung des
+Objektmodells siehe <a class="xref" href="ch02.html#sec.objektmodell" title="2.2. Das Objektmodell">Abschnitt 2.2, „Das Objektmodell“</a>.
+</dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Index</em></span>
+</span>
+            </dt>
+            <dd>
+Der Index ist eine Zwischenstufe zwischen Working Tree und
+Repository, in der Sie einen Commit vorbereiten.  Der Index
+<span class="emphasis"><em>indiziert</em></span> also, welche Änderungen an welchen Dateien Sie als Commit
+verpacken wollen.  Dieses Konzept ist einzigartig in Git und bereitet
+Anfängern und Umsteigern häufig Schwierigkeiten. Wir widmen uns dem
+Index ausführlich in <a class="xref" href="ch02.html#sec.index" title="2.1.1. Index">Abschnitt 2.1.1, „Index“</a>.
+</dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Clone</em></span>
+</span>
+            </dt>
+            <dd>
+Wenn Sie sich ein Git-Repository aus dem Internet
+herunterladen, erzeugen Sie einen Klon (<span class="emphasis"><em>Clone</em></span>) dieses Repositorys.
+Der Klon enthält alle Informationen, die im Ursprungsrepository
+enthalten sind, vor allem also die gesamte Versionsgeschichte
+einschließlich aller Commits.
+</dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Branch</em></span>
+</span>
+            </dt>
+            <dd>
+Eine Abzweigung in der Entwicklung.  Branches werden in der
+Praxis verwendet, um beispielsweise neue Features zu entwickeln, Releases
+vorzubereiten oder um alte Versionen mit Bugfixes zu versorgen.
+Branches sind – ebenso wie das Zusammenführen von Branches (<span class="emphasis"><em>Merge</em></span>) – in Git extrem einfach zu handhaben und ein herausragendes Feature
+des Systems.
+</dd>
+            <dt>
+              <span class="term">
+<code class="literal">master</code>
+</span>
+            </dt>
+            <dd>
+Da Sie zum Arbeiten mit Git mindestens
+    einen Branch brauchen, wird beim Initialisieren eines neuen
+    Repositorys der Branch <code class="literal">master</code> erstellt. Der Name ist eine
+    Konvention (analog zum <code class="literal">trunk</code> in anderen Systemen); Sie
+    können diesen Branch beliebig umbenennen oder löschen, sofern
+    mindestens ein anderer Branch zur Verfügung steht. Der
+    <code class="literal">master</code> unterscheidet sich technisch in keiner Weise von
+    anderen Branches.
+</dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Tag</em></span>
+</span>
+            </dt>
+            <dd>
+Tags sind symbolische Namen für schwer zu
+    merkende SHA-1-Summen. Wichtige Commits, wie z.B. Releases,
+    können Sie mit Tags kennzeichnen. Ein Tag kann einfach nur ein
+    Bezeichner, wie z.B. <code class="literal">v1.6.2</code>, sein, oder zusätzlich
+    Metadaten wie Autor, Beschreibung und GPG-Signatur enthalten.
+</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.erste-schritte"></a>1.2. Erste Schritte mit Git</h2>
+            </div>
+          </div>
+        </div>
+        <p>Zum Einstieg wollen wir an einem kleinen Beispiel den Arbeitsablauf
+mit Git illustrieren. Wir erstellen ein Repository und entwickeln
+darin einen Einzeiler, ein „Hello, World!“-Programm in Perl.</p>
+        <p>Damit Git einen Commit einem Autor zuordnen kann, müssen Sie Ihren
+Namen und Ihre E-Mail-Adresse hinterlegen:</p>
+        <pre class="screen">$ <span class="strong"><strong>git config --global user.name "Max Mustermann"</strong></span>
+$ <span class="strong"><strong>git config --global user.email "max.mustermann@example.com"</strong></span></pre>
+        <p>Beachten Sie, dass bei einem Aufruf von Git ein <span class="emphasis"><em>Subkommando</em></span>
+angegeben wird, in diesem Fall <code class="literal">config</code>.  Git stellt alle
+Operationen durch solche Subkommandos zur Verfügung.  Wichtig ist
+auch, dass bei einem Aufruf von <code class="literal">git config</code> kein Gleichheitszeichen verwendet wird.  Folgender Aufruf ist also
+<span class="emphasis"><em>falsch</em></span>:</p>
+        <pre class="screen">$ <span class="strong"><strong>git config --global user.name = "Max Mustermann"</strong></span></pre>
+        <p>Das ist besonders für Anfänger eine Stolperfalle, da Git keine
+Fehlermeldung ausgibt, sondern das Gleichheitszeichen als zu setzenden
+Wert übernimmt.</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.erstes-repo"></a>1.2.1. Das erste Repository</h3>
+              </div>
+            </div>
+          </div>
+          <p>Bevor wir mit Git Dateien verwalten, müssen wir ein Repository für das
+Beispiel-Projekt erstellen. Das Repository wird <span class="emphasis"><em>lokal</em></span> erstellt,
+liegt also nur auf dem Dateisystem des Rechners, auf dem Sie arbeiten.</p>
+          <p>Es empfiehlt sich generell, den Umgang mit Git zunächst lokal zu üben
+und erst später in die dezentralen Eigenschaften und Funktionen von
+Git einzutauchen.</p>
+          <pre class="screen">$ <span class="strong"><strong>git init beispiel</strong></span>
+Initialized empty Git repository in /home/esc/beispiel/.git/</pre>
+          <p>Zunächst erstellt Git das Verzeichnis <code class="literal">beispiel/</code>, falls es
+noch nicht existiert. Danach initialisiert Git ein leeres Repository
+in diesem Verzeichnis und legt dafür ein Unterverzeichnis
+<code class="literal">.git/</code> an, in dem interne Daten verwaltet werden. Sollte das
+Verzeichnis <code class="literal">beispiel/</code> bereits existieren, erstellt Git darin
+ein neues Repository.  Gibt es bereits sowohl das Verzeichnis wie auch
+ein Repository, macht Git gar nichts.  Wir wechseln in das Verzeichnis und
+schauen uns mit <code class="literal">git status</code> den aktuellen Zustand an:</p>
+          <pre class="screen">$ <span class="strong"><strong>cd beispiel</strong></span>
+$ <span class="strong"><strong>git status</strong></span>
+On branch master
+
+Initial commit
+
+nothing to commit (create/copy files and use "git add" to track)</pre>
+          <p>Git weist uns darauf hin, dass wir vor dem ersten Commit stehen
+(<code class="literal">Initial commit</code>), hat aber nichts gefunden, was in diesen
+Commit einfließen könnte (<code class="literal">nothing to commit</code>). Dafür liefert
+es einen Hinweis, welche Schritte sich als nächste anbieten (das tun
+übrigens die meisten Git-Kommandos): „Erstellen oder kopieren Sie
+Dateien, und verwenden Sie <code class="literal">git add</code>, um diese mit Git zu
+verwalten.“</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.erster-commit"></a>1.2.2. Der erste Commit</h3>
+              </div>
+            </div>
+          </div>
+          <p>Übergeben wir Git nun eine erste Datei zur Verwaltung, und zwar ein
+„Hello World!“-Programm in Perl.  Selbstverständlich
+können Sie stattdessen auch ein beliebiges Programm in der
+Programmiersprache Ihrer Wahl schreiben.</p>
+          <p>Wir erstellen zunächst die Datei <code class="literal">hello.pl</code> mit folgendem
+Inhalt</p>
+          <pre class="screen">print "Hello World!\n";</pre>
+          <p>und führen das Script einmal aus:</p>
+          <pre class="screen">$ <span class="strong"><strong>perl hello.pl</strong></span>
+Hello World!</pre>
+          <p>Damit sind wir bereit, die Datei mit Git zu verwalten. Schauen wir
+uns vorher aber noch die Ausgabe von <code class="literal">git status</code> an:</p>
+          <pre class="screen">$ <span class="strong"><strong>git status</strong></span>
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+      hello.pl
+nothing added to commit but untracked files present (use "git add" to track)</pre>
+          <p>Zwar steht der erste Commit noch bevor, aber Git registriert, dass
+sich nun bereits Dateien in diesem Verzeichnis befinden, die dem System
+allerdings nicht bekannt sind – Git nennt solche Dateien
+<code class="literal">untracked</code>. Es handelt sich hier natürlich um unser kleines
+Perl-Programm.  Um es mit Git zu verwalten, nutzen wir den Befehl
+<code class="literal">git add &lt;datei&gt;</code>:</p>
+          <pre class="screen">$ <span class="strong"><strong>git add hello.pl</strong></span></pre>
+          <p>Das <code class="literal">add</code> steht generell für „Änderungen hinzufügen“ – Sie werden es also immer dann benötigen, wenn Sie Dateien
+bearbeitet haben, nicht nur beim ersten Hinzufügen!</p>
+          <p>Git liefert bei diesem Befehl keine Ausgabe. Mit <code class="literal">git status</code>
+überprüfen Sie, ob der Aufruf erfolgreich war:</p>
+          <pre class="screen">$ <span class="strong"><strong>git status</strong></span>
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached &lt;file&gt;..." to unstage)
+
+      new file:   hello.pl</pre>
+          <p>Git wird die Veränderungen – also unsere neue Datei – beim nächsten
+Commit übernehmen. Allerdings ist dieser Commit noch nicht vollzogen – wir haben ihn bisher lediglich vorbereitet.</p>
+          <p>Um genau zu sein, haben wir die Datei dem <span class="emphasis"><em>Index</em></span> hinzugefügt,
+einer Zwischenstufe, in der Sie Veränderungen, die in den nächsten
+Commit einfließen sollen, sammeln. Weitere Erklärungen zu diesem
+Konzept in <a class="xref" href="ch02.html#sec.index" title="2.1.1. Index">Abschnitt 2.1.1, „Index“</a>.</p>
+          <p>Bei  <code class="literal">git status</code> sehen Sie unter
+<code class="literal">Changes to be committed</code> immer, welche Dateien sich im Index
+befinden, also in den nächsten Commit übernommen werden.</p>
+          <p>Alles ist bereit für den ersten Commit mit dem Kommando
+<code class="literal">git commit</code>. Außerdem übergeben wir auf der Kommandozeile die
+Option <code class="literal">-m</code> mit einer Commit-Nachricht (<span class="emphasis"><em>Commit Message</em></span>),
+in der wir den Commit beschreiben:</p>
+          <pre class="screen">$ <span class="strong"><strong>git commit -m "Erste Version"</strong></span>
+[master (root-commit) 07cc103] Erste Version
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.pl</pre>
+          <p>Git bestätigt, dass der Vorgang erfolgreich abgeschlossen wurde und
+die Datei von nun an verwaltet wird. Die etwas kryptische Ausgabe
+bedeutet soviel wie: Git hat den initialen Commit
+(<code class="literal">root-commit</code>) mit der entsprechenden Nachricht erstellt. Es
+wurde eine Zeile in einer Datei hinzugefügt und die Datei mit den
+Unix-Rechten <code class="literal">0644</code> angelegt.<a href="#ftn.idm45240359901920" class="footnote" id="idm45240359901920"><sup class="footnote">[8]</sup></a></p>
+          <p>Wie Sie mittlerweile sicher festgestellt haben, ist <code class="literal">git
+  status</code> ein unerlässliches Kommando in der täglichen Arbeit – wir
+nutzen es an dieser Stelle noch einmal:</p>
+          <pre class="screen">$ <span class="strong"><strong>git status</strong></span>
+On branch master
+nothing to commit, working directory clean</pre>
+          <p>Unser Beispiel-Repository ist jetzt „sauber“, denn es gibt
+weder Veränderungen im Working Tree noch im Index, auch keine Dateien,
+die nicht mit Git verwaltet werden (<span class="emphasis"><em>Untracked Files</em></span>).</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.commits-einsehen"></a>1.2.3. Commits einsehen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Zum Abschluss dieser kleinen Einführung stellen wir Ihnen noch zwei
+sehr nützliche Kommandos vor, die Sie häufig einsetzen werden, um die
+Versionsgeschichte von Projekten zu untersuchen.</p>
+          <p>Zunächst erlaubt <code class="literal">git show</code> die Untersuchung eines einzelnen
+Commits – ohne weitere Argumente ist das der aktuellste:</p>
+          <pre class="screen">$ <span class="strong"><strong>git show</strong></span>
+commit 07cc103feb393a93616842921a7bec285178fd56
+Author: Valentin Haenel &lt;valentin.haenel@gmx.de&gt;
+Date:   Tue Nov 16 00:40:54 2010 +0100
+
+    Erste Version
+
+diff --git a/hello.pl b/hello.pl
+new file mode 100644
+index 0000000..fa5a091
+--- /dev/null
++++ b/hello.pl
+@@ -0,0 +1 @@
++print "Hello World!\n";</pre>
+          <p>Sie sehen alle relevanten Informationen zu dem Commit: die
+<span class="emphasis"><em>Commit-ID</em></span>, den Autor, das Datum und die Uhrzeit des Commits,
+die Commit-Nachricht sowie eine Zusammenfassung der Veränderungen im
+<span class="emphasis"><em>Unified-Diff</em></span>-Format.</p>
+          <p>Standardmäßig gibt <code class="literal">git show</code> immer den <code class="literal">HEAD</code> aus (ein
+symbolischer Name für den aktuellsten Commit); Sie könnten aber auch
+z.B. die Commit-ID, also die SHA-1-Prüfsumme des Commits, ein
+eindeutiges Präfix davon oder den Branch (in diesem Fall
+<code class="literal">master</code>) angeben. Somit sind in
+diesem Beispiel folgende Kommandos äquivalent:</p>
+          <pre class="screen">$ <span class="strong"><strong>git show</strong></span>
+$ <span class="strong"><strong>git show HEAD</strong></span>
+$ <span class="strong"><strong>git show master</strong></span>
+$ <span class="strong"><strong>git show 07cc103</strong></span>
+$ <span class="strong"><strong>git show 07cc103feb393a93616842921a7bec285178fd56</strong></span></pre>
+          <p>Wollen Sie mehr als einen Commit einsehen, empfiehlt sich <code class="literal">git
+  log</code>.  Um das Kommando sinnvoll zu demonstrieren, bedarf es weiterer
+Commits; andernfalls würde sich die Ausgabe kaum von <code class="literal">git show</code>
+unterscheiden, da das Beispiel-Repository im Moment nur einen einzigen
+Commit enthält. Fügen wir also folgende Kommentarzeile dem „Hello
+  World!“-Programm hinzu:</p>
+          <pre class="screen"># Hello World! in Perl</pre>
+          <p>Schauen wir uns der Übung halber noch einmal mit <code class="literal">git status</code>
+den aktuellen Zustand an:</p>
+          <pre class="screen">$ <span class="strong"><strong>git status</strong></span>
+On branch master
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working
+   directory)
+
+      modified:   hello.pl
+
+no changes added to commit (use "git add" and/or "git commit -a")</pre>
+          <p>Benutzen Sie danach, wie in der Ausgabe des Kommandos schon
+beschrieben, <code class="literal">git add</code>, um die Veränderungen dem Index
+hinzuzufügen. Wie bereits erwähnt, wird <code class="literal">git add</code> sowohl zum
+Hinzufügen neuer Dateien wie auch zum Hinzufügen von Veränderungen an
+Dateien, die bereits verwaltet werden, verwendet.</p>
+          <pre class="screen">$ <span class="strong"><strong>git add hello.pl</strong></span></pre>
+          <p>Erstellen Sie anschließend einen Commit:</p>
+          <pre class="screen">$ <span class="strong"><strong>git commit -m "Kommentar-Zeile"</strong></span>
+[master 8788e46] Kommentar-Zeile
+ 1 file changed, 1 insertion(+)</pre>
+          <p>Nun zeigt Ihnen <code class="literal">git log</code> die beiden Commits:</p>
+          <pre class="screen">$ <span class="strong"><strong>git log</strong></span>
+commit 8788e46167aec2f6be92c94c905df3b430f6ecd6
+Author: Valentin Haenel &lt;valentin.haenel@gmx.de&gt;
+Date:   Fri May 27 12:52:58 2011 +0200
+
+    Kommentar-Zeile
+
+commit 07cc103feb393a93616842921a7bec285178fd56
+Author: Valentin Haenel &lt;valentin.haenel@gmx.de&gt;
+Date:   Tue Nov 16 00:40:54 2010 +0100
+
+    Erste Version</pre>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="chap.git-config"></a>1.3. Git konfigurieren</h2>
+            </div>
+          </div>
+        </div>
+        <p>Wie die meisten textbasierten Programme bietet Git eine Fülle an
+Konfigurationsoptionen. Es ist daher jetzt an der Zeit, einige
+grundlegende Einstellungen vorzunehmen. Dazu gehören Farbeinstellungen,
+die in neueren Versionen standardmäßig bereits eingeschaltet sind und
+die es Ihnen erleichtern, die Ausgabe von Git-Kommandos zu erfassen,
+sowie kleine Aliase (Abkürzungen) für häufig benötigte Kommandos.</p>
+        <p>Git konfigurieren Sie über das Kommando <code class="literal">git config</code>. Die
+Konfiguration wird einem Format ähnlich einer INI-Datei gespeichert.
+Ohne Angabe weiterer Parameter gilt die Konfiguration nur für das
+aktuelle Repository (<code class="literal">.git/config</code>). Mit der Option <code class="literal">--global</code> wird sie in
+der Datei <code class="literal">.gitconfig</code> im Home-Verzeichnis des Nutzers abgelegt
+und gilt dann für alle Repositories.<a href="#ftn.idm45240359864608" class="footnote" id="idm45240359864608"><sup class="footnote">[9]</sup></a></p>
+        <p>Wichtige Einstellungen, die Sie immer vornehmen sollten, sind Name
+und E-Mail-Adresse des Benutzers:</p>
+        <pre class="screen">$ <span class="strong"><strong>git config --global user.name "Max Mustermann"</strong></span>
+$ <span class="strong"><strong>git config --global user.email "max.mustermann@example.com"</strong></span></pre>
+        <p>Beachten Sie, dass Sie Leerzeichen im Wert der Einstellung schützen
+müssen (durch Anführungszeichen oder Backslashes). Außerdem folgt der
+Wert direkt auf den Namen der Option – ein Gleichheitszeichen ist auch
+hier nicht nötig. Das Ergebnis des Kommandos findet sich anschließend
+in der Datei <code class="literal">~/.gitconfig</code>:</p>
+        <pre class="screen">$ <span class="strong"><strong>less ~/.gitconfig</strong></span>
+[user]
+    name = Max Mustermann
+    email = max.mustermann@example.com</pre>
+        <p>Die Einstellungen gelten nun „global“, also für alle
+Repositories, die Sie unter diesem Nutzernamen bearbeiten.  Wollen Sie
+für ein bestimmtes Projekt eine andere E-Mail-Adresse als Ihre global
+definierte angeben, ändern Sie dort einfach die Einstellung (diesmal
+natürlich ohne den Zusatz <code class="literal">--global</code>):</p>
+        <pre class="screen">$ <span class="strong"><strong>git config user.email maintainer@project.example.com</strong></span></pre>
+        <p>Bei der Abfrage einer Option geht Git so vor, dass es zuerst die
+Einstellung im aktuellen Repository nutzt, sofern vorhanden,
+andernfalls die aus der globalen <code class="literal">.gitconfig</code>; gibt es auch
+diese nicht, wird auf den Default-Wert
+zurückgegriffen.<a href="#ftn.idm45240359853104" class="footnote" id="idm45240359853104"><sup class="footnote">[10]</sup></a>  Letzteren erhält man für alle Optionen in der Man-Page
+<code class="literal">git-config</code>. Eine Liste aller gesetzten Einstellungen fragen
+Sie per <code class="literal">git config -l</code> ab.</p>
+        <p>Sie können die Datei <code class="literal">.gitconfig</code> (bzw. im Repository
+<code class="literal">.git/config</code>) auch von Hand editieren. Gerade zum Löschen
+einer Einstellung ist das sinnvoll – zwar bietet <code class="literal">git config</code>
+auch eine Option <code class="literal">--unset</code>, die entsprechende Zeile in einem
+Editor zu löschen ist aber einfacher.</p>
+        <div class="tip" style="margin-left: 0; margin-right: 10%;">
+          <h3 class="title">Tipp</h3>
+          <p>Die Kommandos <code class="literal">git config -e</code> bzw. <code class="literal">git config --global -e</code> starten
+den für Git konfigurierten Editor auf der lokalen bzw. globalen
+Konfigurationsdatei.</p>
+        </div>
+        <p>Beachten Sie allerdings, dass Git beim <span class="emphasis"><em>Setzen</em></span> von Optionen
+durch ein entsprechendes Kommando problematische Zeichen im Wert der
+Option automatisch schützt, so dass keine fehlerhaften
+Konfigurationsdateien entstehen.</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.git-alias"></a>1.3.1. Git Aliase</h3>
+              </div>
+            </div>
+          </div>
+          <p>Git bietet Ihnen über <span class="emphasis"><em>Aliase</em></span> die Möglichkeit, einzelne
+Kommandos und sogar ganze Kommandosequenzen abzukürzen. Die Syntax lautet:</p>
+          <pre class="screen">$ <span class="strong"><strong>git config alias.&lt;alias-name&gt; &lt;entsprechung&gt;</strong></span></pre>
+          <p>Um etwa <code class="literal">st</code> als Alias für <code class="literal">status</code> zu setzen:</p>
+          <pre class="screen">$ <span class="strong"><strong>git config --global alias.st status</strong></span>
+$ <span class="strong"><strong>git st</strong></span>
+On branch master
+...</pre>
+          <p>Sie können auch Optionen in ein Alias einbauen, z.B.:</p>
+          <pre class="screen">$ <span class="strong"><strong>git config --global alias.gconfig 'config --global'</strong></span></pre>
+          <p>Weitere nützliche Aliase finden Sie im weiteren Verlauf des Buches;
+wie Sie komplexere Aliase erstellen, ist in
+<a class="xref" href="ch08.html#sec.git-erweiterte-aliase" title="8.3.8. Erweiterte Aliase">Abschnitt 8.3.8, „Erweiterte Aliase“</a> beschrieben.  Vorab aber schon
+einige nützliche Abkürzungen:</p>
+          <pre class="screen">[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    he = help
+    cl = clone</pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="chap.color-defaults"></a>1.3.2. Farbe einstellen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Überaus hilfreich ist die Option <code class="literal">color.ui</code>, die prüft, ob Git
+die Ausgabe diverser Kommandos einfärben soll. So erscheinen gelöschte
+Dateien und Zeilen rot, neue Dateien und Zeilen grün, Commit-IDs
+gelb usw. In neueren Git-Versionen (ab 1.8.4) ist diese Einstellung
+bereits automatisch gesetzt, Sie müssen also nichts tun.</p>
+          <p>Die Option <code class="literal">color.ui</code> sollte auf <code class="literal">auto</code> gesetzt sein – erfolgt die Ausgabe von Git in ein Terminal, werden Farben
+verwendet. Schreibt das Kommando stattdessen in eine Datei oder wird
+die Ausgabe an ein anderes Programm gepipet, so gibt Git keine
+Farbsequenzen aus, da das die automatische Weiterverarbeitung
+behindern könnte.</p>
+          <pre class="screen">$ <span class="strong"><strong>git config --global color.ui auto</strong></span></pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="chap.config-encoding"></a>1.3.3. Zeichensätze einstellen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Sofern nicht anders eingestellt, nimmt Git für alle Texte, also vor
+allem für die Namen der Autoren und die Commit-Nachricht, UTF-8 als
+Zeichenkodierung an. Wollen Sie
+ein anderes Encoding, sollten Sie dies explizit
+konfigurieren:<a href="#ftn.idm45240359824576" class="footnote" id="idm45240359824576"><sup class="footnote">[11]</sup></a></p>
+          <pre class="screen">$ <span class="strong"><strong>git config i18n.commitEncoding ISO-8859-1</strong></span></pre>
+          <p>Analog bestimmt die Einstellung <code class="literal">i18n.logOutputEncoding</code>, in
+welchen Zeichensatz Git die Namen und Commit-Nachrichten konvertiert,
+bevor sie ausgegeben werden.</p>
+          <p>Das Encoding der <span class="emphasis"><em>Dateien</em></span>, die von Git verwaltet werden, spielt
+hier keine Rolle und wird von diesen Einstellungen nicht beeinflusst – Dateien sind nur Bit-Streams, die Git nicht interpretiert.</p>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Wenn Sie in einer UTF-8-Umgebung mit Dateien, die nach ISO-8859-1
+kodiert sind, umgehen müssen, sollten Sie die Einstellung Ihres Pagers
+(s.u.) entsprechend anpassen. Für die Autoren bewährt sich die
+folgende Einstellung:</p>
+            <pre class="screen">$ <span class="strong"><strong>git config core.pager 'env LESSCHARSET=iso8859 less'</strong></span></pre>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.config-eol"></a>1.3.4. Zeilenenden einstellen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Da Git auf Windows-Systemen wie auf unixoiden Systemen läuft, muss es
+das Problem verschiedener Zeilenende-Konventionen lösen. (Das betrifft
+nur Text-Dateien – Binärdateien, die Git als solche erkennt, werden
+von dieser Behandlung ausgenommen.)</p>
+          <p>Dafür ist im Wesentlichen die Einstellung <code class="literal">core.eol</code> relevant,
+die einen der Werte <code class="literal">lf</code>, <code class="literal">crlf</code> oder <code class="literal">native</code>
+annehmen kann. Die Standardeinstellung <code class="literal">native</code> lässt Git den
+System-Default verwenden – Unix: nur Line Feed (<code class="literal">lf</code>),
+Windows: Carriage Return &amp; Line Feed (<code class="literal">crlf</code>). Die Datei wird
+automatisch konvertiert, um nur Line Feeds zu erhalten, wird aber bei
+Bedarf mit CRLF ausgecheckt.</p>
+          <p>Zwischen den beiden Varianten kann Git bei einem Checkout der Datei
+konvertieren; wichtig ist aber, dass die beiden Typen nicht vermischt
+werden. Dafür bietet die Option <code class="literal">core.safecrlf</code> einen
+Mechanismus, den Nutzer zu warnen (Wert <code class="literal">warn</code>) oder gar den
+Commit zu verbieten (Wert <code class="literal">true</code>).</p>
+          <p>Eine sichere Einstellung, die auch mit älteren Git-Versionen unter
+Windows-Systemen funktioniert, ist <code class="literal">core.autocrlf</code> auf
+<code class="literal">input</code> zu setzen: Dadurch wird automatisch beim
+<span class="emphasis"><em>Einlesen</em></span> der Dateien vom Dateisystem CRLF durch LF ersetzt. Ihr
+Editor muss dann entsprechend mit LF-Enden umgehen können.</p>
+          <p>Sie können diese Einstellungen auch explizit pro Datei bzw.
+Unterverzeichnis angeben, so dass das Format über alle Plattformen
+hinweg gleich ist (siehe dafür <a class="xref" href="ch08.html#sec.attributes" title="8.1. Git-Attribute – Dateien gesondert behandeln">Abschnitt 8.1, „Git-Attribute – Dateien gesondert behandeln“</a>).</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="chap.ext-tools"></a>1.3.5. Editor, Pager und Browser einstellen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Git startet für bestimmte Aktionen automatisch einen Editor, Pager
+oder Browser. Meist werden vernünftige Defaults verwendet, wenn nicht,
+können Sie Ihr Wunschprogramm mit den folgenden
+Optionen konfigurieren:</p>
+          <div class="itemizedlist">
+            <ul class="itemizedlist" style="list-style-type: disc; ">
+              <li class="listitem">
+<code class="literal">core.editor</code>
+</li>
+              <li class="listitem">
+<code class="literal">core.pager</code>
+</li>
+              <li class="listitem">
+<code class="literal">web.browser</code>
+</li>
+            </ul>
+          </div>
+          <p>Ein Wort zum Pager: Standardmäßig verwendet Git das Programm
+<code class="literal">less</code>, das auf den meisten Grundsystemen installiert ist.  Das
+Kommando wird <span class="emphasis"><em>immer</em></span> gestartet, sobald ein Git-Kommando eine
+Ausgabe auf einem Terminal produziert. Allerdings wird <code class="literal">less</code>
+durch eine entsprechende Umgebungsvariable automatisch konfiguriert
+sich zu beenden, wenn die Ausgabe vollständig auf das Terminal passt.
+Falls ein Kommando also viel Ausgabe produziert, tritt <code class="literal">less</code>
+automatisch in den Vordergrund – und bleibt sonst unsichtbar.</p>
+          <p>Wird <code class="literal">core.pager</code> auf <code class="literal">cat</code> gesetzt, verwendet Git
+keinen Pager. Dieses Verhalten kann man aber auch von Kommando zu
+Kommando durch den Parameter <code class="literal">--no-pager</code> erreichen.
+Zusätzlich kann man z.B. per <code class="literal">git config pager.diff false</code>
+erreichen, dass die Ausgabe des Diff-Kommandos nie in den Pager
+geleitet wird.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="chap.conf-env"></a>1.3.6. Konfiguration über Umgebungsvariablen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Einige Optionen lassen sich auch durch Umgebungsvariablen
+überschreiben. Auf diese Weise können in einem Shell-Script oder in
+einem Alias Optionen lediglich für ein einzelnes Kommando gesetzt
+werden.</p>
+          <div class="variablelist">
+            <dl class="variablelist">
+              <dt>
+                <span class="term">
+<code class="literal">GIT_EDITOR</code>
+</span>
+              </dt>
+              <dd>
+der Editor, den Git z.B. zum
+  Erstellen der Commit-Nachricht startet. Alternativ
+  greift Git auf die Variable <code class="literal">EDITOR</code> zurück.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">GIT_PAGER</code>
+</span>
+              </dt>
+              <dd>
+der zu verwendende Pager. Der Wert
+  <code class="literal">cat</code> schaltet den Pager aus.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">GIT_AUTHOR_EMAIL</code>, <code class="literal">GIT_COMMITTER_EMAIL</code>
+</span>
+              </dt>
+              <dd>
+verwendet die entsprechende E-Mail-Adresse für das Autor- bzw.
+Committer-Feld beim Erstellen eines Commits.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">GIT_AUTHOR_NAME</code>, <code class="literal">GIT_COMMITTER_NAME</code>
+</span>
+              </dt>
+              <dd>
+  analog der Name.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">GIT_DIR</code>
+</span>
+              </dt>
+              <dd>
+  Verzeichnis, in dem sich das Git-Repository befindet; nur sinnvoll,
+  wenn explizit ein Repository unter einem anderen Verzeichnis als
+  <code class="literal">.git</code> gespeichert wird.
+</dd>
+            </dl>
+          </div>
+          <p>Die letztgenannte Variable ist beispielsweise praktisch, wenn Sie
+innerhalb eines Projekts auf die Versionsgeschichte eines anderen
+Repositorys zugreifen wollen, ohne das Verzeichnis zu wechseln:</p>
+          <pre class="screen">$ <span class="strong"><strong>GIT_DIR="~/proj/example/.git" git log</strong></span></pre>
+          <p>Alternativ können Sie über die Option <code class="literal">-c</code>  <span class="emphasis"><em>vor dem Subkommando</em></span> eine
+Einstellung nur für diesen Aufruf überschreiben. So könnten Sie zum
+Beispiel Git anweisen, für den kommenden Aufruf die Option
+<code class="literal">core.trustctime</code> zu deaktivieren:</p>
+          <pre class="screen">$ <span class="strong"><strong>git -c core.trustctime=false status</strong></span></pre>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="chap.correct-errors"></a>1.3.7. Automatische Fehlerkorrektur</h3>
+              </div>
+            </div>
+          </div>
+          <p>Der Wert der Option <code class="literal">help.autocorrect</code> bestimmt, was Git tun
+soll, wenn es das eingegebene Subkommando nicht findet, der
+Nutzer also z.B. versehentlich <code class="literal">git statsu</code> statt <code class="literal">git
+  status</code> tippt.</p>
+          <p>Ist die Option auf eine Zahl <code class="literal">n</code> größer Null gesetzt und Git findet
+nur <span class="emphasis"><em>ein</em></span> Subkommando, das dem getippten Kommando ähnlich ist, so
+wird dieses Kommando nach <code class="literal">n</code> Zehntelsekunden ausgeführt. Ein Wert von
+<code class="literal">-1</code> führt das Kommando sofort aus. Ungesetzt oder mit dem Wert <code class="literal">0</code>
+werden nur die Möglichkeiten aufgelistet.</p>
+          <p>Um also bei einem Vertipper das Kommando nach einer Sekunde zu
+korrigieren, setzt man:</p>
+          <pre class="screen">$ <span class="strong"><strong>git config --global help.autocorrect 10</strong></span>
+$ <span class="strong"><strong>git statsu</strong></span>
+WARNING: You called a Git command named 'statsu', which does not exist.
+Continuing under the assumption that you meant 'status'
+in 1.0 seconds automatically...
+[...]</pre>
+          <p>Sie können das Kommando natürlich während dieser Zeit mit
+<span class="emphasis"><em>Strg+C</em></span> abbrechen.</p>
+        </div>
+      </div>
+      <div class="footnotes">
+        <br />
+        <hr style="width:100; text-align:left;margin-left: 0" />
+        <div id="ftn.idm45240359901920" class="footnote">
+          <p><a href="#idm45240359901920" class="simpara"><sup class="simpara">[8] </sup></a>Auch
+  wenn Sie das Beispiel exakt nachvollziehen, werden Sie nicht
+  dieselben SHA-1-Prüfsummen erhalten, da diese unter anderem aus dem
+  Inhalt des Commits, dem Autor, und dem Commit-Zeitpunkt errechnet
+  werden.</p>
+        </div>
+        <div id="ftn.idm45240359864608" class="footnote">
+          <p><a href="#idm45240359864608" class="simpara"><sup class="simpara">[9] </sup></a>Sie können die
+nutzerspezifische Konfiguration alternativ auch unter dem XDG-konformen
+Pfad <code class="literal">.config/git/config</code> im Home-Verzeichnis ablegen (oder
+entsprechend relativ zu Ihrer gesetzten Umgebungsvariable
+<code class="literal">$XDG_CONFIG_HOME</code>).</p>
+        </div>
+        <div id="ftn.idm45240359853104" class="footnote">
+          <p><a href="#idm45240359853104" class="simpara"><sup class="simpara">[10] </sup></a>Sofern vorhanden,
+  werden auch Einstellungen aus <code class="literal">/etc/gitconfig</code> eingelesen
+  (mit niedrigster Priorität). Setzen kann man Optionen in dieser
+  Datei über den Parameter <code class="literal">--system</code>, wofür aber Root-Rechte
+  notwendig sind. Systemweit Git-Optionen zu setzen ist aber
+  unüblich.</p>
+        </div>
+        <div id="ftn.idm45240359824576" class="footnote">
+          <p><a href="#idm45240359824576" class="simpara"><sup class="simpara">[11] </sup></a>„i18n“ ist eine
+  gebräuchliche Abkürzung für das Wort „Internationalization“ –   die 18 steht für die Anzahl der ausgelassenen Buchstaben zwischen
+  dem ersten und dem letzten Buchstaben des Wortes.</p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="pr01.html">Zurück</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="ch02.html">Weiter</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top"> </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index.html">Zum Anfang</a>
+          </td>
+          <td width="40%" align="right" valign="top"> </td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="cc-license">
+      <hr />
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Lizensiert unter der <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+    </p>
+    </div>
+  </body>
+</html>

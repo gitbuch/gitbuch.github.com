@@ -1,0 +1,1883 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kapitel 9. Zusammenspiel mit anderen Versionsverwaltungssystemen</title>
+    <link rel="stylesheet" type="text/css" href="gitbuch.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="home" href="index.html" title="Git" />
+    <link rel="up" href="index.html" title="Git" />
+    <link rel="prev" href="ch08.html" title="Kapitel 8. Git automatisieren" />
+    <link rel="next" href="ch10.html" title="Kapitel 10. Shell-Integration" />
+    <meta xmlns="" name="language" content="de" />
+    <script xmlns="" src="http://hyphenator.googlecode.com/svn/trunk/Hyphenator.js" type="text/javascript"></script>
+    <script xmlns="" type="text/javascript">
+        Hyphenator.run();
+    </script>
+  </head>
+  <body class="hyphenate">
+    <div xmlns="" class="toc">
+<p><a href="index.html">Startseite</a></p>
+<dl class="toc">
+          <dt>
+            <span class="preface">
+              <a href="pr01.html">Vorwort</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.leser">1. An wen richtet sich dieses Buch?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.struktur">2. Wie ist das Buch zu lesen?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.konventionen">3. Konventionen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.install-git-repo">4. Installation und „das Git-Repository“</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.doku">5. Dokumentation und Hilfe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.kontakt">6. Downloads und Kontakt</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.dank">7. Danksagungen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-2te-auflage">8. Vorwort zur 2. Auflage</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-cc-ausgabe">9. Vorwort zur CreativeCommons-Ausgabe</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch01.html">1. Einführung und erste Schritte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.begriffe">1.1. Grundbegriffe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.erste-schritte">1.2. Erste Schritte mit Git</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#chap.git-config">1.3. Git konfigurieren</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch02.html">2. Grundlagen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.grundlagen">2.1. Git-Kommandos</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.objektmodell">2.2. Das Objektmodell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch03.html">3. Praktische Versionsverwaltung</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.branches">3.1. Referenzen: Branches und Tags</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.undo">3.2. Versionen wiederherstellen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge">3.3. Branches zusammenführen: Merges</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge-conflicts">3.4. Merge-Konflikte lösen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.cherry-pick">3.5. Einzelne Commits übernehmen: Cherry-Pick</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.visualization">3.6. Visualisierung von Repositories</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.reflog">3.7. Reflog</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch04.html">4. Fortgeschrittene Konzepte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase">4.1. Commits verschieben – Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase-i">4.2. Die Geschichte umschreiben – Interaktives Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.blame">4.3. Wer hat diese Änderungen gemacht? – git blame</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.ignore">4.4. Dateien ignorieren</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.stash">4.5. Veränderungen auslagern – git stash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.notes">4.6. Commits annotieren – git notes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.multi-root">4.7. Mehrere Root-Commits</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.bisect">4.8. Regressionen finden – git bisect</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch05.html">5. Verteiltes Git</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.verteilte_systeme">5.1. Wie funktioniert verteilte Versionsverwaltung?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.clone">5.2. Repositories klonen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.git_fetch">5.3. Commits herunterladen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.hochladen">5.4. Commits hochladen: git push</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-check">5.5. Remotes untersuchen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.multi-remote">5.6. Verteilter Workflow mit mehreren Remotes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-verwalten">5.7. Remotes verwalten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remote-tags">5.8. Tags austauschen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.patch-queue">5.9. Patches per E-Mail</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.dictator">5.10. Ein verteilter, hierarchischer Workflow</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.subprojects">5.11. Unterprojekte verwalten</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch06.html">6. Workflows</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.workflows-user">6.1. Anwender</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.branch-modell">6.2. Ein Branching-Modell</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.releases-management">6.3. Releases-Management</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch07.html">7. Git auf dem Server</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.server">7.1. Einen Git-Server hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitolite">7.2. Gitolite: Git einfach hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.git-daemon">7.3. Git-Daemon: Anonymer, lesender Zugriff</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitweb">7.4. Gitweb: Das integrierte Web-Frontend</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.cgit">7.5. CGit – CGI for Git</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch08.html">8. Git automatisieren</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.attributes">8.1. Git-Attribute – Dateien gesondert behandeln</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.hooks">8.2. Hooks</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.scripting">8.3. Eigene Git-Kommandos schreiben</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.filter-branch">8.4. Versionsgeschichte umschreiben</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch09.html">9. Zusammenspiel mit anderen Versionsverwaltungssystemen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.subversion">9.1. Subversion</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.fast-import">9.2. Eigene Importer</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch10.html">10. Shell-Integration</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.bash-integration">10.1. Git und die Bash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.zsh-integration">10.2. Git und die Z-Shell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch11.html">11. Github</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="appendix">
+              <a href="apa.html">A. Installation</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#linux">A.1. Linux</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.osx">A.2. Mac OS X</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.windows">A.3. Windows</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="appendix">
+              <a href="apb.html">B. Struktur eines Repositorys</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc">B.1. Aufräumen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc-performance">B.2. Performance</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl></div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="ch08.html">Zurück</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="ch10.html">Weiter</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="sec.git-svn-cvs"></a>Kapitel 9. Zusammenspiel mit anderen Versionsverwaltungssystemen</h1>
+          </div>
+        </div>
+      </div>
+      <p>Git verfügt über Schnittstellen zu anderen
+Versionsverwaltungssystemen, die für zwei grundsätzliche
+Anwendungsfälle von Bedeutung sind:</p>
+      <div class="variablelist">
+        <dl class="variablelist">
+          <dt>
+            <span class="term">
+<span class="emphasis"><em>Bidirektionale Kommunikation</em></span>
+</span>
+          </dt>
+          <dd>
+Sie wollen lokal in einem
+Git-Repository entwickeln, die Veränderungen aber auch in ein externes
+Repository übertragen bzw. Veränderungen von dort nach Git
+importieren.
+</dd>
+          <dt>
+            <span class="term">
+<span class="emphasis"><em>Migration</em></span>
+</span>
+          </dt>
+          <dd>
+Sie wollen aus einem bestehenden Repository eines
+anderen Systems die dort gespeicherte Versionsgeschichte nach Git
+importieren.
+</dd>
+        </dl>
+      </div>
+      <p>Folgende Schnittstellen bietet Git von Haus aus – alle erlauben beidseitige Kommunikation und vollständige Konvertierung:</p>
+      <div class="variablelist">
+        <dl class="variablelist">
+          <dt>
+            <span class="term">
+Subversion (<code class="literal">svn</code>)
+</span>
+          </dt>
+          <dd>
+Das Werkzeug <code class="literal">git-svn</code> bietet alle wesentlichen
+Subkommandos um mit Subversion-Repositories umzugehen und wird in
+diesem Kapitel ausführlich behandelt. Das Programm ist in Perl
+implementiert und verwendet die Perl-Bindings für Git und
+Subversion. Es wird zusammen mit den Git-Quellen im
+<code class="literal">git.git</code>-Repository verwaltet (liegt als <code class="literal">git-svn.perl</code> vor).
+Hinweis: Das Tool heißt zwar <code class="literal">git-svn</code>, wird aber wie üblich mit <code class="literal">git
+svn &lt;command&gt;</code> aufgerufen. Die technische Dokumentation finden Sie in
+der Man-Page <code class="literal">git-svn(1)</code>.
+</dd>
+          <dt>
+            <span class="term">
+Concurrent Versioning System (<code class="literal">cvs</code>)
+</span>
+          </dt>
+          <dd>
+Das Kommando <code class="literal">git cvsimport</code>
+bewerkstelligt Import und Abgleich eines CVS-Repositorys – das
+Pendant ist <code class="literal">git cvsexportcommit</code>.
+</dd>
+          <dt>
+            <span class="term">
+Perforce (<code class="literal">p4</code>)
+</span>
+          </dt>
+          <dd>
+Mit <code class="literal">git p4</code> sprechen Sie Repositories des
+proprietären Systems Perforce an.
+</dd>
+        </dl>
+      </div>
+      <p>Für das Zusammenspiel mit anderen VCS gibt es zudem eine Vielzahl
+zusätzlicher Werkzeuge und Scripte, die die genannten Kommandos
+verbessern, erweitern und zum Teil ersetzen.  Aber auch Schnittstellen
+zu weiteren Versionsverwaltungssystemen, wie z.B. Mercurial, werden
+angeboten. Sollten die in diesem Kapitel beschriebenen Kommandos und
+Rezepte nicht ausreichen, lohnt sich eine Internet-Recherche. Als
+ersten Anlaufpunkt empfehlen wir das Git-Wiki.<a href="#ftn.idm45240355478160" class="footnote" id="idm45240355478160"><sup class="footnote">[117]</sup></a></p>
+      <p>Neben den unmittelbaren Kommunikationsmöglichkeiten mit
+anderen Systemen verfügt Git über ein eigenes, simples
+Plaintext-Protokoll, mit dem Sie die Versionsgeschichte aus einem
+beliebigen System so übersetzen, dass Git daraus ein Repository
+erstellt. Für eine detaillierte Beschreibung inklusive Beispiel siehe
+<a class="xref" href="ch09.html#sec.fast-import" title="9.2. Eigene Importer">Abschnitt 9.2, „Eigene Importer“</a> über <span class="emphasis"><em>Fast-Import</em></span>.</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.subversion"></a>9.1. Subversion</h2>
+            </div>
+          </div>
+        </div>
+        <p>Im Folgenden geht es um die Handhabung von <code class="literal">git-svn</code>.  Wir
+zeigen Ihnen, wie Sie Subversion-Repositories konvertieren und wie Sie
+es einsetzen, um Änderungen zwischen einem Subversion-Repository und
+Git auszutauschen.</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.git-svn-convert"></a>9.1.1. Konvertierung</h3>
+              </div>
+            </div>
+          </div>
+          <p>Ziel ist es, die Versionsgeschichte aus einem Subversion-Repository in
+ein Git-Repository zu übertragen. Bevor Sie starten, müssen Sie
+Vorbereitungen treffen, die je nach Projektgröße einige Zeit in
+Anspruch nehmen. Gute Vorbereitung hilft Ihnen aber, Fehler von
+vornherein zu vermeiden.</p>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.git-svn-vorbereitung"></a>Vorbereitung</h4>
+                </div>
+              </div>
+            </div>
+            <p>Folgende Informationen sollten Sie zur Hand haben:</p>
+            <div class="orderedlist">
+              <ol class="orderedlist" type="1">
+                <li class="listitem">
+Wer sind die Autoren? Wie lauten ihre E-Mail-Adressen?
+</li>
+                <li class="listitem">
+Wie ist das Repository strukturiert? Gibt es Branches und Tags?
+</li>
+                <li class="listitem">
+Sollen Metadaten zu der Subversion-Revision in den Git-Commits
+  abgelegt werden?
+</li>
+              </ol>
+            </div>
+            <p>Später werden Sie das Kommando <code class="literal">git svn clone</code> aufrufen. Die
+Antworten auf die oben genannten Fragen entscheiden, mit welchen
+Optionen und Argumenten Sie dies tun.</p>
+            <div class="tip" style="margin-left: 0; margin-right: 10%;">
+              <h3 class="title">Tipp</h3>
+              <p>Unsere Erfahrung hat gezeigt, das es selten bei nur einem
+Konvertierungsversuch bleibt. Wenn das Subversion-Repository nicht
+schon lokal vorliegt, lohnt es sich auf jeden Fall eine lokale Kopie
+anzulegen – dadurch müssen Sie, bei einem zweiten Versuch, die
+Revisionen nicht erneut übers Netzwerk herunterladen.  Hierfür können
+Sie bspw.  <code class="literal">rsvndump</code>
+nutzen.<a href="#ftn.idm45240355460928" class="footnote" id="idm45240355460928"><sup class="footnote">[118]</sup></a></p>
+            </div>
+            <p>Subversion nutzt weniger umfangreiche Metadaten zu Autoren als Git;
+Revisionen werden lediglich mit einem Subversion-Benutzernamen
+gekennzeichnet, und es gibt keinen Unterschied zwischen Autor und
+Committer einer Revision.  Damit <code class="literal">git-svn</code> die
+Subversion-Benutzernamen in für Git typische vollständige Namen mit
+E-Mail-Adressen übertragen kann, bedarf es einer sog.
+<span class="emphasis"><em>Authors-Datei</em></span>:</p>
+            <pre class="screen">jplenz  = Julius Plenz &lt;julius@plenz.com&gt;
+vhaenel = Valentin Haenel &lt;valentin.haenel@gmx.de&gt;</pre>
+            <p>Die Datei, z.B. <code class="literal">authors.txt</code>, übergeben Sie später mit
+<code class="literal">--authors-file=</code> bzw. <code class="literal">-A</code> an <code class="literal">git-svn</code>.</p>
+            <p>Folgender Einzeiler ermittelt alle Subversion-Benutzernamen und hilft
+Ihnen, die Datei zu erstellen:</p>
+            <pre class="screen">$ <span class="strong"><strong>svn log --xml | grep author | sed 's_^.*&gt;\(.*\)&lt;.*$_\1_' | \</strong></span>
+  <span class="strong"><strong>sort --unique</strong></span></pre>
+            <p>Geben Sie bei der Konvertierung keine Authors-Datei an (oder fehlt ein
+Autor), so verwendet <code class="literal">git-svn</code> den Subversion-Benutzernamen als
+Autor. Die E-Mail-Adresse setzt sich aus dem Subversion-Benutzernamen
+und der UUID des Subversion-Repositorys zusammen.</p>
+            <p>Finden Sie im nächsten Schritt heraus, wie das Repository strukturiert
+ist.  Dabei helfen folgende Fragen:</p>
+            <div class="orderedlist">
+              <ol class="orderedlist" type="1">
+                <li class="listitem">
+                  <p class="simpara">
+Verfügt das Repository über einen sog. <span class="emphasis"><em>Trunk</em></span>
+  (Hauptentwicklungsstrang), Branches und Tags?
+</p>
+                  <div class="orderedlist">
+                    <ol class="orderedlist" type="a">
+                      <li class="listitem">
+Wenn ja, wird das Standardlayout von Subversion (<code class="literal">trunk/</code>,
+      <code class="literal">branches/</code>, <code class="literal">tags/</code>) eingesetzt?
+</li>
+                      <li class="listitem">
+Wenn nicht, in welchen Verzeichnissen befinden sich
+      Trunk, Branches und Tags dann?
+</li>
+                    </ol>
+                  </div>
+                </li>
+                <li class="listitem">
+Werden nur ein einzelnes oder mehrere Projekte in dem Repository
+    verwaltet?
+</li>
+              </ol>
+            </div>
+            <p>Folgt das Projekt dem Subversion-Standardlayout
+(<a class="xref" href="ch09.html#fig.svn-stdlayout" title="Abbildung 9.1. Standardlayout Subversion">Abbildung 9.1, „Standardlayout Subversion“</a>), verwenden Sie für die Konvertierung das
+Argument <code class="literal">--stdlayout</code> bzw.  kurz <code class="literal">-s</code>.</p>
+            <div class="figure">
+              <a id="fig.svn-stdlayout"></a>
+              <p class="title">
+                <strong>Abbildung 9.1. Standardlayout Subversion</strong>
+              </p>
+              <div class="figure-contents">
+                <div class="mediaobject">
+                  <img src="bilder_ebook/svn-stdlayout-crop.png" width="108" alt="bilder_ebook/svn-stdlayout-crop.png" />
+                </div>
+              </div>
+            </div>
+            <br class="figure-break" />
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.git-svn-metadata"></a>SVN-Metadaten</h4>
+                </div>
+              </div>
+            </div>
+            <p>Das Argument <code class="literal">--no-metadata</code> verhindert, dass zusätzliche
+Metadaten in die Commit-Message einfließen. Inwieweit das für Ihren
+Anwendungsfall sinnvoll ist, müssen Sie selbst entscheiden. Aus
+technischer Sicht sind die Metadaten nur notwendig, wenn Sie weiterhin
+mit dem Subversion-Repository interagieren wollen. Es kann allerdings
+auch hilfreich sein, die Metadaten zu erhalten, wenn Sie bspw. in Ihrem Bugtracking-System die
+Subversion-Revisionsnummer verwenden.</p>
+            <p>Die SVN-Metadaten tauchen jeweils in der letzten Zeile einer
+Commit-Nachricht auf und haben die folgende Form:</p>
+            <pre class="screen">git-svn-id: &lt;URL&gt;@&lt;Revision&gt; &lt;UUID&gt;</pre>
+            <p><code class="literal">&lt;URL&gt;</code> ist die URL des Subversion-Repositorys,
+<code class="literal">&lt;Revision&gt;</code> die Subversion-Revision und <code class="literal">&lt;UUID&gt;</code>
+(<span class="emphasis"><em>Universally Unique Identifier</em></span>) eine Art
+„Fingerabdruck“ des Subversion-Repositorys. Zum Beispiel:</p>
+            <pre class="screen">git-svn-id: file:///demo/trunk@8 2423f1c7-8de6-44f9-ab07-c0d4e8840b78</pre>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.git-svn-username"></a>Benutzernamen angeben</h4>
+                </div>
+              </div>
+            </div>
+            <p>Wie Sie den Benutzernamen angeben, hängt vom Transport-Protokoll ab.
+Für solche, bei denen Subversion die Authentifizierung regelt (z.B. <code class="literal">http</code>, <code class="literal">https</code> und <code class="literal">svn</code>), nutzen Sie die
+Option <code class="literal">--username</code>.  Für andere (<code class="literal">svn+ssh</code>) müssen
+Sie den Benutzernamen als Teil der URL angeben, also beispielsweise
+<code class="literal">svn+ssh://USER@svn.example.com</code>.</p>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.git-svn-convert-befehl"></a>Standardlayout konvertieren</h4>
+                </div>
+              </div>
+            </div>
+            <p>Ein SVN-Repository im Standardlayout konvertieren Sie mit dem
+folgenden Aufruf (nachdem Sie eine Authors-Datei erstellt haben):</p>
+            <pre class="screen">$ <span class="strong"><strong>git svn clone &lt;http://svn.example.com/&gt; -s -A &lt;authors.txt&gt; \</strong></span>
+    <span class="strong"><strong>--no-metadata &lt;projekt-konvertiert&gt;</strong></span></pre>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.git-svn-nonstdlayout"></a>Non-Standard Layout</h4>
+                </div>
+              </div>
+            </div>
+            <p>Ist das Repository nicht nach dem Subversion-Standardlayout ausgelegt,
+passen Sie den Aufruf von <code class="literal">git svn</code> entsprechend an: Statt
+<code class="literal">--stdlayout</code> geben Sie explizit den Trunk mit
+<code class="literal">--trunk</code> bzw. <code class="literal">-T</code> an, die Branches mit
+<code class="literal">--branches</code> bzw. <code class="literal">-b</code> und die Tags mit
+<code class="literal">--tags</code> bzw. <code class="literal">-t</code> – wenn beispielsweise mehrere
+Projekte in einem Subversion-Repository verwaltet werden (<a class="xref" href="ch09.html#fig.svn-nonstdlayout" title="Abbildung 9.2. Non-Standard Layout">Abbildung 9.2, „Non-Standard Layout“</a>).</p>
+            <div class="figure">
+              <a id="fig.svn-nonstdlayout"></a>
+              <p class="title">
+                <strong>Abbildung 9.2. Non-Standard Layout</strong>
+              </p>
+              <div class="figure-contents">
+                <div class="mediaobject">
+                  <img src="bilder_ebook/svn-nonstdlayout-crop.png" width="108" alt="bilder_ebook/svn-nonstdlayout-crop.png" />
+                </div>
+              </div>
+            </div>
+            <br class="figure-break" />
+            <p>Um <code class="literal">projekt1</code> zu konvertieren, würde der Aufruf wie folgt
+lauten:<a href="#ftn.idm45240355402160" class="footnote" id="idm45240355402160"><sup class="footnote">[119]</sup></a></p>
+            <pre class="screen">$ <span class="strong"><strong>git svn clone &lt;http://svn.example.com/&gt; -T trunk/projekt1 \</strong></span>
+  <span class="strong"><strong>-b branches/projekt1 -t tags/projekt1 \</strong></span>
+  <span class="strong"><strong>-A &lt;authors.txt&gt; &lt;projekt1-konvertiert&gt;</strong></span></pre>
+            <p>Ein SVN-Repository ohne Branches oder Tags klonen Sie einfach über die
+URL des Projektverzeichnisses und verzichten dabei vollständig auf
+<code class="literal">--stdlayout</code>:</p>
+            <pre class="screen">$ <span class="strong"><strong>git svn clone &lt;http://svn.example.com/projekt&gt; -A authors.txt \</strong></span>
+    <span class="strong"><strong>--no-metadata &lt;projekt-konvertiert&gt;</strong></span></pre>
+            <p>Sollten mehrere unabhängige Projekte in einem Repository verwaltet
+werden, empfehlen wir Ihnen, pro Projekt ein eigenes Git-Repository zu
+erstellen. Git eignet sich – im Gegensatz zu Subversion – nicht, um mehrere
+Projekte in einem Repository zu verwalten. Das Objektmodell führt dazu, dass die
+Entwicklungsgeschichten (Commit-Graphen) untrennbar miteinander verschmelzen
+würden. Wie Sie Projekte aus unterschiedlichen Git-Repositories miteinander
+„verknüpfen“, ist in <a class="xref" href="ch05.html#sec.subprojects" title="5.11. Unterprojekte verwalten">Abschnitt 5.11, „Unterprojekte verwalten“</a> beschrieben.</p>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.git-svn-nachbearbeiten"></a>Nachbearbeitung</h4>
+                </div>
+              </div>
+            </div>
+            <p>Ist <code class="literal">git svn clone</code> durchgelaufen, müssen Sie das Repository
+meist noch ein wenig nachbearbeiten.</p>
+            <div class="tip" style="margin-left: 0; margin-right: 10%;">
+              <h3 class="title">Tipp</h3>
+              <p>Bei der Konvertierung ignoriert <code class="literal">git-svn</code> alle Subversion-Properties
+außer <code class="literal">svn:execute</code>.  Wenn das Subversion-Repository die Properties
+<code class="literal">svn:ignore</code> zum Ausschließen von Dateien verwendet, können Sie diese
+in eine (oder rekursiv für mehrere) <code class="literal">.gitignore</code>-Datei(en) übersetzen:</p>
+              <pre class="screen">$ <span class="strong"><strong>git svn create-ignore</strong></span></pre>
+              <p>Die <code class="literal">.gitignore</code>-Dateien werden nur erzeugt und dem Index
+hinzugefügt – Sie müssen diese noch einchecken.</p>
+            </div>
+            <p>Git erzeugt für den Subversion-Trunk sowie die Subversion-Branches und
+-Tags spezielle Git-Branches unter <code class="literal">remotes/origin</code>. Sie haben
+große Ähnlichkeit mit den Remote-Tracking-Branches, da sie den Zustand
+des Subversion-Repositorys abbilden – es sind also quasi
+<span class="emphasis"><em>Subversion-Tracking-Branches</em></span>. Sie dienen vor allem der
+bidirektionalen Kommunikation und werden bei einer Synchronisation mit
+dem Subversion-Repository aktualisiert. Wollen Sie allerdings das
+Repository nur konvertieren, haben diese Branches keinen Nutzen mehr
+und sollten entsprechend in „echte“ Git-Branches
+umgeschrieben werden (s.u.).</p>
+            <p>Für den Trunk und jeden Subversion-Branch wird je ein
+Subversion-Tracking-Branch
+angelegt,<a href="#ftn.idm45240355380112" class="footnote" id="idm45240355380112"><sup class="footnote">[120]</sup></a> und für jedes Subversion-Tag
+ebenfalls ein Subversion-Tracking-Branch (<span class="emphasis"><em>kein</em></span> Git-Tag,
+s.u.), aber unter <code class="literal">remotes/origin/tags</code>.</p>
+            <p>Angenommen, das Subversion-Repository hat folgende Subversion-Branches
+und -Tags:</p>
+            <div class="figure">
+              <a id="fig.svn-branches"></a>
+              <p class="title">
+                <strong>Abbildung 9.3. Beispiel Subversion-Branches und -Tags</strong>
+              </p>
+              <div class="figure-contents">
+                <div class="mediaobject">
+                  <img src="bilder_ebook/svn-branches-crop.png" width="108" alt="bilder_ebook/svn-branches-crop.png" />
+                </div>
+              </div>
+            </div>
+            <br class="figure-break" />
+            <p>In diesem Fall erzeugt <code class="literal">git svn</code> folgende Git-Branches:</p>
+            <div class="figure">
+              <a id="fig.git-konverted-branches"></a>
+              <p class="title">
+                <strong>Abbildung 9.4. Konvertierte Git-Branches</strong>
+              </p>
+              <div class="figure-contents">
+                <div class="mediaobject">
+                  <img src="bilder_ebook/git-branches-crop.png" width="189" alt="bilder_ebook/git-branches-crop.png" />
+                </div>
+              </div>
+            </div>
+            <br class="figure-break" />
+            <p>Das Präfix passen Sie mit der Option <code class="literal">--prefix=</code> an. So
+werden zum Beispiel mit der Anweisung <code class="literal">--prefix=svn/</code> alle
+konvertierten Referenzen unter <code class="literal">remotes/svn/</code> statt unter
+<code class="literal">remotes/origin</code> abgelegt.</p>
+            <p>Wie schon erwähnt, erzeugt <code class="literal">git-svn</code> für Subversion-Tags
+<span class="emphasis"><em>keine</em></span> Git-Tags. Das liegt daran, dass sich Subversion-Tags aus
+technischer Sicht kaum von Subversion-Branches unterscheiden. Sie
+werden auch mit <code class="literal">git svn copy</code> erstellt und können – im
+Gegensatz zu Git-Tags – im Nachhinein verändert werden. Um solche
+Aktualisierungen verfolgen zu können, werden Subversion-Tags daher
+auch als Subversion-Tracking-Branches dargestellt. Wie auch die
+Subversion-Branches, haben diese in einem konvertierten
+Repository keinen Nutzen (sondern stiften eher Verwirrung) und
+sollten daher in echte Git-Tags umgeschrieben werden.</p>
+            <p>Wenn Sie die Subversion-Branches und -Tags beibehalten wollen, sollten
+Sie die Subversion-Tracking-Branches in Lokale-Git-Branches bzw.
+Lightweight-Git-Tags übersetzen. Im ersten Schritt hilft Ihnen
+folgendes Shell-Script <code class="literal">git-convert-refs</code>:<a href="#ftn.idm45240355358720" class="footnote" id="idm45240355358720"><sup class="footnote">[121]</sup></a></p>
+            <pre class="screen">#!/bin/sh
+
+. $(git --exec-path)/git-sh-setup
+svn_prefix='svn/'
+
+convert_ref(){
+  echo -n "converting: $1 to: $2 ..."
+  git update-ref $2 $1
+  git update-ref -d $1
+  echo "done"
+}
+
+get_refs(){
+  git for-each-ref $1 --format='%(refname)'
+}
+
+echo 'Converting svn tags'
+get_refs refs/remotes/${svn_prefix}tags | while read svn_tag
+do
+  new_ref=$(echo $svn_tag | sed -e "s|remotes/$svn_prefix||")
+  convert_ref $svn_tag $new_ref
+done
+
+echo "Converting svn branches"
+get_refs refs/remotes/${svn_prefix} | while read svn_branch
+do
+  new_ref=$(echo $svn_branch | sed -e "s|remotes/$svn_prefix|heads/|")
+  convert_ref $svn_branch $new_ref
+done</pre>
+            <p>Das Script nimmt an, dass das Repository mit der Option
+<code class="literal">--prefix=svn/</code> konvertiert wurde. Die beiden
+<code class="literal">while</code>-Schleifen machen Folgendes:</p>
+            <div class="itemizedlist">
+              <ul class="itemizedlist" style="list-style-type: disc; ">
+                <li class="listitem">
+Für jeden Subversion-Tracking-Branch, der einem Subversion-<span class="emphasis"><em>Tag</em></span>
+  entspricht, wird ein Git-Tag erzeugt (z.B. <code class="literal">refs/remotes/svn/tags/v1.0</code> → <code class="literal">refs/tags/v1.0</code>).
+</li>
+                <li class="listitem">
+Für jeden Subversion-Tracking-Branch, der einem Subversion-<span class="emphasis"><em>Branch</em></span>
+  entspricht, wird ein „echter“ lokaler Git-Branch erzeugt
+  (z.B. <code class="literal">refs/remotes/svn/bugfix</code> → <code class="literal">refs/heads/bugfix</code>).
+</li>
+              </ul>
+            </div>
+            <p>Das Script nutzt die Plumbing-Kommandos <code class="literal">git for-each-ref</code>, das
+auf den angegebenen Ausdruck passende Referenzen zeilenweise ausgibt,
+und <code class="literal">git update-ref</code>, das Referenzen umschreibt und
+löscht.<a href="#ftn.idm45240355345280" class="footnote" id="idm45240355345280"><sup class="footnote">[122]</sup></a></p>
+            <p>In <a class="xref" href="ch09.html#fig.git-convert-refs-before" title="Abbildung 9.5. Konvertierte Branches und Tags vor der Übersetzung">Abbildung 9.5, „Konvertierte Branches und Tags vor der Übersetzung“</a> und
+<a class="xref" href="ch09.html#fig.git-convert-refs-after" title="Abbildung 9.6. Konvertierte Branches und Tags nach der Übersetzung">Abbildung 9.6, „Konvertierte Branches und Tags nach der Übersetzung“</a> sehen Sie, wie das Script
+funktioniert. In dem Subversion-Repository existieren der Trunk, ein Branch
+<code class="literal">feature</code> sowie das Tag <code class="literal">v1.0</code>. Bei der Konvertierung erstellt
+<code class="literal">git-svn</code> drei Branches unter  <code class="literal">remotes/svn</code>, wie oben beschrieben.
+Das Script <code class="literal">git-convert-refs</code> übersetzt schließlich
+<code class="literal">remotes/svn/trunk</code> → <code class="literal">trunk</code>, <code class="literal">remotes/svn/feature</code>
+→ <code class="literal">feature</code> und aus <code class="literal">remotes/svn/tags/v1.0</code> wird ein
+Lightweight Tag.</p>
+            <div class="figure">
+              <a id="fig.git-convert-refs-before"></a>
+              <p class="title">
+                <strong>Abbildung 9.5. Konvertierte Branches und Tags vor der Übersetzung</strong>
+              </p>
+              <div class="figure-contents">
+                <div class="mediaobject">
+                  <img src="bilder_ebook/git-convert-refs-before.png" width="486" alt="bilder_ebook/git-convert-refs-before.png" />
+                </div>
+              </div>
+            </div>
+            <br class="figure-break" />
+            <div class="figure">
+              <a id="fig.git-convert-refs-after"></a>
+              <p class="title">
+                <strong>Abbildung 9.6. Konvertierte Branches und Tags nach der Übersetzung</strong>
+              </p>
+              <div class="figure-contents">
+                <div class="mediaobject">
+                  <img src="bilder_ebook/git-convert-refs-after.png" width="486" alt="bilder_ebook/git-convert-refs-after.png" />
+                </div>
+              </div>
+            </div>
+            <br class="figure-break" />
+            <p>Nachdem Sie die Subversion-Branches und Tags umgeschrieben haben,
+werden Sie feststellen, dass alle Git-Tags auf ganz kurzen
+Abzweigungen „sitzen“ (siehe Tag <code class="literal">v1.0</code> in der
+<a class="xref" href="ch09.html#fig.git-convert-refs-after" title="Abbildung 9.6. Konvertierte Branches und Tags nach der Übersetzung">Abbildung 9.6, „Konvertierte Branches und Tags nach der Übersetzung“</a>
+und <a class="xref" href="ch09.html#fig.git-svn-tag-fix-before" title="Abbildung 9.7. Konvertierte Git-Tags auf Abzweigungen">Abbildung 9.7, „Konvertierte Git-Tags auf Abzweigungen“</a>).  Das liegt daran, dass jedes
+Subversion-Tag mit einem Subversion-Commit erzeugt wurde. Das
+Konvertierungsverhalten von <code class="literal">git-svn</code> ist also prinzipiell korrekt, weil
+pro Subversion-Revision ein Git-Commit erzeugt wird – aber für ein
+Git-Repository etwas unhandlich: Sie können z.B. nicht <code class="literal">git
+describe --tags</code> einsetzen.</p>
+            <p>Da jedoch, sofern das Subversion-Tag nicht noch nachträglich verändert
+wurde, der getaggte Commit den gleichen Tree referenziert wie sein
+Vorfahre, können Sie die Tags auf die Vorfahren verschieben. Dabei
+hilft folgendes Shell-Script <code class="literal">git-fix-tags</code>
+<a href="#ftn.idm45240355318288" class="footnote" id="idm45240355318288"><sup class="footnote">[123]</sup></a>:</p>
+            <pre class="screen">#!/bin/sh
+
+. $(git --exec-path)/git-sh-setup
+get_tree(){ git rev-parse $1^{tree}; }
+
+git for-each-ref refs/tags --format='%(refname)' \
+| while read tag
+do
+    sha1=$(git rev-parse $tag)
+    tree=$(get_tree $tag )
+    new=$sha1
+    while true
+    do
+        parent=$(git rev-parse $new^)
+        git rev-parse $new^2 &gt; /dev/null 2&gt;&amp;1 &amp;&amp; break
+        parent_tree=$(get_tree $parent)
+        [ "$parent_tree" != "$tree" ] &amp;&amp; break
+        new=$parent
+    done
+    [ "$sha1" = "$new" ] &amp;&amp; break
+    echo -n "Found new commit for tag ${tag#refs/tags/}: " \
+        $(git rev-parse --short $new)", resetting..."
+    git update-ref $tag $new
+    echo 'done'
+done</pre>
+            <p>Das Script untersucht jeden getaggten Commit. Ist unter den Vorfahren
+ein Commit, der denselben Tree referenziert, wird das Tag erneuert.
+Hat der Commit oder einer seiner Vorfahren selbst mehrere Vorfahren
+(nach einem Merge), wird die Suche abgebrochen.  In <a class="xref" href="ch09.html#fig.git-svn-tag-fix-before" title="Abbildung 9.7. Konvertierte Git-Tags auf Abzweigungen">Abbildung 9.7, „Konvertierte Git-Tags auf Abzweigungen“</a> sehen Sie zwei Tags, die in Frage
+kommen: <code class="literal">v1.0</code> und <code class="literal">v2.0</code>. Das Tag <code class="literal">v1.0</code> wurde
+von Commit <code class="literal">C1</code> aus erstellt und enthält keine nachträglichen
+Veränderungen. Das Tag <code class="literal">v2.0</code> hingegen wurde nach seiner
+Erstellung von Commit <code class="literal">C2</code> nochmals verändert.</p>
+            <div class="figure">
+              <a id="fig.git-svn-tag-fix-before"></a>
+              <p class="title">
+                <strong>Abbildung 9.7. Konvertierte Git-Tags auf Abzweigungen</strong>
+              </p>
+              <div class="figure-contents">
+                <div class="mediaobject">
+                  <img src="bilder_ebook/git-svn-tag-fix-before.png" width="486" alt="bilder_ebook/git-svn-tag-fix-before.png" />
+                </div>
+              </div>
+            </div>
+            <br class="figure-break" />
+            <p>In <a class="xref" href="ch09.html#fig.git-svn-tag-fix-after" title="Abbildung 9.8. Tag v1.0 wurde umgeschrieben">Abbildung 9.8, „Tag <code class="literal">v1.0</code> wurde umgeschrieben“</a> sehen Sie, wie das Tag
+<code class="literal">v1.0</code> von obigem Script auf den Vorfahren verschoben wurde
+(weil die Trees gleich sind). Das Tag <code class="literal">v2.0</code> bleibt jedoch an
+Ort und Stelle (weil die Trees aufgrund nachträglicher Veränderungen
+verschieden sind).</p>
+            <div class="figure">
+              <a id="fig.git-svn-tag-fix-after"></a>
+              <p class="title">
+                <strong>Abbildung 9.8. Tag <code class="literal">v1.0</code> wurde umgeschrieben</strong>
+              </p>
+              <div class="figure-contents">
+                <div class="mediaobject">
+                  <img src="bilder_ebook/git-svn-tag-fix-after.png" width="486" alt="bilder_ebook/git-svn-tag-fix-after.png" />
+                </div>
+              </div>
+            </div>
+            <br class="figure-break" />
+            <div class="tip" style="margin-left: 0; margin-right: 10%;">
+              <h3 class="title">Tipp</h3>
+              <p>Das Tool
+<code class="literal">git-svn-abandon</code><a href="#ftn.idm45240355297040" class="footnote" id="idm45240355297040"><sup class="footnote">[124]</sup></a>
+verfolgt einen ähnlichen Ansatz wie die beiden vorgestellten Scripte,
+konvertiert also Subversion-Tracking-Branches und verschiebt Tags. Statt Lightweight Tags erzeugt es jedoch Annotated Tags und erledigt noch
+einige zusätzliche Aufräumarbeiten, ähnlich denen, die wir als
+nächstes behandeln. Eine andere Alternative, um die Tags zu
+verschieben, ist das Script
+<code class="literal">git-move-tags-up</code><a href="#ftn.idm45240355294816" class="footnote" id="idm45240355294816"><sup class="footnote">[125]</sup></a>.</p>
+            </div>
+            <p>Sie sollten noch entscheiden, wie Sie mit der Referenz für den Trunk
+(<code class="literal">trunk</code> bzw. <code class="literal">git-svn</code>) umgehen wollen. Nach der
+Konvertierung zeigt dieser auf denselben Commit wie <code class="literal">master</code> – von daher können Sie ihn eigentlich löschen:</p>
+            <pre class="screen">$ <span class="strong"><strong>git branch -d trunk</strong></span></pre>
+            <p>Eventuell befinden sich nach der Konvertierung noch Git-Branches in
+dem Repository, die bereits in den <code class="literal">master</code> gemergt wurden.
+Entfernen Sie diese mit folgendem Kommando:</p>
+            <pre class="screen">$ <span class="strong"><strong>git checkout master</strong></span>
+$ <span class="strong"><strong>git branch --merged | grep -v '^*' | xargs git branch -d</strong></span></pre>
+            <p>Außerdem können Sie die übrigen Altlasten entsorgen, die sich sowohl
+in der Repository-Konfiguration als auch in <code class="literal">.git/</code> befinden:</p>
+            <pre class="screen">$ <span class="strong"><strong>rm -r .git/svn</strong></span>
+$ <span class="strong"><strong>git config --remove-section svn</strong></span>
+$ <span class="strong"><strong>git config --remove-section svn-remote.svn</strong></span></pre>
+            <p>Sie sind dann bereit, die konvertierte Geschichte in ein
+Remote-Repository hochzuladen, um es mit anderen Entwicklern gemeinsam
+zu benutzen.</p>
+            <pre class="screen">$ <span class="strong"><strong>git remote add &lt;example&gt; &lt;git@git.example.com:projekt1.git&gt;</strong></span>
+$ <span class="strong"><strong>git push &lt;example&gt; --mirror</strong></span></pre>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.git-svn-merges"></a>Subversion-Merges</h4>
+                </div>
+              </div>
+            </div>
+            <p>Subversion-Merges werden von <code class="literal">git-svn</code> anhand der
+<code class="literal">svn:mergeinfo</code>-Properties erkannt und als Git-Merges übersetzt – allerdings nicht immer. Es kommt darauf an, welche
+Subversion-Revisionen gemergt wurden und wie.  Wurden alle
+Revisionen, die einen Branch betreffen, gemergt (<code class="literal">svn
+  merge -r &lt;N:M&gt;</code>), so wird dies durch einen Git-Merge-Commit
+abgebildet.  Wurden jedoch nur einzelne Revisionen gemergt (via
+<code class="literal">svn merge -c &lt;N&gt;</code>), dann werden diese stattdessen einfach mit
+<code class="literal">git cherry-pick</code> übernommen.</p>
+            <p>Für folgendes Beispiel haben wir ein Subversion-Repository
+mit einem Branch <code class="literal">feature</code> erstellt, der zweimal
+gemergt wird. Einmal als Subversion-Merge, der als Git-Merge-Commit
+gewertet wird, und einmal als Subversion-Merge, der als Cherry-Pick
+übersetzt wird.  Das mit <code class="literal">git-svn</code> konvertierte Resultat ist
+unten abgebildet.</p>
+            <div class="figure">
+              <a id="fig.git-svn-merge-demo"></a>
+              <p class="title">
+                <strong>Abbildung 9.9. Konvertiertes Subversion-Repository</strong>
+              </p>
+              <div class="figure-contents">
+                <div class="mediaobject">
+                  <img src="bilder_ebook/git-svn-merge-demo.png" width="486" alt="bilder_ebook/git-svn-merge-demo.png" />
+                </div>
+              </div>
+            </div>
+            <br class="figure-break" />
+            <p>Die Commits im Subversion-Repository wurden in der folgenden
+Reihenfolge gemacht:</p>
+            <div class="orderedlist">
+              <ol class="orderedlist" type="1">
+                <li class="listitem">
+Standardlayout
+</li>
+                <li class="listitem">
+<code class="literal">C1</code> auf <code class="literal">trunk</code>
+</li>
+                <li class="listitem">
+Branch <code class="literal">feature</code>
+</li>
+                <li class="listitem">
+<code class="literal">C1</code> auf <code class="literal">feature</code>
+</li>
+                <li class="listitem">
+<code class="literal">C2</code> auf <code class="literal">feature</code>
+</li>
+                <li class="listitem">
+<code class="literal">C2</code> auf <code class="literal">trunk</code>
+</li>
+                <li class="listitem">
+<code class="literal">svn merge branches/feature trunk -c 5</code> (commit <code class="literal">C2</code> auf <code class="literal">feature</code>)
+</li>
+                <li class="listitem">
+<code class="literal">svn merge branches/feature trunk -r 3:5</code> (commit <code class="literal">C1</code>&amp;<code class="literal">C2</code> auf <code class="literal">feature</code>)
+</li>
+              </ol>
+            </div>
+            <p>Abschließend ist noch zu erwähnen, dass <code class="literal">git-svn</code> bei weitem nicht das
+einzige Tool zur Konvertierung ist. <code class="literal">git-svn</code> leidet oft an Geschwindigkeitsproblemen bei
+sehr großen Repositories. In diesem Kontext
+werden zwei Tools sehr häufig genannt, die schneller arbeiten: einerseits <code class="literal">svn2git</code><a href="#ftn.idm45240355245296" class="footnote" id="idm45240355245296"><sup class="footnote">[126]</sup></a>
+und auch <code class="literal">svn-fe</code><a href="#ftn.idm45240355243728" class="footnote" id="idm45240355243728"><sup class="footnote">[127]</sup></a> (svn-fast-export). Sollten Sie bei der Konvertierung auf Probleme stoßen
+(z.B. wenn die Konvertierung schon seit mehreren Tagen läuft und noch kein Ende in Sicht ist), lohnt sich der Blick auf die Alternativen.</p>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.git-svn-conduit"></a>9.1.2. Bidirektionale Kommunikation</h3>
+              </div>
+            </div>
+          </div>
+          <p>Das Werkzeug <code class="literal">git-svn</code> kann nicht nur ein Subversion-Repository
+konvertieren, es taugt vor allem auch als besserer Subversion-Client.  Das heißt, Sie
+haben lokal alle Vorzüge von Git (einfaches und flexibles Branching,
+lokale Commits und Geschichte) – können aber Ihre Git-Commits aus dem
+lokalen Git-Repository als Subversion-Commits in ein
+Subversion-Repository hochladen. Außerdem erlaubt es <code class="literal">git-svn</code>,
+neue Commits anderer Entwickler aus dem Subversion-Repository in Ihr
+lokales Git-Repository herunterzuladen. Sie sollten <code class="literal">git-svn</code>
+dann einsetzen, wenn eine vollständige Umstellung auf Git nicht
+durchführbar ist, Sie aber gerne lokal die Vorzüge von Git nutzen
+möchten. Beachten Sie hierbei aber, dass <code class="literal">git-svn</code> eine etwas
+eingeschränkte Version von Subversion ist und nicht alle Features in
+vollem Umfang zur Verfügung stehen. Vor allem beim Hochladen gibt es
+einige Feinheiten zu beachten.</p>
+          <p>Zunächst eine Zusammenfassung der wichtigsten
+<code class="literal">git-svn</code>-Befehle:</p>
+          <div class="variablelist">
+            <dl class="variablelist">
+              <dt>
+                <span class="term">
+<code class="literal">git svn init</code>
+</span>
+              </dt>
+              <dd>
+Git-Repository zum Verfolgen eines
+Subversion-Repositorys anlegen.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">git svn fetch</code>
+</span>
+              </dt>
+              <dd>
+Neue Revisionen aus dem Subversion-Repository
+herunterladen.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">git svn clone</code>
+</span>
+              </dt>
+              <dd>
+Kombination aus <code class="literal">git svn init</code> und <code class="literal">git svn fetch</code>.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">git svn dcommit</code>
+</span>
+              </dt>
+              <dd>
+Git-Commits als Subversion-Revisionen in das
+Subversion-Repository hochladen (<span class="emphasis"><em>Diff Commit</em></span>).
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">git svn rebase</code>
+</span>
+              </dt>
+              <dd>
+Kombination aus <code class="literal">git svn fetch</code> und <code class="literal">git rebase</code>,
+die üblicherweise vor einem <code class="literal">git svn dcommit</code> ausgeführt wird.
+</dd>
+            </dl>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.git-svn-clone"></a>Subversion-Repository klonen</h4>
+                </div>
+              </div>
+            </div>
+            <p>Um das Repository zu beziehen, gehen Sie zunächst so vor wie im
+Abschnitt zur Subversion-Konvertierung – erstellen Sie eine
+Authors-Datei und ermitteln Sie das Repository-Layout.  Dann können
+Sie mit <code class="literal">git svn clone</code> das Subversion-Repository klonen,
+z.B.:</p>
+            <pre class="screen">$ <span class="strong"><strong>git svn clone http://svn.example.com/ -s \</strong></span>
+  <span class="strong"><strong>-A &lt;authors.txt&gt; &lt;projekt-git&gt;</strong></span></pre>
+            <p>Der Aufruf lädt alle Subversion-Revisionen herunter und erzeugt aus
+dem Verlauf ein Git-Repository unter <code class="literal">&lt;projekt-git&gt;</code>.</p>
+            <div class="tip" style="margin-left: 0; margin-right: 10%;">
+              <h3 class="title">Tipp</h3>
+              <p>Das Klonen eines gesamten Subversion-Verlaufs kann unter Umständen
+sehr, sehr zeitaufwendig sein. Aus Subversion-Sicht ist eine lange
+Historie kein Problem, da der Befehl <code class="literal">svn checkout</code> im Normalfall nur
+die aktuelle Revision herunterlädt.  Etwas Ähnliches lässt sich auch
+mit <code class="literal">git-svn</code> realisieren.  Dazu müssen Sie zuerst das lokale
+Git-Repository initialisieren und dann nur die aktuelle Revision
+(<code class="literal">HEAD</code>) aus dem Trunk oder einem Branch herunterladen. Von Vorteil
+ist hier sicher die Geschwindigkeit, von Nachteil, dass lokal keine
+Geschichte vorliegt:</p>
+              <pre class="screen">$ <span class="strong"><strong>git svn init http://svn.example.com/trunk projekt-git</strong></span>
+$ <span class="strong"><strong>cd projekt-git</strong></span>
+$ <span class="strong"><strong>git svn fetch -r HEAD</strong></span></pre>
+              <p>Alternativ zu <code class="literal">HEAD</code> könnten Sie auch eine beliebige Revision
+angeben und danach mit <code class="literal">git svn fetch</code> die fehlenden Revisionen
+bis zum <code class="literal">HEAD</code> herunterladen, so also nur einen Teil des
+Verlaufs klonen.</p>
+            </div>
+            <p>Im Rahmen der Konvertierung haben wir beschrieben, wie Sie das
+Repository nachbearbeiten. Da Sie in Zukunft weiter mit dem
+Subversion-Repository interagieren wollen, ist das hier nicht
+notwendig. Außerdem darf die Option <code class="literal">--no-metadata</code> nicht
+benutzt werden, weil sonst die Metadaten der Form <code class="literal">git-svn-id:</code>
+aus der Commit-Message verschwinden und Git die Commits und Revisionen
+nicht mehr zuordnen könnte.</p>
+            <p>Der Aufruf von <code class="literal">git-svn</code> erzeugt diverse Einträge in der
+Konfigurationsdatei <code class="literal">.git/config</code>. Zunächst ein Eintrag
+<code class="literal">svn-remote.svn</code>, der, ähnlich einem Eintrag <code class="literal">remote</code>
+für ein Git-Remote-Repository, Angaben zu der URL und den zu
+verfolgenden Subversion-Branches und -Tags enthält. Haben Sie
+beispielsweise ein Repository mit Standardlayout geklont, könnte
+das wie folgt aussehen:</p>
+            <pre class="screen">[svn-remote "svn"]
+    url = http://svn.example.com/
+    fetch = trunk:refs/remotes/origin/trunk
+    branches = branches/*:refs/remotes/origin/*
+    tags = tags/*:refs/remotes/origin/tags/*</pre>
+            <p>Im Gegensatz zu einem regulären <code class="literal">remote</code>-Eintrag enthält dieser
+jedoch zusätzlich die Werte <code class="literal">branches</code> und <code class="literal">tags</code>. Diese
+wiederum enthalten jeweils eine Refspec, die beschreibt, wie
+Subversion-Branches und -Tags lokal als Subversion-Tracking-Branches
+abgelegt werden. Der Eintrag <code class="literal">fetch</code> behandelt nur den
+Subversion-Trunk und darf keinerlei Glob-Ausdrücke enthalten.</p>
+            <p>Haben Sie keine Subversion-Branches und -Tags, fallen die
+entsprechenden Einträge weg:</p>
+            <pre class="screen">[svn-remote "svn"]
+    url = http://svn.example.com/
+    fetch = :refs/remotes/git-svn</pre>
+            <p>Wenn Sie das Repository mit der Präfix-Option klonen, beispielsweise mit
+<code class="literal">--prefix=svn/</code>, passt <code class="literal">git svn</code> die Refspecs an:</p>
+            <pre class="screen">[svn-remote "svn"]
+    url = http://svn.example.com/
+    fetch = trunk:refs/remotes/svn/trunk
+    branches = branches/*:refs/remotes/svn/*
+    tags = tags/*:refs/remotes/svn/tags/*</pre>
+            <p>Sofern Sie eine Authors-Datei angeben, wird für diese ein gesonderter
+Eintrag erzeugt. Die Datei wird auch in Zukunft noch gebraucht, wenn
+Sie neue Commits aus dem Subversion-Repository herunterladen.</p>
+            <pre class="screen">[svn]
+    authorsfile = /home/valentin/svn-testing/authors.txt</pre>
+            <div class="tip" style="margin-left: 0; margin-right: 10%;">
+              <h3 class="title">Tipp</h3>
+              <p>In dem Abschnitt über die Konvertierung haben wir beschrieben, wie Sie
+<code class="literal">create-ignore</code> verwenden, um <code class="literal">.gitignore</code>-Dateien zu erstellen.
+Wenn Sie jedoch weiterhin mit dem Subversion-Repository arbeiten
+wollen, macht es wenig Sinn, die <code class="literal">.gitignore</code>-Dateien dort
+einzuchecken. Sie haben auf Subversion keinerlei Auswirkung und
+verwirren nur andere Entwickler, die weiterhin mit dem nativen
+Subversion-Client (<code class="literal">svn</code>) arbeiten.  Stattdessen bietet sich die
+Option an, die zu ignorierenden Muster in der Datei
+<code class="literal">.git/info/excludes</code> (siehe <a class="xref" href="ch04.html#sec.ignore" title="4.4. Dateien ignorieren">Abschnitt 4.4, „Dateien ignorieren“</a>) abzuspeichern, die nicht
+Teil des Repositorys ist. Dabei hilft das Kommando <code class="literal">git svn
+show-ignore</code>, das alle <code class="literal">svn-ignore</code>-Properties heraussucht und
+ausgibt:</p>
+              <pre class="screen">$ <span class="strong"><strong>git svn show-ignore &gt; .git/info/excludes</strong></span></pre>
+            </div>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.git-svn-untersuchen"></a>Repository untersuchen</h4>
+                </div>
+              </div>
+            </div>
+            <p>Zusätzlich bietet <code class="literal">git-svn</code> noch einige Kommandos zum
+Untersuchen der Geschichte sowie anderer Eigenschaften des
+Repositorys:</p>
+            <div class="variablelist">
+              <dl class="variablelist">
+                <dt>
+                  <span class="term">
+<code class="literal">git svn log</code>
+</span>
+                </dt>
+                <dd>
+                  <p class="simpara">
+Eine Kreuzung aus <code class="literal">svn log</code> und <code class="literal">git log</code>. Das
+Subkommando produziert Output, der <code class="literal">svn log</code> nachempfunden ist,
+verwendet aber das lokale Repository, um dies zu erstellen. Es wurden
+diverse Optionen von <code class="literal">git svn</code> nachgebaut, z.B. <code class="literal">-r &lt;N&gt;:&lt;M&gt;</code>.
+Unbekannte Optionen, z.B. <code class="literal">-p</code>, werden direkt an <code class="literal">git log</code>
+weitergegeben, so dass Optionen aus beiden Kommandos gemischt werden
+können:
+</p>
+                  <pre class="screen">$ <span class="strong"><strong>git svn log -r 3:16 -p</strong></span></pre>
+                  <p class="simpara">Angezeigt würden nun die Revisionen 3—16, inklusive einem Patch der
+Änderungen.</p>
+                </dd>
+                <dt>
+                  <span class="term">
+<code class="literal">git svn blame</code>
+</span>
+                </dt>
+                <dd>
+Ähnlich wie <code class="literal">svn blame</code>.  Mit der Option
+<code class="literal">--git-format</code> hat der Output dasselbe Format wie <code class="literal">git blame</code>, aber
+mit Subversion-Revisionen anstelle der SHA-1-IDs.
+</dd>
+                <dt>
+                  <span class="term">
+<code class="literal">git svn find-rev</code>
+</span>
+                </dt>
+                <dd>
+                  <p class="simpara">
+Zeigt die SHA-1-ID des Git-Commits, der das
+Changeset einer bestimmten Subversion-Revision darstellt. Die Revision
+wird mit der Syntax <code class="literal">r&lt;N&gt;</code> übergeben, wobei <code class="literal">&lt;N&gt;</code> die Revisionszahl
+ist:
+</p>
+                  <pre class="screen">$ <span class="strong"><strong>git svn find-rev r6</strong></span>
+c56506a535f9d41b64850a757a9f6b15480b2c07</pre>
+                </dd>
+                <dt>
+                  <span class="term">
+<code class="literal">git svn info</code>
+</span>
+                </dt>
+                <dd>
+Wie <code class="literal">svn info</code>. Gibt diverse Informationen zu dem
+Subversion-Repository aus.
+</dd>
+                <dt>
+                  <span class="term">
+<code class="literal">git svn proplist</code>
+</span>
+                </dt>
+                <dd>
+Wie <code class="literal">svn proplist</code>, gibt eine Liste der
+vorhandenen Subversion-Properties aus.
+</dd>
+                <dt>
+                  <span class="term">
+<code class="literal">git svn propget</code>
+</span>
+                </dt>
+                <dd>
+Wie <code class="literal">svn propget</code>, gibt den Wert einer einzelnen
+Subversion-Property aus.
+</dd>
+              </dl>
+            </div>
+            <p>Leider kann <code class="literal">git-svn</code> bisher nur Subversion-Properties
+abfragen, aber weder erstellen, modifizieren noch löschen.</p>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.git-svn-austausch"></a>Commits austauschen</h4>
+                </div>
+              </div>
+            </div>
+            <p>Analog zu <code class="literal">git fetch</code> laden Sie mit <code class="literal">git svn fetch</code> neue
+Commits aus dem Subversion-Repository herunter.  Dabei lädt
+<code class="literal">git-svn</code> alle neuen Subversion-Revisionen herunter, übersetzt
+diese in Git-Commits und aktualisiert schließlich die
+Subversion-Tracking-Branches.  Als Ausgabe erhalten Sie eine
+Auflistung der heruntergeladenen Subversion-Revisionen, die Dateien,
+die durch die Revision verändert wurden, sowie die SHA-1-Summe und den
+Subversion-Tracking-Branch des daraus resultierenden Git-Commits, also
+z.B.:</p>
+            <pre class="screen">$ <span class="strong"><strong>git svn fetch</strong></span>
+        A   COPYING
+        M   README
+r21 = 8d707316e1854afbc1b728af9f834e6954273425 (refs/remotes/trunk)</pre>
+            <p>Sie können wie gewohnt in dem Git-Repository lokal arbeiten – beim
+Hochladen der Commits in das Subversion-Repository gilt es jedoch eine
+wichtige Einschränkung zu beachten: Zwar ist <code class="literal">git-svn</code> in der
+Lage, Subversion-Merges einigermaßen darzustellen (s.o.), allerdings
+kann das Tool keine lokalen Git-Merges auf Subversion-Merges abbilden – daher sollten ausschließlich lineare Verläufe per <code class="literal">git svn
+  dcommit</code> hochgeladen werden.</p>
+            <p>Um diese Linearisierung zu erleichtern, gibt es das Kommando
+<code class="literal">git svn rebase</code>. Es lädt zuerst alle neuen Commits aus dem
+Subversion-Repository herunter und baut danach via <code class="literal">git rebase</code>
+den aktuellen Git-Branch auf den entsprechenden
+Subversion-Tracking-Branch neu auf.</p>
+            <p>Im Wesentlichen besteht der Arbeitsablauf aus den folgenden Kommandos:</p>
+            <pre class="screen">$ <span class="strong"><strong>git add/commit ...</strong></span>
+$ <span class="strong"><strong>git svn rebase</strong></span>
+$ <span class="strong"><strong>git svn dcommit</strong></span></pre>
+            <p><a class="xref" href="ch09.html#fig.git-svn-rebase" title="Abbildung 9.10. git svn rebase integriert die neu hinzugekommene Subversion-Revision als Commit C – vor D, was dadurch zu D' wird.">Abbildung 9.10, „<code class="literal">git svn rebase</code> integriert die neu hinzugekommene Subversion-Revision als Commit  <code class="literal">C</code> – vor <code class="literal">D</code>, was dadurch zu <code class="literal">D'</code> wird.“</a> zeigt, was <code class="literal">git svn rebase</code> bewirkt. Zuerst werden neue Revisionen aus dem
+Subversion-Repository heruntergeladen, in diesem Fall <code class="literal">C</code>.
+Danach wird der Tracking-Branch <code class="literal">remotes/origin/trunk</code> soz. „vorgerückt“ und entspricht dann dem aktuellen Zustand im
+Subversion-Repository. Zuletzt wird per <code class="literal">git rebase</code> der
+aktuelle Branch (in diesem Fall <code class="literal">master</code>) neu aufgebaut. Der
+Commit D' kann nun hochgeladen werden.</p>
+            <div class="figure">
+              <a id="fig.git-svn-rebase"></a>
+              <p class="title">
+                <strong>Abbildung 9.10. <code class="literal">git svn rebase</code> integriert die neu hinzugekommene Subversion-Revision als Commit  <code class="literal">C</code> – vor <code class="literal">D</code>, was dadurch zu <code class="literal">D'</code> wird.</strong>
+              </p>
+              <div class="figure-contents">
+                <div class="mediaobject">
+                  <img src="bilder_ebook/svn_rebase.png" width="486" alt="bilder_ebook/svn_rebase.png" />
+                </div>
+              </div>
+            </div>
+            <br class="figure-break" />
+            <p>Mit <code class="literal">git svn dcommit</code> laden Sie das Changeset eines Git-Commits
+als Revision in das Subversion-Repository hoch. Als Teil der Operation
+wird die Revision erneut als Git-Commit, diesmal aber mit
+Subversion-Metadaten in der Commit-Message, in das lokale Repository
+eingepflegt. Dadurch ändert sich natürlich die SHA-1-Summe des
+Commits, was in <a class="xref" href="ch09.html#fig.git-svn-dcommit" title="Abbildung 9.11. Nach einem git svn dcommit hat der Commit D' eine neue SHA-1-ID und wird zu D'', weil seine Commit-Beschreibung verändert wurde, um Metainformationen abzuspeichern.">Abbildung 9.11, „Nach einem <code class="literal">git svn dcommit</code> hat der Commit <code class="literal">D'</code> eine neue SHA-1-ID und wird zu  <code class="literal">D''</code>, weil seine Commit-Beschreibung verändert wurde, um Metainformationen abzuspeichern.“</a> durch die
+unterschiedlichen Commits <code class="literal">D</code> und <code class="literal">D''</code> dargestellt
+ist.</p>
+            <div class="figure">
+              <a id="fig.git-svn-dcommit"></a>
+              <p class="title">
+                <strong>Abbildung 9.11. Nach einem <code class="literal">git svn dcommit</code> hat der Commit <code class="literal">D'</code> eine neue SHA-1-ID und wird zu  <code class="literal">D''</code>, weil seine Commit-Beschreibung verändert wurde, um Metainformationen abzuspeichern.</strong>
+              </p>
+              <div class="figure-contents">
+                <div class="mediaobject">
+                  <img src="bilder_ebook/svn_dcommit.png" width="486" alt="bilder_ebook/svn_dcommit.png" />
+                </div>
+              </div>
+            </div>
+            <br class="figure-break" />
+            <p>Ähnlich wie bei <code class="literal">git push</code> dürfen Sie keine Commits, die Sie
+bereits mit <code class="literal">git svn dcommit</code> hochgeladen haben, nachträglich
+mit <code class="literal">git rebase</code> oder <code class="literal">git commit --amend</code> verändern.</p>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.git-svn-branches-tags"></a>Subversion-Branches und -Tags</h4>
+                </div>
+              </div>
+            </div>
+            <p>Mit den Subkommandos <code class="literal">git svn branch</code> und <code class="literal">git svn tag</code>
+erzeugen Sie Subversion-Branches und -Tags. Zum Beispiel:</p>
+            <pre class="screen">$ <span class="strong"><strong>git svn tag -m "Tag Version 2.0" v2.0</strong></span></pre>
+            <p>Im Subversion-Repository entsteht dadurch das Verzeichnis
+<code class="literal">tags/v2.0</code>, dessen Inhalt eine Kopie des aktuellen
+<code class="literal">HEAD</code> ist.<a href="#ftn.idm45240355099168" class="footnote" id="idm45240355099168"><sup class="footnote">[128]</sup></a> Im Git-Repository entsteht dafür ein neuer
+Subversion-Tracking-Branch (<code class="literal">remotes/origin/tags/v2.0</code>). Mit der
+Option <code class="literal">-m</code> übergeben Sie optional eine Nachricht. Wenn nicht,
+setzt <code class="literal">git-svn</code> die Nachricht <code class="literal">Create tag &lt;tag&gt;</code>.</p>
+            <p>Git Version 1.7.4 führte ein Feature ein, mit dem Sie
+Subversion-Merges durchführen können.  Das Feature ist über die Option
+<code class="literal">--mergeinfo</code> für <code class="literal">git svn dcommit</code> verfügbar und
+sorgt dafür, dass die Subversion-Property <code class="literal">svn:mergeinfo</code>
+gesetzt wird. Die Dokumentation dieser Option in der Man-Page
+<code class="literal">git-svn(1)</code> ist erst ab Version 1.7.4.5 dazugekommen.</p>
+            <p>Im Folgenden stellen wir exemplarisch einen Ablauf vor, um mit
+<code class="literal">git-svn</code> einen Branch zu erstellen, in diesem Commits zu
+tätigen und ihn später wieder, im Sinne von Subversion, zu mergen.</p>
+            <p>Zuerst den Subversion-Branch erzeugen – das Kommando funktioniert im
+Prinzip wie <code class="literal">git svn tag</code>:</p>
+            <pre class="screen">$ <span class="strong"><strong>git svn branch &lt;feature&gt;</strong></span></pre>
+            <p>Dann erstellen Sie sich einen lokalen Branch zum Arbeiten und tätigen
+in diesem Ihre Commits. Der Branch muss auf dem
+Subversion-Tracking-Branch <code class="literal">&lt;feature&gt;</code> basieren:</p>
+            <pre class="screen">$ <span class="strong"><strong>git checkout -b &lt;feature&gt; origin/&lt;feature&gt;</strong></span>
+$ <span class="strong"><strong>git commit ...</strong></span></pre>
+            <p>Danach laden Sie die Commits in das Subversion-Repository hoch. Der
+Aufruf <code class="literal">git svn rebase</code> ist nur nötig, wenn zwischenzeitlich
+ein anderer Nutzer Commits in dem Subversion-Branch <code class="literal">feature</code>
+getätigt hat.</p>
+            <pre class="screen">$ <span class="strong"><strong>git svn rebase</strong></span>
+$ <span class="strong"><strong>git svn dcommit</strong></span></pre>
+            <p>Nun müssen Sie noch die Merge-Informationen gesondert übertragen.
+Dafür gehen Sie wie folgt vor: Zuerst mergen Sie den Branch lokal im
+Git-Repository und laden dann den entstandenen Merge-Commit unter
+Verwendung von <code class="literal">--mergeinfo</code> hoch. Die Syntax für diese
+Option ist:</p>
+            <pre class="screen">$ <span class="strong"><strong>git svn dcommit --mergeinfo=&lt;branch-name&gt;:&lt;N&gt;-&lt;M&gt;</strong></span></pre>
+            <p>Hierbei ist <code class="literal">&lt;branch-name&gt;</code> die Subversion-Bezeichnung des
+Branches, also z.B. <code class="literal">/branches/&lt;name&gt;</code>, <code class="literal">&lt;N&gt;</code> die
+erste Subversion-Revision, die den Branch verändert, und <code class="literal">&lt;M&gt;</code>
+die letzte.<a href="#ftn.idm45240355073264" class="footnote" id="idm45240355073264"><sup class="footnote">[129]</sup></a> Angenommen, Sie haben den Branch mit Revision 23 erzeugt
+und wollen nun, nach zwei Commits, den Branch wieder mergen, dann
+würde das Kommando wie folgt lauten:</p>
+            <pre class="screen">$ <span class="strong"><strong>git checkout master</strong></span>
+$ <span class="strong"><strong>git merge --no-ff &lt;feature&gt;</strong></span>
+$ <span class="strong"><strong>git svn dcommit --mergeinfo=/branches/feature:23-25</strong></span></pre>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.fast-import"></a>9.2. Eigene Importer</h2>
+            </div>
+          </div>
+        </div>
+        <p>Git bietet über das Subkommando <code class="literal">fast-import</code> einen einfachen
+und zugleich komfortablen Weg, eine irgendwie geartete
+Versionsgeschichte in ein Git-Repository zu verwandeln.  Das
+Fast-Import-Protokoll ist textbasiert und sehr flexibel.<a href="#ftn.idm45240355066064" class="footnote" id="idm45240355066064"><sup class="footnote">[130]</sup></a></p>
+        <p>Als Grundlage können beliebige Daten dienen: seien dies Backups,
+Tarballs, Repositories anderer Versionsverwaltungssysteme, oder, oder,
+oder… Ein Import-Programm, das Sie in einer beliebigen Sprache
+schreiben können, muss die vorliegende Geschichte in das sog.
+Fast-Import-Protokoll übersetzen und auf Standard-Out ausgeben.  Diese
+Ausgabe wird dann von <code class="literal">git fast-import</code> verarbeitet, das daraus
+ein vollwertiges Git-Repository erstellt.</p>
+        <p>Für simple Importer, die eine lineare Versionsgeschichte importieren
+sollen, sind drei Bausteine wichtig:</p>
+        <div class="variablelist">
+          <dl class="variablelist">
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Datenblock</em></span>
+</span>
+            </dt>
+            <dd>
+              <p class="simpara">
+Ein Datenblock beginnt mit dem Schlüsselwort <code class="literal">data</code>,
+gefolgt von einem Leerzeichen, gefolgt von der Datenlänge in Byte und
+einem Zeilenumbruch. Darauf folgen unmittelbar die Daten,
+anschließend ein weiterer Zeilenumbruch.  Der Datenblock muss nicht
+explizit beendet werden, da ja seine Länge in Byte angegeben ist.  Das
+sieht zum Beispiel so aus:
+</p>
+              <pre class="screen">data 4
+test</pre>
+            </dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Datei</em></span>
+</span>
+            </dt>
+            <dd>
+              <p class="simpara">
+Um den Inhalt einer Datei zu übergeben, verwenden Sie im
+einfachsten Fall das folgende Format: <code class="literal">M &lt;modus&gt; inline &lt;pfad&gt;</code> mit
+einem anschließenden Datenblock auf der nächsten Zeile.
+</p>
+              <p class="simpara">Um also eine Datei <code class="literal">README</code> mit dem Inhalt <code class="literal">test</code> (ohne
+abschließendes Newline!) zu importieren, ist folgendes Konstrukt
+nötig:</p>
+              <pre class="screen">M 644 inline README
+data 4
+test</pre>
+            </dd>
+            <dt>
+              <span class="term">
+<span class="emphasis"><em>Commit</em></span>
+</span>
+            </dt>
+            <dd>
+              <p class="simpara">
+Für einen Commit müssen Sie die entsprechenden Metadaten
+angeben (zumindest den Committer und das Datum sowie eine
+Commit-Nachricht), gefolgt von den geänderten Dateien. Das geschieht
+im folgenden Format:
+</p>
+              <pre class="screen">commit &lt;branch&gt;
+committer &lt;wer&gt; &lt;email&gt; &lt;wann&gt;
+&lt;Datenblock für Commit-Nachricht&gt;
+deleteall</pre>
+              <p class="simpara">Für <code class="literal">&lt;branch&gt;</code> setzen Sie einen entsprechenden Branch ein, auf dem der
+Commit getätigt werden soll, also z.B. <code class="literal">refs/heads/master</code>.  Der Name
+des Committers (<code class="literal">&lt;wer&gt;</code>) ist optional, die E-Mail-Adresse aber
+nicht. Das Format von <code class="literal">&lt;wann&gt;</code> muss ein Unix-Timestamp mit Zeitzone
+sein, also z.B. <code class="literal">1303329307 +0200</code>.<a href="#ftn.idm45240355044624" class="footnote" id="idm45240355044624"><sup class="footnote">[131]</sup></a>  Analog zur
+<code class="literal">committer</code>-Zeile können Sie eine Zeile <code class="literal">author</code> einfügen.</p>
+              <p class="simpara">Der Datenblock bildet die Commit-Nachricht. Das abschließende
+<code class="literal">deleteall</code> weist Git an, alles über Dateien aus vorherigen Commits zu
+vergessen. Sie fügen also für jeden Commit alle Daten vollständig neu
+hinzu.<a href="#ftn.idm45240355040208" class="footnote" id="idm45240355040208"><sup class="footnote">[132]</sup></a>  Anschließend folgen ein
+oder mehrere Datei-Definitionen.  Das kann zum Beispiel so aussehen:</p>
+              <pre class="screen">commit refs/heads/master
+committer Julius Plenz &lt;julius@plenz.com&gt; 1303329307 +0200
+data 23
+Import der README-Datei
+deleteall
+M 644 inline README
+data 4
+test</pre>
+              <p class="simpara">Sofern nicht anders angegeben, werden die Commits in der Reihenfolge,
+in der sie eingelesen werden, aufeinander aufgebaut (sofern sie auf
+dem gleichen Branch sind).</p>
+            </dd>
+          </dl>
+        </div>
+        <p>Mit diesen simplen Komponenten wollen wir anhand eines kleinen
+Shell-Scripts demonstrieren, wie man alte Release-Tar-Balls in ein
+Git-Archiv verwandelt.</p>
+        <p>Zunächst laden wir alte Releases des Editors <span class="emphasis"><em>Vim</em></span> herunter:</p>
+        <pre class="screen">$ <span class="strong"><strong>wget -q --mirror -nd ftp://ftp.home.vim.org/pub/vim/old/</strong></span></pre>
+        <p>Für jeden Tar-Ball wollen wir nun einen Commit erzeugen. Dazu gehen
+wir wie folgt vor:</p>
+        <div class="orderedlist">
+          <ol class="orderedlist" type="1">
+            <li class="listitem">
+Archive Zeile für Zeile auf Standard-In einlesen und in
+  absolute Pfadnamen verwandeln (da später das Verzeichnis gewechselt
+  wird).
+</li>
+            <li class="listitem">
+              <p class="simpara">
+Für jedes dieser Archive die folgenden Schritte ausführen:
+</p>
+              <div class="orderedlist">
+                <ol class="orderedlist" type="a">
+                  <li class="listitem">
+„Version“, letzte Änderung, aktuelle Zeit sowie
+    Commit-Nachricht in entsprechenden Variablen ablegen. Die Zeitzone
+    wird der Einfachheit halber fest kodiert.
+</li>
+                  <li class="listitem">
+Ein temporäres Verzeichnis erstellen und das Archiv
+    dorthin entpacken.
+</li>
+                  <li class="listitem">
+Die entsprechenden Zeilen <code class="literal">commit</code>,
+    <code class="literal">author</code>, <code class="literal">committer</code> ausgeben. Anschließend die
+    vorbereitete Commit-Nachricht, deren Länge per <code class="literal">wc -c</code>
+    gezählt wird (<span class="emphasis"><em>byte count</em></span>). Zuletzt das Schlüsselwort
+    <code class="literal">deleteall</code>.
+</li>
+                  <li class="listitem">
+Für jede Datei einen entsprechenden Datei-Block ausgeben.
+    Dabei wird die erste Komponente des Dateinamens verworfen (z.B. <code class="literal">./vim-1.14/</code>). Die Länge der folgenden Datei wird wieder
+    per <code class="literal">wc -c</code> gezählt.
+</li>
+                  <li class="listitem">
+Das temporäre Verzeichnis löschen.
+</li>
+                </ol>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <p>Die gesamte Ausgabe des Scripts erfolgt auf Standard-Out, so dass es
+bequem nach <code class="literal">git fast-import</code> gepipet werden kann. Der Anfang
+der Ausgabe sieht so aus:</p>
+        <pre class="screen">commit refs/heads/master
+author Bram Moolenaar &lt;bram@vim.org&gt; 1033077600 +0200
+committer Julius Plenz &lt;julius@plenz.com&gt; 1303330792 +0200
+data 15
+import vim-1.14
+deleteall
+M 644 inline src/vim.h
+data 7494
+/* vi:ts=4:sw=4
+ *
+ * VIM - Vi IMitation
+...</pre>
+        <p>Um aus dieser Ausgabe nun ein Git-Repository zu erstellen, gehen wir
+so vor:</p>
+        <pre class="literallayout">$ <span class="strong"><strong>git init vimgit</strong></span>
+Initialized empty Git repository in /dev/shm/vimgit/.git/
+$ <span class="strong"><strong>cd vimgit</strong></span>
+$ <span class="strong"><strong>ls ../vim/*.tar.gz | &lt;import-tarballs.sh&gt; | git fast-import</strong></span>
+git-fast-import statistics:
+---------------------------------------------------------------------
+Alloc'd objects:       5000
+Total objects:         1350 (      1206 duplicates                  )
+      blobs  :         1249 (      1177 duplicates        523 deltas)
+      trees  :           87 (        29 duplicates          0 deltas)
+      commits:           14 (         0 duplicates          0 deltas)
+      tags   :            0 (         0 duplicates          0 deltas)
+Total branches:           1 (         1 loads     )
+      marks:           1024 (         0 unique    )
+      atoms:            354
+Memory total:          2294 KiB
+       pools:          2098 KiB
+     objects:           195 KiB
+---------------------------------------------------------------------
+pack_report: getpagesize()            =       4096
+pack_report: core.packedGitWindowSize =   33554432
+pack_report: core.packedGitLimit      =  268435456
+pack_report: pack_used_ctr            =          1
+pack_report: pack_mmap_calls          =          1
+pack_report: pack_open_windows        =          1 /          1
+pack_report: pack_mapped              =    7668864 /    7668864
+---------------------------------------------------------------------</pre>
+        <p>Das Kommando gibt zahlreiche statistische Daten über den
+Import-Vorgang aus (und bricht mit einer entsprechenden Fehlermeldung
+ab, wenn die Eingabe nicht verstanden wird). Ein anschließendes
+<code class="literal">reset</code> synchronisiert Index, Working Tree und Repository, und
+die Tar-Balls sind erfolgreich importiert:</p>
+        <pre class="screen">$ <span class="strong"><strong>git reset --hard</strong></span>
+HEAD is now at ddb8ffe import vim-4.5
+$ <span class="strong"><strong>git log --oneline</strong></span>
+ddb8ffe import vim-4.5
+4151b0c import vim-4.4
+dbbdf3d import vim-4.3
+6d5aa08 import vim-4.2
+bde105d import vim-4.1
+332228b import vim-4.0
+...</pre>
+        <p>Als Referenz das vollständige Script<a href="#ftn.idm45240355005200" class="footnote" id="idm45240355005200"><sup class="footnote">[133]</sup></a>:</p>
+        <pre class="screen">#!/bin/sh
+
+while read ar; do
+    [ -f "$ar" ] || { echo "not a file: $ar" &gt;&amp;2; exit 1; }
+    readlink -f "$ar"
+done |
+while read archive; do
+    dir="$(mktemp -d /dev/shm/fi.XXXXXXXX)"
+    version="$(basename $archive | sed 's/\.tar\.gz$//')"
+    mod="$(stat -c %Y $archive) +0200"
+    now="$(date +%s) +0200"
+    msg="import $version"
+
+    cd "$dir" &amp;&amp;
+    tar xfz "$archive" &amp;&amp;
+    echo "commit refs/heads/master" &amp;&amp;
+    echo "author Bram Moolenaar &lt;bram@vim.org&gt; $mod" &amp;&amp;
+    echo "committer Julius Plenz &lt;julius@plenz.com&gt; $now" &amp;&amp;
+    echo -n "data " &amp;&amp; echo -n "$msg" | wc -c &amp;&amp; echo "$msg" &amp;&amp;
+    echo "deleteall" &amp;&amp;
+    find . -type f |
+    while read f; do
+        echo -n "M 644 inline "
+        echo "$f" | sed -e 's,^\./[^/]*/,,'
+        echo -n "data " &amp;&amp; wc -c &lt; "$f" &amp;&amp; cat "$f"
+    done &amp;&amp;
+    echo
+    rm -fr "$dir"
+done</pre>
+        <p>Sobald die Versionsgeschichte etwas komplizierter ist, werden vor
+allem die Kommandos <code class="literal">mark</code>, <code class="literal">from</code> und <code class="literal">merge</code>
+interessant. Per <code class="literal">mark</code> können Sie beliebige Objekte (Commits
+oder Blobs) mit einer ID versehen, um darauf als „benannte
+Objekte“ zugreifen zu können und die Daten nicht immer
+<code class="literal">inline</code> angeben zu müssen. Die Kommandos <code class="literal">from</code> und
+<code class="literal">merge</code> legen bei einem Commit fest, wer der bzw. die Vorgänger
+sind, so dass auch komplizierte Verflechtungen zwischen Branches
+darstellbar sind. Für weitere Details siehe die Man-Page.</p>
+      </div>
+      <div class="footnotes">
+        <br />
+        <hr style="width:100; text-align:left;margin-left: 0" />
+        <div id="ftn.idm45240355478160" class="footnote">
+          <p>
+            <a href="#idm45240355478160" class="simpara">
+              <sup class="simpara">[117] </sup>
+            </a>
+            <a class="ulink" href="https://git.wiki.kernel.org/index.php/Interfaces,_frontends,_and_tools#Interaction_with_other_Revision_Control_Systems" target="_top">https://git.wiki.kernel.org/index.php/Interfaces,_frontends,_and_tools#Interaction_with_other_Revision_Control_Systems</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240355460928" class="footnote">
+          <p>
+            <a href="#idm45240355460928" class="simpara">
+              <sup class="simpara">[118] </sup>
+            </a>
+            <a class="ulink" href="http://rsvndump.sourceforge.net/" target="_top">http://rsvndump.sourceforge.net/</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240355402160" class="footnote">
+          <p><a href="#idm45240355402160" class="simpara"><sup class="simpara">[119] </sup></a>Existieren
+  mehrere Verzeichnisse, die Branches und/oder Tags enthalten, so
+  geben Sie diese durch mehreren Argumente <code class="literal">-t</code>
+  bzw. <code class="literal">-b</code> an.</p>
+        </div>
+        <div id="ftn.idm45240355380112" class="footnote">
+          <p><a href="#idm45240355380112" class="simpara"><sup class="simpara">[120] </sup></a>Haben Sie bei der
+  Konvertierung keinen Trunk per <code class="literal">-T</code> oder
+  <code class="literal">--stdlayout</code> angegeben, wird ein einziger Branch namens
+  <code class="literal">remotes/git-svn</code> generiert.</p>
+        </div>
+        <div id="ftn.idm45240355358720" class="footnote">
+          <p><a href="#idm45240355358720" class="simpara"><sup class="simpara">[121] </sup></a>Das Script ist in der
+  Scriptsammlung für dieses Buch enthalten. Siehe:
+  <a class="ulink" href="https://github.com/gitbuch/buch-scripte" target="_top">https://github.com/gitbuch/buch-scripte</a>.</p>
+        </div>
+        <div id="ftn.idm45240355345280" class="footnote">
+          <p><a href="#idm45240355345280" class="simpara"><sup class="simpara">[122] </sup></a>Grundsätzlich können Sie
+  diese Operationen auch direkt mit dem Kommando <code class="literal">mv</code> unterhalb
+  von <code class="literal">.git/refs/</code> ausführen. Die Plumbing-Kommandos machen es
+  aber möglich, auch „exotische“ Fälle wie „Packed
+  Refs“ bzw.  Referenzen, die Symlinks sind, korrekt zu
+  behandeln. Außerdem schreibt <code class="literal">git update-ref</code> entsprechende
+  Einträge in das Reflog und gibt Fehlermeldungen aus, falls etwas
+  schiefgeht. Siehe hierzu auch <a class="xref" href="ch08.html#sec.scripting" title="8.3. Eigene Git-Kommandos schreiben">Abschnitt 8.3, „Eigene Git-Kommandos schreiben“</a>.</p>
+        </div>
+        <div id="ftn.idm45240355318288" class="footnote">
+          <p><a href="#idm45240355318288" class="simpara"><sup class="simpara">[123] </sup></a>Auch dieses Script finden Sie in der
+Scriptsammlung: <a class="ulink" href="https://github.com/gitbuch/buch-scripte" target="_top">https://github.com/gitbuch/buch-scripte</a>.</p>
+        </div>
+        <div id="ftn.idm45240355297040" class="footnote">
+          <p>
+            <a href="#idm45240355297040" class="simpara">
+              <sup class="simpara">[124] </sup>
+            </a>
+            <a class="ulink" href="https://github.com/nothingmuch/git-svn-abandon" target="_top">https://github.com/nothingmuch/git-svn-abandon</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240355294816" class="footnote">
+          <p>
+            <a href="#idm45240355294816" class="simpara">
+              <sup class="simpara">[125] </sup>
+            </a>
+            <a class="ulink" href="http://git.goodpoint.de/?p=git-move-tags-up.git;a=summary" target="_top">http://git.goodpoint.de/?p=git-move-tags-up.git;a=summary</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240355245296" class="footnote">
+          <p>
+            <a href="#idm45240355245296" class="simpara">
+              <sup class="simpara">[126] </sup>
+            </a>
+            <a class="ulink" href="http://gitorious.org/svn2git/svn2git" target="_top">http://gitorious.org/svn2git/svn2git</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240355243728" class="footnote">
+          <p><a href="#idm45240355243728" class="simpara"><sup class="simpara">[127] </sup></a>Im Git-via-Git Repository unter
+<code class="literal">contrib/svn-fe</code></p>
+        </div>
+        <div id="ftn.idm45240355099168" class="footnote">
+          <p><a href="#idm45240355099168" class="simpara"><sup class="simpara">[128] </sup></a>Vergleiche das Kommando: <code class="literal">svn copy
+    trunk tags/v2.0</code></p>
+        </div>
+        <div id="ftn.idm45240355073264" class="footnote">
+          <p><a href="#idm45240355073264" class="simpara"><sup class="simpara">[129] </sup></a>Vergleiche das
+  Subversion-Kommando: <code class="literal">svn merge -r 23:25 branches/feature
+    trunk</code></p>
+        </div>
+        <div id="ftn.idm45240355066064" class="footnote">
+          <p><a href="#idm45240355066064" class="simpara"><sup class="simpara">[130] </sup></a>Eine detaillierte technische
+  Dokumentation finden Sie in der Man-Page <code class="literal">git-fast-import(1)</code>.</p>
+        </div>
+        <div id="ftn.idm45240355044624" class="footnote">
+          <p><a href="#idm45240355044624" class="simpara"><sup class="simpara">[131] </sup></a>Über die Option <code class="literal">--date-format</code> können
+  Sie bei Bedarf andere Datumsformate zulassen.</p>
+        </div>
+        <div id="ftn.idm45240355040208" class="footnote">
+          <p><a href="#idm45240355040208" class="simpara"><sup class="simpara">[132] </sup></a>Das führt zwar zu etwas mehr
+  Rechenaufwand, vereinfacht aber die Struktur des Import-Programms
+  wesentlich. Unter dem Gesichtspunkt, dass Import-Software in der
+  Regel nur selten ausgeführt wird und Zeit keine kritische Rolle
+  spielt, ist dieser Ansatz also sinnvoll.</p>
+        </div>
+        <div id="ftn.idm45240355005200" class="footnote">
+          <p><a href="#idm45240355005200" class="simpara"><sup class="simpara">[133] </sup></a>Das Script ist als Teil unserer
+Scriptsammlung unter <a class="ulink" href="https://github.com/gitbuch/buch-scripte" target="_top">https://github.com/gitbuch/buch-scripte</a>
+verfügbar.</p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="ch08.html">Zurück</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="ch10.html">Weiter</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top"> </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index.html">Zum Anfang</a>
+          </td>
+          <td width="40%" align="right" valign="top"> </td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="cc-license">
+      <hr />
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Lizensiert unter der <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+    </p>
+    </div>
+  </body>
+</html>

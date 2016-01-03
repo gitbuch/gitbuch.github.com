@@ -1,0 +1,2071 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kapitel 2. Grundlagen</title>
+    <link rel="stylesheet" type="text/css" href="gitbuch.css" />
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
+    <link rel="home" href="index.html" title="Git" />
+    <link rel="up" href="index.html" title="Git" />
+    <link rel="prev" href="ch01.html" title="Kapitel 1. Einführung und erste Schritte" />
+    <link rel="next" href="ch03.html" title="Kapitel 3. Praktische Versionsverwaltung" />
+    <meta xmlns="" name="language" content="de" />
+    <script xmlns="" src="http://hyphenator.googlecode.com/svn/trunk/Hyphenator.js" type="text/javascript"></script>
+    <script xmlns="" type="text/javascript">
+        Hyphenator.run();
+    </script>
+  </head>
+  <body class="hyphenate">
+    <div xmlns="" class="toc">
+<p><a href="index.html">Startseite</a></p>
+<dl class="toc">
+          <dt>
+            <span class="preface">
+              <a href="pr01.html">Vorwort</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.leser">1. An wen richtet sich dieses Buch?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.struktur">2. Wie ist das Buch zu lesen?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.konventionen">3. Konventionen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.install-git-repo">4. Installation und „das Git-Repository“</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.doku">5. Dokumentation und Hilfe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.kontakt">6. Downloads und Kontakt</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#sec.dank">7. Danksagungen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-2te-auflage">8. Vorwort zur 2. Auflage</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="pr01.html#chap.vorwort-cc-ausgabe">9. Vorwort zur CreativeCommons-Ausgabe</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch01.html">1. Einführung und erste Schritte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.begriffe">1.1. Grundbegriffe</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#sec.erste-schritte">1.2. Erste Schritte mit Git</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch01.html#chap.git-config">1.3. Git konfigurieren</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch02.html">2. Grundlagen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.grundlagen">2.1. Git-Kommandos</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch02.html#sec.objektmodell">2.2. Das Objektmodell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch03.html">3. Praktische Versionsverwaltung</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.branches">3.1. Referenzen: Branches und Tags</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.undo">3.2. Versionen wiederherstellen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge">3.3. Branches zusammenführen: Merges</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.merge-conflicts">3.4. Merge-Konflikte lösen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.cherry-pick">3.5. Einzelne Commits übernehmen: Cherry-Pick</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.visualization">3.6. Visualisierung von Repositories</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch03.html#sec.reflog">3.7. Reflog</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch04.html">4. Fortgeschrittene Konzepte</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase">4.1. Commits verschieben – Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.rebase-i">4.2. Die Geschichte umschreiben – Interaktives Rebase</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.blame">4.3. Wer hat diese Änderungen gemacht? – git blame</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.ignore">4.4. Dateien ignorieren</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.stash">4.5. Veränderungen auslagern – git stash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.notes">4.6. Commits annotieren – git notes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.multi-root">4.7. Mehrere Root-Commits</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch04.html#sec.bisect">4.8. Regressionen finden – git bisect</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch05.html">5. Verteiltes Git</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.verteilte_systeme">5.1. Wie funktioniert verteilte Versionsverwaltung?</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.clone">5.2. Repositories klonen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.git_fetch">5.3. Commits herunterladen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.hochladen">5.4. Commits hochladen: git push</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-check">5.5. Remotes untersuchen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.multi-remote">5.6. Verteilter Workflow mit mehreren Remotes</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remotes-verwalten">5.7. Remotes verwalten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.remote-tags">5.8. Tags austauschen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.patch-queue">5.9. Patches per E-Mail</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.dictator">5.10. Ein verteilter, hierarchischer Workflow</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch05.html#sec.subprojects">5.11. Unterprojekte verwalten</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch06.html">6. Workflows</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.workflows-user">6.1. Anwender</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.branch-modell">6.2. Ein Branching-Modell</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch06.html#sec.releases-management">6.3. Releases-Management</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch07.html">7. Git auf dem Server</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.server">7.1. Einen Git-Server hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitolite">7.2. Gitolite: Git einfach hosten</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.git-daemon">7.3. Git-Daemon: Anonymer, lesender Zugriff</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.gitweb">7.4. Gitweb: Das integrierte Web-Frontend</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch07.html#sec.cgit">7.5. CGit – CGI for Git</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch08.html">8. Git automatisieren</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.attributes">8.1. Git-Attribute – Dateien gesondert behandeln</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.hooks">8.2. Hooks</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.scripting">8.3. Eigene Git-Kommandos schreiben</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch08.html#sec.filter-branch">8.4. Versionsgeschichte umschreiben</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch09.html">9. Zusammenspiel mit anderen Versionsverwaltungssystemen</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.subversion">9.1. Subversion</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch09.html#sec.fast-import">9.2. Eigene Importer</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch10.html">10. Shell-Integration</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.bash-integration">10.1. Git und die Bash</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="ch10.html#sec.zsh-integration">10.2. Git und die Z-Shell</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="ch11.html">11. Github</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="appendix">
+              <a href="apa.html">A. Installation</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#linux">A.1. Linux</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.osx">A.2. Mac OS X</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apa.html#sec.windows">A.3. Windows</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="appendix">
+              <a href="apb.html">B. Struktur eines Repositorys</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc">B.1. Aufräumen</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="apb.html#sec.gc-performance">B.2. Performance</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl></div>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <td width="20%" align="left"><a accesskey="p" href="ch01.html">Zurück</a> </td>
+          <th width="60%" align="center"> </th>
+          <td width="20%" align="right"> <a accesskey="n" href="ch03.html">Weiter</a></td>
+        </tr>
+      </table>
+      <hr />
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="ch.interna"></a>Kapitel 2. Grundlagen</h1>
+          </div>
+        </div>
+      </div>
+      <p>In diesem Kapitel stellen wir Ihnen die wichtigsten Git-Kommandos vor,
+mit Hilfe derer Sie Ihre Projektdateien in Git verwalten. Unabdingbar
+für eine fortgeschrittene Nutzung ist das Verständnis des
+Git-Objektmodells; dieses wichtige Konzept behandeln wir im zweiten Abschnitt
+des Kapitels. Mögen die Ausführungen zunächst allzu theoretisch
+scheinen, so möchten wir Sie Ihnen dennoch sehr ans Herz legen. Alle
+weiteren Aktionen werden Ihnen mit dem Wissen um diese Hintergründe
+deutlich leichter von der Hand gehen.</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.grundlagen"></a>2.1. Git-Kommandos</h2>
+            </div>
+          </div>
+        </div>
+        <p>Die Kommandos, die Sie zum Einstieg kennengelernt haben (vor allem
+<code class="literal">add</code> und <code class="literal">commit</code>), arbeiten auf dem Index. Im
+Folgenden werden wir uns genauer mit dem Index auseinandersetzen und
+die erweiterte Benutzung dieser Kommandos behandeln.</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.index"></a>2.1.1. Index</h3>
+              </div>
+            </div>
+          </div>
+          <p>Der Inhalt von Dateien liegt für Git auf drei Ebenen, dem
+<span class="emphasis"><em>Working Tree</em></span>, dem <span class="emphasis"><em>Index</em></span> und dem <span class="emphasis"><em>Repository</em></span>.  Der
+Working Tree entspricht den Dateien, wie sie auf dem Dateisystem Ihres
+Arbeitsrechners liegen – wenn Sie also Dateien mit einem Editor
+bearbeiten, mit <code class="literal">grep</code> darin suchen etc., operieren Sie immer
+auf dem Working Tree.</p>
+          <p>Das Repository ist der Sammelbehälter für Commits, also Änderungen,
+versehen mit Angaben zu Autor, Datum und Beschreibung. Die Commits
+ergeben zusammen die <span class="emphasis"><em>Versionsgeschichte</em></span>.</p>
+          <p>Git führt nun, im Gegensatz zu vielen anderen
+Versionskontrollsystemen, eine Neuerung ein, den Index. Es handelt
+sich um eine etwas schwierig greifbare Zwischenebene zwischen Working
+Tree und Repository. Er dient dazu, Commits vorzubereiten. Das
+bedeutet, dass Sie nicht immer <span class="emphasis"><em>alle</em></span> Änderungen, die Sie an
+einer Datei vorgenommen haben, auch als Commit einchecken müssen.</p>
+          <p>Die Git-Kommandos <code class="literal">add</code> und <code class="literal">reset</code> agieren (in ihrer
+Grundform) auf dem Index und bringen Änderungen in den Index ein bzw.
+löschen diese wieder; erst das Kommando <code class="literal">commit</code> überträgt die
+Datei, wie sie im Index vorgehalten wird, in das Repository (<a class="xref" href="ch02.html#fig.index" title="Abbildung 2.1. Kommandos add, reset und commit">Abbildung 2.1, „Kommandos <code class="literal">add</code>, <code class="literal">reset</code> und <code class="literal">commit</code>“</a>).</p>
+          <div class="figure">
+            <a id="fig.index"></a>
+            <p class="title">
+              <strong>Abbildung 2.1. Kommandos <code class="literal">add</code>, <code class="literal">reset</code> und <code class="literal">commit</code></strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/index.png" width="486" alt="bilder_ebook/index.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p>Im Ausgangszustand, das heißt wenn <code class="literal">git status</code> die Nachricht
+<code class="literal">nothing to commit</code> ausgibt, sind Working Tree und Index mit
+<code class="literal">HEAD</code> synchronisiert. Der Index ist also nicht
+„leer“, sondern enthält die Dateien im gleichen Zustand, wie
+sie im Working Tree vorliegen.</p>
+          <p>In der Regel ist dann der Arbeitsablauf folgender: Zuerst nehmen Sie mit
+einem Editor eine Veränderung am Working Tree vor. Diese Veränderung
+wird durch <code class="literal">add</code> in den Index übernommen und schließlich per
+<code class="literal">commit</code> im Repository abgespeichert.</p>
+          <p>Sie können sich die Unterschiede zwischen diesen drei Ebenen jeweils
+durch das <code class="literal">diff</code>-Kommando anzeigen lassen.  Ein simples
+<code class="literal">git diff</code> zeigt die Unterschiede zwischen Working Tree und
+Index an – also die Unterschiede zwischen den (tatsächlichen) Dateien
+auf Ihrem Arbeitssystem und den Dateien, wie sie eingecheckt würden,
+wenn Sie <code class="literal">git commit</code> aufrufen würden.</p>
+          <p>Das Kommando <code class="literal">git diff --staged</code> zeigt hingegen die
+Unterschiede zwischen Index (der auch <span class="emphasis"><em>Staging Area</em></span> genannt
+wird) und Repository an, also die Unterschiede, die ein Commit ins
+Repository übertragen würde. Im Ausgangszustand, wenn Working Tree und Index
+mit <code class="literal">HEAD</code> synchron sind, erzeugen weder <code class="literal">git diff</code> noch
+<code class="literal">git diff --staged</code> eine Ausgabe.</p>
+          <p>Wollen Sie alle
+Änderungen an allen Dateien übernehmen, gibt es zwei
+Abkürzungen: Zunächst die Option <code class="literal">-u</code> bzw. <code class="literal">--update</code>
+von <code class="literal">git add</code>.  Dadurch werden alle Veränderungen in den Index
+übertragen, aber noch kein Commit erzeugt. Weiter abkürzen können Sie
+mit der Option <code class="literal">-a</code> bzw.  <code class="literal">--all</code> von <code class="literal">git
+ commit</code>. Dies ist eine Kombination aus <code class="literal">git add -u</code> und
+<code class="literal">git commit</code>, wodurch alle Veränderungen an allen Dateien in
+einem Commit zusammengefasst werden – Sie umgehen den Index.
+Vermeiden Sie es, sich diese Optionen zur Angewohnheit zu machen – sie
+sind zwar gelegentlich als Abkürzung ganz praktisch, verringern aber
+die Flexibilität.</p>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.diff-color-words"></a>Diff auf Wortbasis</h4>
+                </div>
+              </div>
+            </div>
+            <p>Ein alternatives Ausgabeformat für <code class="literal">git diff</code> ist das
+sog. <span class="emphasis"><em>Word-Diff</em></span>, das über die Option
+<code class="literal">--word-diff</code> zur Verfügung steht.  Statt der entfernten
+und hinzugefügten Zeilen zeigt die Ausgabe von <code class="literal">git diff</code>
+mit einer entsprechenden Syntax sowie farblich kodiert die
+hinzugekommenen (grün) und entfernten (rot)
+Wörter.<a href="#ftn.idm45240359715520" class="footnote" id="idm45240359715520"><sup class="footnote">[12]</sup></a> Das ist dann praktisch, wenn Sie in
+einer Datei nur einzelne Wörter ändern, beispielsweise bei der
+Korrektur von AsciiDoc- oder LaTeX-Dokumenten, denn ein Diff ist schwierig zu lesen,
+wenn sich hinzugefügte und entfernte Zeile nur durch ein einziges Wort
+unterscheiden:</p>
+            <pre class="screen">$ <span class="strong"><strong>git diff</strong></span>
+...
+-   die Option `--color-words` zur Verfgung steht. Statt der entfernten
++   die Option `--color-words` zur Verfügung steht. Statt der entfernten
+...</pre>
+            <p>Verwenden Sie hingegen die Option <code class="literal">--word-diff</code>, so werden nur geänderte
+Wörter entsprechend markiert angezeigt; außerdem werden Zeilenumbrüche
+ignoriert, was ebenfalls sehr praktisch ist, weil eine Neuausrichtung
+der Wörter nicht als Änderung in die Diff-Ausgabe eingeht:</p>
+            <pre class="screen">$ <span class="strong"><strong>git diff --word-diff</strong></span>
+...
+--color-words zur [-Verfgung-]{<code class="literal">Verfügung</code>} steht.
+...</pre>
+            <div class="tip" style="margin-left: 0; margin-right: 10%;">
+              <h3 class="title">Tipp</h3>
+              <p>Falls Sie viel mit Fließtext arbeiten, bietet es sich an, ein Alias zur
+Abkürzung dieses Befehls einzurichten, so dass Sie beispielsweise nur
+noch <code class="literal">git dw</code> eingeben müssen:</p>
+              <pre class="screen">$ <span class="strong"><strong>git config --global alias.dw "diff --word-diff"</strong></span></pre>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.add-p"></a>2.1.2. Commits schrittweise erstellen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Warum aber sollte man Commits schrittweise erstellen – will man nicht
+immer alle Änderungen auch einchecken?</p>
+          <p>Ja, natürlich will man seine Änderungen in der Regel vollständig
+übernehmen. Es kann allerdings sinnvoll sein, sie in Schritten
+einzupflegen, um etwa die Entwicklungsgeschichte besser abzubilden.</p>
+          <p>Ein Beispiel: Sie haben in den vergangenen drei Stunden intensiv an
+Ihrem Software-Projekt gearbeitet, haben aber, weil es so spannend
+war, vergessen, die vier neuen Features in handliche Commits zu
+verpacken. Zudem sind die Features über diverse Dateien verstreut.</p>
+          <p>Im besten Fall wollen Sie also selektiv arbeiten, d.h. nicht alle
+Veränderungen aus einer Datei in einen Commit übernehmen, sondern nur
+bestimmte Zeilen (Funktionen, Definitionen, Tests, …), und das auch
+noch aus verschiedenen Dateien.</p>
+          <p>Der Index von Git bietet dafür die gewünschte Flexibilität. Sie
+sammeln einige Änderungen im Index und verpacken sie in einem Commit – alle anderen Änderungen bleiben aber nach wie vor in den Dateien
+erhalten.</p>
+          <p>Wir wollen das anhand des „Hello World!“-Beispiels aus dem
+vorigen Kapitel illustrieren.  Zur Erinnerung der Inhalt der Datei
+<code class="literal">hello.pl</code>:</p>
+          <pre class="screen"># Hello World! in Perl
+print "Hello World!\n";</pre>
+          <p>Nun präparieren wir die Datei so, dass sie mehrere unabhängige
+Veränderungen hat, die wir <span class="emphasis"><em>nicht</em></span> in einem einzelnen Commit
+zusammenfassen wollen. Zunächst fügen wir eine <span class="emphasis"><em>Shebang</em></span>-Zeile
+am Anfang hinzu.<a href="#ftn.idm45240359696336" class="footnote" id="idm45240359696336"><sup class="footnote">[13]</sup></a> Außerdem
+kommt eine Zeile hinzu, die den Autor benennt, sowie eine
+Perl-Anweisung <code class="literal">use strict</code>, die den Perl-Interpreter anweist,
+bei der Syntaxanalyse möglichst streng zu sein. Wichtig ist für unser
+Beispiel, dass die Datei an mehreren Stellen verändert wurde:</p>
+          <pre class="screen">#!/usr/bin/perl
+# Hello World! in Perl
+# Author: Valentin Haenel
+use strict;
+print "Hello World!\n";</pre>
+          <p>Mit einem einfachen <code class="literal">git add hello.pl</code> würden alle neuen Zeilen
+dem Index hinzugefügt – der Stand der Datei im Index wäre also der
+gleiche wie im Working Tree. Stattdessen verwenden wir die Option
+<code class="literal">--patch</code> bzw. kurz <code class="literal">-p</code>.<a href="#ftn.idm45240359689488" class="footnote" id="idm45240359689488"><sup class="footnote">[14]</sup></a>  Dies hat zur Folge, dass
+wir interaktiv gefragt werden, welche Veränderungen wir dem Index
+hinzufügen wollen. Git bietet uns jede Veränderung einzeln an, und wir
+können von Fall zu Fall entscheiden, wie wir mit dieser verfahren
+wollen:</p>
+          <pre class="screen">$ <span class="strong"><strong>git add -p</strong></span>
+diff --git a/hello.pl b/hello.pl
+index c6f28d5..908e967 100644
+--- a/hello.pl
++++ b/hello.pl
+@@ -1,2 +1,5 @@
++#!/usr/bin/perl
+ # Hello World! in Perl
++# Author: Valentin Haenel
++use strict;
+ print "Hello World!\n";
+Stage this hunk [y,n,q,a,d,/,s,e,?]?</pre>
+          <p>Hier zeigt Git alle Änderungen an, da sie im Code sehr nah
+beieinander liegen. Bei weit auseinanderliegenden oder auf
+verschiedene Dateien verteilten Veränderungen werden sie getrennt
+angeboten. Der Begriff <span class="emphasis"><em>Hunk</em></span> bezeichnet lose zusammenhängende
+Zeilen im Quellcode. Wir haben an dieser Stelle unter anderem folgende Optionen:</p>
+          <pre class="screen">Stage this hunk[y,n,q,a,d,/,s,e,?]?</pre>
+          <p>Die Optionen sind jeweils nur einen Buchstaben lang und schwierig zu
+merken. Eine kleine Erinnerung erhalten Sie immer durch <span class="emphasis"><em>[?]</em></span>.
+Die wichtigsten Optionen haben wir im Folgenden
+zusammengefasst.</p>
+          <div class="variablelist">
+            <dl class="variablelist">
+              <dt>
+                <span class="term">
+<code class="literal">y</code> (<span class="emphasis"><em>yes</em></span>)
+</span>
+              </dt>
+              <dd>
+Übernimm den aktuellen Hunk in den Index.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">n</code> (<span class="emphasis"><em>no</em></span>)
+</span>
+              </dt>
+              <dd>
+Übernimm den aktuellen Hunk nicht.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">q</code> (<span class="emphasis"><em>quit</em></span>)
+</span>
+              </dt>
+              <dd>
+Übernimm weder den aktuellen Hunk noch einen der folgenden.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">a</code> (<span class="emphasis"><em>all</em></span>)
+</span>
+              </dt>
+              <dd>
+Übernimm den aktuellen Hunk und alle, die folgen (in der aktuellen Datei).
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">s</code> (<span class="emphasis"><em>split</em></span>)
+</span>
+              </dt>
+              <dd>
+Versuche, den aktuellen Hunk zu teilen.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">e</code> (<span class="emphasis"><em>edit</em></span>)
+</span>
+              </dt>
+              <dd>
+Editiere den aktuellen Hunk.<a href="#ftn.idm45240359664656" class="footnote" id="idm45240359664656"><sup class="footnote">[15]</sup></a>
+</dd>
+            </dl>
+          </div>
+          <p>In dem Beispiel teilen wir den aktuellen Hunk und geben
+<code class="literal">s</code> für <span class="emphasis"><em>split</em></span> ein.</p>
+          <pre class="screen">Stage this hunk [y,n,q,a,d,/,s,e,?]? <span class="strong"><strong>[s]</strong></span>
+Split into 2 hunks.
+@@ -1 +1,2 @@
++#!/usr/bin/perl
+ # Hello World! in Perl</pre>
+          <p>Git bestätigt, dass der Hunk erfolgreich geteilt werden konnte, und
+bietet uns nun ein Diff an, das nur die Shebang-Zeile
+enthält.<a href="#ftn.idm45240359657728" class="footnote" id="idm45240359657728"><sup class="footnote">[16]</sup></a>  Wir geben <code class="literal">y</code> für
+<span class="emphasis"><em>yes</em></span> an und beim nächsten Hunk <code class="literal">q</code> für <span class="emphasis"><em>quit</em></span>.  Um
+zu überprüfen, ob alles geklappt hat, verwenden wir <code class="literal">git diff</code>
+mit der Option <code class="literal">--staged</code>, die den Unterschied zwischen
+Index und <code class="literal">HEAD</code> (dem neuesten Commit)
+anzeigt:</p>
+          <pre class="screen">$ <span class="strong"><strong>git diff --staged</strong></span>
+diff --git a/hello.pl b/hello.pl
+index c6f28d5..d2cc6dc 100644
+--- a/hello.pl
++++ b/hello.pl
+@@ -1,2 +1,3 @@
++#!/usr/bin/perl
+ # Hello World! in Perl
+ print "Hello World!\n";</pre>
+          <p>Um zu sehen, welche Veränderungen sich noch <span class="emphasis"><em>nicht</em></span> im Index
+befinden, reicht ein einfacher Aufruf von <code class="literal">git diff</code>, der uns
+zeigt, dass sich – wie erwartet – noch zwei Zeilen im Working Tree
+befinden:</p>
+          <pre class="screen">$ <span class="strong"><strong>git diff</strong></span>
+diff --git a/hello.pl b/hello.pl
+index d2cc6dc..908e967 100644
+--- a/hello.pl
++++ b/hello.pl
+@@ -1,3 +1,5 @@
+ #!/usr/bin/perl
+ # Hello World! in Perl
++# Author: Valentin Haenel
++use strict;
+ print "Hello World!\n";</pre>
+          <p>An dieser Stelle könnten wir einen Commit erzeugen, wollen zur
+Demonstration aber noch einmal von vorn beginnen. Darum setzen wir
+mit <code class="literal">git reset HEAD</code> den Index zurück.</p>
+          <pre class="screen">$ <span class="strong"><strong>git reset HEAD</strong></span>
+Unstaged changes after reset:
+M   hello.pl</pre>
+          <p>Git bestätigt und nennt die Dateien, in denen sich Veränderungen
+befinden; in diesem Fall ist es nur die eine.</p>
+          <p>Das Kommando <code class="literal">git reset</code> ist gewissermaßen das Gegenstück zu
+<code class="literal">git add</code>: Statt Unterschiede aus dem Working Tree in den Index
+zu übertragen, überträgt <code class="literal">reset</code> Unterschiede aus dem
+Repository in den Index. Änderungen <span class="emphasis"><em>in den</em></span> Working Tree zu
+übertragen, ist möglicherweise destruktiv, da Ihre Änderungen
+verlorengehen könnten. Daher ist dies nur mit der Option
+<code class="literal">--hard</code> möglich, die wir in <a class="xref" href="ch03.html#sec.reset" title="3.2.3. Reset und der Index">Abschnitt 3.2.3, „Reset und der Index“</a>
+behandeln.</p>
+          <p>Sollten Sie häufiger <code class="literal">git add -p</code> verwenden, ist es nur eine
+Frage der Zeit, bis Sie versehentlich einen Hunk auswählen, den Sie
+eigentlich gar nicht wollten. Sollte der Index leer gewesen sein, ist
+dies kein Problem, da Sie ihn ja zurücksetzen können, um von vorn
+anzufangen. Problematisch wird es erst, wenn Sie bereits viele
+Veränderungen im Index aufgezeichnet haben und diese nicht verlieren
+möchten, Sie also einen bestimmten Hunk aus dem Index entfernen, ohne
+die anderen Hunks anfassen zu wollen.</p>
+          <p>Analog zu <code class="literal">git add -p</code> gibt es daher den Befehl <code class="literal">git
+  reset -p</code>, der einzelne Hunks wieder aus dem Index entfernt. Um das
+zu demonstrieren, übernehmen wir zunächst alle Veränderungen mit
+<code class="literal">git add hello.pl</code> und starten <code class="literal">git reset -p</code>.</p>
+          <pre class="screen">$ <span class="strong"><strong>git reset -p</strong></span>
+diff --git a/hello.pl b/hello.pl
+index c6f28d5..908e967 100644
+--- a/hello.pl
++++ b/hello.pl
+@@ -1,2 +1,5 @@
++#!/usr/bin/perl
+ # Hello World! in Perl
++# Author: Valentin Haenel
++use strict;
+ print "Hello World!\n";
+Unstage this hunk [y,n,q,a,d,/,s,e,?]?</pre>
+          <p>Wie bei dem Beispiel mit <code class="literal">git add -p</code> bietet Git nach und nach
+Hunks an, jedoch sind es diesmal alle Hunks im Index. Entsprechend
+lautet die Frage: <code class="literal">Unstage this hunk [y,n,q,a,d,/,s,e,?]?</code>, also
+ob wir den Hunk wieder aus dem Index herausnehmen möchten. Wie gehabt,
+erhalten wir durch die Eingabe des Fragezeichens eine erweiterte
+Beschreibung der verfügbaren Optionen.  Wir drücken an dieser Stelle
+einmal <code class="literal">s</code> für <span class="emphasis"><em>split</em></span>, einmal <code class="literal">n</code> für <span class="emphasis"><em>no</em></span>
+und einmal <code class="literal">y</code> für <span class="emphasis"><em>yes</em></span>.  Damit sollte sich jetzt nur die
+Shebang-Zeile im Index befinden:</p>
+          <pre class="screen">$ <span class="strong"><strong>git diff --staged</strong></span>
+diff --git a/hello.pl b/hello.pl
+index c6f28d5..d2cc6dc 100644
+--- a/hello.pl
++++ b/hello.pl
+@@ -1,2 +1,3 @@
++#!/usr/bin/perl
+ # Hello World! in Perl
+ print "Hello World!\n";</pre>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Bei den interaktiven Modi von <code class="literal">git add</code> und <code class="literal">git
+reset</code> müssen Sie nach Eingabe einer Option die Enter-Taste
+drücken.  Mit folgender Konfigurationseinstellung sparen Sie sich
+diesen zusätzlichen Tastendruck.</p>
+            <pre class="screen">$ <span class="strong"><strong>git config --global interactive.singlekey true</strong></span></pre>
+          </div>
+          <p>Ein Wort der Warnung:
+Ein <code class="literal">git add -p</code> kann dazu verleiten, Versionen einer Datei
+einzuchecken, die nicht lauffähig oder syntaktisch korrekt sind
+(z.B. weil Sie eine wesentliche Zeile vergessen haben). Verlassen
+Sie sich daher nicht darauf, dass Ihr Commit korrekt ist, nur weil
+<code class="literal">make</code> – was auf den Dateien des Working Tree arbeitet! – erfolgreich durchläuft. Auch wenn ein späterer Commit das Problem
+behebt, stellt dies unter anderem bei der automatisierten Fehlersuche
+via Bisect (siehe <a class="xref" href="ch04.html#sec.bisect" title="4.8. Regressionen finden – git bisect">Abschnitt 4.8, „Regressionen finden – git bisect“</a>) ein Problem dar.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.commit"></a>2.1.3. Commits erstellen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Sie wissen nun, wie Sie Änderungen zwischen Working Tree, Index und
+Repository austauschen. Wenden wir uns nun dem Kommando <code class="literal">git
+  commit</code> zu, mit dem Sie Änderungen im Repository
+„festschreiben“.</p>
+          <p>Ein Commit hält den Stand aller Dateien Ihres Projekts zu einem
+bestimmten Zeitpunkt fest und enthält zudem
+Metainformationen:<a href="#ftn.idm45240359613952" class="footnote" id="idm45240359613952"><sup class="footnote">[17]</sup></a></p>
+          <div class="itemizedlist">
+            <ul class="itemizedlist" style="list-style-type: disc; ">
+              <li class="listitem">
+Name des Autors und E-Mail-Adresse
+</li>
+              <li class="listitem">
+Name des Committers und E-Mail-Adresse
+</li>
+              <li class="listitem">
+Erstellungsdatum
+</li>
+              <li class="listitem">
+Commit-Datum
+</li>
+            </ul>
+          </div>
+          <p>Tatsächlich ist es so, dass der Name des Autors <span class="emphasis"><em>nicht</em></span> der Name
+des Committers (der den Commit einpflegt) sein muss.  Häufig werden
+Commits von Maintainern integriert oder bearbeitet (z.B.
+durch <code class="literal">rebase</code>, was auch die Committer-Informationen anpasst,
+siehe <a class="xref" href="ch04.html#sec.rebase" title="4.1. Commits verschieben – Rebase">Abschnitt 4.1, „Commits verschieben – Rebase“</a>).  Die Committer-Informationen sind aber
+in der Regel von nachrangiger Bedeutung – die meisten Programme
+zeigen nur den Autor und das Datum der Commit-Erstellung an.</p>
+          <p>Wenn Sie einen Commit erstellen, verwendet Git die im vorherigen
+Abschnitt konfigurierten Einstellungen <code class="literal">user.name</code> und
+<code class="literal">user.email</code>, um den Commit zu kennzeichnen.</p>
+          <p>Bei einem Aufruf von <code class="literal">git commit</code> ohne zusätzliche Argumente
+fasst Git alle Veränderungen im Index zu einem Commit zusammen und
+öffnet einen Editor, mit dem Sie eine Commit-Message erstellen.  Die
+Nachricht enthält jedoch immer eine mit Rautezeichen (<code class="literal">#</code>)
+auskommentierte Anleitung bzw. Informationen darüber, welche Dateien
+durch den Commit geändert werden. Rufen Sie <code class="literal">git commit -v</code>
+auf, erhalten Sie unterhalb der Anleitung noch ein Diff der
+Änderungen, die Sie einchecken werden. Das ist vor allem praktisch, um
+einen Überblick über die Änderungen zu behalten und die
+Auto-Vervollständigungsfunktion Ihres Editors zu verwenden.</p>
+          <p>Sobald Sie den Editor beenden, erstellt Git den Commit. Geben Sie
+keine Commit-Nachricht an oder löschen den gesamten Inhalt der Datei,
+bricht Git ab und erstellt keinen Commit.</p>
+          <p>Wollen Sie nur eine Zeile schreiben, bietet sich die Option
+<code class="literal">--message</code> oder kurz <code class="literal">-m</code> an, mit der Sie direkt auf
+der Kommandozeile die Nachricht angeben und so den Editor umgehen:</p>
+          <pre class="screen">$ <span class="strong"><strong>git commit -m "Dies ist die Commit-Nachricht"</strong></span></pre>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.ci-amend"></a>Einen Commit verbessern</h4>
+                </div>
+              </div>
+            </div>
+            <p>Wenn Sie vorschnell <code class="literal">git commit</code> eingegeben haben, den Commit aber noch geringfügig verbessern wollen, hilft die
+Option <code class="literal">--amend</code> („berichtigen“). Die Option
+veranlasst Git, die Änderungen im Index dem eben getätigten Commit
+„hinzuzufügen“.<a href="#ftn.idm45240359593472" class="footnote" id="idm45240359593472"><sup class="footnote">[18]</sup></a>  Außerdem können Sie die
+Commit-Nachricht anpassen. Beachten Sie, dass sich die SHA-1-Summe des
+Commits in jedem Fall ändert.</p>
+            <p>Mit dem Aufruf <code class="literal">git commit --amend</code> verändern Sie nur den
+aktuellen Commit auf einem Branch. Wie Sie weiter zurückliegende
+Commits verbessern, beschreibt <a class="xref" href="ch04.html#sec.rebase-onto-ci-amend" title="4.1.9. Einen Commit verbessern">Abschnitt 4.1.9, „Einen Commit verbessern“</a>.</p>
+            <div class="tip" style="margin-left: 0; margin-right: 10%;">
+              <h3 class="title">Tipp</h3>
+              <p>Der Aufruf von <code class="literal">git commit --amend</code> startet automatisch einen Editor, so
+dass Sie auch noch die Commit-Nachricht bearbeiten können. Häufig wollen
+Sie aber nur noch eine kleine Korrektur an einer Datei vornehmen, ohne die
+Nachricht anzupassen. Für die Autoren bewährt sich in dieser Situation
+ein Alias <code class="literal">fixup</code>:</p>
+              <pre class="screen">$ <span class="strong"><strong>git config --global alias.fixup "commit --amend --no-edit"</strong></span></pre>
+            </div>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.commit-msg"></a>Gute Commit-Nachrichten</h4>
+                </div>
+              </div>
+            </div>
+            <p>Wie sollte eine Commit-Nachricht aussehen?  An der äußeren Form lässt
+sich nicht viel ändern: Die Commit-Nachricht muss mindestens eine
+Zeile lang sein, die am besten aber maximal 50 Zeichen umfasst. Das
+macht Auflistungen der Commits besser lesbar.  Sofern Sie eine
+genauere Beschreibung hinzufügen wollen (was äußerst empfehlenswert
+ist!), trennen Sie diese von der ersten Zeile durch eine Leerzeile.
+Keine Zeile sollte – wie auch bei E-Mails üblich – länger als 76
+Zeichen sein.</p>
+            <p>Commit-Nachrichten folgen oft den Gewohnheiten oder Besonderheiten
+eines Projekts. Möglicherweise gibt es Konventionen, wie zum Beispiel
+Referenzen zum Bugtracking- oder Ticket-System oder ein Link zur
+entsprechenden API-Dokumentation.</p>
+            <p>Beachten Sie die folgenden Punkte beim Verfassen einer
+Commit-Beschreibung:</p>
+            <div class="itemizedlist">
+              <ul class="itemizedlist" style="list-style-type: disc; ">
+                <li class="listitem">
+Erstellen Sie niemals leere Commit-Nachrichten. Auch
+  Commit-Nachrichten wie <code class="literal">Update</code>, <code class="literal">Verbesserung</code>,
+  <code class="literal">Fix</code> etc. sind ebenso aussagekräftig wie eine leere
+  Nachricht – dann können Sie es auch gleich lassen.
+</li>
+                <li class="listitem">
+Ganz wichtig: Beschreiben Sie, <span class="emphasis"><em>warum</em></span> etwas verändert
+  wurde und welche Implikationen das haben kann. <span class="emphasis"><em>Was</em></span> verändert
+  wurde, ist immer aus dem Diff ersichtlich!
+</li>
+                <li class="listitem">
+Seien Sie kritisch und vermerken Sie, wenn Sie glauben,
+  dass noch Verbesserungsbedarf besteht oder der Commit möglicherweise
+  an anderer Stelle Fehler einführt.
+</li>
+                <li class="listitem">
+Die erste Zeile sollte nicht länger als 50 Zeichen sein,
+  damit bleibt die Ausgabe der Versionsgeschichte stets gut formatiert
+  und lesbar.
+</li>
+                <li class="listitem">
+Wird die Nachricht länger, sollte in der ersten Zeile eine
+  kurze Zusammenfassung (mit den wichtigen Schlagwörtern) stehen.
+  Nach einer Leerzeile folgt dann eine umfangreiche Beschreibung.
+</li>
+              </ul>
+            </div>
+            <p>Wir können nicht häufig genug betonen, wie wichtig eine gute
+Commit-Beschreibung ist. Beim Commit sind einem Entwickler die
+Änderungen noch gut im Gedächtnis, aber schon nach wenigen Tagen ist
+die Motivation dahinter oft vergessen. Auch Ihre Kollegen oder
+Projektmitstreiter werden es Ihnen danken, weil sie Änderungen viel
+schneller erfassen können.</p>
+            <p>Eine gute Commit-Nachricht zu schreiben hilft auch, kurz darüber zu
+reflektieren, was schon geschafft ist und was noch ansteht. Vielleicht
+merken Sie beim Schreiben, dass Sie noch ein wesentliches Detail
+vergessen haben.</p>
+            <p>Man kann auch über eine Zeitbilanz argumentieren: Die Zeit, die Sie
+benötigen, um eine gute Commit-Nachricht zu schreiben, beläuft sich
+auf ein bis zwei Minuten.  Um wie viel Zeit wird sich die Fehlersuche
+aber verringern, wenn jeder Commit gut dokumentiert ist? Wie viel Zeit
+sparen Sie anderen (und sich selbst), wenn Sie zu einem – möglicherweise schwer verständlichen – Diff noch eine gute
+Beschreibung mitliefern? Auch das Blame-Tool, das jede Zeile einer Datei mit
+dem Commit, der sie zuletzt geändert hat, annotiert, wird bei
+ausführlichen Commit-Beschreibungen zu einem unerlässlichen Hilfsmittel
+werden (siehe <a class="xref" href="ch04.html#sec.blame" title="4.3. Wer hat diese Änderungen gemacht? – git blame">Abschnitt 4.3, „Wer hat diese Änderungen gemacht? – git blame“</a>).</p>
+            <p>Wenn Sie nicht gewöhnt sind, ausführliche Commit-Nachrichten zu
+schreiben, fangen Sie heute damit an. Übung macht den Meister, und
+wenn Sie sich erst einmal daran gewöhnt haben, geht die Arbeit schnell
+von der Hand – Sie selbst und andere profitieren davon.</p>
+            <p>Das Repository des Git-Projekts ist ein Paradebeispiel für gute
+Commit-Nachrichten. Ohne Details von Git zu kennen, wissen Sie schnell,
+wer warum was geändert hat. Außerdem sieht man, durch wie viele Hände
+solch ein Commit geht, bevor er integriert wird.</p>
+            <p>Leider sind die Commit-Nachrichten in den meisten Projekten dennoch
+sehr spartanisch gehalten; seien Sie also nicht enttäuscht, wenn Ihre
+Mitstreiter schreibfaul sind, sondern gehen Sie mit gutem Beispiel und
+ausführlichen Beschreibungen voran.</p>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.git-mv-rm"></a>2.1.4. Dateien verschieben und löschen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Wenn Sie Dateien, die von Git verwaltet werden, löschen oder
+verschieben wollen, dann verwenden Sie dafür <code class="literal">git rm</code> bzw.
+<code class="literal">git mv</code>. Sie wirken wie die regulären Unix-Kommandos,
+modifizieren aber darüber hinaus den Index, so dass die Aktion in den
+nächsten Commit einfließt.<a href="#ftn.idm45240359563648" class="footnote" id="idm45240359563648"><sup class="footnote">[19]</sup></a></p>
+          <p>Analog zu den Standard-Unix-Kommandos akzeptiert <code class="literal">git rm</code> auch
+die Optionen <code class="literal">-r</code> und <code class="literal">-f</code>, um rekursiv zu löschen bzw.
+das Löschen zu erzwingen. Auch <code class="literal">git mv</code> bietet eine Option
+<code class="literal">-f</code> (<span class="emphasis"><em>force</em></span>), falls der neue Dateiname schon existiert
+und überschrieben werden soll. Beide Kommandos akzeptieren die Option
+<code class="literal">-n</code> bzw. <code class="literal">--dry-run</code>, die bewirkt, dass der Vorgang
+simuliert wird, Dateien also nicht modifiziert werden.</p>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Um eine Datei <span class="emphasis"><em>nur</em></span> aus dem Index zu löschen, verwenden Sie
+<code class="literal">git rm --cached</code>. Sie bleibt dann im Working Tree
+erhalten.</p>
+          </div>
+          <p>Sie werden häufiger vergessen, eine Datei über <code class="literal">git mv</code> zu
+verschieben oder per <code class="literal">git rm</code> zu löschen, und stattdessen die
+Standard-Unix-Kommandos verwenden. In diesem Fall markieren Sie die
+(schon per <code class="literal">rm</code> gelöschte) Datei einfach auch als gelöscht im
+Index, und zwar per <code class="literal">git rm &lt;datei&gt;</code>.</p>
+          <p>Für eine Umbenennung gehen Sie so vor: Markieren Sie zunächst den
+alten Dateinamen per <code class="literal">git rm &lt;alter-name&gt;</code> als gelöscht.  Fügen
+Sie dann die neue Datei hinzu: <code class="literal">git add &lt;neuer-name&gt;</code>.
+Überprüfen Sie anschließend per <code class="literal">git status</code>, ob die Datei als
+„umbenannt“ gekennzeichnet ist.</p>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Intern spielt es für Git keine Rolle, ob Sie eine Datei regulär per
+<code class="literal">mv</code> verschieben, dann <code class="literal">git add &lt;neuer-name&gt;</code> und <code class="literal">git rm
+&lt;alter-name&gt;</code> ausführen. In jedem Fall wird lediglich die Referenz auf
+ein Blob-Objekt geändert (siehe <a class="xref" href="ch02.html#sec.objektmodell" title="2.2. Das Objektmodell">Abschnitt 2.2, „Das Objektmodell“</a>).</p>
+            <p>Git kommt allerdings mit einer sogenannten <span class="emphasis"><em>Rename Detection</em></span>: Wenn
+ein Blob gleich ist und nur von einem anderen Dateinamen referenziert
+wird, dann fasst Git dies als eine Umbenennung auf.  Wollen Sie die
+Geschichte einer Datei untersuchen und ihr bei eventuellen
+Umbenennungen folgen, verwenden Sie das folgende Kommando:</p>
+            <pre class="screen">$ <span class="strong"><strong>git log --follow -- &lt;datei&gt;</strong></span></pre>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.grep"></a>2.1.5. grep auf einem Repository</h3>
+              </div>
+            </div>
+          </div>
+          <p>Wenn Sie nach einem Ausdruck in allen Dateien Ihres Projektes suchen
+wollen, bietet sich normalerweise ein Aufruf von <code class="literal">grep -R
+&lt;ausdruck&gt; .</code> an.</p>
+          <p>Git bietet allerdings ein eigenes Grep-Kommando, das Sie per
+<code class="literal">git grep &lt;ausdruck&gt;</code> aufrufen. In der Regel sucht das
+Kommando den Ausdruck in allen von Git verwalteten Dateien. Wollen Sie
+stattdessen nur einen Teil der Dateien untersuchen, können Sie das
+Muster explizit angeben. Mit folgendem Kommando finden Sie alle
+Vorkommnisse von <code class="literal">border-color</code> in allen CSS-Dateien:</p>
+          <pre class="screen">$ <span class="strong"><strong>git grep border-color -- '*.css'</strong></span></pre>
+          <p>Die Grep-Implementation von Git unterstützt alle gängigen Flags, die
+auch in GNU Grep vorhanden sind. Allerdings ist ein Aufruf von
+<code class="literal">git grep</code> in der Regel um eine Größenordnung schneller, da Git
+durch die Objektdatenbank sowie das Multithread-Design des Kommandos
+wesentliche Performance-Vorteile hat.</p>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Die populäre <code class="literal">grep</code>-Alternative <code class="literal">ack</code> zeichnet sich vor allem dadurch
+aus, dass es die auf das Suchmuster passenden Zeilen einer Datei unter
+einer entsprechenden „Überschrift“ zusammenfasst, sowie prägnante
+Farben verwendet. Sie können die Ausgabe von <code class="literal">ack</code> mit <code class="literal">git grep</code>
+emulieren, indem Sie folgendes Alias verwenden:</p>
+            <pre class="screen">$ <span class="strong"><strong>git config alias.ack '!git -c color.grep.filename="green bold" \</strong></span>
+  <span class="strong"><strong>-c color.grep.match="black yellow" -c color.grep.linenumber="yellow bold" \</strong></span>
+  <span class="strong"><strong>grep -n --break --heading --color=always --untracked'</strong></span></pre>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.git-log"></a>2.1.6. Die Projektgeschichte untersuchen</h3>
+              </div>
+            </div>
+          </div>
+          <p>Mit <code class="literal">git log</code> untersuchen Sie die Versionsgeschichte des
+Projekts. Die Optionen dieses Kommandos (die großteils auch für
+<code class="literal">git show</code> funktionieren) sind sehr umfangreich, wir werden im
+Folgenden die wichtigsten vorstellen.</p>
+          <p>Ohne weitere Argumente gibt <code class="literal">git log</code> für jeden Commit Autor,
+Datum, Commit-ID sowie die komplette Commit-Nachricht aus.  Das ist
+dann praktisch, wenn Sie einen schnellen Überblick benötigen, wer wann
+was gemacht hat. Allerdings ist die Liste etwas unhandlich, sobald Sie
+viele Commits betrachten.</p>
+          <p>Wollen Sie nur die kürzlich erstellten Commits anschauen, begrenzen Sie die
+Ausgabe von <code class="literal">git log</code> durch die Option <code class="literal">-&lt;n&gt;</code> auf <span class="emphasis"><em>n</em></span>
+Commits. Die letzten vier Commits erhalten Sie zum Beispiel mit:</p>
+          <pre class="screen">$ <span class="strong"><strong>git log -4</strong></span></pre>
+          <p>Um einen einzelnen Commit anzuzeigen, geben Sie stattdessen ein:</p>
+          <pre class="screen">$ <span class="strong"><strong>git log -1 &lt;commit&gt;</strong></span></pre>
+          <p>Das Argument <code class="literal">&lt;commit&gt;</code> ist eine legale Bezeichnung für einen einzelnen
+Commit, z.B. die Commit-ID bzw. SHA-1-Summe. Wenn Sie jedoch
+nichts angeben, verwendet Git automatisch <code class="literal">HEAD</code>. Abgesehen von einzelnen
+Commits versteht das Kommando allerdings auch sog. <span class="emphasis"><em>Commit-Ranges</em></span> (Reihe
+von Commits), siehe <a class="xref" href="ch02.html#sec.commit-ranges-intro" title="2.1.7. Commit-Ranges">Abschnitt 2.1.7, „Commit-Ranges“</a>.</p>
+          <p>Die Option <code class="literal">-p</code> (<code class="literal">--patch</code>) fügt den vollen Patch im
+Unified-Diff-Format unter der Beschreibung an. Damit ist also ein
+<code class="literal">git show &lt;commit&gt;</code> von der Ausgabe äquivalent zu <code class="literal">git
+  log -1 -p &lt;commit&gt;</code>.</p>
+          <p>Wollen Sie die Commits in komprimierter Form anzeigen, empfiehlt sich
+die Option <code class="literal">--oneline</code>: Sie fasst jeden Commit mit seiner
+abgekürzten SHA-1-Summe und der ersten Zeile der Commit-Nachricht
+zusammen. Daher ist es wichtig, dass Sie in dieser Zeile möglichst
+hilfreiche Informationen verpacken! Das sieht dann zum Beispiel so
+aus:<a href="#ftn.idm45240359510288" class="footnote" id="idm45240359510288"><sup class="footnote">[20]</sup></a></p>
+          <pre class="screen">$ <span class="strong"><strong>git log --oneline</strong></span>
+<span class="strong"><strong>25f3af3</strong></span> Correctly report corrupted objects
+<span class="strong"><strong>786dabe</strong></span> tests: compress the setup tests
+<span class="strong"><strong>91c031d</strong></span> tests: cosmetic improvements to the repo-setup test
+<span class="strong"><strong>b312b41</strong></span> exec_cmd: remove unused extern</pre>
+          <p>Die Option <code class="literal">--oneline</code> ist nur ein Alias für
+<code class="literal">--pretty=oneline</code>. Es gibt noch andere Möglichkeiten, die
+Ausgabe von <code class="literal">git log</code> anzupassen. Die möglichen Werte für die
+Option <code class="literal">--pretty</code> sind:</p>
+          <div class="variablelist">
+            <dl class="variablelist">
+              <dt>
+                <span class="term">
+<code class="literal">oneline</code>
+</span>
+              </dt>
+              <dd>
+Commit-ID und erste Zeile der   Beschreibung
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">short</code>
+</span>
+              </dt>
+              <dd>
+Commit-ID, erste Zeile der
+  Beschreibung sowie Autor des Commits; Ausgabe umfasst vier Zeilen.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">medium</code>
+</span>
+              </dt>
+              <dd>
+Default; Ausgabe von Commit-ID, Autor,
+  Datum und kompletter Beschreibung.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">full</code>
+</span>
+              </dt>
+              <dd>
+Commit-ID, Name des Autors, Name des
+  Committers und vollständige Beschreibung – <span class="emphasis"><em>kein</em></span> Datum.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">fuller</code>
+</span>
+              </dt>
+              <dd>
+Wie <code class="literal">medium</code>, aber zusätzlich
+  Datum und Name des Committers.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">email</code>
+</span>
+              </dt>
+              <dd>
+Formatiert die Informationen von
+  <code class="literal">medium</code> so, dass sie wie eine E-Mail aussehen.
+</dd>
+              <dt>
+                <span class="term">
+<code class="literal">format:&lt;string&gt;</code>
+</span>
+              </dt>
+              <dd>
+Durch Platzhalter beliebig
+  anpassbares Format; für Details siehe die Man-Page <code class="literal">git-log(1)</code>,
+  Abschnitt „Pretty Formats“.
+</dd>
+            </dl>
+          </div>
+          <p>Unabhängig davon können Sie unterhalb der Commit-Nachricht weitere
+Informationen über die Veränderungen durch den Commit ausgeben.
+Betrachten Sie folgende Beispiele, in denen deutlich wird, welche
+Dateien an wie vielen Stellen geändert wurden:</p>
+          <pre class="screen">$ <span class="strong"><strong>git log -1 --oneline 4868b2ea</strong></span>
+4868b2e setup: officially support --work-tree without --git-dir
+
+$ git log -1 --oneline <span class="strong"><strong>--name-status</strong></span> 4868b2ea
+4868b2e setup: officially support --work-tree without --git-dir
+M       setup.c
+M       t/t1510-repo-setup.sh
+
+$ git log -1 --oneline <span class="strong"><strong>--stat</strong></span> 4868b2ea
+4868b2e setup: officially support --work-tree without --git-dir
+ setup.c               |   19 <code class="literal"><code class="literal"></code>
+ t/t1510-repo-setup.sh |  210 +++++++++++++++++------------------
+ 2 files changed, 134 insertions(</code>), 95 deletions(-)
+
+$ git log -1 --oneline <span class="strong"><strong>--shortstat</strong></span> 4868b2ea
+4868b2e setup: officially support --work-tree without --gi-dir
+ 2 files changed, 134 insertions(+), 95 deletions(-)</pre>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.git-log-dates"></a>Zeitliche Einschränkungen</h4>
+                </div>
+              </div>
+            </div>
+            <p>Sie können die anzuzeigenden Commits zeitlich eingrenzen, und zwar mit
+den Optionen <code class="literal">--after</code> bzw. <code class="literal">--since</code> sowie
+<code class="literal">--until</code> bzw. <code class="literal">--before</code>. Die Optionen sind jeweils
+synonym, liefern also dieselben Ergebnisse.</p>
+            <p>Sie können absolute Daten in jedem gängigen Format angeben oder auch
+relative Daten, hier einige Beispiele:</p>
+            <pre class="screen">$ <span class="strong"><strong>git log --after='Tue Feb 1st, 2011'</strong></span>
+$ <span class="strong"><strong>git log --since='2011-01-01'</strong></span>
+$ <span class="strong"><strong>git log --since='two weeks ago' --before='one week ago'</strong></span>
+$ <span class="strong"><strong>git log --since='yesterday'</strong></span></pre>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.git-log-files"></a>Einschränkungen auf Dateiebene</h4>
+                </div>
+              </div>
+            </div>
+            <p>Geben Sie nach einem <code class="literal">git log</code>-Aufruf einen oder mehrere Datei-
+oder Verzeichnisnamen an, wird Git nur die Commits anzeigen, die
+zumindest eine der angegebenen Dateien betrifft. Gute Strukturierung
+eines Projekts vorausgesetzt, lässt sich die Ausgabe der Commits stark
+begrenzen und eine bestimmte Änderung rasch finden.</p>
+            <p>Da Dateinamen möglicherweise mit Branches oder Tags kollidieren,
+sollten Sie die Dateinamen sicherheitshalber nach einem <code class="literal">--</code>
+angeben, der besagt, dass nur noch Datei-Argumente folgen.</p>
+            <pre class="screen">$ <span class="strong"><strong>git log -- main.c</strong></span>
+$ <span class="strong"><strong>git log -- *.h</strong></span>
+$ <span class="strong"><strong>git log -- Documentation/</strong></span></pre>
+            <p>Diese Aufrufe geben nur die Commits aus, in denen Änderungen an der
+Datei <code class="literal">main.c</code>, einer <code class="literal">.h</code>-Datei respektive an einer
+Datei unterhalb von <code class="literal">Documentation/</code> vorgenommen wurden.</p>
+          </div>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.git-log-grep"></a>grep für Commits</h4>
+                </div>
+              </div>
+            </div>
+            <p>Sie können auch im Stile von <code class="literal">grep</code> nach Commits suchen; hier
+stehen die Optionen <code class="literal">--author</code>, <code class="literal">--committer</code> und
+<code class="literal">--grep</code> zur Verfügung.</p>
+            <p>Die ersten beiden Optionen filtern die Commits erwartungsgemäß nach
+Autor- bzw.  Committer-Name oder -Adresse. So listen Sie zum Beispiel alle
+Commits, die Linus Torvalds seit Anfang 2010 gemacht hat:</p>
+            <pre class="screen">$ <span class="strong"><strong>git log --since='2010-01-01' --author='Linus Torvalds'</strong></span></pre>
+            <p>Hier können Sie auch nur Teile des Namens bzw. der E-Mail-Adresse angeben; die
+Suche nach <code class="literal">'Linus'</code> würde also dasselbe Ergebnis produzieren.</p>
+            <p>Mit <code class="literal">--grep</code> suchen Sie zum Beispiel nach Schlagwörtern oder
+Satzteilen in der Commit-Nachricht, etwa nach allen Commits, in denen
+das Wort „fix“ vorkommt (ohne die Groß- und Kleinschreibung
+zu beachten):</p>
+            <pre class="screen">$ <span class="strong"><strong>git log -i --grep=fix</strong></span></pre>
+            <p>Die Option <code class="literal">-i</code> (bzw. <code class="literal">--regexp-ignore-case</code>) bewirkt, dass
+<code class="literal">git log</code> die Groß- und Kleinschreibung des Musters ignoriert
+(funktioniert auch in Verbindung mit <code class="literal">--author</code> und
+<code class="literal">--committer</code>).</p>
+            <p>Alle drei Optionen behandeln die Werte – wie <code class="literal">grep</code> auch – als reguläre Ausdrücke (siehe die Man-Page <code class="literal">regex(7)</code>). Durch
+<code class="literal">-E</code> und <code class="literal">-F</code> wird das Verhalten der
+Optionen analog zu <code class="literal">egrep</code> und <code class="literal">fgrep</code> umgestellt:
+erweiterte reguläre Ausdrücke zu verwenden bzw. nach dem literalen
+Suchterm (dessen spezielle Zeichen ihre Bedeutung verlieren) zu suchen.</p>
+            <div class="tip" style="margin-left: 0; margin-right: 10%;">
+              <h3 class="title">Tipp</h3>
+              <p>Um nach <span class="emphasis"><em>Änderungen</em></span> zu suchen, verwenden Sie das sog.  <span class="emphasis"><em>Pickaxe</em></span>-Tool
+(„Spitzhacke“). So finden Sie Commits, in deren Diff ein bestimmter
+regulärer Ausdruck vorkommt („<code class="literal">grep</code> für Diffs“):</p>
+              <pre class="screen">$ <span class="strong"><strong>git log -p -G&lt;regex&gt;</strong></span></pre>
+              <p>Der <code class="literal">&lt;regex&gt;</code> ist direkt, d.h. ohne Leerzeichen, nach der
+Pickaxe-Option <code class="literal">-G</code> anzugeben. Die Option <code class="literal">--pickaxe-all</code> bewirkt, dass
+alle Veränderungen des Commits aufgelistet werden, nicht nur
+diejenigen, die die gesuchte Änderung enthalten.</p>
+              <p>Beachten Sie, dass in früheren Git-Versionen für diese Operation die
+Option <code class="literal">-S</code> zuständig war, die allerdings einen Unterschied zu
+<code class="literal">-G</code> aufweist: Sie findet nur die Commits, die die <span class="emphasis"><em>Anzahl</em></span> der
+Vorkommnisse des Musters ändern – insbesondere werden
+Code-Verschiebungen, also Entfernen und Hinzufügen an anderer Stelle in
+einer Datei, nicht gefunden.</p>
+            </div>
+            <p>Mit diesen Werkzeugen gerüstet, können Sie nun selbst Massen von
+Commits bändigen. Geben Sie nur entsprechend viele Kriterien an, um
+die Anzahl der Commits zu verringern.</p>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.commit-ranges-intro"></a>2.1.7. Commit-Ranges</h3>
+              </div>
+            </div>
+          </div>
+          <p>Bisher haben wir lediglich Kommandos betrachtet, die nur einen
+einzelnen Commit als Argument fordern, explizit identifiziert durch
+seine Commit-ID oder implizit durch den symbolischen Namen
+<code class="literal">HEAD</code>, der den jeweils aktuellsten Commit referenziert.</p>
+          <p>Das Kommando <code class="literal">git show</code> zeigt Informationen zu einem Commit an,
+das Kommando <code class="literal">git log</code> beginnt bei einem Commit, und geht dann
+so weit in der Versionsgeschichte zurück, bis der Anfang des
+Repositorys (der sogenannte <span class="emphasis"><em>Root-Commit</em></span>) erreicht ist.</p>
+          <p>Ein wichtiges Hilfsmittel, um eine Reihe von Commits anzugeben, sind
+sogenannte Commit-Ranges der Form <code class="literal">&lt;commit1&gt;..&lt;commit2&gt;</code>.  Da
+wir bislang noch nicht mit mehreren Branches (Zweigen) arbeiten,
+ist dies einfach ein Ausschnitt der Commits in einem Repository, und
+zwar von <code class="literal">&lt;commit1&gt;</code> exklusive bis <code class="literal">&lt;commit2&gt;</code>
+inklusive. Sofern Sie eine der beiden Grenzen weglassen, nimmt Git
+dafür den Wert <code class="literal">HEAD</code> an.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.git-diff"></a>2.1.8. Unterschiede zwischen Commits</h3>
+              </div>
+            </div>
+          </div>
+          <p>Das Kommando <code class="literal">git show</code> bzw. <code class="literal">git log -p</code> hat bisher
+immer nur den Unterschied zu dem jeweils vorherigen Commit ausgegeben.
+Wollen Sie die Unterschiede mehrerer Commits einsehen, hilft
+das Kommando <code class="literal">git diff</code>.</p>
+          <p>Das Diff-Kommando erfüllt mehrere Aufgaben. Wie bereits gesehen,
+können Sie ohne weitere Angabe von Commits die Unterschiede zwischen
+Working Tree und Index bzw. mit der Option <code class="literal">--staged</code> die
+Unterschiede zwischen Index und <code class="literal">HEAD</code> untersuchen.</p>
+          <p>Wenn Sie dem Kommando aber zwei Commits bzw. eine Commit-Range
+übergeben, wird stattdessen der Unterschied zwischen diesen
+Commits angezeigt.</p>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both"><a id="sec.objektmodell"></a>2.2. Das Objektmodell</h2>
+            </div>
+          </div>
+        </div>
+        <p>Git basiert auf einem simplen, aber äußerst mächtigen Objektmodell. Es
+dient dazu, die typischen Elemente eines Repositorys (Dateien,
+Verzeichnisse, Commits) und die Entwicklung über die Zeit abzubilden.
+Das Verständnis dieses Modells ist von großer Bedeutung und hilft sehr
+dabei, von typischen Git-Arbeitsschritten zu abstrahieren und sie
+so besser zu verstehen.</p>
+        <p>Im Folgenden dient uns als Beispiel wieder ein „Hello
+World!“-Programm, diesmal in der Programmiersprache Python.<a href="#ftn.idm45240359415392" class="footnote" id="idm45240359415392"><sup class="footnote">[21]</sup></a></p>
+        <div class="figure">
+          <a id="fig.objektmodell-program-crop"></a>
+          <p class="title">
+            <strong>Abbildung 2.2. Hello World!-Programm in Python</strong>
+          </p>
+          <div class="figure-contents">
+            <div class="mediaobject">
+              <img src="bilder_ebook/objektmodell-programm-crop.png" width="135" alt="bilder_ebook/objektmodell-programm-crop.png" />
+            </div>
+          </div>
+        </div>
+        <br class="figure-break" />
+        <p>Das Projekt besteht aus der Datei <code class="literal">hello.py</code> sowie einer
+<code class="literal">README</code>-Datei und einem Verzeichnis <code class="literal">test</code>. Führt man
+das Programm mit dem Befehl <code class="literal">python hello.py</code> aus,  erhält
+man die Ausgabe: <code class="literal">Hello World!</code>. In dem Verzeichnis
+<code class="literal">test</code> liegt ein simples Shell-Script, <code class="literal">test.sh</code>,
+das eine Fehlermeldung anzeigt, sollte das Python-Programm nicht
+wie erwartet den String <code class="literal">Hello World!</code> ausgeben.</p>
+        <p>Das Repository für dieses Projekt besteht aus den folgenden vier
+Commits:</p>
+        <pre class="screen">$ <span class="strong"><strong>git log --oneline</strong></span>
+e2c67eb Kommentar fehlte
+8e2f5f9 Test Datei
+308aea1 README Datei
+b0400b0 Erste Version</pre>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.sha1"></a>2.2.1. SHA-1 – der sichere Hash-Algorithmus</h3>
+              </div>
+            </div>
+          </div>
+          <p>SHA-1 ist ein sicherer Hash-Algorithmus (<span class="emphasis"><em>Secure Hash
+  Algorithm</em></span>), der eine Prüfsumme digitaler Informationen berechnet:
+die SHA-1-Summe.  Der Algorithmus wurde 1995 vom amerikanischen
+<span class="emphasis"><em>National Institute of Standards and Technology</em></span> (NIST) und der
+<span class="emphasis"><em>National Security Agency</em></span> (NSA) vorgestellt.  SHA-1 wurde für
+kryptographische Zwecke entwickelt und findet bei der
+Integritätsprüfung von Nachrichten sowie als Basis für digitale
+Signaturen Anwendung. Die Funktionsweise stellt <a class="xref" href="ch02.html#fig.sha" title="Abbildung 2.3. SHA-1-Algorithmus">Abbildung 2.3, „SHA-1-Algorithmus“</a> dar, wo wir die Prüfsumme von <code class="literal">hello.py</code>
+berechnen.</p>
+          <p>Es handelt sich bei dem Algorithmus um eine mathematische
+Einwegfunktion, die eine Bit-Sequenz mit maximaler Länge 2<sup>64</sup>-1
+Bit (ca. 2 Exbibyte) auf eine Prüfsumme der Länge 160 Bit
+(20 Byte) abbildet.  Die Prüfsumme wird üblicherweise als hexadezimale
+Zeichenkette der Länge 40 dargestellt. Der Algorithmus führt bei
+dieser Länge der Prüfsumme zu 2<sup>160</sup> (ca. 1.5 · 10<sup>49</sup>)
+verschiedenen Kombinationen, und daher ist es sehr, sehr
+unwahrscheinlich, dass zwei Bit-Sequenzen die gleiche Prüfsumme haben.
+Diese Eigenschaft wird als <span class="emphasis"><em>Kollisionssicherheit</em></span> bezeichnet.</p>
+          <div class="figure">
+            <a id="fig.sha"></a>
+            <p class="title">
+              <strong>Abbildung 2.3. SHA-1-Algorithmus</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/sha.png" width="486" alt="bilder_ebook/sha.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p>Allen Bemühungen der Kryptologen zum Trotz wurden vor einigen Jahren
+verschiedene theoretische Angriffe auf SHA-1 bekannt, die das Erzeugen
+von Kollisionen mit einem erheblichen Rechenaufwand möglich machen
+sollen.<a href="#ftn.idm45240359391920" class="footnote" id="idm45240359391920"><sup class="footnote">[22]</sup></a> Aus diesem Grund empfiehlt das NIST heute die
+Verwendung der Nachfolger von SHA-1: SHA-256, SHA-384 und SHA-512, die
+über längere Prüfsummen verfügen und somit das Erzeugen von
+Kollisionen erschweren. Auf der Git-Mailingliste wurde debattiert, ob
+man zu einer dieser Alternativen wechseln solle, doch wurde dieser
+Schritt nicht als nötig
+erachtet.<a href="#ftn.idm45240359389952" class="footnote" id="idm45240359389952"><sup class="footnote">[23]</sup></a></p>
+          <p>Denn obwohl ein theoretischer Angriffsvektor auf den SHA-1-Algorithmus
+besteht, beeinträchtigt dies nicht die Sicherheit von Git. Die
+Integrität eines Repositorys wird nämlich nicht vorrangig durch die
+Kollisionssicherheit eines Algorithmus geschützt, sondern dadurch,
+dass viele Entwickler identische Kopien des Repositorys haben.</p>
+          <p>Der SHA-1-Algorithmus spielt bei Git eine zentrale Rolle, da er
+verwendet wird, um Prüfsummen von den im Git-Repository gespeicherten
+Daten, den <span class="emphasis"><em>Git-Objekten</em></span>, zu bilden. Damit sind diese leicht und
+eindeutig als SHA-1-Summe ihres Inhalts zu referenzieren.  Im
+täglichen Umgang mit Git werden Sie meist nur SHA-1-Summen von Commits
+verwenden, sog. Commit-IDs. Diese Referenz kann an viele
+Git-Kommandos, wie z.B. <code class="literal">git show</code> und <code class="literal">git diff</code>,
+übergeben werden. Je nach Repository müssen Sie oft nur die ersten
+Zeichen einer SHA-1-Summe angeben, da ein Präfix in der Praxis
+ausreicht, um einen Commit eindeutig zu identifizieren.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.objekte"></a>2.2.2. Die Git-Objekte</h3>
+              </div>
+            </div>
+          </div>
+          <p>Alle in einem Repository gespeicherten Daten liegen als
+<span class="emphasis"><em>Git-Objekte</em></span> vor. Man unterscheidet vier
+Typen:<a href="#ftn.idm45240359382624" class="footnote" id="idm45240359382624"><sup class="footnote">[24]</sup></a></p>
+          <div class="table">
+            <a id="tab:cgit-options"></a>
+            <p class="title">
+              <strong>Tabelle 2.1. Git-Objekte</strong>
+            </p>
+            <div class="table-contents">
+              <table summary="Git-Objekte" cellpadding="4px" style="border-collapse: collapse;border-top: 3px solid #527bbd; border-bottom: 3px solid #527bbd; border-left: 3px solid #527bbd; border-right: 3px solid #527bbd; ">
+                <colgroup>
+                  <col class="col_1" />
+                  <col class="col_2" />
+                  <col class="col_3" />
+                  <col class="col_4" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top"> Objekt </th>
+                    <th style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top"> Speichert… </th>
+                    <th style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top"> Referenziert andere Objekte </th>
+                    <th style="border-bottom: 1px solid #527bbd; " align="left" valign="top"> Entsprechung</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Blob</p>
+                    </td>
+                    <td style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Dateiinhalt</p>
+                    </td>
+                    <td style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Nein</p>
+                    </td>
+                    <td style="border-bottom: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Datei</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Tree</p>
+                    </td>
+                    <td style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Blobs und Trees</p>
+                    </td>
+                    <td style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Ja</p>
+                    </td>
+                    <td style="border-bottom: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Verzeichnis</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Commit</p>
+                    </td>
+                    <td style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Projekt-Zustand</p>
+                    </td>
+                    <td style="border-right: 1px solid #527bbd; border-bottom: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Ja, einen Tree und weitere Commits</p>
+                    </td>
+                    <td style="border-bottom: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Snapshot/Archiv zu einem Zeitpunkt</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="border-right: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Tag</p>
+                    </td>
+                    <td style="border-right: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Tag-Informationen</p>
+                    </td>
+                    <td style="border-right: 1px solid #527bbd; " align="left" valign="top">
+                      <p>Ja, ein Objekt</p>
+                    </td>
+                    <td style="" align="left" valign="top">
+                      <p>Benennung wichtiger Snapshots oder Blobs</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <br class="table-break" />
+          <p><a class="xref" href="ch02.html#fig.objekte" title="Abbildung 2.4. Git-Objekte">Abbildung 2.4, „Git-Objekte“</a> zeigt drei Objekte aus dem
+Beispielprojekt – einen Blob, einen Tree und einen
+Commit.<a href="#ftn.idm45240359353232" class="footnote" id="idm45240359353232"><sup class="footnote">[25]</sup></a>
+Die Darstellung der einzelnen Objekte enthält den Objekttyp, die Größe
+in Byte, die SHA-1-Summe sowie den Inhalt. Der Blob enthält den Inhalt
+der Datei <code class="literal">hello.py</code> (aber nicht den Dateinamen).  Der Tree
+enthält Referenzen auf je einen Blob für jede Datei in dem Projekt,
+also eine für <code class="literal">hello.py</code> sowie eine für <code class="literal">README</code>,
+außerdem einen Tree pro Unterverzeichnis, also in diesem Fall nur
+einen einzigen für <code class="literal">test</code>. Die Dateien in den
+Unterverzeichnissen werden separat in den jeweiligen Trees
+referenziert, die diese Unterverzeichnisse abbilden.</p>
+          <div class="figure">
+            <a id="fig.objekte"></a>
+            <p class="title">
+              <strong>Abbildung 2.4. Git-Objekte</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/objekte.png" width="486" alt="bilder_ebook/objekte.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p>Das Commit-Objekt enthält also genau <span class="emphasis"><em>eine</em></span> Referenz auf einen
+Tree, und zwar auf den Tree des Projekt-Inhalts – dies ist ein
+Schnappschuss des Projekt-Zustands. Des weiteren enthält das
+Commit-Objekt eine Referenz auf dessen direkten Vorfahren sowie die
+Metadaten „Autor“ und „Committer“ und die
+Commit-Nachricht.</p>
+          <p>Viele Git-Kommandos erwarten als Argument einen Tree. Da aber z.B.
+ein Commit einen Tree referenziert, spricht man hier von einem sog.
+<span class="emphasis"><em>tree-ish</em></span>, d.h. Tree-<span class="emphasis"><em>artigen</em></span> Argument. Gemeint ist
+damit jedes Objekt, das sich zuletzt auf einen Tree auflösen lässt.
+In diese Kategorie fallen auch Tags (vgl. <a class="xref" href="ch03.html#sec.tags" title="3.1.3. Tags – Wichtige Versionen markieren">Abschnitt 3.1.3, „Tags – Wichtige Versionen markieren“</a>).
+Analog bezeichnet <span class="emphasis"><em>commit-ish</em></span> ein Argument, das sich auf einen
+Commit auflösen lässt.</p>
+          <p>Dateiinhalte werden immer in Blobs gespeichert. Trees enthalten nur
+Referenzen zu Blobs und anderen Trees in Form der SHA-1-Summen dieser
+Objekte. Ein Commit wiederum referenziert <span class="emphasis"><em>einen</em></span> Tree.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.od"></a>2.2.3. Die Objektdatenbank</h3>
+              </div>
+            </div>
+          </div>
+          <p>Alle Git-Objekte werden in der <span class="emphasis"><em>Objektdatenbank</em></span> gespeichert und
+sind durch ihre eindeutige SHA-1-Summe identifizierbar, d.h. Sie
+können ein Objekt, nachdem es gespeichert wurde, über seine
+SHA-1-Summe in der Datenbank finden. Dadurch funktioniert die
+Objektdatenbank im Prinzip wie eine große <span class="emphasis"><em>Hash-Tabelle</em></span>, wo die
+SHA-1-Summen als Schlüssel für den gespeicherten
+Inhalt⁠<a href="#ftn.idm45240359337136" class="footnote" id="idm45240359337136"><sup class="footnote">[26]</sup></a> dienen:</p>
+          <pre class="screen">e2c67eb -&gt; <span class="strong"><strong>commit</strong></span>
+8e2f5f9 -&gt; <span class="strong"><strong>commit</strong></span>
+308aea1 -&gt; <span class="strong"><strong>commit</strong></span>
+b0400b0 -&gt; <span class="strong"><strong>commit</strong></span>
+a26b00a -&gt; <span class="strong"><strong>tree</strong></span>
+6cf9be8 -&gt; <span class="strong"><strong>blob</strong></span>  (README)
+52ea6d6 -&gt; <span class="strong"><strong>blob</strong></span>  (hello.py)
+c37fd6f -&gt; <span class="strong"><strong>tree</strong></span>  (test)
+e92bf15 -&gt; <span class="strong"><strong>blob</strong></span>  (test/test.sh)
+5b4b58b -&gt; <span class="strong"><strong>tree</strong></span>
+dcc027b -&gt; <span class="strong"><strong>blob</strong></span>  (hello.py)
+e4dc644 -&gt; <span class="strong"><strong>tree</strong></span>
+a347f5e -&gt; <span class="strong"><strong>tree</strong></span></pre>
+          <p>Sie sehen zunächst die vier Commits, die das Repository ausmachen,
+unter anderem auch den in  <a class="xref" href="ch02.html#fig.objekte" title="Abbildung 2.4. Git-Objekte">Abbildung 2.4, „Git-Objekte“</a> gezeigten
+Commit <code class="literal">e2c67eb</code>.  Darauf folgen Trees und Blobs, jeweils mit
+Datei- bzw. Verzeichnisentsprechung.  Sogenannte <span class="emphasis"><em>Top-Level
+  Trees</em></span> haben keinen Verzeichnisnamen: Sie referenzieren die oberste
+Ebene eines Projekts. Ein Commit referenziert immer einen Top-Level
+Tree, daher gibt es davon auch vier Stück.</p>
+          <p>Die hierarchische Beziehung der oben aufgelisteten Objekte stellt
+<a class="xref" href="ch02.html#fig.objekte-zusammenhang" title="Abbildung 2.5. Hierarchische Beziehung der Git-Objekte">Abbildung 2.5, „Hierarchische Beziehung der Git-Objekte“</a> dar.  Sie sehen auf der
+linken Seite die vier Commits, die sich bereits im Repository
+befinden, auf der rechten Seite die referenzierten Inhalte des
+aktuellsten Commits (C4). So enthält jeder Commit, wie schon
+beschrieben, eine Referenz zu seinem direkten Vorfahren (auf den so
+entstehenden Graph von Commits wird weiter unten eingegangen).  Dieser
+Zusammenhang wird durch die Pfeile, die von einem Commit zum nächsten
+zeigen, illustriert.</p>
+          <div class="figure">
+            <a id="fig.objekte-zusammenhang"></a>
+            <p class="title">
+              <strong>Abbildung 2.5. Hierarchische Beziehung der Git-Objekte</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/objekte-zusammenhang.png" width="351" alt="bilder_ebook/objekte-zusammenhang.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p>Jeder Commit referenziert den Top-Level Tree – auch der Commit
+C4 in dem Beispiel. Der Top-Level Tree wiederum referenziert
+die Dateien <code class="literal">hello.py</code> und <code class="literal">README</code> in Form von Blobs
+sowie das Unterverzeichnis <code class="literal">test</code> in Form eines weiteren
+Trees. Durch diesen hierarchischen Aufbau und das Verhältnis der
+einzelnen Objekte zueinander ist Git in der Lage, die Inhalte eines
+hierarchischen Dateisystems als Git-Objekte abzubilden und in der
+Objektdatenbank zu speichern.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.explore-od"></a>2.2.4. Die Objektdatenbank untersuchen</h3>
+              </div>
+            </div>
+          </div>
+          <p>In einem kleinen Exkurs gehen wir darauf ein, wie man die
+Objektdatenbank von Git untersucht. Dafür stellt Git sogenannte
+<span class="emphasis"><em>Plumbing</em></span>-Kommandos („Klempner-Kommandos“) zur
+Verfügung, eine Gruppe von Low-Level-Tools für Git, im
+Gegensatz zu den <span class="emphasis"><em>Porcelain</em></span>-Kommandos, mit denen Sie in der
+Regel arbeiten. Diese Kommandos sind also nicht wichtig für
+Git-Anfänger, sondern sollen nur einen anderen Zugang zum Konzept der
+Objektdatenbank vermitteln.  Für mehr Informationen siehe
+<a class="xref" href="ch08.html#sec.scripting" title="8.3. Eigene Git-Kommandos schreiben">Abschnitt 8.3, „Eigene Git-Kommandos schreiben“</a>.</p>
+          <p>Schauen wir uns zuerst den aktuellen Commit an. Wir verwenden dazu das
+Kommando <code class="literal">git show</code> mit der Option <code class="literal">--format=raw</code>,
+lassen uns also den Commit im Rohformat ausgeben, so dass alles, was
+dieser Commit enthält, auch angezeigt wird.</p>
+          <pre class="screen">$ <span class="strong"><strong>git show --format=raw e2c67eb</strong></span>
+<span class="strong"><strong>commit</strong></span> e2c67ebb6d2db2aab831f477306baa44036af635
+<span class="strong"><strong>tree</strong></span> a26b00aaef1492c697fd2f5a0593663ce07006bf
+<span class="strong"><strong>parent</strong></span> 8e2f5f996373b900bd4e54c3aefc08ae44d0aac2
+<span class="strong"><strong>author</strong></span> Valentin Haenel &lt;valentin.haenel@gmx.de&gt; 1294515058 +0100
+<span class="strong"><strong>committer</strong></span> Valentin Haenel &lt;valentin.haenel@gmx.de&gt; 1294516312 +0100
+
+    Kommentar fehlte
+...</pre>
+          <p>Wie Sie sehen, werden alle Informationen aus
+<a class="xref" href="ch02.html#fig.objekte" title="Abbildung 2.4. Git-Objekte">Abbildung 2.4, „Git-Objekte“</a> ausgegeben: die SHA-1-Summen des Commits, des
+Trees und des direkten Vorfahren, außerdem Autor und Committer (inkl.
+Datum als Unix-Timestamp) sowie die Commit-Beschreibung.  Das Kommando
+liefert zudem die Diff-Ausgabe zum vorherigen Commit  – diese ist
+aber strenggenommen nicht Teil des Commits und wird daher hier
+ausgelassen.</p>
+          <p>Als nächstes schauen wir uns den Tree an, der von diesem Commit
+referenziert wurde, und zwar mit <code class="literal">git ls-tree</code>, ein
+Plumbing-Kommando zum Auflisten der in einem Tree gespeicherten
+Inhalte. Es entspricht in etwa einem <code class="literal">ls -l</code>, nur eben in der
+Objektdatenbank.  Mit <code class="literal">--abbrev=7</code> kürzen wir die
+ausgegebenen SHA-1-Summen auf sieben Zeichen ab.</p>
+          <pre class="screen">$ <span class="strong"><strong>git ls-tree --abbrev=7 a26b00a</strong></span>
+100644 <span class="strong"><strong>blob</strong></span> 6cf9be8  <span class="strong"><strong>README</strong></span>
+100644 <span class="strong"><strong>blob</strong></span> 52ea6d6  <span class="strong"><strong>hello.py</strong></span>
+040000 <span class="strong"><strong>tree</strong></span> c37fd6f  <span class="strong"><strong>test</strong></span></pre>
+          <p>Analog zu <a class="xref" href="ch02.html#fig.objekte" title="Abbildung 2.4. Git-Objekte">Abbildung 2.4, „Git-Objekte“</a> enthält der von dem Commit
+referenzierte Tree je einen Blob für beide Dateien sowie einen Tree
+(auch: <span class="emphasis"><em>Subtree</em></span>) für das <code class="literal">test</code>-Verzeichnis. Dessen
+Inhalte können wir uns wieder mit <code class="literal">ls-tree</code> ansehen, da wir ja
+nun die SHA-1-Summe des Trees kennen.  Wie erwartet sehen Sie, dass
+der <code class="literal">test</code>-Tree ganz genau einen Blob referenziert, und zwar
+den Blob für die Datei <code class="literal">test.sh</code>.</p>
+          <pre class="screen">$ <span class="strong"><strong>git ls-tree --abbrev=7 c37fd6f</strong></span>
+100755 <span class="strong"><strong>blob</strong></span> e92bf15  <span class="strong"><strong>test.sh</strong></span></pre>
+          <p>Zuletzt überzeugen wir uns noch davon, dass in dem Blob für
+<code class="literal">hello.py</code> auch wirklich unser „Hello
+  World!“-Programm enthalten ist und dass die SHA-1-Summe
+stimmt. Das Kommando <code class="literal">git show</code> zeigt beliebige Objekte an.
+Übergeben wir die SHA-1-Summe eines Blobs, wird dessen Inhalt
+ausgegeben.  Zum Überprüfen der SHA-1-Summe verwenden wir das
+Plumbing-Kommando <code class="literal">git hash-object</code>.</p>
+          <pre class="screen">$ <span class="strong"><strong>git show 52ea6d6</strong></span>
+#! /usr/bin/env python
+
+""" Hello World! """
+
+print 'Hello World!'
+$ <span class="strong"><strong>git hash-object hello.py</strong></span>
+52ea6d6f53b2990f5d6167553f43c98dc8788e81</pre>
+          <p>Ein Hinweis für neugierige Leser: <code class="literal">git hash-object
+  hello.py</code> liefert nicht die gleiche Ausgabe wie das Unix-Kommando
+<code class="literal">sha1sum hello.py</code>. Das liegt daran, dass nicht nur der
+Dateiinhalt in einem Blob gespeichert wird. Stattdessen wird
+zusätzlich der Objekttyp, in diesem Fall <code class="literal">blob</code>, sowie die
+Größe, in diesem Fall 67 Bytes, in einem <span class="emphasis"><em>Header</em></span> am Anfang des
+Blobs abgespeichert. Das <code class="literal">hash-object</code>-Kommando errechnet also
+nicht die Prüfsumme des Dateiinhalts, sondern des Blob-Objekts.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.deduplication"></a>2.2.5. Deduplication</h3>
+              </div>
+            </div>
+          </div>
+          <p>Die vier Commits, aus denen das Beispiel-Repository besteht, sind in
+<a class="xref" href="ch02.html#fig.struktur" title="Abbildung 2.6. Inhalt des Repositorys">Abbildung 2.6, „Inhalt des Repositorys“</a> nochmals dargestellt, doch auf andere
+Weise: Die gestrichelt umrandeten Tree- und Blob-Objekte bezeichnen
+unveränderte Objekte, alle anderen wurden in dem entsprechenden Commit
+neu hinzugefügt bzw. verändert. Die Leserichtung geht hier von unten
+nach oben: zuunterst steht C1, der nur die Datei <code class="literal">hello.py</code>
+enthält.</p>
+          <p>Da Trees nur Referenzen auf Blobs und weitere Trees enthalten,
+speichert jeder Commit zwar den Stand aller Dateien, aber nicht deren
+Inhalt. Normalerweise ändern sich bei einem Commit wenige Dateien. Für
+die neuen Dateien oder die, an denen Veränderungen vorgenommen wurden,
+werden nun neue Blob-Objekte (und daher auch neue Tree-Objekte)
+erzeugt. Die Referenzen auf die unveränderten Dateien bleiben aber die
+gleichen.</p>
+          <div class="figure">
+            <a id="fig.struktur"></a>
+            <p class="title">
+              <strong>Abbildung 2.6. Inhalt des Repositorys</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/struktur.png" width="432" alt="bilder_ebook/struktur.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p>Mehr noch: Eine Datei, die zweimal existiert, existiert nur einmal in
+der Objektdatenbank. Der Inhalt dieser Datei liegt als Blob in der
+Objektdatenbank und wird an zwei Stellen von einem Tree
+<span class="emphasis"><em>referenziert</em></span>. Diesen Effekt bezeichnet man als
+<span class="emphasis"><em>Deduplizierung</em></span> (<span class="emphasis"><em>Deduplication</em></span>): Duplikate werden nicht
+nur verhindert, sondern gar nicht erst möglich gemacht.
+Deduplizierung ist ein wesentliches Merkmal von sog.
+<span class="emphasis"><em>Content-Addressable File Systems</em></span>, also Dateisystemen, die
+Dateien nur unter ihrem <span class="emphasis"><em>Inhalt</em></span> kennen (wie z.B. Git, indem es
+einem Objekt die SHA-1-Summe seiner selbst als „Namen“
+gibt).</p>
+          <p>Konsequenterweise nimmt ein Repository, in dem die gleiche, 1 MB große
+Datei 1000 Mal existiert, nur etwas mehr als 1 MB ein.  Git muss im
+Wesentlichen den Blob verwalten, außerdem einen Commit und einen Tree
+mit 1000 Blob-Einträgen (Größe jeweils 20 Byte plus Länge des
+Dateinamens). Ein <span class="emphasis"><em>Checkout</em></span> dieses Repositorys hingegen
+verbraucht ca. 1 GB Speicherplatz auf dem Dateisystem, weil Git die
+Deduplizierung
+auflöst.<a href="#ftn.idm45240359264144" class="footnote" id="idm45240359264144"><sup class="footnote">[27]</sup></a></p>
+          <p>Mit den Befehlen <code class="literal">git checkout</code> und <code class="literal">git reset</code> stellen
+Sie einen früheren Zustand so wieder her (siehe auch <a class="xref" href="ch03.html#sec.undo" title="3.2. Versionen wiederherstellen">Abschnitt 3.2, „Versionen wiederherstellen“</a>): Sie geben die Referenz
+des entsprechenden Commits an, und Git sucht diesen aus der
+Objektdatenbank heraus. Danach wird anhand der Referenz das
+Tree-Objekt dieses Commits aus der Objektdatenbank herausgesucht.
+Schließlich sucht Git anhand der in dem Tree-Objekt enthaltenen
+Referenzen alle weiteren Tree- und Blob-Objekte aus der
+Objektdatenbank heraus und repliziert sie als Verzeichnisse und
+Dateien auf das Dateisystem. Somit kann genau der Projektzustand, der
+damals mit dem Commit abgespeichert wurde, wiederhergestellt werden.</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="sec.git-graph"></a>2.2.6. Die Graph-Struktur</h3>
+              </div>
+            </div>
+          </div>
+          <p>Da jeder Commit seine direkten Vorfahren speichert, entsteht eine
+Graph-Struktur. Genauer gesagt erzeugt die Anordnung der Commits einen
+gerichteten, azyklischen Graphen (<span class="emphasis"><em>Directed Acyclic Graph</em></span>, DAG).
+Ein Graph besteht aus zwei Kernelementen: den <span class="emphasis"><em>Knoten</em></span> und den
+<span class="emphasis"><em>Kanten</em></span>, die diese Knoten verbinden. In einem <span class="emphasis"><em>gerichteten</em></span>
+Graphen zeichnen sich die Kanten zusätzlich durch eine Richtung aus,
+das heißt, wenn Sie den Graphen ablaufen, so können Sie, um von einem
+Knoten zum nächsten zu gelangen, nur diejenigen Kanten verwenden, die
+in die entsprechende Richtung zeigen.  Die <span class="emphasis"><em>azyklische</em></span>
+Eigenschaft schließt aus, dass man auf irgendeinem Weg durch den
+Graphen von einem Knoten erneut zu diesem zurück finden kann. Man kann
+sich also nicht im Kreis
+bewegen.<a href="#ftn.idm45240359254560" class="footnote" id="idm45240359254560"><sup class="footnote">[28]</sup></a></p>
+          <div class="tip" style="margin-left: 0; margin-right: 10%;">
+            <h3 class="title">Tipp</h3>
+            <p>Die meisten Git-Kommandos dienen dazu, den Graphen zu manipulieren: um
+Knoten hinzuzufügen/zu entfernen oder die Relation der Knoten
+untereinander zu ändern. Sie wissen, dass Sie eine fortgeschrittene
+Git-Kompetenz erreicht haben, wenn Sie dieses eher abstrakte Konzept
+verinnerlicht haben und beim täglichen Arbeiten mit Branches stets an
+den dahinterliegenden Graphen denken. Das Verständnis von Git auf
+dieser Ebene ist die erste und einzige wirkliche Hürde, um Git sicher
+im Alltag zu meistern.</p>
+          </div>
+          <p>Die Graph-Struktur ergibt sich aus dem Objektmodell, weil jeder Commit
+seinen direkten Vorfahren (bei einem Merge-Commit evtl. auch mehrere)
+kennt. Die Commits bilden die Knoten dieses Graphen – die Referenzen
+auf Vorfahren die Kanten.</p>
+          <p>Einen beispielhaften Graphen sehen Sie in
+<a class="xref" href="ch02.html#fig.graph" title="Abbildung 2.7. Ein Commit-Graph">Abbildung 2.7, „Ein Commit-Graph“</a>. Er besteht aus mehreren Commits, die eingefärbt
+sind, um deren Zugehörigkeit zu verschiedenen Entwicklungssträngen
+(<span class="emphasis"><em>Branches</em></span>) leichter voneinander zu unterscheiden. Zuerst wurden
+die Commits A, B, C und D gemacht. Sie bilden den
+Hauptentwicklungszweig. Commits E und F enthalten eine
+Feature-Entwicklung, die mit Commit H in den Hauptzweig übernommen
+wurde. Commit G ist ein einzelner Commit, der noch nicht in den
+Hauptentwicklungszweig integriert wurde.</p>
+          <div class="figure">
+            <a id="fig.graph"></a>
+            <p class="title">
+              <strong>Abbildung 2.7. Ein Commit-Graph</strong>
+            </p>
+            <div class="figure-contents">
+              <div class="mediaobject">
+                <img src="bilder_ebook/graph.png" width="243" alt="bilder_ebook/graph.png" />
+              </div>
+            </div>
+          </div>
+          <br class="figure-break" />
+          <p>Ein Resultat der Graph-Struktur ist die kryptographisch gesicherte
+<span class="emphasis"><em>Integrität</em></span> eines Repositorys. Git referenziert durch die
+SHA-1-Summe eines Commits nicht nur die Inhalte der Projektdateien zu
+einem bestimmten Zeitpunkt, sondern außerdem <span class="emphasis"><em>alle</em></span> bis dahin
+ausgeführten Commits und deren Relation untereinander, also die
+vollständige Versionsgeschichte.</p>
+          <p>Das Objektmodell macht dies möglich: Jeder Commit speichert eine
+Referenz auf seine Vorfahren. Diese Referenzen fließen wiederum in die
+Berechnung der SHA-1-Summe des Commits selbst ein. Sie erhalten also
+einen anderen Commit, wenn Sie einen anderen Vorgänger referenzieren.</p>
+          <p>Da der Vorgänger wiederum Vorgänger referenziert und dessen
+SHA-1-Summe von den Vorgängern abhängt usw., bedeutet das konkret,
+dass in der Commit-ID die <span class="emphasis"><em>vollständige</em></span> Versionsgeschichte
+implizit kodiert ist. Implizit bedeutet hier: Wenn sich auch nur ein
+Bit eines Commits irgendwo in der Versionsgeschichte ändert, dann ist
+die SHA-1-Summe der darauf folgenden Commits, insbesondere des
+obersten, nicht mehr dieselbe. Die SHA-1-Summe sagt aber nichts
+Detailliertes über die Versionsgeschichte aus, sondern ist wiederum
+nur eine Prüfsumme derselben.</p>
+          <div class="section">
+            <div class="titlepage">
+              <div>
+                <div>
+                  <h4 class="title"><a id="sec.graph-referenzen"></a>Referenzen: Branches und Tags</h4>
+                </div>
+              </div>
+            </div>
+            <p>Mit einem reinen Commit-Graphen kann man aber noch nicht viel
+anfangen. Um einen Knoten zu referenzieren (also damit zu arbeiten),
+muss man dessen Namen kennen, also die SHA-1-Summe des Commits.  Im
+täglichen Umgang verwendet man aber selten direkt die SHA-1-Summe
+eines Commits, sondern stattdessen symbolische Namen, sog.
+<span class="emphasis"><em>Referenzen</em></span>, die Git auf die SHA-1-Summe auflösen kann.</p>
+            <p>Git bietet im Wesentlichen zwei Typen von Referenzen an,
+<span class="emphasis"><em>Branches</em></span> und <span class="emphasis"><em>Tags</em></span>. Das sind <span class="emphasis"><em>Zeiger</em></span> in einen
+Commit-Graphen, die verwendet werden, um bestimmte Knoten zu
+markieren.  Branches haben „beweglichen“ Charakter, das
+heißt, sie rücken weiter an die Spitze, wenn neue Commits auf dem
+Branch dazu kommen. Tags hingegen haben statischen Charakter und
+markieren wichtige Punkte im Commit-Graphen, wie z.B. Releases.</p>
+            <p><a class="xref" href="ch02.html#fig.graph-mit-refs" title="Abbildung 2.8. Ein beispielhafter Commit-Graph mit Branches und Tags">Abbildung 2.8, „Ein beispielhafter Commit-Graph mit Branches und Tags“</a> zeigt denselben Commit-Graphen mit den
+Branches <code class="literal">master</code>, <code class="literal">HEAD</code>, <code class="literal">feature</code> und  <code class="literal">bugfix</code>.
+Sowie den Tags  <code class="literal">v0.1</code> und <code class="literal">v0.2</code>.</p>
+            <div class="figure">
+              <a id="fig.graph-mit-refs"></a>
+              <p class="title">
+                <strong>Abbildung 2.8. Ein beispielhafter Commit-Graph mit Branches und Tags</strong>
+              </p>
+              <div class="figure-contents">
+                <div class="mediaobject">
+                  <img src="bilder_ebook/graph-mit-refs.png" width="405" alt="bilder_ebook/graph-mit-refs.png" />
+                </div>
+              </div>
+            </div>
+            <br class="figure-break" />
+          </div>
+        </div>
+      </div>
+      <div class="footnotes">
+        <br />
+        <hr style="width:100; text-align:left;margin-left: 0" />
+        <div id="ftn.idm45240359715520" class="footnote">
+          <p><a href="#idm45240359715520" class="simpara"><sup class="simpara">[12] </sup></a>Standardmäßig sind
+  Wörter durch ein oder mehr Leerzeichen getrennt; Sie können aber einen
+  anderen regulären Ausdruck angeben, um zu bestimmen, was ein Wort ist:
+  <code class="literal">git diff --word-diff-regex=&lt;regex&gt;</code>. Siehe hierzu auch die
+  Man-Page <code class="literal">git-diff(1)</code>.</p>
+        </div>
+        <div id="ftn.idm45240359696336" class="footnote">
+          <p><a href="#idm45240359696336" class="simpara"><sup class="simpara">[13] </sup></a>Das ist eine Anweisung für
+  den Kernel, welches Programm zum Interpretieren des Scripts verwendet
+  werden soll. Typische Shebang-Zeilen sind etwa <code class="literal">#!/bin/sh</code> oder <code class="literal">#!/usr/bin/perl</code>.</p>
+        </div>
+        <div id="ftn.idm45240359689488" class="footnote">
+          <p><a href="#idm45240359689488" class="simpara"><sup class="simpara">[14] </sup></a>Genaugenommen führt die Option
+  <code class="literal">-p</code> direkt in den <span class="emphasis"><em>Patch-Mode</em></span> des
+  <span class="emphasis"><em>Interactive-Mode</em></span> von <code class="literal">git add</code>.  Der Interactive-Mode
+  wird aber in der Praxis – im Gegensatz zu dem Patch-Mode – sehr
+  selten verwendet und ist deswegen hier nicht weiter beschrieben. Die
+  Dokumentation dazu finden Sie in der Man-Page <code class="literal">git-add(1)</code> im
+  Abschnitt „Interactive Mode“.</p>
+        </div>
+        <div id="ftn.idm45240359664656" class="footnote">
+          <p><a href="#idm45240359664656" class="simpara"><sup class="simpara">[15] </sup></a>Git öffnet dann
+den Hunk in einem Editor; unten sehen Sie eine Anleitung, wie Sie den
+Hunk editieren: Um gelöschte Zeilen (mit <code class="literal">-</code> präfigiert) zu löschen –
+also nicht dem Index hinzuzufügen, sie aber im Working Tree zu
+behalten! –, ersetzen Sie das Minuszeichen durch ein Leerzeichen (die
+Zeile wird zu „Kontext“). Um <code class="literal">+</code>-Zeilen zu löschen, entfernen Sie
+diese einfach aus dem Hunk.</p>
+        </div>
+        <div id="ftn.idm45240359657728" class="footnote">
+          <p><a href="#idm45240359657728" class="simpara"><sup class="simpara">[16] </sup></a>Sie können Hunks in der Regel
+aber nicht beliebig teilen. Zumindest eine Zeile <span class="emphasis"><em>Kontext</em></span>,
+also eine Zeile ohne Präfix <code class="literal">+</code> oder <code class="literal">-</code>, muss
+dazwischen liegen. Wollen Sie den Hunk dennoch teilen, müssen Sie
+mit <code class="literal">e</code> für <span class="emphasis"><em>edit</em></span> arbeiten.</p>
+        </div>
+        <div id="ftn.idm45240359613952" class="footnote">
+          <p><a href="#idm45240359613952" class="simpara"><sup class="simpara">[17] </sup></a>Sie können
+  diese Informationen u.a. in <code class="literal">gitk</code> sehen oder mit dem
+  Kommando <code class="literal">git log --pretty=fuller</code>.</p>
+        </div>
+        <div id="ftn.idm45240359593472" class="footnote">
+          <p><a href="#idm45240359593472" class="simpara"><sup class="simpara">[18] </sup></a>Tatsächlich erstellt Git einen neuen Commit, dessen Änderungen eine Kombination der Änderungen des alten Commits und des Index ist. Der neue Commit <span class="emphasis"><em>ersetzt</em></span> dann den alten.</p>
+        </div>
+        <div id="ftn.idm45240359563648" class="footnote">
+          <p><a href="#idm45240359563648" class="simpara"><sup class="simpara">[19] </sup></a>Durch
+  <code class="literal">git rm</code> löschen Sie eine Datei mit dem nächsten Commit; sie
+  bleibt jedoch im Commit-Verlauf erhalten. Wie man eine Datei
+  vollständig, also auch aus der Versionsgeschichte, löscht, ist in
+  <a class="xref" href="ch08.html#sec.fb-censor" title="8.4.1. Sensitive Informationen nachträglich entfernen">Abschnitt 8.4.1, „Sensitive Informationen nachträglich entfernen“</a> nachzulesen.</p>
+        </div>
+        <div id="ftn.idm45240359510288" class="footnote">
+          <p><a href="#idm45240359510288" class="simpara"><sup class="simpara">[20] </sup></a>Dieses und die folgenden
+  Beispiele stammen aus dem Git-Repository.</p>
+        </div>
+        <div id="ftn.idm45240359415392" class="footnote">
+          <p><a href="#idm45240359415392" class="simpara"><sup class="simpara">[21] </sup></a>Sie
+können das Repository, das auf den folgenden Seiten detailliert
+untersucht wird, mit dem Befehl <code class="literal">git clone
+git://github.com/gitbuch/objektmodell-beispiel.git</code> herunterladen.</p>
+        </div>
+        <div id="ftn.idm45240359391920" class="footnote">
+          <p><a href="#idm45240359391920" class="simpara"><sup class="simpara">[22] </sup></a><a class="ulink" href="http://de.wikipedia.org/wiki/Secure_Hash_Algorithm" target="_top">http://de.wikipedia.org/wiki/Secure_Hash_Algorithm</a>, „Schwächen“.</p>
+        </div>
+        <div id="ftn.idm45240359389952" class="footnote">
+          <p>
+            <a href="#idm45240359389952" class="simpara">
+              <sup class="simpara">[23] </sup>
+            </a>
+            <a class="ulink" href="http://kerneltrap.org/mailarchive/git/2006/8/27/211001" target="_top">http://kerneltrap.org/mailarchive/git/2006/8/27/211001</a>
+          </p>
+        </div>
+        <div id="ftn.idm45240359382624" class="footnote">
+          <p><a href="#idm45240359382624" class="simpara"><sup class="simpara">[24] </sup></a>Die technische Dokumentation
+  bietet die Man-Page <code class="literal">gittutorial-2(7)</code>.</p>
+        </div>
+        <div id="ftn.idm45240359353232" class="footnote">
+          <p><a href="#idm45240359353232" class="simpara"><sup class="simpara">[25] </sup></a>Das Tag-Objekt wird hier nicht
+  dargestellt, da es für das Verständnis der Objektstruktur nicht
+  notwendig ist. Sie finden es stattdessen in  <a class="xref" href="ch03.html#fig.tag-objekt" title="Abbildung 3.4. Das Tag-Objekt">Abbildung 3.4, „Das Tag-Objekt“</a>.</p>
+        </div>
+        <div id="ftn.idm45240359337136" class="footnote">
+          <p><a href="#idm45240359337136" class="simpara"><sup class="simpara">[26] </sup></a>Git speichert sämtliche Objekte
+  unterhalb von <code class="literal">.git/objects</code>. Man unterscheidet zwischen
+  <span class="emphasis"><em>Loose Objects</em></span> und <span class="emphasis"><em>Packfiles</em></span>. Die „losen“
+  Objekte speichern den Inhalt in einer Datei, deren Name der
+  SHA-1-Summe des Inhalts entspricht (Git speichert pro Objekt eine
+  Datei). Im Gegensatz dazu sind Packfiles komprimierte <span class="emphasis"><em>Archive</em></span>
+  von vielen Objekten. Das geschieht aus Performancegründen: Nicht
+  nur ist die Übertragung bzw. Speicherung dieser Archive effizienter,
+  auch wird das Dateisystem entlastet.</p>
+        </div>
+        <div id="ftn.idm45240359264144" class="footnote">
+          <p><a href="#idm45240359264144" class="simpara"><sup class="simpara">[27] </sup></a>Intern kennt
+  Git natürlich Mechanismen, um Blobs als Deltas anderer Blobs zu
+  erkennen und diese platzsparend zu <span class="emphasis"><em>Packfiles</em></span>
+  zusammenzuschnüren.</p>
+        </div>
+        <div id="ftn.idm45240359254560" class="footnote">
+          <p><a href="#idm45240359254560" class="simpara"><sup class="simpara">[28] </sup></a>Diese beiden Eigenschaften
+  <span class="emphasis"><em>gerichtet</em></span> und <span class="emphasis"><em>azyklisch</em></span> sind die einzig notwendige
+  Beschränkung, die man an einen Graphen stellen muss, der Änderungen
+  über Zeit abbildet: Weder kann man zukünftige Änderungen
+  referenzieren (Richtung der Kanten zeigt immer in die
+  Vergangenheit), noch kann man irgendwann an einem Punkt ankommen,
+  von dem aus der Weg schon vorgezeichnet ist (Zirkelschluss).</p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr />
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td width="40%" align="left"><a accesskey="p" href="ch01.html">Zurück</a> </td>
+          <td width="20%" align="center"> </td>
+          <td width="40%" align="right"> <a accesskey="n" href="ch03.html">Weiter</a></td>
+        </tr>
+        <tr>
+          <td width="40%" align="left" valign="top"> </td>
+          <td width="20%" align="center">
+            <a accesskey="h" href="index.html">Zum Anfang</a>
+          </td>
+          <td width="40%" align="right" valign="top"> </td>
+        </tr>
+      </table>
+    </div>
+    <div xmlns="" class="cc-license">
+      <hr />
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Lizensiert unter der <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+    </p>
+    </div>
+  </body>
+</html>
